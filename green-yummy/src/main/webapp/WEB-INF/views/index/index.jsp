@@ -9,6 +9,7 @@
 <body>
 
 print("야야야");
+<input type="button" onclick="">
 
 </body>
 </html>
