@@ -11,7 +11,8 @@ public class MainController {
 		return "index/index";
 	}
 	
-	@GetMapping("/NewFile")
+	//실험용
+	@GetMapping("/newsfile")
 	public String newFile() {
 		return "public/NewFile";
 	}

@@ -32,7 +32,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web:3.3.2'
     // SB Starter tomcat
     implementation 'org.springframework.boot:spring-boot-starter-tomcat:3.3.2'
-    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-el:9.0.73'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.73'
     // SB Starter mybatis
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
 	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
