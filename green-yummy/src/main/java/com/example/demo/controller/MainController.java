@@ -8,13 +8,13 @@ public class MainController {
 	
 	@GetMapping("/")
 	public String index() {
-		return "index/index";
+		return "index/TMP2";
 	}
 	
 	//실험용
 	@GetMapping("/newsfile")
 	public String newFile() {
-		return "public/NewFile";
+		return "public/TMP1";
 	}
 	
 }
