@@ -26,26 +26,29 @@ repositories {
 dependencies {
 	// SB Starter
 	implementation 'org.springframework.boot:spring-boot-starter-web:3.3.2'
+	
 	// SB Starter jpa
  	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.3.2'
-	// SB Starter Web
-    implementation 'org.springframework.boot:spring-boot-starter-web:3.3.2'
+ 	
     // SB Starter tomcat
     implementation 'org.springframework.boot:spring-boot-starter-tomcat:3.3.2'
     implementation 'org.apache.tomcat.embed:tomcat-embed-el:9.0.73'
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.73'
+    
     // SB Starter mybatis
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
 	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
 
 	//javax
 	implementation 'javax.servlet:javax.servlet-api:4.0.1'
+	
 	//lombok
-	implementation 'org.projectlombok:lombok'
+	implementation 'org.projectlombok:lombok:1.18.34'
 	compileOnly 'org.projectlombok:lombok:1.18.34'
-	annotationProcessor 'org.projectlombok:lombok:1.18.32'
+	annotationProcessor 'org.projectlombok:lombok:1.18.34'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	
 	//devtools
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'	
 	
@@ -56,7 +59,7 @@ dependencies {
 	//validation
 	//mail
 	
-	
+	//mySql
 	implementation 'mysql:mysql-connector-java:8.0.33'
 
 }
