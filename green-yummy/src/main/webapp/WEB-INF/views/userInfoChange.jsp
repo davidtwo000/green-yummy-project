@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="/css/userRegistChange.css" rel="stylesheet" type="text/css">
+    <link href="/static/user/css/userRegistChange.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     
