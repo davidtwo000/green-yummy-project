@@ -11,7 +11,8 @@
 <body>
 
     <main>
-        <!-- ui와 구조는 createReview와 동일하게. 대신 이전에 작성한 내용이 저장된 채로 나오도록 한다. -->
+        <!-- 별이 하나 채워진 이미지에서 다섯개 채워진 이미지까지 총 다섯 개 준비
+        그리고 무얼 클릭하느냐에 따라서 다른 이미지가 나오게 한다. -->
         <div class="reviewContainer">
             <div class="storeStars">
                 <img src="/images/onestar.png">
