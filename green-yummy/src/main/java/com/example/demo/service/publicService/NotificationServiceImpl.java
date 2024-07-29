@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.publicDto.NotificationDTO;
-import com.example.demo.model.Notification;
+import com.example.demo.model.publicModel.Notification;
 import com.example.demo.repository.publicRepository.NotificationRepository;
 
 @Service
