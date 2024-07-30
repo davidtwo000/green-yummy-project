@@ -1,0 +1,90 @@
+
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.userContainer{
+    width: 1280px;
+}
+.forUser{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.userPic{
+    width: 200px;
+    height: 200px;
+    background: skyblue;
+    opacity: 0.5;
+}
+input[type="button"]{
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+
+    background: pink;
+}
+.userBtns>p{
+    font-weight: bold;
+}
+.mypageTab{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0px;
+    width: 1280px;
+    height: 50px;
+    list-style-type: none;
+}
+
+.modalContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+}
+.xplace{
+    position: absolute;
+    left: 340px;
+    top: 10px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+
+    background: green;
+    opacity: 0.5;
+}
+.logoutModal,
+.userOutModal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    vertical-align: middle;
+    width: 400px;
+    height: 200px;
+    background: white;
+    opacity: 1;
+}
+.logoutBtns>input[type="button"],
+.userOutBtns>input[type="button"]{
+    width: 80px;
+    height: 30px;
+    background: salmon;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 20px 10px 0 10px;
+}
+.hidden{
+    display: none;
+}
