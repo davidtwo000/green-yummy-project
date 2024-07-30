@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<jsp:include page="public/header.jsp"/>
+<jsp:include page="/public/header.jsp"/>
 
     <main>
         <div class="userContainter">
@@ -39,8 +39,8 @@
                 <li>나의 맛집</li>
             </ul>
         
-            <iframe src="storeCollection.html"></iframe>
-            <iframe src="reviewList.html"></iframe>
+            <iframe src="storeCollection.jsp"></iframe>
+            <iframe src="reviewList.jsp"></iframe>
         
             <div class="modalContainer hidden">
                 <div class="logoutModal">
@@ -69,7 +69,7 @@
         
     </main>
     
-<jsp:include page="public/footer.jsp"/>
+<jsp:include page="/public/footer.jsp"/>
     
 </body>
 </html>
