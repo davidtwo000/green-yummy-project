@@ -12,12 +12,22 @@ java {
 		languageVersion = JavaLanguageVersion.of(17)
 	}
 }
+/*
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-parameters"
+}
+*/
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs += ['-parameters']
+}
 
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
 }
+
 
 repositories {
 	mavenCentral()
@@ -95,3 +105,5 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+
