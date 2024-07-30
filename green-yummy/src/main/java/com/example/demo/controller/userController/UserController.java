@@ -15,14 +15,41 @@ import com.example.demo.service.UserService;
 @Controller
 public class UserController {
 	
-	@GetMapping("/shopApply")
+//	@GetMapping("user/")
+//	public String () {
+//		return "user/";
+//	}
+	
+	@GetMapping("user/findIdPassword")
+	public String findIdPassword() {
+		return "user/findIdPassword";
+	}
+	
+	@GetMapping("user/userPage")
+	public String userPage() {
+		return "user/userPage";
+	}
+	
+	@GetMapping("user/userInfoChange")
+	public String userInfoChange() {
+		return "user/userInfoChange";
+	}
+	
+	@GetMapping("user/createReview")
+	public String createReview() {
+		return "user/createReview";
+	}
+	
+	@GetMapping("user/changeReview")
+	public String changeReview() {
+		return "user/changeReview";
+	}
+	
+	@GetMapping("user/shopApply")
 	public String shopApply() {
 		return "user/shopApply";
 	}
 	
-	@GetMapping("/createReview")
-	public String createReview() {
-		return "user/createReview";
-	}
+	
 	
 }
