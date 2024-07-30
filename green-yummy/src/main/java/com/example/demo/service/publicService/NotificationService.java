@@ -10,4 +10,5 @@ public interface NotificationService {
 	List<NotificationDTO> getAllNotices();
     Optional<NotificationDTO> getNotificationById(int id);
     void saveNotice(NotificationDTO noticeDTO);
+    void updateNotice(NotificationDTO noticeDTO);
 }

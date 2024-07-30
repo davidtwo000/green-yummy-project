@@ -99,4 +99,21 @@ public class MainController {
         return "redirect:/notification";
     }
     
+    @GetMapping("/notificationUpdate/{id}")
+    public String updateNotification(@PathVariable("id") int id, Model model) {
+    	Optional<NotificationDTO> notice = notificationService.getNotificationById(id);
+        if (notice.isPresent()) {
+            model.addAttribute("notice", notice.get());
+            return "public/notificationUpdate";  // JSP 파일 이름
+        } else {
+            return "redirect:/notification";
+        } 
+    }
+    
+    @PostMapping("/updateNotification")
+    public String newsaveNotification(@ModelAttribute NotificationDTO noticeDTO) {
+        notificationService.updateNotice(noticeDTO);
+        return "redirect:/notification";
+    }
+    
 }
