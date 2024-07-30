@@ -11,6 +11,11 @@ public class MainController {
 		return "index/TMP2";
 	}
 	
+	@GetMapping("/notification")
+	public String notification() {
+		return "/notification";
+	}
+	
 	//실험용
 	@GetMapping("/newsfile")
 	public String newFile() {
