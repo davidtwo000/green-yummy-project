@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>index</title>
 
-<link rel="stylesheet" href="public/index.css">
+<link rel="stylesheet" href="index/index.css">
 </head>
 <body>
 <div class="outContainer">
