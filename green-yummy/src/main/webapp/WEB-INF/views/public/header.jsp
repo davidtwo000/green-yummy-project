@@ -12,7 +12,7 @@
     <header>
         <div class="headcontainer">
             <div class="logopic">
-
+			로고 위치
             </div>
 
             <div class="loginplace">
