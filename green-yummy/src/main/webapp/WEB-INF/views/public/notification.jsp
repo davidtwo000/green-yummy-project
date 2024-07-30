@@ -43,6 +43,9 @@
                     <td>${notice.postDate}</td>
                     <td>${notice.viewCount}</td>
                 </tr>
+                <tr>
+                	<td><a href="/notificationUpdate/${notice.noticeId}">공지 수정 예시</a></td>
+                </tr>
     			</c:forEach>
                
             </table>

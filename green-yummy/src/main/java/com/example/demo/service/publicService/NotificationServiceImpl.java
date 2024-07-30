@@ -34,6 +34,22 @@ public class NotificationServiceImpl implements NotificationService{
         notificationRepository.save(notice);
 	}
 	
+	@Override
+	public void updateNotice(NotificationDTO noticeDTO) {
+        // 기존 엔티티를 데이터베이스에서 조회
+        Optional<Notification> existingNotification = notificationRepository.findById(noticeDTO.getNoticeId());
+
+        if (existingNotification.isPresent()) {
+            Notification notice = existingNotification.get();
+            // DTO에서 수정된 값으로 엔티티 업데이트
+            notice.setAuthor(noticeDTO.getAuthor());
+            notice.setTitle(noticeDTO.getTitle());
+            notice.setViewCount(noticeDTO.getViewCount());
+            // 변경된 엔티티를 저장
+            notificationRepository.save(notice);
+        }
+    }
+	
 	private NotificationDTO convertToDto(Notification notice) {
         NotificationDTO dto = new NotificationDTO();
         dto.setNoticeId(notice.getNoticeId());
