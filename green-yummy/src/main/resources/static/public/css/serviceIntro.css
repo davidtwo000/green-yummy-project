@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+.serviceMain{
+	display:flex;	
+	justify-content: center; 
+    align-items: center;
+}
+
+.MainContainer{
+	display: flex;
+	width: 1280px;
+	justify-content: center; 
+    align-items: center;
+}
