@@ -1,0 +1,112 @@
+@charset "UTF-8";
+.outContainer {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+
+.innerContainer {
+    width: 1280px;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.restaurantTitle {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.name {
+    font-size: 25px;
+    margin: 10px;
+}
+
+.restaurantImgContainer {
+    width: 100%;
+    height: 300px;
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: row;
+}
+
+.restaurantImg {
+    width: 250px;
+    height: 250px;
+    border: 1px solid gray;
+    margin: 10px;
+}
+
+.rating {
+    margin: 20px;
+}
+
+.detail {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.detailtable {
+    border: 1px solid gray; 
+    border-collapse: collapse;
+    width: 600px;
+    margin-right: 50px;
+}
+
+.detailtable td {
+    border: 1px solid gray; 
+    padding: 8px; 
+}
+
+.detailtable td:nth-child(odd) {
+    width: 200px;
+}
+.detailtable td:nth-child(even) {
+    width: 400px;
+}
+
+.map {
+    width: 500px;
+    height: 500px;
+    border: 2px solid green;
+}
+
+.review {
+    width: 80%;
+    height: 500px;
+    border: 1px solid gray;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.reviewTag {
+    float: left;
+    margin: 20px;
+}
+
+.reviewBtn{
+    float: right;
+    margin: 20px;
+}
+
+.random {
+    width: 100%;
+    height: 300px;
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.randomRestaurant{
+    width: 250px;
+    height: 250px;
+    border: 1px solid gray;
+    margin: 10px;
+}
