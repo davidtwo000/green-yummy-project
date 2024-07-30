@@ -8,13 +8,8 @@ public class MainController {
 	
 	@GetMapping("/")
 	public String index() {
-		return "index/TMP2";
+		return "index/index";
 	}
-	
-//	@GetMapping("/")
-//	public String () {
-//		return "/";
-//	}
 	
 	@GetMapping("/userLogin")
 	public String userLogin() {
