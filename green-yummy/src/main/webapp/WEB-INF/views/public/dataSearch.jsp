@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>dataSearch</title>
 
-<link rel="stylesheet" href="dataSearch.css">
+<link rel="stylesheet" href="/public/css/dataSearch.css">
 
 </head>
 <body>

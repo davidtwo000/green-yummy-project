@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>dataSearchDetail</title>
 
-<link rel="stylesheet" href="dataSearchDetail.css">
+<link rel="stylesheet" href="/public/css/dataSearchDetail.css">
 </head>
 <body>
  <div class="outContainer">
