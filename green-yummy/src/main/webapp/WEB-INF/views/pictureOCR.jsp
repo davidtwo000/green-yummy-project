@@ -9,6 +9,8 @@
     <link href="/css/pictureOCR.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+
+<jsp:include page="public/header.jsp"/>
     <main>
         <div class="innerContainer">
 
@@ -44,6 +46,8 @@
             <!-- 검색 버튼은 사진을 넣고 ocr 결과까지 나왔을 때 활성화된다. -->
         </div>
     </main>
+    
+    <jsp:include page="public/footer.jsp"/>
     
 </body>
 </html>

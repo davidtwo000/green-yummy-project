@@ -16,6 +16,26 @@ public class MainController {
 //		return "/";
 //	}
 	
+	@GetMapping("/userLogin")
+	public String userLogin() {
+		return "/userLogin";
+	}
+	
+	@GetMapping("/Agreement")
+	public String Agreement() {
+		return "/Agreement";
+	}
+	
+	@GetMapping("/userRegist")
+	public String userRegist() {
+		return "/userRegist";
+	}
+	
+	@GetMapping("/dataSearch")
+	public String dataSearch() {
+		return "/dataSearch";
+	}
+	
 	@GetMapping("/pictureOCR")
 	public String pictureOCR() {
 		return "/pictureOCR";

@@ -10,6 +10,8 @@
 </head>
 <body>
 
+<jsp:include page="public/header.jsp"/>
+
     <main>
         <div class="userContainter">
             <div class="forUser">
@@ -66,7 +68,8 @@
         </div>
         
     </main>
-
+    
+<jsp:include page="public/footer.jsp"/>
     
 </body>
 </html>
