@@ -2,6 +2,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 100px 0 100px 0;
 }
 .innerContainer{
     display: flex;
@@ -9,7 +10,6 @@ main{
     justify-content: center;
     align-items: center;
     width: 1280px;
-    height: 1000px;
 }
 .agreeCheck{
     padding: 20px;

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>약관 동의</title>
-    <link href="/css/Agreement.css" rel="stylesheet" type="text/css">
+    <link href="public/css/Agreement.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 

@@ -1,0 +1,9 @@
+main{
+	display: flex;
+	justify-content: center;
+	margin: 100px 0 100px;
+}
+.innerContainer{
+	width: 1280px;
+	
+}
