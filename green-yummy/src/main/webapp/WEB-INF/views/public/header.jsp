@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href = "/css/header.css" rel="stylesheet" type="text/css">
+    <link href = "public/header.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <header>

@@ -9,19 +9,21 @@ header{
     align-items: center;
     justify-content: space-between;
     width: 1280px;
-    height: 300px;
+    height: 200px;
 
-    background: green;
+    border: 1px solid green;
 }
 .logopic{
     width: 200px;
     height: 100px;
     margin-left: 20px;
-    background: salmon;
+
+    border: 1px solid salmon;
 }
 .loginplace{
     width: 100px;
     height: 100px;
     margin-right: 20px;
-    background: skyblue;
+
+    border: 2px solid skyblue;
 }
