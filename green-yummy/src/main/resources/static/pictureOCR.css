@@ -1,0 +1,62 @@
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+.innerContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1280px;
+}
+.OCRtitle{
+    border: 1px solid black;
+}
+.OCRexplain{
+    border: 1px solid black;
+}
+.OCRresult{
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    height: 300px;
+    background: lightgray;
+}
+input[type="text"]{
+    width: 1000px;
+    height: 50px;
+    border: none;
+    outline: none;
+    background: palegoldenrod;
+}
+input[type="button"]{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border: onne;
+    background: skyblue;
+}
+.OCRsearch, input[type="file"]{
+    width: 1000px;
+    height: 600px;
+}
+input[type="file"]{
+    position: absolute;
+    top: 515px;
+    background: salmon;
+    opacity: 0.5;
+    display: hidden;
+    cursor: pointer;
+}
+.OCRsearch{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    
+    background: lemonchiffon;
+}
+
