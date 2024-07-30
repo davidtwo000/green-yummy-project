@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지</title>
-    <link href="/css/mypage.css" rel="stylesheet" type="text/css">
+    <link href="/user/css/userPage.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
-<jsp:include page="/public/header.jsp"/>
+<jsp:include page="../public/header.jsp"/>
 
     <main>
         <div class="userContainter">
@@ -69,7 +69,7 @@
         
     </main>
     
-<jsp:include page="/public/footer.jsp"/>
+<jsp:include page="../public/footer.jsp"/>
     
 </body>
 </html>
