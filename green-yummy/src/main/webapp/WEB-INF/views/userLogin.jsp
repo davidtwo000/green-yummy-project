@@ -10,6 +10,8 @@
 </head>
 <body>
 
+<jsp:include page="public/header.jsp"/>
+
     <main>
         <div class="loginContainer">
             <form class="loginbox">
@@ -41,6 +43,8 @@
         </div>
 
     </main>
+    
+    <jsp:include page="public/footer.jsp"/>
     
 </body>
 </html>

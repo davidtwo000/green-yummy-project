@@ -9,6 +9,8 @@
     <link href="/css/userRegistChange.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+
+<jsp:include page="public/header.jsp"/>
     
 <main>
    
@@ -71,9 +73,9 @@
             </div>
             
         </form>
-    
-    
 </main>
+
+<jsp:include page="public/footer.jsp"/>
 
 </body>
 </html>

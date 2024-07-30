@@ -10,6 +10,8 @@
 </head>
 <body>
 
+<jsp:include page="public/header.jsp"/>
+
 <main>
 	<div class="innerContainer">
 <h3>제 1 장 총칙</h3>
@@ -495,12 +497,7 @@
 	</div>
 </main>
 
-
-
-
-
-
-
+<jsp:include page="public/footer.jsp"/>
 
 </body>
 </html>
