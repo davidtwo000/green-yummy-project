@@ -17,4 +17,9 @@ public class MainController {
 		return "public/TMP1";
 	}
 	
+	@GetMapping("/serviceIntro")
+	public String ServiceIntro() {
+		return "public/serviceIntro";
+	}
+	
 }
