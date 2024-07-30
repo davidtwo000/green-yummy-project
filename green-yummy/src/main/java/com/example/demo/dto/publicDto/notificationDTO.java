@@ -5,12 +5,11 @@ import java.time.LocalDate;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Getter
 @Setter
-public class notificationDTO {
-	
-	private int notice_id;
+public class NotificationDTO {
+
+	private int noticeId;
 	private String author;
 	private String title;
 	private String content;
