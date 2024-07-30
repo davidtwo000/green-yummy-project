@@ -60,7 +60,7 @@
             </div>
             <!-- 사진 최대 게시 한도를 정해두면 어떨까 -->
             <div class="reviewBtn">
-                <input type="submit" value="리뷰 작성하기">
+                <input type="submit" value="리뷰 수정하기">
             </div>
         </div>
         
