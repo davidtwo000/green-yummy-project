@@ -16,8 +16,11 @@
 <main class="serviceMain">
 
 	<div class="MainContainer">
-
 		<div>
+			<p>야미 1000% 활용 방법</p>
+		</div>
+		<div>
+			<div>
 			맛집 검색
 			<hr>
 			음식? 가게 이름? 그 외에도 원하시는 조건으로 검색을 해보세요.
@@ -32,7 +35,7 @@
 			<hr>
 			마음에 드는 맛집을 골라서 나만의 리스트에 저장해보세요.
 		</div>
-		
+		</div>		
 	</div>
 
 </main>

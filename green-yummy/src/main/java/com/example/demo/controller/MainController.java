@@ -20,12 +20,7 @@ public class MainController {
 	public String pictureOCR() {
 		return "/pictureOCR";
 	}
-	
-	@GetMapping("/serviceIntro")
-	public String serviceIntro() {
-		return "/serviceIntro";
-	}
-	
+		
 	@GetMapping("/notification")
 	public String notification() {
 		return "/notification";
@@ -39,12 +34,6 @@ public class MainController {
 	@GetMapping("/privacyPolicy")
 	public String privacyPolicy() {
 		return "/privacyPolicy";
-	}
-	
-	//실험용
-	@GetMapping("/newsfile")
-	public String newFile() {
-		return "public/TMP1";
 	}
 	
 	@GetMapping("/serviceIntro")
