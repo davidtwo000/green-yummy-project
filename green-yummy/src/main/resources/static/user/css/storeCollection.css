@@ -1,0 +1,58 @@
+
+main{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 100px 0 100px 0;
+}
+.innerContainer{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 1280px;
+}
+.map{
+	position: fixed;
+	top: 0;
+	
+	width: 1280px;
+	height: 640px;
+}
+.userContentCon{
+	position: relative;
+	z-index: 10;
+	width: 1280px;
+	margin: 540px;
+	
+	border: 2px solid blue;
+}
+.filterContainer{
+	width: 1280px;
+	height: 50px;
+	
+	background: salmon;
+	border: 2px solid red;
+}
+select{
+	outline: none;
+}
+.viewLook{
+	float: right;
+}
+.storeCollect{
+	display: grid;
+	grid-template: repeat(3, 1fr)/repeat(3, 1fr);
+	place-items: center center;
+	width: 100%;
+	height: 1000px;
+	background: white;
+	
+	border: 2px solid green;
+}
+.storeAlbum{
+	width: 320px;
+	height: 320px;
+	
+	border: 2px solid red;
+}
