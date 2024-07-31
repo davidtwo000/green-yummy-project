@@ -11,7 +11,9 @@
 <body>
     <footer>
         <div class = "footcontainer">
-            <p class="footnav">서비스 소개 / 이용약관 / 개인정보 처리방침 / 공지사항</p>
+            <p class="footnav">
+            <a href="/serviceIntro">서비스 소개</a> / <a href="/usePolicy">이용약관</a> / 
+            <a href="/privacyPolicy">개인정보 처리방침</a> / <a href="/notification">공지사항</a></p>
 
             <div>
                 (주)강남맛집<br>

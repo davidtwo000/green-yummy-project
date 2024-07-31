@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>사진으로 검색하기</title>
-    <link href="/css/pictureOCR.css" rel="stylesheet" type="text/css">
+    <link href="/public/css/pictureOCR.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
