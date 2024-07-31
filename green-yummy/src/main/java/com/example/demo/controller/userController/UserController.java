@@ -29,6 +29,14 @@ public class UserController {
 	public String userPage() {
 		return "user/userPage";
 	}
+	@GetMapping("user/storeCollection")
+	public String storeCollection() {
+		return "user/storeCollection";
+	}
+	@GetMapping("user/reviewList")
+	public String reviewList() {
+		return "user/reviewList";
+	}
 	
 	@GetMapping("user/userInfoChange")
 	public String userInfoChange() {

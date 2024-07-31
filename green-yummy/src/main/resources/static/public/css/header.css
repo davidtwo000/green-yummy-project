@@ -13,14 +13,17 @@ header{
 
     border: 1px solid green;
 }
-.logopic{
+.logopic,
+.logopic a{
     width: 200px;
     height: 100px;
     margin-left: 20px;
 
     border: 1px solid salmon;
 }
-.loginplace{
+
+.loginplace,
+.loginplace a{
     width: 100px;
     height: 50px;
     margin-right: 20px;

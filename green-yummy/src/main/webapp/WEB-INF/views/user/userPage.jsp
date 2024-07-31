@@ -27,29 +27,15 @@
                 </div>
             </div>
         
-            
-            
-        
-            <div class="writeNumber">
-                내가 쓴 리뷰: N개       내가 저장한 맛집: K개
-            </div>
         
             <ul class="mypageTab">
-                <li>나의 리뷰</li>
-                <li>나의 맛집</li>
+                <li class="storeTab youHere">나의 리뷰(0개)</li>
+                <li class="reviewTab">나의 맛집(0개)</li>
             </ul>
         
-        <div>
-        <jsp:include page="../user/storeCollection.jsp"/>
-        </div>
-        
-        
-        
-        
-        
         	
-            <!-- <iframe src="storeCollection.jsp"></iframe>
-            <iframe src="reviewList.jsp"></iframe> -->
+            <iframe src="../user/storeCollection" class="stores"></iframe>
+            <iframe src="../user/reviewList" class="reviews hidden"></iframe>
         
             <div class="modalContainer1 hidden">
                 <div class="logoutModal">
