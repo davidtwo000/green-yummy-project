@@ -20,7 +20,7 @@
 
             <h3>이용약관</h3>
 
-            <label><input type="checkbox" name="agreement">전체 동의</label>
+            <label><input type="checkbox" name="agreement" onclick="allAgree()">전체 동의</label>
             <ul class="agreeCheck">
                 
                 <li><input type="checkbox" name="agreement">
@@ -43,8 +43,8 @@
             
         
             <div class="agreeBtns">
-                <input type="button" value="다음">
                 <input type="button" value="뒤로">
+                <input type="submit" value="다음" onclick="requireCheck()">
             </div>
             
         </div>
