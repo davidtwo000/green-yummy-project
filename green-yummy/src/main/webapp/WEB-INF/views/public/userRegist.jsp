@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>회원가입</title>
     <link href="/public/css/userRegistChange.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -57,6 +57,7 @@
                         <td><input type="text" id="emailone">@
                         <input type="text" id="emailtwo">
                             <select>
+                            	<option value="">이메일 선택</option>
                                 <option value="naver.com">naver.com</option>
                                 <option value="daum.net">daum.net</option>
                                 <option value="gmail.com">gmail.com</option>
@@ -71,8 +72,8 @@
             <div class="joinbtncontainer">
 
             <div class="joinbtns">
-                <input type="submit" value="회원가입" onclick="joincheck()">
-                <input type="button" class="joincancel" value="취소">
+                <input type="submit" value="회원가입">
+                <input type="button" class="joincancel" value="취소" onclick="gotomain()">
             </div>
             </div>
             
