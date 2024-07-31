@@ -77,5 +77,7 @@
 
 <jsp:include page="../public/footer.jsp"/>
 
+<script src="/public/js/userRegist.js"></script>
+
 </body>
 </html>
