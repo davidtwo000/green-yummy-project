@@ -87,7 +87,7 @@
                     <td><input type="button" value="삭제"></td>
                 </tr>
                 <c:forEach items="${reviews}" var="review">
-          
+          		<tr>
                    <td>${review.reviewId}</td>
                     <td>${review.userUkId}</td>
                     <td>${review.shopUkId}</td>
