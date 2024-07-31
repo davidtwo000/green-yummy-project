@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.controller.userController;
 
 
 
@@ -19,8 +19,6 @@ public class UserController {
 //	public String () {
 //		return "user/";
 //	}
-	
-
 	
 	@GetMapping("user/findIdPassword")
 	public String findIdPassword() {
@@ -46,5 +44,12 @@ public class UserController {
 	public String changeReview() {
 		return "user/changeReview";
 	}
-
+	
+	@GetMapping("user/shopApply")
+	public String shopApply() {
+		return "user/shopApply";
+	}
+	
+	
+	
 }

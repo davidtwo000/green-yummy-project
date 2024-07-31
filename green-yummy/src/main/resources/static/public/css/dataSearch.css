@@ -1,0 +1,60 @@
+@charset "UTF-8";
+.outContainer {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+
+.innerContainer {
+    width: 1280px;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.map {
+    width: 60%;
+    height: 300px;
+    border: 2px solid green;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.sortOptions{
+    margin-top: 20px;
+}
+
+.listContainer {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.restaurantContainer {
+    width: 90%;
+    border: 1px solid gray;
+    height: 300px;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.restaurantImg {
+    width: 280px;
+    height: 280px;
+    border: 1px solid gray;
+    margin: 10px;
+}
+
+.restaurantDetail {
+    width: 600px;
+    height: 280px;
+    border: 1px solid gray;
+    margin: 10px;
+}
