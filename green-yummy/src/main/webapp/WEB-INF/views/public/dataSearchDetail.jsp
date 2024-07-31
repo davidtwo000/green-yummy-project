@@ -9,6 +9,15 @@
 <link rel="stylesheet" href="/public/css/dataSearchDetail.css">
 </head>
 <body>
+
+<jsp:include page="../public/header.jsp"/>
+
+<form>
+	<input type="hidden" id="">
+
+</form>
+
+
  <div class="outContainer">
         <div class="innerContainer">
             <div class="restaurantTitle"> 
@@ -67,5 +76,7 @@
             
         </div>
     </div>
+    
+ <jsp:include page="../public/footer.jsp"/>   
 </body>
 </html>
