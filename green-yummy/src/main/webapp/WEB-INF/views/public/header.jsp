@@ -12,11 +12,11 @@
     <header>
         <div class="headcontainer">
             <div class="logopic">
-			로고 위치
+			<a href="/">로고 위치</a>
             </div>
 
             <div class="loginplace">
-                로그인
+                <a href="/userLogin">로그인</a>
             </div>
         </div>
         
