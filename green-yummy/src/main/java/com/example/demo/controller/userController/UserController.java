@@ -2,8 +2,15 @@ package com.example.demo.controller.userController;
 
 
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.example.demo.dto.userDto.ReviewDTO;
+import com.example.demo.service.userService.ReviewService;
 
 /*
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +63,17 @@ public class UserController {
 	@GetMapping("user/shopApply")
 	public String shopApply() {
 		return "user/shopApply";
+	}
+	
+	//sg가 추가
+	@Autowired
+	private ReviewService reviewservice;
+	
+	@GetMapping("/review")
+	public String review(Model model) {
+		List<ReviewDTO> reviews = reviewservice.getAllReviews();
+		model.addAttribute("reviews",reviews);
+		return "user/reviewList";
 	}
 	
 	
