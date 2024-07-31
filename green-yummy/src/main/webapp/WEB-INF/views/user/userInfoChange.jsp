@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<jsp:include page="public/header.jsp"/>
+<jsp:include page="../public/header.jsp"/>
     
 <main>
    
@@ -75,7 +75,9 @@
         </form>
 </main>
 
-<jsp:include page="public/footer.jsp"/>
+<jsp:include page="../public/footer.jsp"/>
+
+<script src="/public/js/userRegist.js"></script>
 
 </body>
 </html>

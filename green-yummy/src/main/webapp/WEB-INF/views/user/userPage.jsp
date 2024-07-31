@@ -13,7 +13,7 @@
 <jsp:include page="../public/header.jsp"/>
 
     <main>
-        <div class="userContainter">
+        <div class="userContainer">
             <div class="forUser">
                 <div class="userPic">
     
@@ -21,9 +21,9 @@
     
                 <div class="userBtns">
                     <p>${nickname}님, 환영합니다!</p>
-                    <input type="button" value="회원정보 수정"><br>
-                    <input type="button" value="로그아웃"><br>
-                    <input type="button" value="회원탈퇴"><br>
+                    <input type="button" value="회원정보 수정" onclick="infoChange()"><br>
+                    <input type="button" value="로그아웃" onclick="logout()"><br>
+                    <input type="button" value="회원탈퇴" onclick="userBye()"><br>
                 </div>
             </div>
         
@@ -39,28 +39,37 @@
                 <li>나의 맛집</li>
             </ul>
         
-            <iframe src="storeCollection.jsp"></iframe>
-            <iframe src="reviewList.jsp"></iframe>
+        <div>
+        <jsp:include page="../user/storeCollection.jsp"/>
+        </div>
         
-            <div class="modalContainer hidden">
+        
+        
+        
+        
+        	
+            <!-- <iframe src="storeCollection.jsp"></iframe>
+            <iframe src="reviewList.jsp"></iframe> -->
+        
+            <div class="modalContainer1 hidden">
                 <div class="logoutModal">
-                    <div class="xplace"></div>
+                    <div class="xplace cancel" onclick="logout()"></div>
                     로그아웃 하시겠습니까?
                     <div class="logoutBtns">
                         <input type="button" value="확인">
-                        <input type="button" value="취소">
+                        <input type="button" value="취소" class="cancle" onclick="logout()">
                     </div>
                     
                 </div>
             </div>
         
-            <div class="modalContainer hidden">
+            <div class="modalContainer2 hidden">
                 <div class="userOutModal">
-                    <div class="xplace"></div>
+                    <div class="xplace cancel" onclick="userBye()"></div>
                     탈퇴하시겠습니까?
                     <div class="userOutBtns">
                         <input type="button" value="탈퇴">
-                        <input type="button" value="취소">
+                        <input type="button" value="취소" class="cancel" onclick="userBye()">
                     </div>
                    
                 </div>
@@ -70,6 +79,8 @@
     </main>
     
 <jsp:include page="../public/footer.jsp"/>
+
+<script src="/user/js/userPage.js"></script>
     
 </body>
 </html>

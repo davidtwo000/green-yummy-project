@@ -5,15 +5,23 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    margin: 100px 0 100px 0;
 }
 .userContainer{
     width: 1280px;
+    
+    padding: 10px;
+    border: 2px solid skyblue;
+}
+.writeNumber{
+	border: 2px solid pink;
 }
 .forUser{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    
+    border: 2px solid green;
 }
 .userPic{
     width: 200px;
@@ -38,9 +46,12 @@ input[type="button"]{
     width: 1280px;
     height: 50px;
     list-style-type: none;
+    
+    border: 2px solid orange;
 }
 
-.modalContainer{
+.modalContainer1,
+.modalContainer2{
     display: flex;
     justify-content: center;
     align-items: center;
