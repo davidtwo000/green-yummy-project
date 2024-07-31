@@ -12,7 +12,7 @@
 
     <!-- 유효성 검사 필요. 이메일 파트도. -->
     
-    <jsp:include page="public/header.jsp"/>
+    <jsp:include page="../public/header.jsp"/>
 
     <main>
         <div class="innerContainer">
@@ -42,7 +42,7 @@
         </div>
     </main>
 
-   <jsp:include page="public/footer.jsp"/>
+   <jsp:include page="../public/footer.jsp"/>
     
 </body>
 </html>
