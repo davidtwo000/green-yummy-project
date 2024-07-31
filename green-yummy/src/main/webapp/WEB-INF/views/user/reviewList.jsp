@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,10 +14,11 @@
 </head>
 <body>
 
-<jsp:include page="/public/header.jsp"/>
+<jsp:include page="../public/header.jsp"/>
     
     <main>
         <div class="innerContainer">
+        	
             <table>
                 <tr>
                     <td>번호</td>
@@ -81,6 +86,17 @@
                     <td><input type="button" value="수정"></td>
                     <td><input type="button" value="삭제"></td>
                 </tr>
+                <c:forEach items="${reviews}" var="review">
+          
+                   <td>${review.reviewId}</td>
+                    <td>${review.userUkId}</td>
+                    <td>${review.shopUkId}</td>
+                    <td>${review.reviewRate}</td>
+                    <td>${review.reviewComment}</td>
+                    <td>${review.reviewDate}</td>
+                 
+                </tr>
+            </c:forEach>
             </table>
         
             <div class="modalContainer hidden">
@@ -94,7 +110,7 @@
         </div>
     </main>
 
-   <jsp:include page="/public/footer.jsp"/>
+   <jsp:include page="../public/footer.jsp"/>
     
 </body>
 </html>
