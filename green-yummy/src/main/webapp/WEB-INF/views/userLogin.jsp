@@ -29,13 +29,13 @@
                     </table>
                     
                     <div>
-                        <input type="submit" value="로그인">
+                        <input type="button" value="로그인" onclick="window.location.href='user/userPage'">
                     </div>
                     
                 </div>
                 <div class="loginbuttonetc">
-                    <input type="button" value="회원가입">
-                    <input type="button" value="아이디/비밀번호 찾기">
+                    <input type="button" value="회원가입" onclick="window.location.href='/Agreement'">
+                    <input type="button" value="아이디/비밀번호 찾기" onclick="window.location.href='user/findIdPassword'">
                 </div>
 
                 
