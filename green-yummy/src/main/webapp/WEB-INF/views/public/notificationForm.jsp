@@ -32,7 +32,7 @@
         <input type="submit" value="저장"/>
     </form>
 
-    <a href="/notification">목록으로 돌아가기</a>
+    <a href="/public/notification">목록으로 돌아가기</a>
     
 </body>
 </html>

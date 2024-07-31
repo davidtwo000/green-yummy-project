@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공지사항</title>
-    <link href="public/css/notification.css" rel="stylesheet" type="text/css">
+    <link href="/public/css/notification.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -36,7 +36,7 @@
                 </tr>
     <!-- 예시로 넣어둔 것. 이 부분은 백엔드와 jsp foreach 사용 -->
     			<c:forEach items ="${notices}" var="notice">
-    			<tr onclick="window.location.href='/notificationDetail/${notice.noticeId}'">
+    			<tr onclick="window.location.href='/public/notificationDetail/${notice.noticeId}'">
                     <td>${notice.noticeId}</td>
                     <td>${notice.author}</td>
                     <td>${notice.title}</td>
@@ -51,7 +51,7 @@
             </table>
         </div>
         
-        <a href="/notification/new">새 공지사항</a>
+        <a href="/public/notification/new">새 공지사항</a>
         
     </main>
     
