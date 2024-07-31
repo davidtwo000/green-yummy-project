@@ -9,7 +9,7 @@ header{
     align-items: center;
     justify-content: space-between;
     width: 1280px;
-    height: 200px;
+    height: 170px;
 
     border: 1px solid green;
 }
@@ -22,7 +22,7 @@ header{
 }
 .loginplace{
     width: 100px;
-    height: 100px;
+    height: 50px;
     margin-right: 20px;
 
     border: 2px solid skyblue;
