@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<jsp:include page="public/header.jsp"/>
+<jsp:include page="../public/header.jsp"/>
 
     <main>
         <!-- 별이 하나 채워진 이미지에서 다섯개 채워진 이미지까지 총 다섯 개 준비
@@ -67,7 +67,7 @@
         </div>
     </main>
     
-    <jsp:include page="public/footer.jsp"/>
+    <jsp:include page="../public/footer.jsp"/>
     
 </body>
 </html>
