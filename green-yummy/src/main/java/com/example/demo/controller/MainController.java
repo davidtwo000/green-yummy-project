@@ -39,7 +39,12 @@ public class MainController {
 	
 	@GetMapping("/dataSearch")
 	public String dataSearch() {
-		return "/dataSearch";
+		return "public/dataSearch";
+	}
+	
+	@GetMapping("/dataSearchDetail")
+	public String dataSearchDetail() {
+		return "public/dataSearchDetail";
 	}
 	
 	@GetMapping("/pictureOCR")
