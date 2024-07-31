@@ -11,6 +11,8 @@ import com.example.demo.dto.publicDto.NotificationDTO;
 import com.example.demo.model.publicModel.Notification;
 import com.example.demo.repository.publicRepository.NotificationRepository;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class NotificationServiceImpl implements NotificationService{
 
@@ -36,6 +38,8 @@ public class NotificationServiceImpl implements NotificationService{
 	
 	@Override
 	public void updateNotice(NotificationDTO noticeDTO) {
+		System.out.println("Notice ID: " + noticeDTO.getNoticeId());
+		
         // 기존 엔티티를 데이터베이스에서 조회
         Optional<Notification> existingNotification = notificationRepository.findById(noticeDTO.getNoticeId());
 
@@ -47,6 +51,8 @@ public class NotificationServiceImpl implements NotificationService{
             notice.setViewCount(noticeDTO.getViewCount());
             // 변경된 엔티티를 저장
             notificationRepository.save(notice);
+        }else {
+        	throw new EntityNotFoundException("Notification not found with id: " + noticeDTO.getNoticeId());
         }
     }
 	

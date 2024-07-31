@@ -18,7 +18,7 @@
     <label for="viewCount">View Count:</label>
     <input type="number" id="viewCount" name="viewCount" value="${notice.viewCount}" required /><br/>
 
-    <input type="hidden" name="id" value="${notice.noticeId}" />
+    <input type="hidden" name="noticeId" value="${notice.noticeId}" />
     <input type="submit" value="Save" />
 </form>
     

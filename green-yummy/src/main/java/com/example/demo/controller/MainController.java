@@ -62,6 +62,7 @@ public class MainController {
 		return "public/serviceIntro";
 	}
 	
+	//노티피케이션
 	@Autowired
     private NotificationService notificationService;
 	
@@ -73,9 +74,7 @@ public class MainController {
         return "public/notification";
 	}
 	
-	//
-	
-
+	//노티피케이션 상세
 	@GetMapping("/notificationDetail/{id}")
     public String getNotification(@PathVariable("id") int id, Model model) {
         Optional<NotificationDTO> notice = notificationService.getNotificationById(id);
@@ -86,7 +85,8 @@ public class MainController {
             return "redirect:/notification";
         }
     }
-
+	
+	//이 밑은 jpa로 생성,수정 구현해본것
     @GetMapping("/notification/new")
     public String createNotificationForm(Model model) {
         model.addAttribute("notice", new NotificationDTO());
@@ -101,6 +101,7 @@ public class MainController {
     
     @GetMapping("/notificationUpdate/{id}")
     public String updateNotification(@PathVariable("id") int id, Model model) {
+    	    	
     	Optional<NotificationDTO> notice = notificationService.getNotificationById(id);
         if (notice.isPresent()) {
             model.addAttribute("notice", notice.get());
@@ -115,5 +116,5 @@ public class MainController {
         notificationService.updateNotice(noticeDTO);
         return "redirect:/notification";
     }
-    
+    //여기까지가 생성-수정 기능 순
 }
