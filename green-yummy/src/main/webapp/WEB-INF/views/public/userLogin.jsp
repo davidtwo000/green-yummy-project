@@ -3,10 +3,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
     <link href="/public/css/userLogin.css" rel="stylesheet" type="text/css">
+    <script src="/public/js/userLogin.js"></script>
+    
 </head>
 <body>
 
@@ -29,13 +32,13 @@
                     </table>
                     
                     <div>
-                        <input type="submit" value="로그인">
+                        <input type="button" value="로그인" onclick="userLogin()">
                     </div>
                     
                 </div>
                 <div class="loginbuttonetc">
-                    <input type="button" value="회원가입">
-                    <input type="button" value="아이디/비밀번호 찾기">
+                    <input type="button" value="회원가입" onclick="userJoin()">
+                    <input type="button" value="아이디/비밀번호 찾기" onclick="findIDPW()">
                 </div>
 
                 
