@@ -12,6 +12,8 @@
 
 <body>
 
+<jsp:include page="../public/header.jsp"/>
+
 
 <main class="serviceMain">
 
@@ -40,6 +42,7 @@
 
 </main>
 
+<jsp:include page="../public/footer.jsp"/>
 
 </body>
 </html>

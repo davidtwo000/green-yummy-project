@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>약관 동의</title>
-    <link href="public/css/Agreement.css" rel="stylesheet" type="text/css">
+    <link href="../public/css/Agreement.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
-<jsp:include page="public/header.jsp"/>
+<jsp:include page="../public/header.jsp"/>
 
     <main>
         <div class="innerContainer">
@@ -27,13 +27,16 @@
                     (필수)만 14세 이상입니다.</li>
                 <li><input type="checkbox" name="agreement">
                     (필수)개인정보 수집 약관에 동의합니다. 
-                    <input type="button" value="자세히보기"></li>
+                    <input type="button" value="자세히보기" 
+                    class="policyBtn" onclick="policyPop1()"></li>
                 <li><input type="checkbox" name="agreement">
                     (필수)이용약관에 동의합니다. 
-                    <input type="button" value="자세히보기"></li>
+                    <input type="button" value="자세히보기"
+                     class="policyBtn" onclick="policyPop2()"></li>
                 <li><input type="checkbox" name="agreement">
                     (선택)광고성 메일 수신에 동의합니다. 
-                    <input type="button" value="자세히 보기"></li>
+                    <input type="button" value="자세히 보기"
+                     class="policyBtn" onclick="adPop()"></li>
             </ul>
                 
             
@@ -47,7 +50,9 @@
         </div>
     </main>
 
-<jsp:include page="public/footer.jsp"/>
+<jsp:include page="../public/footer.jsp"/>
+
+<script src="/public/js/Agreement.js"></script>
     
 </body>
 </html>

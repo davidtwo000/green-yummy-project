@@ -22,47 +22,59 @@ public class MainController {
 		return "index/index";
 	}
 	
-	@GetMapping("/userLogin")
+	@GetMapping("public/userLogin")
 	public String userLogin() {
-		return "/userLogin";
+		return "public/userLogin";
 	}
 	
-	@GetMapping("/Agreement")
+	@GetMapping("public/Agreement")
 	public String Agreement() {
-		return "/Agreement";
+		return "public/Agreement";
+	}
+	@GetMapping("public/usePolicyCheckPage")
+	public String usePolicyCheckPage() {
+		return "public/usePolicyCheckPage";
+	}
+	@GetMapping("public/privacyPolicyCheckPage")
+	public String privacyPolicyCheckPage() {
+		return "public/privacyPolicyCheckPage";
+	}
+	@GetMapping("public/advertisementCheckPage")
+	public String advertisementCheckPage() {
+		return "public/advertisementCheckPage";
 	}
 	
-	@GetMapping("/userRegist")
+	@GetMapping("public/userRegist")
 	public String userRegist() {
-		return "/userRegist";
+		return "public/userRegist";
 	}
 	
-	@GetMapping("/dataSearch")
+	@GetMapping("public/dataSearch")
 	public String dataSearch() {
 		return "public/dataSearch";
 	}
 	
-	@GetMapping("/dataSearchDetail")
+	@GetMapping("public/dataSearchDetail")
 	public String dataSearchDetail() {
 		return "public/dataSearchDetail";
 	}
 	
-	@GetMapping("/pictureOCR")
+	@GetMapping("public/pictureOCR")
 	public String pictureOCR() {
-		return "/pictureOCR";
+		return "public/pictureOCR";
 	}
 	
-	@GetMapping("/usePolicy")
+	@GetMapping("public/usePolicy")
 	public String usePolicy() {
-		return "/usePolicy";
+		return "public/usePolicy";
 	}
 	
-	@GetMapping("/privacyPolicy")
+	@GetMapping("public/privacyPolicy")
 	public String privacyPolicy() {
-		return "/privacyPolicy";
+		return "public/privacyPolicy";
 	}
 	
-	@GetMapping("/serviceIntro")
+	@GetMapping("public/serviceIntro")
 	public String ServiceIntro() {
 		return "public/serviceIntro";
 	}
@@ -72,7 +84,7 @@ public class MainController {
 	@Autowired
     private NotificationService notificationService;
 	
-	@GetMapping("/notification")
+	@GetMapping("public/notification")
 	public String notification(Model model) {
 		
 		List<NotificationDTO> notices = notificationService.getAllNotices();
@@ -81,7 +93,7 @@ public class MainController {
 	}
 	
 	//노티피케이션 상세
-	@GetMapping("/notificationDetail/{id}")
+	@GetMapping("pubilc/notificationDetail/{id}")
     public String getNotification(@PathVariable("id") int id, Model model) {
         Optional<NotificationDTO> notice = notificationService.getNotificationById(id);
         if (notice.isPresent()) {

@@ -54,7 +54,7 @@
 		        </select>
 		
 		        <select class="filterTwo">
-		            <option value="" checked>업종별</option>
+		            <option value="">업종별</option>
 		            <option value="">레스토랑</option>
 		            <option value="">카페</option>
 		            <option value="">이자카야</option>

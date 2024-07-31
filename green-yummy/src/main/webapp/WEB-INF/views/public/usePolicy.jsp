@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<jsp:include page="public/header.jsp"/>
+<jsp:include page="../public/header.jsp"/>
 
 <main>
 	<div class="innerContainer">
@@ -497,7 +497,7 @@
 	</div>
 </main>
 
-<jsp:include page="public/footer.jsp"/>
+<jsp:include page="../public/footer.jsp"/>
 
 </body>
 </html>
