@@ -56,7 +56,7 @@
                         <td>이메일</td>
                         <td><input type="text" id="emailone">@
                         <input type="text" id="emailtwo">
-                            <select>
+                            <select id="selEmail">
                             	<option value="">이메일 선택</option>
                                 <option value="naver.com">naver.com</option>
                                 <option value="daum.net">daum.net</option>
