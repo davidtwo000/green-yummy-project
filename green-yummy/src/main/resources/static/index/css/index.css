@@ -3,7 +3,29 @@
     justify-content: center;
     text-align: center;
     display: flex;
+    
+    margin: 100px 0 100px 0;
 }
+
+
+.recPrevBtn,
+.recNextBtn{
+	position: relative;
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+	
+	background: rgba(35, 23, 44, 0.5);
+}
+.recPrevBtn{
+	top: 280px;
+}
+.recNextBtn{
+	float: right;
+	top: -280px;
+}
+
+
 
 .innerContainer {
     width: 1280px;
@@ -12,51 +34,116 @@
     display: flex;
     flex-direction: column;
 }
+.searchContainer,
+.category,
+.eventImgCon,
+.recommand,
+.koreans{
+	margin: 100px 0 100px 0;
+}
 
-
+.searchContainer{
+	display: flex;
+	justify-content: center;
+	height: 50px;
+	background: skyblue;
+	border: 1px solid skyblue;
+}
 
 .searchBar {
-    width: 300px;
+	box-sizing: border-box;
+    width: 500px;
+    height: 50px;
     display: inline-block; 
-    margin-right: 10px; 
+    outline: none;
+    padding: 10px;
+    
+    border: 1px solid brown;
 }
 
-.searchBtn, .OCRBtn {
-    width: 60px;
+.customSearchBtn, .OCRBtn {
+    width: 50px;
+    height: 50px;
     display: inline-block; 
-    margin-right: 10px; 
+    cursor: pointer; 
 }
+.OCRBtn{
+	margin-left: 20px;
+}
+.customSearchBtn{
+	background: red;
+	opacity: 0.5;
+}
+
 
 .category {
     list-style: none;
     display: flex; 
     justify-content: space-around; 
     padding: 0;
+    
+    border: 1px solid brown;
 }
 
 .category li {
     padding: 10px; 
 }
-
+.eventImgCon{
+	width: 1280px;
+	
+	border: 1px solid red;
+}
+.eventImgList{
+	display: flex;
+	list-style-type: none;
+	padding: 0px;
+	
+	border: 1px solid black;
+}
 .mainImg {
     border: 1px solid gray;
-    width: 90%;
+    width: 1280px;
     height: 500px;
-    margin: 0 auto;
+}
+.mainPrevBtn,
+.mainNextBtn{
+	position: relative;
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+	
+	background: rgba(65, 33, 21, 0.5);
+}
+.mainPrevBtn{
+	top: 320px;
+}
+.mainNextBtn{
+	float: right;
+	top: -320px;
 }
 
-.recommandTag {
+.recommand,
+.koreans{
+	border: 2px solid red;
+}
+
+.recommandTag,
+.koreansTag {
     margin-top: 20px;
+    padding-left: 20px;
+    text-align: left;
 }
 
-.recommandList {
+.recommandList,
+.koreanList {
     list-style: none;
     padding: 0; 
     display: flex;
     justify-content: space-around; 
 }
 
-.recommandList li {
+.recommandList li,
+.koreanList li {
     display: flex; 
     flex-direction: column; 
     width: 300px; 
@@ -65,12 +152,14 @@
     margin-right: 10px; 
 }
 
-.recommandImg {
+.recommandImg,
+.koreanImg {
     width: 100%; 
     height: 300px; 
     background-color: lightgray; 
 }
 
-.recommandDetail {
+.recommandDetail,
+.koreanDetail {
     padding: 10px; 
 }
