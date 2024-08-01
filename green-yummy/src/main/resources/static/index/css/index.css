@@ -90,13 +90,17 @@
 }
 .eventImgCon{
 	width: 1280px;
+	overflow: hidden;
 	
 	border: 1px solid red;
 }
 .eventImgList{
+	position: relative;
 	display: flex;
 	list-style-type: none;
 	padding: 0px;
+	
+	left: -1280px;
 	
 	border: 1px solid black;
 }
@@ -105,6 +109,13 @@
     width: 1280px;
     height: 500px;
 }
+.eventImgList > li:first-child{
+	background: pink;
+}
+.eventImgList > li:last-child{
+	background: lemonchiffon;
+}
+
 .mainPrevBtn,
 .mainNextBtn{
 	position: relative;
@@ -116,10 +127,11 @@
 }
 .mainPrevBtn{
 	top: 320px;
+	left: -100px;
 }
 .mainNextBtn{
-	float: right;
 	top: -320px;
+	left: 100px;
 }
 
 .recommand,
