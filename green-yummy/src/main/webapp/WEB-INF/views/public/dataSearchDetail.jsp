@@ -61,17 +61,9 @@
 
         <div class="review">
             <div class="reviewTag"> 리뷰 </div>
-            <input type="button" value="리뷰쓰기" class="reviewBtn">
+            <input type="button" value="리뷰쓰기" class="reviewBtn" onclick="window.location.href='/user/createReview/${shop.shopUkId}'">
             
-            <ul>
-                <c:forEach var="review" items="${reviews}">
-                    <li>
-   
-                        Rate: ${review.reviewRate}, 
-                        Comment: ${review.reviewComment}
-                    </li>
-                </c:forEach>
-            </ul>
+            
         </div>
 
         <div class="random">

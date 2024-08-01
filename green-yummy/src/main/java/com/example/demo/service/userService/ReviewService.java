@@ -10,4 +10,7 @@ public interface ReviewService {
 	
 	// 리뷰 삭제
     void deleteReview(Integer reviewukid);
+    
+    //리뷰 작성
+    void createReview(ReviewDTO reviewDTO);
 }

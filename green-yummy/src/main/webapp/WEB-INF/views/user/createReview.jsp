@@ -13,9 +13,18 @@
 <jsp:include page="../public/header.jsp"/>
 
     <main>
-        <!-- 별이 하나 채워진 이미지에서 다섯개 채워진 이미지까지 총 다섯 개 준비
-        그리고 무얼 클릭하느냐에 따라서 다른 이미지가 나오게 한다. -->
+        <form method="post" id="createReview" enctype="multipart/form-data">
+        	<input type="hidden" value=${shop.shopUkId} name="shopUkId">
+        	<input type="text" name="reviewRate">
+        	<input type="text" name="reviewComment">
+        	<input type="text" name="reviewContent">
+        	<input type="submit" value="리뷰 작성">
+        </form>
+        
         <div class="reviewContainer">
+        	<div class="name">${shop.shopName}</div>
+            <div class="type">${shop.shopType} </div>
+            
             <div class="storeStars">
                 <img src="/images/onestar.png">
                 <img src="/images/twostar.png">
@@ -53,7 +62,8 @@
             <div class="reviewContent">
                 <textarea rows="10" cols="50"></textarea>
             </div>
-            <div class="reviewPhotos">
+            
+            <!-- <div class="reviewPhotos">
                 <div class="storePhoto"><input type="file"></div>
                 <div class="storePhoto"><input type="file"></div>
                 <div class="storePhoto"><input type="file"></div>
