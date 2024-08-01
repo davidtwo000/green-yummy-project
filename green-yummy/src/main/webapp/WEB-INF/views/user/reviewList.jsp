@@ -11,6 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="/user/css/reviewList.css" rel="stylesheet" type="text/css">
+
+    <script src="/user/js/reviewList.js"></script>
 </head>
 <body>
 
@@ -29,82 +31,26 @@
                     <td>수정</td>
                     <td>삭제</td>
                 </tr>
-        
-                <tr>
-                    <td colspan="7">작성한 리뷰가 없습니다.</td>
-                    
-                </tr>
-        
-               <!--  아래는 예시로 만든 것들. jsp foreach와 백엔드로 구현해야 함 -->
-        
-                <tr>
-                    <td>1</td>
-                    <td>투썸</td>
-                    <td>케익이 맛있어요</td>
-                    <td>4.0</td>
-                    <td>24 / 07 / 30</td>
-                    <td><input type="button" value="수정"></td>
-                    <td><input type="button" value="삭제"></td>
-                </tr>
-        
-                <tr>
-                    <td>1</td>
-                    <td>투썸</td>
-                    <td>케익이 맛있어요</td>
-                    <td>4.0</td>
-                    <td>24 / 07 / 30</td>
-                    <td><input type="button" value="수정"></td>
-                    <td><input type="button" value="삭제"></td>
-                </tr>
-        
-                <tr>
-                    <td>1</td>
-                    <td>투썸</td>
-                    <td>케익이 맛있어요</td>
-                    <td>4.0</td>
-                    <td>24 / 07 / 30</td>
-                    <td><input type="button" value="수정"></td>
-                    <td><input type="button" value="삭제"></td>
-                </tr>
-        
-                <tr>
-                    <td>1</td>
-                    <td>투썸</td>
-                    <td>케익이 맛있어요</td>
-                    <td>4.0</td>
-                    <td>24 / 07 / 30</td>
-                    <td><input type="button" value="수정"></td>
-                    <td><input type="button" value="삭제"></td>
-                </tr>
-        
-                <tr>
-                    <td>1</td>
-                    <td>투썸</td>
-                    <td>케익이 맛있어요</td>
-                    <td>4.0</td>
-                    <td>24 / 07 / 30</td>
-                    <td><input type="button" value="수정"></td>
-                    <td><input type="button" value="삭제"></td>
-                </tr>
-                <c:forEach items="${reviews}" var="review">
-          		<tr>
-                   <td>${review.reviewId}</td>
-                    <td>${review.userUkId}</td>
-                    <td>${review.shopUkId}</td>
-                    <td>${review.reviewRate}</td>
-                    <td>${review.reviewComment}</td>
-                    <td>${review.reviewDate}</td>
-                 
-                </tr>
-            </c:forEach>
+             
+                <c:forEach items="${reviews}" var="review" varStatus="status">
+				    <tr>
+				        <td>${status.index + 1}</td>
+				        <td>${review.shop.shopName}</td>
+				        <td>${review.reviewContent}</td>
+				        <td>${review.reviewRate}</td>
+				        <td id="reviewDate">${review.reviewDate}</td>
+				        <td><input type="button" value="수정"></td>
+				        <td><input type="button" value="삭제" onclick="showDeleteModal(${review.reviewId})" /></td>
+				    </tr>
+				</c:forEach>
             </table>
         
-            <div class="modalContainer hidden">
+            <div class="modalContainer hidden" id="deleteModalContainer">
                 <div class="deleteModal">
                     <div class="xplace"></div>
                     삭제하시겠습니까?
-                    <input type="button" value="삭제">
-                    <input type="button" value="취소">
+                    <input type="button" value="삭제" onclick="confirmDelete()" />
+        			<input type="button" value="취소" onclick="hideDeleteModal()" />
                 </div>
             </div>
         </div>
