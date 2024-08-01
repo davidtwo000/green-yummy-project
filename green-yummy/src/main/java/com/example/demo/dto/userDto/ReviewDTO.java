@@ -2,6 +2,8 @@ package com.example.demo.dto.userDto;
 
 import java.time.LocalDateTime;
 
+import com.example.demo.dto.publicDto.ShopDTO;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,4 +18,6 @@ public class ReviewDTO {
     private String reviewComment; // 리뷰 코멘트
     private String reviewContent; // 리뷰 내용
     private LocalDateTime reviewDate; // 리뷰 작성 날짜
+    
+    private ShopDTO shop;
 }
