@@ -25,15 +25,9 @@
     margin-top: 20px;
 }
 
-.listContainer {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-}
 
-.restaurantContainer {
+
+.shop-item {
     width: 90%;
     border: 1px solid gray;
     height: 300px;
@@ -45,16 +39,24 @@
     margin-top: 10px;
 }
 
-.restaurantImg {
+.shop-profile {
     width: 280px;
     height: 280px;
     border: 1px solid gray;
     margin: 10px;
+    float:left;
 }
 
-.restaurantDetail {
-    width: 600px;
+.shop-profile img {
+	 width: 280px;
     height: 280px;
-    border: 1px solid gray;
-    margin: 10px;
+}
+
+
+.shopdetail {
+	border:1px solid black;
+}
+
+.shop-name {
+	font-size:20px;
 }
