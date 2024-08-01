@@ -49,15 +49,16 @@ public class MainController {
 		return "public/userRegist";
 	}
 	
-	@GetMapping("public/dataSearch")
-	public String dataSearch() {
-		return "public/dataSearch";
-	}
+	//shopcontroller로 옮김
+	//@GetMapping("public/dataSearch")
+	//public String dataSearch() {
+		//return "public/dataSearch";
+	//}
 	
-	@GetMapping("public/dataSearchDetail")
-	public String dataSearchDetail() {
-		return "public/dataSearchDetail";
-	}
+	//@GetMapping("public/dataSearchDetail")
+	//public String dataSearchDetail() {
+	//return "public/dataSearchDetail";
+	//}
 	
 	@GetMapping("public/pictureOCR")
 	public String pictureOCR() {

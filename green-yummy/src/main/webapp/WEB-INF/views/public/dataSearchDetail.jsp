@@ -21,12 +21,14 @@
 <div class="outContainer">
     <div class="innerContainer">
         <div class="restaurantTitle"> 
-            <div class="name"> 가게 이름</div>
-            <div class="type"> 업종 / 메뉴 </div>
+            <div class="name">${shop.shopName}</div>
+            <div class="type">${shop.shopType} </div>
         </div>
         
         <div class="restaurantImgContainer">
-            <div class="restaurantImg"> </div>
+            <div class="restaurantImg"> 
+            	<img src="/images/${shop.shopProfile}" alt="${shop.shopName} 프로필 이미지" />
+            </div>
             <div class="restaurantImg"> </div>
             <div class="restaurantImg"> </div>
         </div>
@@ -36,19 +38,19 @@
         <div class="detail">
             <table class="detailtable">
                 <tr>
-                    <td> 주소 </td> <td> </td>
+                    <td> 주소 </td> <td> ${shop.location} </td>
                 </tr>
                 <tr>
-                    <td> OPEN </td> <td> </td>
+                    <td> OPEN </td> <td> ${shop.openHours}</td>
                 </tr>
                 <tr>
-                    <td> CLOSE </td> <td> </td>
+                    <td> CLOSE </td> <td>${shop.closeHours} </td>
                 </tr>
                 <tr>
-                    <td> 전화번호 </td> <td> </td>
+                    <td> 전화번호 </td> <td>${shop.shopTel} </td>
                 </tr>
                 <tr>
-                    <td> 기타사항 </td> <td> </td>
+                    <td> 기타사항 </td> <td> ${shop.etc}</td>
                 </tr>
             </table>
             

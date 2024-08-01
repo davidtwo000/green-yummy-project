@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +14,8 @@
 
 </head>
 <body>
+
+<jsp:include page="../public/header.jsp"/>
 	<div class="outContainer">
         <div class="innerContainer">
             
@@ -42,22 +48,35 @@
                 </label>
                 
             </div>
-
-            <div class="listContainer">
-                <div class="restaurantContainer">
-                    <div class="restaurantImg"> 이미지 </div>
-                    <div class="restaurantDetail"> 설명 </div>
-                </div>
-                <div class="restaurantContainer">
-                    <div class="restaurantImg"> 이미지 </div>
-                    <div class="restaurantDetail"> 설명 </div>
-                </div>
-                <div class="restaurantContainer">
-                    <div class="restaurantImg"> 이미지 </div>
-                    <div class="restaurantDetail"> 설명 </div>
-                </div>
-            </div>
-        </div>
-    </div>
+            
+            <div class="shop-list">
+			    <c:forEach items="${shops}" var="shop" varStatus="status">
+			        <div class="shop-item" onclick="window.location.href='/public/dataSearchDetail/${shop.shopUkId}'" >
+				        <div class="shop-profile">
+				              <img src="/images/${shop.shopProfile}" alt="${shop.shopName} 프로필 이미지" />
+				        </div>
+				        <table class="shopdetail">
+				   
+				        	<tr> 
+				        		<td class="shop-name">${shop.shopName} </td><td>${shop.shopType} </td>
+					        </tr>
+					        <tr> 
+					        	<td >평점</td><td>★★★★★</td>
+					        </tr>
+					        <tr> 
+					        	<td >주소</td><td>${shop.location}</td>
+					        </tr>
+					        <tr> 
+					        	<td >전화번호</td><td>${shop.shopTel}</td>
+					        </tr>
+					        
+				        </table>
+			        
+			        </div>
+			    </c:forEach>
+			</div>
+            
+    
+<jsp:include page="../public/footer.jsp"/>  
 </body>
 </html>
