@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,23 +18,23 @@ import com.example.demo.repository.userRepository.ReviewRepository;
 
 @Service
 public class ReviewServiceImpl implements ReviewService {
-    
+
+    private static final Logger logger = LoggerFactory.getLogger(ReviewServiceImpl.class);
+
     @Autowired
-    private ReviewRepository reviewRepository; // 필드 이름 수정
-    
+    private ReviewRepository reviewRepository;
+
     @Autowired
     private ShopRepository shopRepository;
 
     @Override
     public List<ReviewDTO> getAllReviews() {
-        // 모든 리뷰를 데이터베이스에서 가져와서 DTO로 변환
         return reviewRepository.findAll().stream()
-                .map(this::convertToDto) // Review 엔티티를 ReviewDTO로 변환
-                .collect(Collectors.toList()); // List로 수집
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
     }
-    
+
     private ReviewDTO convertToDto(Review review) {
-        // Review 엔티티를 ReviewDTO로 변환
         ReviewDTO dto = new ReviewDTO();
         dto.setReviewId(review.getReviewId());
         dto.setUserUkId(review.getUserUkId());
@@ -41,42 +43,48 @@ public class ReviewServiceImpl implements ReviewService {
         dto.setReviewComment(review.getReviewComment());
         dto.setReviewContent(review.getReviewContent());
         dto.setReviewDate(review.getReviewDate());
-        
+
         ShopDTO shopDTO = new ShopDTO();
         Optional<Shop> shopOptional = shopRepository.findById(review.getShopUkId());
-     // 디버깅: shopOptional 값 출력
-        System.out.println("shopOptional is present: " + shopOptional.isPresent());
-        
+
         if (shopOptional.isPresent()) {
             Shop shop = shopOptional.get();
-            System.out.println("Found shop: " + shop);
+            logger.info("Found shop: {}", shop);
             shopDTO.setShopUkId(shop.getShopUkId());
             shopDTO.setShopName(shop.getShopName());
-            
+            // 필요시 다른 Shop 필드 설정
         } else {
+            logger.warn("Shop not found for shopUkId: {}", review.getShopUkId());
             shopDTO.setShopUkId(null);
             shopDTO.setShopName("Unknown");
         }
-        
+
         dto.setShop(shopDTO);
-        
+
         return dto;
     }
-    
+
     @Override
-    public void deleteReview(Integer reviewukid) {
-        if (reviewRepository.existsById(reviewukid)) {
-            reviewRepository.deleteById(reviewukid);
+    public void deleteReview(Integer reviewId) {
+        if (reviewRepository.existsById(reviewId)) {
+            reviewRepository.deleteById(reviewId);
+            logger.info("Review deleted with ID: {}", reviewId);
         } else {
-            throw new RuntimeException("Review not found with ID: " + reviewukid);
+            logger.error("Review not found with ID: {}", reviewId);
+            throw new RuntimeException("Review not found with ID: " + reviewId);
         }
     }
 
-	@Override
-	public List<ReviewDTO> getReviewsByUserId(Integer userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-    
-    
+    @Override
+    public void createReview(ReviewDTO reviewDTO) {
+        Review review = new Review();
+        review.setShopUkId(reviewDTO.getShopUkId());
+        review.setReviewRate(reviewDTO.getReviewRate());
+        review.setReviewComment(reviewDTO.getReviewComment());
+        review.setReviewContent(reviewDTO.getReviewContent());
+
+        // 검증 로직 추가 가능
+        reviewRepository.save(review);
+        logger.info("Review created with ID: {}", review.getId());
+    }
 }
