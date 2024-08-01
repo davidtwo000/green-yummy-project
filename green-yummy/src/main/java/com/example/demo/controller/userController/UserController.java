@@ -62,18 +62,5 @@ public class UserController {
 		return "user/shopApply";
 	}
 	
-	//sg가 추가
-	@Autowired
-	private ReviewService reviewservice;
-	
-	@GetMapping("user/reviewList")
-	public String review(Model model) {
-		List<ReviewDTO> reviews = reviewservice.getAllReviews();
-		model.addAttribute("reviews",reviews);
-		return "user/reviewList";
-	}
-	//위에 user/reviewList 매핑, 여기 /review 매핑 있었음
-	// /review 매핑은 정상 작동, user/reviewList 는 순수 파일만 불러오는거였는데 그걸로만 확인하신 듯
-	
 	
 }
