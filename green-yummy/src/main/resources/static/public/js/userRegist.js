@@ -5,22 +5,28 @@ let pswd = document.querySelector("#pswd");
 let passCheck = document.querySelector("#pswdChk");
 let phone = document.querySelector("#phone");
 let email1 = document.querySelector("#emailone");
-let email2 = document.querySelector("#emailtwo");
+let email2 = document.getElementById("emailtwo");
 
-let emailChoose = document.querySelector("select");
+let emailChoose = document.getElementById("selEmail");
 
 let eventform = document.querySelector("form");
 
-/*let passreg = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^])[A-Za-z\d@$!%*#?&]{8,20}$/
-let idreg = /[]/
-let phonereg = /[\d]{2,3}[\d]{3,4}[\d]{4}/*/
+let passreg = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^])[A-Za-z\d@$!%*#?&]{8,20}$/
+/*let idreg = /[]/*/
+let phonereg = /[\d]{2,3}[\d]{3,4}[\d]{4}/
 
 
 //셀렉터로 선택하면 emailtwo에 값이 입력된다. onchange
-emailChoose.addEventListener("change", function(){
+
+emailChoose.addEventListener("change", function () {
+	
 	let emailAddress = emailChoose.value;
-	email2.textContent = emailAddress;
+	email2.value = emailAddress;
+	
+	console.log(email2.textContent);
 });
+	
+
 
 //유효성 체크
 //정규식
@@ -60,18 +66,18 @@ eventform.addEventListener("submit", function(event){
 			pswd.focus();
 			return false;
 		}
-		if(pswd.length()<8 || pswd.length()>20){
+		if(pswd.value.length < 8 || pswd.value.length > 20){
 			alert("비밀번호는 8자리 이상 20자리 이하여야 합니다.");
 			event.preventDefault();
 			pswd.focus();
 			return false;
 		}
-		/*if(passreg.test(pswd.value)==false){
+		if(passreg.test(pswd.value)==false){
 			alert("비밀번호는 영문자, 숫자, 기호가 하나씩 들어가 있어야 합니다.");
-			e.preventDefault();
+			event.preventDefault();
 			return false;
-		}*/
-		if(passCheck.value==""){
+		}
+		if(passCheck.value!=pswd.value || !passCheck.value){
 			alert("비밀번호가 맞는지 확인해 주세요.");
 			event.preventDefault();
 			passCheck.focus();
@@ -83,11 +89,11 @@ eventform.addEventListener("submit", function(event){
 			phone.focus();
 			return false;
 		}
-		/*if(phonereg.test(phone.value)==false){
+		if(phonereg.test(phone.value)==false){
 			alert("전화번호는 '-'를 제외하고 입력해 주세요.");
-			e.preventDefault();
+			event.preventDefault();
 			return false;
-		}*/
+		}
 		if(email1.value=="" || email2.value==""){
 			alert("이메일을 입력해주세요.");
 			event.preventDefault();
