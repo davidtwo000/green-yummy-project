@@ -40,6 +40,11 @@
     margin: 10px;
 }
 
+.restaurantImg img {
+    width: 250px;
+    height: 250px;
+}
+
 .rating {
     margin: 20px;
 }
