@@ -32,18 +32,19 @@
                     메뉴별
                 </li>
             </ul>
-
+            
+			<div class="mainPrevBtn"></div>
 			<div class="eventImgCon">
-				<div class="mainPrevBtn"></div>
+				
 			<ul class="eventImgList">
+				<li><div class="mainImg"> 이미지 first </div></li>
 				<li><div class="mainImg"> 이미지 </div></li>
 				<li><div class="mainImg"> 이미지 </div></li>
 				<li><div class="mainImg"> 이미지 </div></li>
-				<li><div class="mainImg"> 이미지 </div></li>
-				<li><div class="mainImg"> 이미지 </div></li>
+				<li><div class="mainImg"> 이미지 last </div></li>
 			</ul>
-				<div class="mainNextBtn"></div>
 			</div>
+			<div class="mainNextBtn"></div>
             
 
             <div class="recommand">
