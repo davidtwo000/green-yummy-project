@@ -33,9 +33,10 @@
                 </li>
             </ul>
             
-			<div class="mainPrevBtn"></div>
+			
 			<div class="eventImgCon">
-				
+			<div class="mainPrevBtn"></div>
+			<div class="eventImgInnerCon">
 			<ul class="eventImgList">
 				<li><div class="mainImg"> 이미지 first </div></li>
 				<li><div class="mainImg"> 이미지 </div></li>
@@ -44,73 +45,58 @@
 				<li><div class="mainImg"> 이미지 last </div></li>
 			</ul>
 			</div>
-			<div class="mainNextBtn"></div>
+				<div class="mainNextBtn"></div>
+			</div>
+			
+			
             
-
+ 
             <div class="recommand">
             <div class="recPrevBtn"></div>
-           
-                <div class="recommandTag"> 추천 맛집</div>
-                <ul class="recommandList">
-                    <li>
-                        <div class="recommandImg"> </div>
-                        <div class="recommandDetail"> 가게 이름 / 평점 </div>
-                    </li>
-                    <li>
-                        <div class="recommandImg"> </div>
-                        <div class="recommandDetail"> 가게 이름 / 평점 </div>
-                    </li>
-                    <li>
-                        <div class="recommandImg"> </div>
-                        <div class="recommandDetail"> 가게 이름 / 평점 </div>
-                    </li>
-                </ul>
-                 <div class="recNextBtn"></div>
+	           <div class="recommandInnerCon">
+	           <div class="recommandTag"> 추천 맛집</div>
+	                <div class="lookMoreRec">자세히 보기</div>
+	                <ul class="recommandList">
+	                    <li>
+	                        <div class="recommandImg"> </div>
+	                        <div class="recommandDetail"> (first)가게 이름 / 평점 </div>
+	                    </li>
+	                    <li>
+	                        <div class="recommandImg"> </div>
+	                        <div class="recommandDetail"> 가게 이름 / 평점 </div>
+	                    </li>
+	                    <li>
+	                        <div class="recommandImg"> </div>
+	                        <div class="recommandDetail"> 가게 이름 / 평점 </div>
+	                    </li>
+	                    <li>
+	                        <div class="recommandImg"> </div>
+	                        <div class="recommandDetail"> 가게 이름 / 평점 </div>
+	                    </li>
+	                    <li>
+	                        <div class="recommandImg"> </div>
+	                        <div class="recommandDetail"> 가게 이름 / 평점 </div>
+	                    </li>
+	                    <li>
+	                        <div class="recommandImg"> </div>
+	                        <div class="recommandDetail"> (last)가게 이름 / 평점 </div>
+	                    </li>
+	                </ul>
+	           </div>
+           	<div class="recNextBtn"></div>
             </div>
             
-            <div class="koreans">
-                <div class="koreansTag"> 추천 맛집</div>
-                <div class="gotoKoreanPage">자세히 보기</div>
-                <ul class="koreanList">
-                    <li>
-                        <div class="koreanImg"> </div>
-                        <div class="koreanDetail"> 가게 이름 / 평점 </div>
-                    </li>
-                    <li>
-                        <div class="koreanImg"> </div>
-                        <div class="koreanDetail"> 가게 이름 / 평점 </div>
-                    </li>
-                    <li>
-                        <div class="koreanImg"> </div>
-                        <div class="koreanDetail"> 가게 이름 / 평점 </div>
-                    </li>
-                </ul>
-            </div>
+            
+            
        
         
-        <div class="recommand">
-                <div class="recommandTag"> 추천 맛집</div>
-                <div class="gotoJapanPage">자세히 보기</div>
-                <ul class="recommandList">
-                    <li>
-                        <div class="recommandImg"> </div>
-                        <div class="recommandDetail"> 가게 이름 / 평점 </div>
-                    </li>
-                    <li>
-                        <div class="recommandImg"> </div>
-                        <div class="recommandDetail"> 가게 이름 / 평점 </div>
-                    </li>
-                    <li>
-                        <div class="recommandImg"> </div>
-                        <div class="recommandDetail"> 가게 이름 / 평점 </div>
-                    </li>
-                </ul>
-            </div>
+        
             
         </div>
     </div>
     
-    <script src="/index/js/index.js"></script>
+    <script src="/index/js/indexMainImgs.js"></script>
+    <script src="/index/js/indexRecImgs.js"></script>
     
     <jsp:include page="../public/footer.jsp"/>
     
