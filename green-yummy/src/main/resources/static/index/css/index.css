@@ -6,35 +6,16 @@
     
     margin: 100px 0 100px 0;
 }
-
-
-.recPrevBtn,
-.recNextBtn{
-	position: relative;
-	width: 100px;
-	height: 100px;
-	cursor: pointer;
-	
-	background: rgba(35, 23, 44, 0.5);
-}
-.recPrevBtn{
-	top: 280px;
-}
-.recNextBtn{
-	float: right;
-	top: -280px;
-}
-
-
-
-.innerContainer {
-    width: 1280px;
+.innerContainer{
+	width: 1280px;
     justify-content: center;
     text-align: center;
     display: flex;
     flex-direction: column;
+    
+	border: 1px solid salmon;
 }
-.searchContainer,
+
 .category,
 .eventImgCon,
 .recommand,
@@ -90,6 +71,12 @@
 }
 .eventImgCon{
 	width: 1280px;
+	
+	border: 1px solid blue;
+}
+.eventImgInnerCon{
+	width: 1280px;
+	height: 540px;
 	overflow: hidden;
 	
 	border: 1px solid red;
@@ -119,59 +106,82 @@
 .mainPrevBtn,
 .mainNextBtn{
 	position: relative;
+	
 	width: 100px;
 	height: 100px;
 	cursor: pointer;
 	
 	background: rgba(65, 33, 21, 0.5);
 }
+
 .mainPrevBtn{
 	top: 320px;
 	left: -100px;
 }
 .mainNextBtn{
 	top: -320px;
-	left: 100px;
+	left: 1280px;
 }
-
-.recommand,
-.koreans{
+.recommand{
+	border: 1px solid turquoise;
+}
+.recommandInnerCon{
+	width: 1280px;
+	overflow: hidden;
+	
 	border: 2px solid red;
 }
 
-.recommandTag,
-.koreansTag {
+.recommandTag{
     margin-top: 20px;
     padding-left: 20px;
     text-align: left;
 }
 
-.recommandList,
-.koreanList {
+.recommandList{
+	position: relative;
+	display: flex;
     list-style: none;
-    padding: 0; 
-    display: flex;
-    justify-content: space-around; 
+    padding: 0px; 
+   
+    
+    border: 1px solid skyblue;
 }
 
-.recommandList li,
-.koreanList li {
+.recommandList > li{
+	position: relative;
+/* 	left: -330px; */
     display: flex; 
     flex-direction: column; 
     width: 300px; 
     height: 400px; 
     border: 1px solid gray; 
-    margin-right: 10px; 
+    margin: 0 30px 0 30px;
 }
 
-.recommandImg,
-.koreanImg {
-    width: 100%; 
+.recommandImg{
+    width: 300px; 
     height: 300px; 
     background-color: lightgray; 
 }
+.recPrevBtn,
+.recNextBtn{
+	position: relative;
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+	
+	background: rgba(35, 23, 44, 0.5);
+}
+.recPrevBtn{
+	top: 301px;
+	left: -100px;
+}
+.recNextBtn{
+	top: -301px;
+	left: 1280px;
+}
 
-.recommandDetail,
-.koreanDetail {
+.recommandDetail{
     padding: 10px; 
 }
