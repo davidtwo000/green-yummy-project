@@ -18,6 +18,24 @@ console.log(firstClone);
 console.log(lastClone);
 
 //자동 슬라이드
+window.addEventListener("load", function(){
+	//한 칸 이동하고, 1초 동안 멈췄다가 또 한 칸 움직인다. 이걸 i=4가 될때까지 반복한다.
+	for(let i=0;i<5;i++){
+		setTimeout(() => {
+			eventImgList.style.left = -1280(i+1) + "px";
+			eventImgList.style.transition = "left 300ms ease-in-out";
+			curIdx++;
+		}, 1000);
+		//마지막 사진에 도달하면 아주 빠르게 복제해둔 맨 앞의 슬라이드로 이동한다.
+		if(curIdx==4){
+			setTimeout(() => {
+				eventImgList.style.left = -1280 + "px";
+				eventImgList.style.transition = "none";
+				curIdx = 0;
+			}, 100);
+		}
+	}
+});
 
 
 //뒤로 가는 버튼
