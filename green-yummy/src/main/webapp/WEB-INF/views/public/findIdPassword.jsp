@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>아이디/비밀번호 찾기</title>
-    <link href="/css/findIdPassword.css" rel="stylesheet" type="text/css">
+    <link href="/public/css/findIdPassword.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 

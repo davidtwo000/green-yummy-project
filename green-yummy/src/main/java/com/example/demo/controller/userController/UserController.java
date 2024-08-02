@@ -21,11 +21,6 @@ public class UserController {
 //		return "user/";
 //	}
 	
-	@GetMapping("user/findIdPassword")
-	public String findIdPassword() {
-		return "user/findIdPassword";
-	}
-	
 	@GetMapping("user/userPage")
 	public String userPage() {
 		return "user/userPage";
