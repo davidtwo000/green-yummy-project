@@ -44,6 +44,11 @@ public class MainController {
 		return "public/advertisementCheckPage";
 	}
 	
+	@GetMapping("public/findIdPassword")
+	public String findIdPassword() {
+		return "public/findIdPassword";
+	}
+	
 	@GetMapping("public/userRegist")
 	public String userRegist() {
 		return "public/userRegist";
