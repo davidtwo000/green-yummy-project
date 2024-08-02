@@ -16,33 +16,44 @@
 
     <main>
         <div class="innerContainer">
-            <ul>
-                <li>아이디 찾기</li>
-                <li>비밀번호 찾기</li>
-            </ul>
-
-            <div class="findId">
-                전화번호로 찾기
-                <input type="text">
-                <p>*-를 제외하고 입력해주세요.</p>
-    
-                <br>
-    
-                이메일로 찾기
-                <input type="text">
-                
-            </div>
-
-            <div class="findPswd">
-                이메일을 입력해주세요.
-                <input type="text">
-                
-            </div>
-            
+	        <div class="findIdPassCon">
+	        	<ul>
+	                <li class="findThis">아이디 찾기</li>
+	                <li>비밀번호 찾기</li>
+	            </ul>
+	
+	            <div class="findId">
+	                전화번호로 찾기<br>
+	                <input type="text" placeholder="전화번호를 입력해 주세요.">
+	                <p>*-를 제외하고 입력해주세요.</p>
+	    
+	                <br>
+	    
+	                이메일로 찾기<br>
+	                <input type="text" placeholder="이메일을 입력해주세요.">
+	                
+	            </div>
+	
+	            <div class="findPswd hidden">
+	                이메일을 입력해주세요.<br>
+	                <input type="text" placeholder="이메일을 입력해 주세요.">
+	                <p>*이메일을 입력하시면 임시 비밀번호가 발송됩니다. 
+	                임시 비밀 번호를 받아 로그인하신 뒤 비밀번호 변경을 진행해 주세요.</p>
+	                
+	            </div>
+	        </div>
+	        
+	        <div class="findBtns">
+		        <input type="submit" value="아이디 찾기">
+		        <input type="submit" value="비밀번호 찾기">
+	        </div>
+	        
         </div>
     </main>
 
    <jsp:include page="../public/footer.jsp"/>
+   
+   <script src="/public/js/findIdPswd.js"></script>
     
 </body>
 </html>
