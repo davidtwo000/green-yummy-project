@@ -3,6 +3,7 @@ package com.example.demo.service.userService;
 import java.util.List;
 
 import com.example.demo.dto.userDto.ReviewDTO;
+import com.example.demo.model.userModel.Review;
 
 public interface ReviewService {
 	List<ReviewDTO> getAllReviews(); // 모든 리뷰 가져오기
@@ -13,4 +14,10 @@ public interface ReviewService {
     
     //리뷰 작성
     void createReview(ReviewDTO reviewDTO);
+    
+    //가게ID 리뷰
+    List<ReviewDTO> findByShopUkId(Integer shopUkId);
+	
+    // 가게 ID로 평균 평점 가져오기
+    Double getAverageReviewRateByShopUkId(Integer shopUkId);
 }
