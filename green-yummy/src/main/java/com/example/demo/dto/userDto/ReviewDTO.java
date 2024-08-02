@@ -1,6 +1,7 @@
 package com.example.demo.dto.userDto;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import com.example.demo.dto.publicDto.ShopDTO;
 
@@ -20,4 +21,5 @@ public class ReviewDTO {
     private LocalDateTime reviewDate; // 리뷰 작성 날짜
     
     private ShopDTO shop;
+    private UserDTO user;
 }

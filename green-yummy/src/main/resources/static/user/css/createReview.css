@@ -8,26 +8,28 @@ main{
     height: 1000px;
 }
 
-.storeStars{
-    visibility: hidden;
+.rateSelect {
+	border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin:15px;
 }
-.scoreRadio{
-    
-    border: 1px solid black;
+
+.keywordSelect {
+	border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin:15px;
 }
-.reviewKeyword{
-    border: 1px solid black;
+
+.reviewContent {
+	border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin:15px;
+    width: 90%;
 }
-.reviewContent{
-    border: 1px solid black;
-}
-.reviewPhotos{
-    border: 1px solid black;
-}
-.reviewBtn{
-    display: flex;
-    justify-content: center;
-}
+
 input[type="submit"]{
     width: 100px;
     height: 50px;
