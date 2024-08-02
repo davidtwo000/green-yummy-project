@@ -1,10 +1,18 @@
 package com.example.demo.controller.userController;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,24 +37,48 @@ public class ReviewRestController {
         }
     }
     
-    @PostMapping("/user/createReview/{id}")
+    @PostMapping("/createReview/{shopUkId}")
     public ResponseEntity<String> createReview(
-            @RequestParam("shopUkId") Integer shopUkId,
+            @PathVariable("shopUkId") Integer shopUkId,
+            @RequestParam("userUkId") Integer userUkId,
             @RequestParam("reviewRate") Byte reviewRate,
-            @RequestParam("reviewComment") String reviewComment,
+            @RequestParam("reviewComment") String reviewComment, // Capture as a comma-separated string
             @RequestParam("reviewContent") String reviewContent) {
-        
-        // ReviewDTO 객체 생성 및 데이터 설정
-        ReviewDTO review = new ReviewDTO();
-        review.setShopUkId(shopUkId);
-        review.setReviewRate(reviewRate);
-        review.setReviewComment(reviewComment);
-        review.setReviewContent(reviewContent);
-        
-        // 리뷰 생성 서비스 호출
-        reviewService.createReview(review);
 
-        // 성공 메시지 반환
-        return ResponseEntity.ok("리뷰가 성공적으로 생성되었습니다.");
+        try {
+            ReviewDTO review = new ReviewDTO();
+            review.setShopUkId(shopUkId);
+            review.setUserUkId(userUkId);
+            review.setReviewRate(reviewRate);
+            review.setReviewComment(reviewComment); // Store as a list
+            review.setReviewContent(reviewContent);
+
+            // Call the service to create the review
+            reviewService.createReview(review);
+
+            return ResponseEntity.ok("리뷰가 성공적으로 생성되었습니다.");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Failed to create review: " + e.getMessage());
+        }
+    }
+    
+    // 가게ukId로 리뷰 출력
+    @GetMapping("/shop/{shopUkId}")
+    public ResponseEntity<List<ReviewDTO>> getReviewsByShopUkId(@PathVariable("shopUkId") Integer shopUkId) {
+        List<ReviewDTO> reviews = reviewService.findByShopUkId(shopUkId);
+        if (reviews.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(reviews, HttpStatus.OK);
+    }
+    
+    //리뷰 평점
+    @GetMapping("/shop/{shopUkId}/averageRating")
+    public ResponseEntity<Double> getAverageRating(@PathVariable Integer shopUkId) {
+        Double averageRating = reviewService.getAverageReviewRateByShopUkId(shopUkId);
+        if (averageRating == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(averageRating);
     }
 }
