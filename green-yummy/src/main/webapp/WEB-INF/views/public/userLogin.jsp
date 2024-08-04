@@ -19,22 +19,23 @@
         <div class="loginContainer">
             <form class="loginbox">
                 <div class="loginforms">
+                	<form action="/login" method="post">
                     <table>
                         <tr>
                             <td>아이디</td>
-                            <td><input type="text" placeholder="아이디를 입력하세요."></td>
+                            <td><input type="text" name="id" placeholder="아이디를 입력하세요."></td>
                         </tr>
                         <tr>
                             <td>비밀번호</td>
-                            <td><input type="text" placeholder="아이디를 입력하세요."></td>
+                            <td><input type="text" name="password" placeholder="아이디를 입력하세요."></td>
                         </tr>
                        
                     </table>
                     
                     <div>
-                        <input type="button" value="로그인" onclick="userLogin()">
+                        <input type="submit" value="로그인">
                     </div>
-                    
+                    </form>
                 </div>
                 <div class="loginbuttonetc">
                     <input type="button" value="회원가입" onclick="userJoin()">
