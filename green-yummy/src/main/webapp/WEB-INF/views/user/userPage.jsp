@@ -16,12 +16,18 @@
         <div class="userContainer">
             <div class="forUser">
                 <div class="userPic">
-    
+    				<img src="/images/person.png">
                 </div>
+                
+                <div class="helloUser">
+	                <p>${nickname}님, 환영합니다!
+	                <img src="/images/pencil.png" onclick="infoChange()"></p>
+	                <input type="button" value="회원정보 수정" onclick="infoChange()">
+                </div>
+                
     
                 <div class="userBtns">
-                    <p>${nickname}님, 환영합니다!</p>
-                    <input type="button" value="회원정보 수정" onclick="infoChange()"><br>
+                    
                     <input type="button" value="로그아웃" onclick="logout()"><br>
                     <input type="button" value="회원탈퇴" onclick="userBye()"><br>
                 </div>

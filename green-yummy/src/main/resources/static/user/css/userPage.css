@@ -1,11 +1,5 @@
-iframe{
-	width: 100%;
-	height: 2000px;
-	border: 2px solid brown;
-}
-.youHere{
-	color: white;
-}
+
+
 
 main{
     display: flex;
@@ -21,29 +15,47 @@ main{
     border: 2px solid skyblue;
 }
 
+/*유저 프로필 부분*/
 .forUser{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    padding: 20px;
     
     border: 2px solid green;
 }
-.userPic{
+.userPic, .userPic > img{
     width: 200px;
     height: 200px;
-    background: skyblue;
-    opacity: 0.5;
+    border-radius: 10px;
+	background: #f2f2f2;
+}
+.helloUser>p{
+	margin: 0px;
+    font: normal bold 15pt 'sans-serif';
+}
+.helloUser > p > img{
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+.userBtns{
+	border: 2px solid violet;
 }
 input[type="button"]{
-    font-weight: bold;
+	padding: 10px;
+	margin-top: 10px;
+	width: 150px;
+	font: normal bold 13pt 'sans-serif';
     cursor: pointer;
     border: none;
 
     background: pink;
 }
-.userBtns>p{
-    font-weight: bold;
-}
+
+
+
+/*맛집 페이지 리뷰 페이지 오가는 탭*/
 .mypageTab{
     display: flex;
     justify-content: space-evenly;
@@ -60,7 +72,16 @@ input[type="button"]{
 .mypageTab > li{
 	cursor: pointer;
 }
+.youHere{
+	color: white;
+}
+iframe{
+	width: 100%;
+	height: 2000px;
+	border: 2px solid brown;
+}
 
+/*로그아웃, 회원 탈퇴 모달*/
 .modalContainer1,
 .modalContainer2{
     display: flex;

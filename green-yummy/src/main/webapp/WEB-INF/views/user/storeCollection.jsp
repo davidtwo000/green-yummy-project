@@ -71,6 +71,8 @@
 		            <option value="">그 외</option>
 		        </select>
 		        
+		        <img src="/images/gridview.png">
+		        <img src="/images/orderByList.png">
 		        <select class="viewLook">
 		        	<option value="바둑판 정렬">바둑판</option>
 		        	<option value="">리스트</option>
@@ -78,7 +80,7 @@
 		        </select>
 		    </div>
 		
-		    <div class="storeCollect">
+		    <div class="storeCollectGrid">
 		        <div class="storeAlbum">
 		        
 		        </div>
@@ -97,12 +99,7 @@
 		        <div class="storeAlbum">
 		        
 		        </div>
-		        <div class="storeAlbum">
 		        
-		        </div>
-		        <div class="storeAlbum">
-		        
-		        </div>
 		    </div>
 			</div>
 		    
