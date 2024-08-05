@@ -18,6 +18,6 @@ public interface ReviewService {
     //가게ID 리뷰
     List<ReviewDTO> findByShopUkId(Integer shopUkId);
 	
-    // 가게 ID로 평균 평점 가져오기
-    Double getAverageReviewRateByShopUkId(Integer shopUkId);
+    //리뷰 평점
+    Double getAverageRatingForShop(Integer shopUkId);
 }

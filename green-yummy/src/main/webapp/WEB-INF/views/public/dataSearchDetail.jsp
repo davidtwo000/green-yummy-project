@@ -22,6 +22,8 @@
         <div class="restaurantTitle"> 
             <div class="name">${shop.shopName}</div>
             <div class="type">${shop.shopType}</div>
+            <div class="rating"> 평점 </div>
+        	<div class="averageRating" id="averageRating"> </div>
         </div>
         
         <div class="restaurantImgContainer">
@@ -32,8 +34,7 @@
             <div class="restaurantImg"> </div>
         </div>
         
-        <div class="rating"> 별점 ★★★★★ </div>
-        <div id="averageRating">평균 평점: 로딩 중...</div>
+       
 
         <div class="detail">
             <table class="detailtable">

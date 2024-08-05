@@ -17,34 +17,8 @@ eventImgList.appendChild(firstClone)
 console.log(firstClone);
 console.log(lastClone);
 
-//자동 슬라이드
-
-
-
-
-//뒤로 가는 버튼
-eventImgPrev.onclick = () => {
-	if(curIdx===0){
-		curIdx++;
-		eventImgList.style.left = 0 + "px";
-		eventImgList.style.transition = "left 300ms ease-in-out";
-		
-		setTimeout(() => {
-						eventImgList.style.left = -6400 + "px";
-						eventImgList.style.transition = "none";
-						curIdx = 4;
-					}, 300);
-	}else{
-		curIdx--;
-		eventImgList.style.left = -1280*(curIdx+1) + "px";
-		eventImgList.style.transition = "left 300ms ease-in-out";
-	}
-}
-
-
-//앞으로 가는 버튼
-
-eventImgNext.onclick = () => {
+//앞으로 가는 함수
+function goNext(){
 	if(curIdx===4){
 		curIdx++;
 		eventImgList.style.left = -7680 + "px";
@@ -61,3 +35,45 @@ eventImgNext.onclick = () => {
 		eventImgList.style.transition = "left 300ms ease-in-out";
 	}
 }
+
+//이건 자동 슬라이드
+let autoSlide = setInterval(goNext, 4000);
+
+//setInterval 시간을 리셋시키는 함수
+function intervalTimeReset(){
+	clearInterval(autoSlide);
+	autoSlide = setInterval(goNext, 4000);
+
+	console.log("hello");
+}
+
+//앞으로 가는 버튼, 자동 슬라이드 시간 리셋
+eventImgNext.onclick = () => {
+	goNext();
+	intervalTimeReset();
+}
+
+
+//뒤로 가는 버튼, 자동 슬라이드 시간 리셋
+eventImgPrev.onclick = () => {
+	if(curIdx===0){
+		curIdx++;
+		eventImgList.style.left = 0 + "px";
+		eventImgList.style.transition = "left 300ms ease-in-out";
+		
+		setTimeout(() => {
+						eventImgList.style.left = -6400 + "px";
+						eventImgList.style.transition = "none";
+						curIdx = 4;
+					}, 300);
+	}else{
+		curIdx--;
+		eventImgList.style.left = -1280*(curIdx+1) + "px";
+		eventImgList.style.transition = "left 300ms ease-in-out";
+	}
+
+	intervalTimeReset();
+}
+
+
+

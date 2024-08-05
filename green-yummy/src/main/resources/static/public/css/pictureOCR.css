@@ -10,18 +10,19 @@ main{
     justify-content: center;
     align-items: center;
     width: 1280px;
+    
+    border: 2px solid turquoise;
 }
-.OCRtitle{
-    border: 1px solid black;
-}
-.OCRexplain{
-    border: 1px solid black;
-}
+
+
+
+/*검색 결과란*/
 .OCRresult{
     display: flex;
     flex-direction: row;
-    width: 400px;
-    height: 300px;
+    justify-content: center;
+    width: 1280px;
+    height: 100px;
     background: lightgray;
 }
 input[type="text"]{
@@ -38,13 +39,35 @@ input[type="button"]{
     border: onne;
     background: skyblue;
 }
+
+/*OCR 설명란*/
+h4{
+    padding-left: 10px;
+}
+.OCRexplain{
+    padding: 10px;
+	background: lightgray;
+	
+    border: 1px solid orange;
+}
+.OCRexplain > ol > li{
+	box-sizing: border-box;
+	width: 400px;
+	
+	font: normal normal 10pt 'sans-serif';
+}
+
+/*사진 삽입란*/
 .OCRsearch, input[type="file"]{
-    width: 1000px;
+    width: 800px;
     height: 600px;
+    
+    background: lightgray;
 }
 input[type="file"]{
-    position: absolute;
-    top: 515px;
+    position: relative;
+    z-index: 50;
+/*     top: 515px; */
     background: salmon;
     opacity: 0.5;
     display: hidden;
@@ -55,8 +78,10 @@ input[type="file"]{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 100px;
     
-    background: lemonchiffon;
+}
+.OCRsearch > img{
+    width: 50px;
+    height: 50px;
 }
 
