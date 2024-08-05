@@ -52,16 +52,27 @@ select{
 	cursor: pointer;
 }
 
+
+/*모음집과 리뷰리스트가 정렬되는 공간*/
+.invisible{
+	display: none;
+}
 .viewLook{
 	float: right;
 }
-.storeCollect{
-	display: grid;
+.storeCollectList{
+	width: 100%;
+	height: 1000px;
+	
+	background: pink;
+}
+.storeCollectGrid{
+/* 	display: grid; */
 	grid-template: repeat(3, 1fr)/repeat(3, 1fr);
 	place-items: center center;
 	width: 100%;
 	height: 1000px;
-	background: white;
+	background: lemonchiffon;
 	
 	border: 2px solid green;
 }

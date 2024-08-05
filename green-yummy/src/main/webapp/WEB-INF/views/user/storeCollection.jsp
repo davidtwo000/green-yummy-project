@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,42 +73,35 @@
 		            <option value="">그 외</option>
 		        </select>
 		        
-		        <img src="/images/gridview.png">
-		        <img src="/images/orderByList.png">
+		        <img src="/images/gridview.png" class="gridview">
+		        <img src="/images/orderByList.png" class="listview">
+		        
 		        <select class="viewLook">
 		        	<option value="바둑판 정렬">바둑판</option>
 		        	<option value="">리스트</option>
 		        	<option value="">간단히</option>
 		        </select>
 		    </div>
+		    
+		    <c:set var="allShops" value="${fn:length(shop)}"}
 		
+<!-- 		바둑판 정렬 -->
 		    <div class="storeCollectGrid">
 		        <div class="storeAlbum">
 		        
 		        </div>
-		        <div class="storeAlbum">
-		        
-		        </div>
-		        <div class="storeAlbum">
-		        
-		        </div>
-		        <div class="storeAlbum">
-		        
-		        </div>
-		        <div class="storeAlbum">
-		        
-		        </div>
-		        <div class="storeAlbum">
-		        
-		        </div>
-		        
 		    </div>
+<!-- 		리스트 정렬     -->
+		    <div class="storeCollectList invisible">
+		    
+		    </div>
+		    
 			</div>
 		    
 		</div>
 	</main>
 
-    
+    <script src="/user/js/storeCollection.js"></script>
     
 </body>
 </html>
