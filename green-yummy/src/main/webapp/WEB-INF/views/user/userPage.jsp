@@ -29,8 +29,8 @@
         
         
             <ul class="mypageTab">
-                <li class="storeTab youHere">나의 리뷰(0개)</li>
-                <li class="reviewTab">나의 맛집(0개)</li>
+                <li class="storeTab youHere">나의 맛집(0개)</li>
+                <li class="reviewTab">나의 리뷰(0개)</li>
             </ul>
         
         	
@@ -64,9 +64,11 @@
         
     </main>
     
+    <script src="/user/js/userPage.js"></script>
+    
 <jsp:include page="../public/footer.jsp"/>
 
-<script src="/user/js/userPage.js"></script>
+
     
 </body>
 </html>

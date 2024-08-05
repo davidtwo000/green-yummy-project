@@ -7,6 +7,7 @@
 <title>index</title>
 
 <link rel="stylesheet" type="text/css" href="/index/css/index.css">
+<link rel="stylesheet" type="text/css" href="/index/css/indexRecommand.css">
 </head>
 <body>
 
@@ -14,11 +15,28 @@
 
 <div class="outContainer">
         <div class="innerContainer">
+
+
+				<div class="mainPrevBtn"></div>
+				<div class="eventImgCon">
+				<ul class="eventImgList">
+					<li><div class="mainImg">
+						<img src="images/pasta.jpg"> 이미지 first </div></li>
+					<li><div class="mainImg"> 이미지 </div></li>
+					<li><div class="mainImg"> 이미지 </div></li>
+					<li><div class="mainImg"> 이미지 </div></li>
+					<li><div class="mainImg">
+						<img src="images/steak.jpg"> 이미지 last </div></li>
+				</ul>
+				</div>
+					<div class="mainNextBtn"></div>
+
+
             <div class="searchContainer">
                 <input type="text" placeholder="검색어를 입력하세요" class="searchBar">
                 <div class="customSearchBtn"></div>
                 <input type="button" value="OCR" class="OCRBtn" 
-                onclick="function(){ window.location.href='/public/pictureOCR';}">
+                onclick="() =>  window.location.href='/public/pictureOCR';">
             </div>
 
             <ul class="category">
@@ -31,29 +49,19 @@
                 <li>
                     메뉴별
                 </li>
+				<li>
+					평점별
+				</li>
             </ul>
             
 			
-			<div class="eventImgCon">
-			<div class="mainPrevBtn"></div>
-			<div class="eventImgInnerCon">
-			<ul class="eventImgList">
-				<li><div class="mainImg"> 이미지 first </div></li>
-				<li><div class="mainImg"> 이미지 </div></li>
-				<li><div class="mainImg"> 이미지 </div></li>
-				<li><div class="mainImg"> 이미지 </div></li>
-				<li><div class="mainImg"> 이미지 last </div></li>
-			</ul>
-			</div>
-				<div class="mainNextBtn"></div>
-			</div>
+			
 			
 			
             
  
-            <div class="recommand">
             <div class="recPrevBtn"></div>
-	           <div class="recommandInnerCon">
+	           <div class="recommandCon">
 	           <div class="recommandTag"> 추천 맛집</div>
 	                <div class="lookMoreRec">자세히 보기</div>
 	                <ul class="recommandList">
@@ -84,7 +92,6 @@
 	                </ul>
 	           </div>
            	<div class="recNextBtn"></div>
-            </div>
             
             
             
