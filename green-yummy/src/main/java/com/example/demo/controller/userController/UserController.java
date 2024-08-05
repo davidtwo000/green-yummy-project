@@ -40,7 +40,7 @@ public class UserController {
 	@GetMapping("user/storeCollection")//이혜민, 추가한 부분
 	public String storeCollection(Model model) {
 		List<ShopDTO> shop = shopservice.getAllShops();
-		model.addAttribute("shop",shop);
+		model.addAttribute("shop", shop);
 		return "user/storeCollection";
 	}
 	
