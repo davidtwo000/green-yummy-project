@@ -54,6 +54,7 @@ select{
 
 
 /*모음집과 리뷰리스트가 정렬되는 공간*/
+/*바둑판 부분*/
 .invisible{
 	display: none;
 }
@@ -68,8 +69,8 @@ select{
 }
 .storeCollectGrid{
 /* 	display: grid; */
-	grid-template: repeat(3, 1fr)/repeat(3, 1fr);
-	place-items: center center;
+/* 	grid-template: repeat(3, 1fr)/repeat(3, 1fr); */
+/* 	place-items: center center; */
 	width: 100%;
 	height: 1000px;
 	background: lemonchiffon;
@@ -81,4 +82,30 @@ select{
 	height: 320px;
 	
 	border: 2px solid red;
+}
+
+/*리스트 부분*/
+.storeList{
+	display: flex;
+	margin: 10px 0 10px 0;
+	padding: 10px;
+	border-radius: 10px;
+	border: 2px solid brown;
+}
+.storeList > img{
+	width: 200px;
+	height: 200px;
+}
+.storeList > table{
+	margin-left: 10px;
+}
+.storeList > table > tbody
+ > tr:first-child > td:first-child{
+	font: normal bold 15pt 'sans-serif';
+}
+.storeList > table > tbody >
+ tr:first-child > 
+ td:nth-child(2) > img{
+	width: 125px;
+	height: 20px;
 }

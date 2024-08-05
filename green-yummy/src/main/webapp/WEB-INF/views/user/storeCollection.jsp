@@ -83,17 +83,47 @@
 		        </select>
 		    </div>
 		    
-		    <c:set var="allShops" value="${fn:length(shop)}"}
+		    <c:set var="allShops" value="${fn:length(shop)}"/>
+		    <c:set var="rowEnd" value="${(allShops+2)/3}"/>
+		    
+		    
+		    	
 		
 <!-- 		바둑판 정렬 -->
 		    <div class="storeCollectGrid">
-		        <div class="storeAlbum">
-		        
-		        </div>
+		        <c:forEach var="rowLength" begin="0" end="${rowEnd}">
+			    	<div class="outer">
+			    		<c:forEach var="columnLength" begin="0" end="2">
+			    			<div class="storeAlbum">
+			        			${shop[0].shopName}
+			        		</div>
+			    		</c:forEach>
+			    	</div>
+		    	</c:forEach>
 		    </div>
+		    
+		    
 <!-- 		리스트 정렬     -->
 		    <div class="storeCollectList invisible">
-		    
+		    <c:forEach var="index" begin="0" end="${allShops}">
+		    	<div class="storeList">
+		    		<img src="/images/${shop[index].shopProfile}">
+		    		<table>
+		    		<tr>
+		    			<td>${shop[index].shopName}</td>
+		    			<td><img src="/images/fourstar.png">4.0</td>
+		    		</tr>
+		    		<tr>
+		    			<td>${shop[index].shopType}</td>
+		    			<td>${shop[index].location}</td>
+		    		</tr>
+		    		<tr>
+		    			<td>${shop[index].shopTel}</td>
+		    		</tr>
+		    		
+		    		</table>
+		    	</div>
+		    </c:forEach>
 		    </div>
 		    
 			</div>
