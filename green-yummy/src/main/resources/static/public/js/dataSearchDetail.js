@@ -46,33 +46,23 @@ function displayReviews(reviews) {
     });
 }
 
-// 리뷰 평점 계산
-function displayAverageRating(shopUkId) {
-    fetch(`/reviews/shop/${shopUkId}/averageRating`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json(); 
-        })
+function averageRating(shopUkId) {
+    fetch(`/reviews/shop/${shopUkId}/average-rating`)
+        .then(response => response.json()) 
         .then(averageRating => {
-            const averageRatingElement = document.getElementById('averageRating');
-            if (averageRating !== null && averageRating !== undefined) {
-                averageRatingElement.textContent = `평균 평점: ${averageRating.toFixed(1)}`;
-            } else {
-                averageRatingElement.textContent = '평점 정보가 없습니다.';
-            }
+            let formattedRating = averageRating.toFixed(1);
+            document.getElementById('averageRating').textContent = `${formattedRating}`;
         })
         .catch(error => {
-            console.error('평점 데이터 처리 오류:', error);
-            const averageRatingElement = document.getElementById('averageRating');
-            averageRatingElement.textContent = '평점 정보를 가져오는 중 오류가 발생했습니다.';
+            console.error('Failed to fetch average rating:', error);
+            document.getElementById('averageRating').textContent = '평균 평점: 정보를 불러올 수 없습니다.';
         });
 }
+
 document.addEventListener('DOMContentLoaded', function() {
     const shopUkId = document.getElementById('shopUkId').value;
 	console.log(shopUkId);
     fetchReviews(shopUkId);
-	displayAverageRating(shopUkId)
+	averageRating(shopUkId);
 });
 //여기까지 sg가 기능 구현한 것
