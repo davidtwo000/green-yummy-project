@@ -1,6 +1,7 @@
 package com.example.demo.controller.userController;
 
 import java.util.Arrays;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.userDto.ReviewDTO;
 import com.example.demo.service.userService.ReviewService;
+
 
 @RestController
 @RequestMapping("/reviews")
@@ -72,13 +74,10 @@ public class ReviewRestController {
         return new ResponseEntity<>(reviews, HttpStatus.OK);
     }
     
-    //리뷰 평점
-    @GetMapping("/shop/{shopUkId}/averageRating")
-    public ResponseEntity<Double> getAverageRating(@PathVariable Integer shopUkId) {
-        Double averageRating = reviewService.getAverageReviewRateByShopUkId(shopUkId);
-        if (averageRating == null) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(averageRating);
+    
+    //리뷰 평균 평점 조회
+    @GetMapping("/shop/{shopUkId}/average-rating")
+    public Double getAverageRating(@PathVariable("shopUkId") Integer shopUkId) {
+        return reviewService.getAverageRatingForShop(shopUkId);
     }
 }
