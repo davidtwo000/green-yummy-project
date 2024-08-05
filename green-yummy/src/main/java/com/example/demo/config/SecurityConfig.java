@@ -34,7 +34,7 @@ public class SecurityConfig {
         http
 	        .authorizeHttpRequests(authorizeHttpRequests ->
 	        	authorizeHttpRequests
-	        		.requestMatchers("/user/**").authenticated()
+	        		//.requestMatchers("/user/**").authenticated()
 	        		.anyRequest().permitAll()
 	        )
 	        .csrf(csrf -> 
