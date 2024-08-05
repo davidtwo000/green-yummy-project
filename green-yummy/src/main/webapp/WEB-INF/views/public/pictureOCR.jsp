@@ -38,7 +38,7 @@
                      <span>이 곳을 눌러 사진을 삽입하세요.</span>
    
             </div>
-            <input type="file" value="사진 찾기">
+            <input type="file" id="storeSign" value="사진 찾기">
             
                
 
@@ -46,6 +46,8 @@
             <!-- 검색 버튼은 사진을 넣고 ocr 결과까지 나왔을 때 활성화된다. -->
         </div>
     </main>
+    
+    <script src="/public/js/pictureOCR.js"></script>
     
     <jsp:include page="../public/footer.jsp"/>
     

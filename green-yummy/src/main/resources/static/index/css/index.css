@@ -13,24 +13,19 @@
     display: flex;
     flex-direction: column;
     
-	border: 1px solid salmon;
+	/* border: 1px solid salmon; */
 }
 
-.category,
-.eventImgCon,
-.recommand,
-.koreans{
-	margin: 100px 0 100px 0;
-}
 
+
+/* 검색 부분 */
 .searchContainer{
 	display: flex;
 	justify-content: center;
 	height: 50px;
-	background: skyblue;
+	/* background: skyblue; */
 	border: 1px solid skyblue;
 }
-
 .searchBar {
 	box-sizing: border-box;
     width: 500px;
@@ -39,9 +34,8 @@
     outline: none;
     padding: 10px;
     
-    border: 1px solid brown;
+    /* border: 1px solid brown; */
 }
-
 .customSearchBtn, .OCRBtn {
     width: 50px;
     height: 50px;
@@ -56,31 +50,40 @@
 	opacity: 0.5;
 }
 
-
+/* 카테고리 부분 */
 .category {
     list-style: none;
     display: flex; 
     justify-content: space-around; 
-    padding: 0;
+    padding: 10px 0 10px 0;
+	margin: 0 0 10px 0;
     
-    border: 1px solid brown;
+	background: salmon;
+    /* border: 1px solid brown; */
+}
+.category li {
+	width: 200px;
+    padding: 10px; 
+	font: normal bold 15pt 'sans-serif';
+	border-radius: 50px;
+	cursor: pointer;
+	color: white;
+}
+.category li:hover{
+	color: black;
+	background: lemonchiffon;
+	transition: "all 300ms ease-in-out";
 }
 
-.category li {
-    padding: 10px; 
-}
+/* 최상단 메인 이미지 */
 .eventImgCon{
-	width: 1280px;
-	
-	border: 1px solid blue;
-}
-.eventImgInnerCon{
 	width: 1280px;
 	height: 540px;
 	overflow: hidden;
 	
-	border: 1px solid red;
+	/* border: 1px solid red; */
 }
+
 .eventImgList{
 	position: relative;
 	display: flex;
@@ -89,12 +92,19 @@
 	
 	left: -1280px;
 	
-	border: 1px solid black;
+	/* border: 1px solid black; */
 }
 .mainImg {
     border: 1px solid gray;
     width: 1280px;
     height: 500px;
+}
+.mainImg:nth-child(2){
+	background-image: url("/resources/static/images/profile1.jpg");
+}
+.mainImg img{
+	width: 1280px;
+	height: 500px;
 }
 .eventImgList > li:first-child{
 	background: pink;
@@ -121,67 +131,4 @@
 .mainNextBtn{
 	top: -320px;
 	left: 1280px;
-}
-.recommand{
-	border: 1px solid turquoise;
-}
-.recommandInnerCon{
-	width: 1280px;
-	overflow: hidden;
-	
-	border: 2px solid red;
-}
-
-.recommandTag{
-    margin-top: 20px;
-    padding-left: 20px;
-    text-align: left;
-}
-
-.recommandList{
-	position: relative;
-	display: flex;
-    list-style: none;
-    padding: 0px; 
-   
-    
-    border: 1px solid skyblue;
-}
-
-.recommandList > li{
-	position: relative;
-/* 	left: -330px; */
-    display: flex; 
-    flex-direction: column; 
-    width: 300px; 
-    height: 400px; 
-    border: 1px solid gray; 
-    margin: 0 30px 0 30px;
-}
-
-.recommandImg{
-    width: 300px; 
-    height: 300px; 
-    background-color: lightgray; 
-}
-.recPrevBtn,
-.recNextBtn{
-	position: relative;
-	width: 100px;
-	height: 100px;
-	cursor: pointer;
-	
-	background: rgba(35, 23, 44, 0.5);
-}
-.recPrevBtn{
-	top: 301px;
-	left: -100px;
-}
-.recNextBtn{
-	top: -301px;
-	left: 1280px;
-}
-
-.recommandDetail{
-    padding: 10px; 
 }
