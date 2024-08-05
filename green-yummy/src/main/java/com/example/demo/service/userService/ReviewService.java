@@ -20,4 +20,15 @@ public interface ReviewService {
 	
     //리뷰 평점
     Double getAverageRatingForShop(Integer shopUkId);
+    
+    //리뷰 수정 창 띄우기
+    List<ReviewDTO> getReviewsByReviewId(Integer reviewId);
+    
+    //리뷰 수정하기
+	void updateReview(ReviewDTO reviewDTO) throws Exception;
+	
+	//원래 리뷰 가져오는 창
+	ReviewDTO getReviewById(Integer reviewId) throws Exception;
+	
+	
 }

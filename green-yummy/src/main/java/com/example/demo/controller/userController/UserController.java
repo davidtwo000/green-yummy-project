@@ -28,10 +28,7 @@ import com.example.demo.service.UserService;
 @Controller
 public class UserController {
 	
-//	@GetMapping("user/")
-//	public String () {
-//		return "user/";
-//	}
+
 	
 	@Autowired//이혜민, 추가한 부분
 	private ShopService shopservice;

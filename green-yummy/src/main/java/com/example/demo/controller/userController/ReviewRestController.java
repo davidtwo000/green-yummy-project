@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -76,8 +77,45 @@ public class ReviewRestController {
     
     
     //리뷰 평균 평점 조회
-    @GetMapping("/shop/{shopUkId}/average-rating")
+    @GetMapping("/rating/{shopUkId}")
     public Double getAverageRating(@PathVariable("shopUkId") Integer shopUkId) {
         return reviewService.getAverageRatingForShop(shopUkId);
     }
+    
+    
+    //원래 리뷰 정보 가져오기
+    @GetMapping("/{reviewId}")
+    public ResponseEntity<ReviewDTO> getReviewById(@PathVariable("reviewId") Integer reviewId) {
+        try {
+            ReviewDTO reviewDTO = reviewService.getReviewById(reviewId);
+            if (reviewDTO != null) {
+                return ResponseEntity.ok(reviewDTO);
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+    
+    
+    //리뷰 수정
+    @PutMapping("/update/{reviewId}")
+    public ResponseEntity<String> updateReview(
+            @PathVariable("reviewId") Integer reviewId,
+            @RequestBody ReviewDTO reviewDTO) {
+
+        try {
+            // 리뷰 DTO에서 reviewId를 가져와서 설정
+            reviewDTO.setReviewId(reviewId);
+
+            // 리뷰 업데이트를 위한 서비스 호출
+            reviewService.updateReview(reviewDTO);
+
+            return ResponseEntity.ok("리뷰가 성공적으로 수정되었습니다.");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("리뷰 수정에 실패했습니다: " + e.getMessage());
+        }
+    }
 }
+

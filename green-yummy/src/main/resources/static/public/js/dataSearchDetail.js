@@ -47,7 +47,7 @@ function displayReviews(reviews) {
 }
 
 function averageRating(shopUkId) {
-    fetch(`/reviews/shop/${shopUkId}/average-rating`)
+    fetch(`/reviews/rating/${shopUkId}`)
         .then(response => response.json()) 
         .then(averageRating => {
             let formattedRating = averageRating.toFixed(1);
