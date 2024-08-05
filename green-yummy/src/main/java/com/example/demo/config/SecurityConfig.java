@@ -32,7 +32,7 @@ public class SecurityConfig {
         	.authorizeHttpRequests(authorizeRequests -> // 1. 경로 접근 권한 설정
 		        authorizeRequests
 		            .requestMatchers("/public/**").permitAll() // 2. /public/** 경로는 누구나 접근 가능
-		            .requestMatchers("/user/**").authenticated() // 3. /user/** 경로는 인증된 사용자만 접근 가능 .authenticated()
+		            .requestMatchers("/user/**").hasRole("USER") // 3. /user/** 경로는 인증된 사용자만 접근 가능 .authenticated()
 		            .anyRequest().permitAll() // 4. 나머지 모든 요청은 접근 가능
 		    )
             .formLogin(formLogin ->
