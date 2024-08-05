@@ -16,17 +16,19 @@ main{
 	position: fixed;
 	top: 0;
 	
-	width: 1280px;
-	height: 640px;
+	width: 960px;
+	height: 430px;
 }
 .userContentCon{
 	position: relative;
 	z-index: 10;
 	width: 1280px;
-	margin: 540px;
+	margin: 540px 0px 0px 0px;
 	
 	border: 2px solid blue;
 }
+
+/*필터 셀렉트 모여 있는 바*/
 .filterContainer{
 	width: 1280px;
 	height: 50px;
@@ -35,18 +37,42 @@ main{
 	border: 2px solid red;
 }
 select{
+	height: 50px;
+	padding: 10px;
+	font: normal bold 12pt 'sans-serif';
+	cursor: pointer;
+	border: none;
 	outline: none;
+}
+.filterContainer > img{
+	float: right;
+	margin: 3px 5px 0 5px;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+}
+
+
+/*모음집과 리뷰리스트가 정렬되는 공간*/
+.invisible{
+	display: none;
 }
 .viewLook{
 	float: right;
 }
-.storeCollect{
-	display: grid;
+.storeCollectList{
+	width: 100%;
+	height: 1000px;
+	
+	background: pink;
+}
+.storeCollectGrid{
+/* 	display: grid; */
 	grid-template: repeat(3, 1fr)/repeat(3, 1fr);
 	place-items: center center;
 	width: 100%;
 	height: 1000px;
-	background: white;
+	background: lemonchiffon;
 	
 	border: 2px solid green;
 }
