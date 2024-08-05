@@ -1,6 +1,7 @@
 package com.example.demo.repository.userRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -20,5 +21,6 @@ public interface ReviewRepository extends JpaRepository<Review, Integer> {
     // 특정 가게 ID에 대한 리뷰 평점의 평균 계산
     @Query("SELECT AVG(r.reviewRate) FROM Review r WHERE r.shopUkId = :shopUkId")
     Double findAverageRatingByShopUkId(@Param("shopUkId") Integer shopUkId);
+    
 	
 }
