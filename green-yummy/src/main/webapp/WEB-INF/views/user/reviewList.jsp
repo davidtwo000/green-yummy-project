@@ -39,7 +39,7 @@
 				        <td>${review.reviewContent}</td>
 				        <td>${review.reviewRate}</td>
 				        <td id="reviewDate">${review.reviewDate}</td>
-				        <td><input type="button" value="수정"></td>
+				        <td><input type="button" value="수정" onclick="updateReview(${review.reviewId})"></td>
 				        <td><input type="button" value="삭제" onclick="showDeleteModal(${review.reviewId})" /></td>
 				    </tr>
 				</c:forEach>
