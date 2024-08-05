@@ -13,7 +13,12 @@ import com.example.demo.model.userModel.Review;
 public interface ReviewRepository extends JpaRepository<Review, Integer> {
 	List<Review> findByShopUkId(Integer shopUkId);
 	
-	//리뷰 평점
-	@Query("SELECT AVG(r.reviewRate) FROM Review r WHERE r.shopUkId = :shopUkId")
-    Double findAverageReviewRateByShopUkId(@Param("shopUkId") Integer shopUkId);
+	// 특정 가게 ID에 대한 모든 리뷰 조회
+    @Query("SELECT r FROM Review r WHERE r.shopUkId = :shopUkId")
+    List<Review> findAllByShopUkId(@Param("shopUkId") Integer shopUkId);
+
+    // 특정 가게 ID에 대한 리뷰 평점의 평균 계산
+    @Query("SELECT AVG(r.reviewRate) FROM Review r WHERE r.shopUkId = :shopUkId")
+    Double findAverageRatingByShopUkId(@Param("shopUkId") Integer shopUkId);
+	
 }
