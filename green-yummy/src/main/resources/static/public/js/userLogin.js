@@ -10,5 +10,5 @@ function userJoin(){
 }
 
 function findIDPW(){
-	window.location.href='/user/findIdPassword';
+	window.location.href='/public/findIdPassword';
 }

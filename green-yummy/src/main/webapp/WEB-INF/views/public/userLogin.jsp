@@ -17,21 +17,21 @@
 
     <main>
         <div class="loginContainer">
-            <form class="loginbox">
+            
                 <div class="loginforms">
-                	<form action="/login" method="post">
+                	<form action="/login" method="post" class="loginbox">
+                	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                     <table>
                         <tr>
                             <td>아이디</td>
-                            <td><input type="text" name="id" placeholder="아이디를 입력하세요."></td>
+                            <td><input type="text" name="username" placeholder="아이디를 입력하세요."></td>
                         </tr>
                         <tr>
                             <td>비밀번호</td>
-                            <td><input type="text" name="password" placeholder="아이디를 입력하세요."></td>
+                            <td><input type="password" name="password" ></td>
                         </tr>
                        
                     </table>
-                    
                     <div>
                         <input type="submit" value="로그인">
                     </div>
@@ -41,9 +41,7 @@
                     <input type="button" value="회원가입" onclick="userJoin()">
                     <input type="button" value="아이디/비밀번호 찾기" onclick="findIDPW()">
                 </div>
-
-                
-            </form>
+            
         </div>
 
     </main>

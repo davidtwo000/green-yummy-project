@@ -26,7 +26,7 @@ public class User {
     @Column(name = "NICKNAME")
     private String nickname; // 닉네임
 
-    @Column(name = "PASSWORD")
+    @Column(name = "PASSWORD", nullable = false)
     private String password; // 비밀번호
 
     @Column(name = "NAME")

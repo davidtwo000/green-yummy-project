@@ -16,10 +16,7 @@ import com.example.demo.service.UserService;
 @Controller
 public class UserController {
 	
-//	@GetMapping("user/")
-//	public String () {
-//		return "user/";
-//	}
+
 	
 	@GetMapping("user/userPage")
 	public String userPage() {
