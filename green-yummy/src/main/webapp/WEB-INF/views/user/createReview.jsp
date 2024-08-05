@@ -23,7 +23,7 @@
 		        
 		        <!-- 임시 유저 아이디 -->
 		        <input type="hidden" name="userUkId" value="1">
-	        
+		       
 	        <fieldset class="rateSelect">
 	            <legend>평점</legend>
 	            <label><input type="radio" name="reviewRate" value="1" required> 1</label>

@@ -23,20 +23,32 @@ public class ReviewController {
 	@Autowired
 	private ShopService shopService;
     
-    // 특정 사용자 ID의 리뷰를 가져오는 메서드
-    @GetMapping("user/reviewList")
-    public String review(Model model) {
-        List<ReviewDTO> reviews = reviewService.getAllReviews(); // 모든 리뷰 가져오기
-        model.addAttribute("reviews", reviews);
-        return "user/reviewList"; // 리뷰를 표시할 뷰 이름
-    }
+	@GetMapping("user/reviewList")
+	public String review(Model model) {
+	    List<ReviewDTO> reviews = reviewService.getAllReviews(); // 모든 리뷰 가져오기
+	    
+	    // 콘솔에 데이터를 출력하기
+	    System.out.println("Reviews: " + reviews);
+	    
+	    // 모델에 데이터를 추가하고 뷰를 반환하기
+	    model.addAttribute("reviews", reviews);
+	    return "user/reviewList"; // 리뷰를 표시할 뷰 이름
+	}
     
-    //식당 정보 가져와서 createReview 창 띄우기
+  //식당 정보 가져와서 createReview 창 띄우기
     @GetMapping("user/createReview/{shopUkId}")
     public String showCreateReviewForm(@PathVariable("shopUkId") Integer shopUkId, Model model) {
         ShopDTO shop = shopService.getShopByUkId(shopUkId);
         model.addAttribute("shop", shop); // Add shop object to model
         return "user/createReview"; // View name
     }
-		
+    
+    // 리뷰 수정 창 띄우기
+    @GetMapping("user/updateReview/{reviewId}")
+    public String showUpdateReviewForm(@PathVariable("reviewId") Integer reviewId, Model model) {
+        List<ReviewDTO> review = reviewService.getReviewsByReviewId(reviewId); // 단일 리뷰 조회
+        model.addAttribute("review", review); // 모델에 리뷰 데이터 추가
+        return "user/updateReview"; // 수정 폼을 보여주는 뷰 이름
+    }
+ 
 }

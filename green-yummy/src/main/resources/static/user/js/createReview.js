@@ -58,4 +58,3 @@ document.addEventListener('DOMContentLoaded', function() {
     createReview();
 	selectLimit();
 });
-//여기까지 sg가 구현한 것
