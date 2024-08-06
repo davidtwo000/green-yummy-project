@@ -30,6 +30,7 @@ public class NotificationServiceImpl implements NotificationService{
 		return notificationRepository.findById(id).map(this::convertToDto);
 	}
 
+	/*
 	@Override
 	public void saveNotice(NotificationDTO noticeDTO) {
 		Notification notice = convertToEntity(noticeDTO);
@@ -55,7 +56,7 @@ public class NotificationServiceImpl implements NotificationService{
         	throw new EntityNotFoundException("Notification not found with id: " + noticeDTO.getNoticeId());
         }
     }
-	
+	*/
 	private NotificationDTO convertToDto(Notification notice) {
         NotificationDTO dto = new NotificationDTO();
         dto.setNoticeId(notice.getNoticeId());
