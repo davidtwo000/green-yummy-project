@@ -6,12 +6,12 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.dto.publicDto.NotificationDTO;
 import com.example.demo.model.publicModel.Notification;
 import com.example.demo.repository.publicRepository.NotificationRepository;
 
-import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class NotificationServiceImpl implements NotificationService{
@@ -30,7 +30,31 @@ public class NotificationServiceImpl implements NotificationService{
 		return notificationRepository.findById(id).map(this::convertToDto);
 	}
 
-	/*
+	@Transactional
+	public void incrementViewCount(int id) {
+	    Optional<Notification> optionalNotification = notificationRepository.findById(id);
+	    
+        Notification notification = optionalNotification.get();
+        notification.setViewCount(notification.getViewCount() + 1);
+        notificationRepository.save(notification);
+    }
+	
+	private NotificationDTO convertToDto(Notification notice) {
+        NotificationDTO dto = new NotificationDTO();
+        dto.setNoticeId(notice.getNoticeId());
+        dto.setAuthor(notice.getAuthor());
+        dto.setTitle(notice.getTitle());
+        dto.setContent(notice.getContent());
+        dto.setPostDate(notice.getPostDate());
+        dto.setViewCount(notice.getViewCount());
+        return dto;
+    }
+
+    
+
+
+    /*
+     * 수정, 생성 기능
 	@Override
 	public void saveNotice(NotificationDTO noticeDTO) {
 		Notification notice = convertToEntity(noticeDTO);
@@ -56,18 +80,7 @@ public class NotificationServiceImpl implements NotificationService{
         	throw new EntityNotFoundException("Notification not found with id: " + noticeDTO.getNoticeId());
         }
     }
-	*/
-	private NotificationDTO convertToDto(Notification notice) {
-        NotificationDTO dto = new NotificationDTO();
-        dto.setNoticeId(notice.getNoticeId());
-        dto.setAuthor(notice.getAuthor());
-        dto.setTitle(notice.getTitle());
-        dto.setContent(notice.getContent());
-        dto.setPostDate(notice.getPostDate());
-        dto.setViewCount(notice.getViewCount());
-        return dto;
-    }
-
+    
     private Notification convertToEntity(NotificationDTO dto) {
         Notification notice = new Notification();
         notice.setNoticeId(dto.getNoticeId());
@@ -78,4 +91,6 @@ public class NotificationServiceImpl implements NotificationService{
         notice.setViewCount(dto.getViewCount());
         return notice;
     }
+	*/
+
 }
