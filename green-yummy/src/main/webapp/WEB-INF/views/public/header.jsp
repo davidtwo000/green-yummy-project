@@ -13,9 +13,10 @@
         <div class="headcontainer">
 			<a href="/"><img src="/images/강남맛집.png"></a>
 
-            <div class="loginplace">
+			<div class="loginplace">
                 <a href="/user/userLogin">로그인</a>
             </div>
+            
         </div>
         
     </header>
