@@ -59,6 +59,37 @@ function averageRating(shopUkId) {
         });
 }
 
+//리뷰 이미 작성했으면 alert 뜨게
+function checkReview() {
+    const shopUkId = document.getElementById('shopUkId').value;
+    const userUkId = document.getElementById('userUkId').value;
+
+    console.log(shopUkId);
+    console.log(userUkId);
+
+    fetch('/reviews/check', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams({
+            shopUkId: shopUkId,
+            userUkId: userUkId
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data) {
+            alert('이미 리뷰를 작성하셨습니다.');
+        } else {
+            window.location.href=`/user/createReview/${shopUkId}`
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const shopUkId = document.getElementById('shopUkId').value;
 	console.log(shopUkId);

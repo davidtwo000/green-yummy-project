@@ -42,24 +42,7 @@ public class UserController {
 	@Autowired
 	private UserServiceImpl userService;
 	
-	@GetMapping("user/userPage")
-	public String userPage(Model model) {
-		
-		List<ShopDTO> shop = shopservice.getAllShops();
-		model.addAttribute("shop", shop);
-		
-		List<ReviewDTO> reviews = reviewService.getAllReviews(); // 모든 리뷰 가져오기
-	    // 콘솔에 데이터를 출력하기
-	    System.out.println("Reviews: " + reviews);
-	    // 모델에 데이터를 추가하고 뷰를 반환하기
-	    model.addAttribute("reviews", reviews);
-	    
-	    User users = userService.getCurrentUser();
-	    model.addAttribute("users", users);
-	    
-		
-		return "user/userPage";
-	}
+	
 	@GetMapping("user/storeCollection")//이혜민, 추가한 부분
 	public String storeCollection(Model model) {
 		List<ShopDTO> shop = shopservice.getAllShops();
