@@ -8,6 +8,8 @@ import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.publicDto.ShopDTO;
@@ -47,7 +49,7 @@ public class ReviewServiceImpl implements ReviewService {
         dto.setReviewId(review.getReviewId());
         dto.setUserUkId(review.getUserUkId());
         dto.setShopUkId(review.getShopUkId());
-        dto.setReviewRate(review.getReviewRate());
+        dto.setReviewRating(review.getReviewRating());
         dto.setReviewComment(review.getReviewComment());
         dto.setReviewContent(review.getReviewContent());
         dto.setReviewDate(review.getReviewDate());
@@ -110,7 +112,7 @@ public class ReviewServiceImpl implements ReviewService {
         Review review = new Review();
         review.setShopUkId(reviewDTO.getShopUkId());
         review.setUserUkId(reviewDTO.getUserUkId());
-        review.setReviewRate(reviewDTO.getReviewRate());
+        review.setReviewRating(reviewDTO.getReviewRating());
         review.setReviewComment(reviewDTO.getReviewComment());
         review.setReviewContent(reviewDTO.getReviewContent());
 
@@ -157,7 +159,7 @@ public class ReviewServiceImpl implements ReviewService {
             
             // Review 객체에서 데이터를 가져와 ReviewDTO에 설정
             reviewDTO.setReviewId(review.getReviewId());
-            reviewDTO.setReviewRate(review.getReviewRate());
+            reviewDTO.setReviewRating(review.getReviewRating());
             reviewDTO.setReviewComment(review.getReviewComment());
             reviewDTO.setReviewContent(review.getReviewContent());
            ;
@@ -180,7 +182,7 @@ public class ReviewServiceImpl implements ReviewService {
             // DTO에서 리뷰 정보를 가져와서 리뷰 객체를 업데이트합니다.
             review.setReviewComment(reviewDTO.getReviewComment()); // 이 부분은 필드 매핑에 따라 다를 수 있습니다.
             review.setReviewContent(reviewDTO.getReviewContent());
-            review.setReviewRate(reviewDTO.getReviewRate());
+            review.setReviewRating(reviewDTO.getReviewRating());
             
             review.setReviewDate(LocalDateTime.now());
 
@@ -202,5 +204,12 @@ public class ReviewServiceImpl implements ReviewService {
 	public boolean hasUserReviewedShop(Integer userUkId, Integer shopUkId) {
         return reviewRepository.existsByUserAndShop(userUkId, shopUkId);
     }
+
+	@Override
+	public Page<ReviewDTO> getReviewsPage(int page, int size) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 
 }

@@ -2,6 +2,8 @@ package com.example.demo.service.userService;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+
 import com.example.demo.dto.userDto.ReviewDTO;
 import com.example.demo.model.userModel.Review;
 
@@ -32,6 +34,9 @@ public interface ReviewService {
 	
 	//리뷰 작성했는지 확인
 	boolean hasUserReviewedShop(Integer userUkId, Integer shopUkId);
+	
+	//리뷰 페이지화
+	Page<ReviewDTO> getReviewsPage(int page, int size);
 	
 	
 }

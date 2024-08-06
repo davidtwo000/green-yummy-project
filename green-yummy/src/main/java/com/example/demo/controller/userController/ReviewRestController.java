@@ -1,5 +1,6 @@
 package com.example.demo.controller.userController;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 import java.util.HashMap;
@@ -19,8 +20,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.dto.userDto.ReviewDTO;
+import com.example.demo.dto.userDto.ReviewPhotoDTO;
 import com.example.demo.service.userService.ReviewService;
 
 
@@ -30,6 +33,7 @@ public class ReviewRestController {
 
     @Autowired
     private ReviewService reviewService; 
+    
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteReview(@PathVariable("id") Integer id) {
@@ -54,7 +58,7 @@ public class ReviewRestController {
             ReviewDTO review = new ReviewDTO();
             review.setShopUkId(shopUkId);
             review.setUserUkId(userUkId);
-            review.setReviewRate(reviewRate);
+            review.setReviewRating(reviewRate);
             review.setReviewComment(reviewComment); // Store as a list
             review.setReviewContent(reviewContent);
 
@@ -128,5 +132,8 @@ public class ReviewRestController {
             return ResponseEntity.status(500).body("리뷰 수정에 실패했습니다: " + e.getMessage());
         }
     }
+    
+  
+    
 }
 
