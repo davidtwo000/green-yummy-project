@@ -14,7 +14,7 @@
     
 <main>
    
-        <form>
+        <form method="post">
         모든 항목을 필수로 입력하셔야 합니다.
             <div class="tablecontainer">
                 <table>

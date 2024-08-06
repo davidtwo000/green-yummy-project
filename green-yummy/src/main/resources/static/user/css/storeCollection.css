@@ -16,16 +16,13 @@ main{
 /* 	position: fixed; */
 	top: 0;
 	
-	width: 960px;
+	width: 1280px;
 	height: 430px;
 }
 .userContentCon{
-	position: relative;
-	z-index: 10;
 	width: 1280px;
 /* 	margin: 540px 0px 0px 0px; */
 	
-	border: 2px solid blue;
 }
 
 /*필터 셀렉트 모여 있는 바*/
@@ -34,14 +31,14 @@ main{
 	height: 50px;
 	
 	background: salmon;
-	border: 2px solid red;
 }
 select{
 	height: 50px;
 	padding: 10px;
 	font: normal bold 12pt 'sans-serif';
 	cursor: pointer;
-	border: none;
+	border-radius: 5px;
+	border: 4px solid salmon;
 	outline: none;
 }
 .filterContainer > img{
@@ -61,34 +58,41 @@ select{
 .viewLook{
 	float: right;
 }
-.storeCollectList{
-	width: 100%;
-	height: 1000px;
-	
-	background: pink;
-}
 .storeCollectGrid{
-/* 	display: grid; */
-/* 	grid-template: repeat(3, 1fr)/repeat(3, 1fr); */
-/* 	place-items: center center; */
+ 	display: grid; 
+ 	grid-template: repeat(3, 1fr)/repeat(3, 1fr); 
+ 	place-items: center center; 
 	width: 100%;
 	height: 1000px;
 	background: lemonchiffon;
 	
-	border: 2px solid green;
 }
 .storeAlbum{
 	width: 320px;
 	height: 320px;
+	margin: 40px 0 40px 0;
 	
-	border: 2px solid red;
+	border: 2px solid gray;
+}
+.storeAlbum > img{
+	width: 320px;
+	height: 250px;
+}
+.storeAlbum > span{
+	font: normal bold 13pt 'sans-serif';
 }
 
 /*리스트 부분*/
+.storeCollectList{
+	width: 100%;
+	height: 1000px;
+	
+}
 .storeList{
 	display: flex;
 	margin: 10px 0 10px 0;
 	padding: 10px;
+	background: white;
 	border-radius: 10px;
 	border: 2px solid brown;
 }
@@ -97,7 +101,14 @@ select{
 	height: 200px;
 }
 .storeList > table{
+	box-sizing: border-box;
+	width: 1000px;
+	height: 200px;
 	margin-left: 10px;
+	border-collapse: collapse;
+}
+.storeList > table > tbody > tr > td{
+	padding: 10px;
 }
 .storeList > table > tbody
  > tr:first-child > td:first-child{

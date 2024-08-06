@@ -16,31 +16,35 @@
 
 <jsp:include page="../public/header.jsp"/>
 
+
     <main>
         <div class="loginContainer">
             
                 <div class="loginforms">
-                	<form action="/login" method="post" class="loginbox">
+                	<form action="/login" method="post" class="loginbox" onsubmit="return validateForm()">
                 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                     <table>
                         <tr>
                             <td>아이디</td>
-                            <td><input type="text" name="username" placeholder="아이디를 입력하세요."></td>
+
+                            <td><input type="text" name="username" id="username" placeholder="아이디를 입력하세요."></td>
+                            <td rowspan="2"><input type="submit" value="로그인"></td>
                         </tr>
                         <tr>
                             <td>비밀번호</td>
-                            <td><input type="password" name="password" ></td>
+                            <td><input type="password" name="password" id="password" placeholder="비밀번호를 입력하세요."></td>
+
                         </tr>
-                       
                     </table>
-                    <div>
-                        <input type="submit" value="로그인">
+                    <div class="findNjoin">
+                    <p onclick="findIDPW()">아이디/비밀번호를 잊어버리셨나요?</p>
+                    <p onclick="userJoin()">아직 회원이 아니신가요?</p>
                     </div>
+                    
                     </form>
                 </div>
                 <div class="loginbuttonetc">
-                    <input type="button" value="회원가입" onclick="userJoin()">
-                    <input type="button" value="아이디/비밀번호 찾기" onclick="findIDPW()">
+                    
                 </div>
             
         </div>
