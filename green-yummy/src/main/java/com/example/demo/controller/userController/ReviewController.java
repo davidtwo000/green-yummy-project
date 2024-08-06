@@ -23,7 +23,7 @@ public class ReviewController {
 	@Autowired
 	private ShopService shopService;
     
-	@GetMapping("user/reviewList")
+	@GetMapping("user/userPage")
 	public String review(Model model) {
 	    List<ReviewDTO> reviews = reviewService.getAllReviews(); // 모든 리뷰 가져오기
 	    
@@ -32,15 +32,16 @@ public class ReviewController {
 	    
 	    // 모델에 데이터를 추가하고 뷰를 반환하기
 	    model.addAttribute("reviews", reviews);
-	    return "user/reviewList"; // 리뷰를 표시할 뷰 이름
+	    return "user/userPage"; // 리뷰를 표시할 뷰 이름
 	}
     
   //식당 정보 가져와서 createReview 창 띄우기
     @GetMapping("user/createReview/{shopUkId}")
     public String showCreateReviewForm(@PathVariable("shopUkId") Integer shopUkId, Model model) {
         ShopDTO shop = shopService.getShopByUkId(shopUkId);
-        model.addAttribute("shop", shop); // Add shop object to model
-        return "user/createReview"; // View name
+        model.addAttribute("shop", shop); 
+   
+        return "user/createReview"; 
     }
     
     // 리뷰 수정 창 띄우기

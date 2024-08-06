@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.userDto.ReviewDTO;
@@ -40,6 +41,7 @@ public class ReviewRestController {
         }
     }
     
+    //리뷰 작성 
     @PostMapping("/createReview/{shopUkId}")
     public ResponseEntity<String> createReview(
             @PathVariable("shopUkId") Integer shopUkId,
@@ -64,6 +66,15 @@ public class ReviewRestController {
             return ResponseEntity.status(500).body("Failed to create review: " + e.getMessage());
         }
     }
+    
+    //리뷰 이미 작성했으면 못하게
+    @PostMapping("/check")
+    @ResponseBody
+    public boolean checkUserReview(@RequestParam("shopUkId") Integer shopUkId,
+                                    @RequestParam("userUkId") Integer userUkId) {
+        return reviewService.hasUserReviewedShop(userUkId, shopUkId);
+    }
+    
     
     // 가게ukId로 리뷰 출력
     @GetMapping("/shop/{shopUkId}")
