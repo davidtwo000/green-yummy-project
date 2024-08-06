@@ -63,7 +63,7 @@
             
             <form onsubmit="event.preventDefault(); checkReview();">
 		        <input type="hidden" id="shopUkId" name="shopUkId" value="${shop.shopUkId}">
-		        <input type="hidden" id="userUkId" name="userUkId" value="1">
+		        <input type="hidden" id="userUkId" name="userUkId" value="8">
 		        <input type="button" value="리뷰쓰기" class="reviewBtn" onclick="checkReview()">
 		    </form>
             <div class="reviewsContainer" id="reviewsContainer"></div>

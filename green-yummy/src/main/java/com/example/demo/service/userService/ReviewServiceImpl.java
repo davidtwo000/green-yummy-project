@@ -200,7 +200,7 @@ public class ReviewServiceImpl implements ReviewService {
 	//이미 작성한 리뷰 있는지 없는지
 	@Override
 	public boolean hasUserReviewedShop(Integer userUkId, Integer shopUkId) {
-        return reviewRepository.existsByUserUkIdAndShopUkId(userUkId, shopUkId);
+        return reviewRepository.existsByUserAndShop(userUkId, shopUkId);
     }
 
 }

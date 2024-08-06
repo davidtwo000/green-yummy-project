@@ -8,7 +8,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.model.publicModel.Shop;
 import com.example.demo.model.userModel.Review;
+import com.example.demo.model.userModel.User;
 
 @Repository
 public interface ReviewRepository extends JpaRepository<Review, Integer> {
@@ -22,8 +24,11 @@ public interface ReviewRepository extends JpaRepository<Review, Integer> {
     @Query("SELECT AVG(r.reviewRate) FROM Review r WHERE r.shopUkId = :shopUkId")
     Double findAverageRatingByShopUkId(@Param("shopUkId") Integer shopUkId);
 
-    // 특정 사용자와 특정 가게에 대한 리뷰 존재 여부 확인
-    boolean existsByUserUkIdAndShopUkId(Integer userUkId, Integer shopUkId);
+    // 작성한 리뷰 존재 여부 확인
+    @Query("SELECT CASE WHEN COUNT(r) > 0 THEN true ELSE false END " +
+            "FROM Review r WHERE r.userUkId = :userUkId AND r.shopUkId = :shopUkId")
+     boolean existsByUserAndShop(@Param("userUkId") Integer userUkId,
+                                 @Param("shopUkId") Integer shopUkId);
     
 	
 }
