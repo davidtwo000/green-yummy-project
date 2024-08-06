@@ -68,9 +68,9 @@ select{
 	background: pink;
 }
 .storeCollectGrid{
-/* 	display: grid; */
-/* 	grid-template: repeat(3, 1fr)/repeat(3, 1fr); */
-/* 	place-items: center center; */
+ 	display: grid; 
+ 	grid-template: repeat(3, 1fr)/repeat(3, 1fr); 
+ 	place-items: center center; 
 	width: 100%;
 	height: 1000px;
 	background: lemonchiffon;
@@ -80,8 +80,16 @@ select{
 .storeAlbum{
 	width: 320px;
 	height: 320px;
+	margin: 40px 0 40px 0;
 	
 	border: 2px solid red;
+}
+.storeAlbum > img{
+	width: 320px;
+	height: 250px;
+}
+.storeAlbum > span{
+	font: normal bold 13pt 'sans-serif';
 }
 
 /*리스트 부분*/

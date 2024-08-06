@@ -30,24 +30,36 @@ main{
     border-radius: 10px;
 	background: #f2f2f2;
 }
-.helloUser>p{
+.helloUser{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+.helloUser>.userInfo>p{
 	margin: 0px;
     font: normal bold 15pt 'sans-serif';
 }
-.helloUser > p > img{
+.helloUser > .userInfo > p > img{
 	width: 20px;
 	height: 20px;
 	cursor: pointer;
 }
-.userBtns{
-	border: 2px solid violet;
+.helloUser > .userInfo > span{
+	font: normal normal 10pt 'sans-serif';
+	color: gray;
 }
-input[type="button"]{
+.userBtns{
+	display: flex;
+	width: 100%;
+}
+.userBtns>input[type="button"]{
 	padding: 10px;
+	margin: 0 5px 0 5px;
 	margin-top: 10px;
 	width: 150px;
 	font: normal bold 13pt 'sans-serif';
     cursor: pointer;
+    border-radius: 5px;
     border: none;
 
     background: pink;
@@ -75,11 +87,7 @@ input[type="button"]{
 .youHere{
 	color: white;
 }
-iframe{
-	width: 100%;
-	height: 2000px;
-	border: 2px solid brown;
-}
+
 
 /*로그아웃, 회원 탈퇴 모달*/
 .modalContainer1,
@@ -118,14 +126,16 @@ iframe{
     background: white;
     opacity: 1;
 }
-.logoutBtns>input[type="button"],
+.logoutBtns>form>input[type="button"],
+.logoutBtns>form>input[type="submit"],
 .userOutBtns>input[type="button"]{
+	box-sizing: border-box;
     width: 80px;
     height: 30px;
     background: salmon;
     border: none;
     cursor: pointer;
-    font-weight: bold;
+    font: normal bold 11pt 'sans-serif';
     margin: 20px 10px 0 10px;
 }
 .hidden{

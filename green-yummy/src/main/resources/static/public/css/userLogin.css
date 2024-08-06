@@ -5,6 +5,7 @@ main{
 }
 .loginContainer{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 1280px;
@@ -19,38 +20,51 @@ main{
     
     border: 1px solid black;
 }
-.loginforms{
+.loginforms > form{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
-table, tr, td{
-	border: 1px solid salmon;
-}
-.loginforms > table > td{
+
+td:first-child{
+	text-align: center;
     padding: 10px;
 }
-input[type="text"]{
+input[type="text"],
+input[type="password"]{
 	box-sizing: border-box;
     width: 300px;
     height: 50px;
     padding: 10px;
+    outline: none;
     border: none;
     background: #f2f2f2;
 }
-
 input[type="submit"]{
     float:right;
     width: 100px;
     height: 100px;
+    font: normal bold 12pt 'sans-serif';
     cursor: pointer;
+    border: none;
     background: salmon;
+}
+.findNjoin > p{
+	position: relatvie;
+	margin: 0;
+	left: 100px;
+	font-size: 11pt;
+	cursor: pointer;
+	color: blue;
 }
 input[type="button"]{
     width: 150px;
     height: 50px;
     margin: 0px 10px 0 10px;
+    font: normal bold 12pt 'sans-serif';
+    color: white;
     cursor: pointer;
+    border: none;
     background: gray;
 }
 .loginbuttonetc{
