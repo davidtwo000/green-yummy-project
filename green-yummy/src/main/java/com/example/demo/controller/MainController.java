@@ -101,8 +101,10 @@ public class MainController {
 	//노티피케이션 상세
 	@GetMapping("public/notificationDetail/{id}")
     public String getNotification(@PathVariable("id") int id, Model model) {
+		notificationService.incrementViewCount(id);
+		
         Optional<NotificationDTO> notice = notificationService.getNotificationById(id);
-        if (notice.isPresent()) {
+        if (notice.isPresent()) {	
             model.addAttribute("notice", notice.get());
             return "public/notificationDetail";  // JSP 파일 이름
         } else {
