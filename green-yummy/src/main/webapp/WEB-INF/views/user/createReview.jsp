@@ -18,7 +18,7 @@
        
         
         <div class="reviewContainer">
-        	<div> ${user.id}</div>
+        	<div> 유저 아이디 ${user.id}</div>
         
         	 <form id="createReview" method="post">
 		        <input type="hidden" name="shopUkId" value="${shop.shopUkId}">
@@ -28,11 +28,11 @@
 		       
 	        <fieldset class="rateSelect">
 	            <legend>평점</legend>
-	            <label><input type="radio" name="reviewRate" value="1" required> 1</label>
-	            <label><input type="radio" name="reviewRate" value="2"> 2</label>
-	            <label><input type="radio" name="reviewRate" value="3"> 3</label>
-	            <label><input type="radio" name="reviewRate" value="4"> 4</label>
-	            <label><input type="radio" name="reviewRate" value="5"> 5</label>
+	            <label><input type="radio" name="reviewRating" value="1" required> 1</label>
+	            <label><input type="radio" name="reviewRating" value="2"> 2</label>
+	            <label><input type="radio" name="reviewRating" value="3"> 3</label>
+	            <label><input type="radio" name="reviewRating" value="4"> 4</label>
+	            <label><input type="radio" name="reviewRating" value="5"> 5</label>
 	        </fieldset>
 	        
 	        <fieldset class="keywordSelect">
@@ -49,7 +49,7 @@
 	
 	        <input type="text" name="reviewContent" required placeholder="Enter detailed content" class="reviewContent">
 	       <div class="reviewBtn">
-	       <div class="storePhoto"><input type="file"></div>
+	       		<div class="storePhoto"><input type="file" name="reviewImg"></div>
 	       
                 <input type="submit" value="리뷰 작성하기">
             </div>

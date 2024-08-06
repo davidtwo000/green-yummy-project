@@ -115,10 +115,11 @@ public class ReviewServiceImpl implements ReviewService {
         review.setReviewRating(reviewDTO.getReviewRating());
         review.setReviewComment(reviewDTO.getReviewComment());
         review.setReviewContent(reviewDTO.getReviewContent());
+        review.setReviewImg(reviewDTO.getReviewImg());
 
         // 검증 로직 추가 가능
         reviewRepository.save(review);
-        logger.info("Review created with ID: {}", review.getShopUkId());
+        logger.info("Review created with ID: {} and Image: {}", review.getShopUkId(), review.getReviewImg());
     }
 
     // 가게ukId로 리뷰 출력
@@ -209,6 +210,12 @@ public class ReviewServiceImpl implements ReviewService {
 	public Page<ReviewDTO> getReviewsPage(int page, int size) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public int getNextReviewId() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 

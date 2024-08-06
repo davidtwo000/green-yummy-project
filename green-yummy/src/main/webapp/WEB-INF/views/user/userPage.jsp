@@ -185,7 +185,7 @@
 				        <td>${status.index + 1}</td>
 				        <td>${review.shop.shopName}</td>
 				        <td>${review.reviewContent}</td>
-				        <td>${review.reviewRate}</td>
+				        <td>${review.reviewRating}</td>
 				        <td id="reviewDate">${review.reviewDate}</td>
 				        <td><input type="button" value="수정" onclick="updateReview(${review.reviewId})"></td>
 				        <td><input type="button" value="삭제" onclick="showDeleteModal(${review.reviewId})" /></td>
