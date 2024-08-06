@@ -24,17 +24,20 @@
                 </div>
                 
                 <div class="helloUser">
-	                <p>${users.id}님, 환영합니다!
-	                <img src="/images/pencil.png" onclick="infoChange()"></p>
-	                <input type="button" value="회원정보 수정" onclick="infoChange()">
+	                <div class="userInfo">
+	                	<p>${users.id}님, 환영합니다!
+		                <img src="/images/pencil.png" onclick="infoChange()"></p>
+		                <span>*회원정보를 수정하시려면 연필 버튼을 눌러주세요.</span>
+	                </div>
+		                
+		            <div class="userBtns">
+	                    <input type="button" value="로그아웃" onclick="logout()"><br>
+	                    <input type="button" value="회원탈퇴" onclick="userBye()"><br>
+	                </div>
                 </div>
                 
     
-                <div class="userBtns">
-                    
-                    <input type="button" value="로그아웃" onclick="logout()"><br>
-                    <input type="button" value="회원탈퇴" onclick="userBye()"><br>
-                </div>
+                
             </div>
         
         
@@ -107,30 +110,28 @@
 		        <img src="/images/gridview.png" class="gridview">
 		        <img src="/images/orderByList.png" class="listview">
 		        
-		        <select class="viewLook">
-		        	<option value="바둑판 정렬">바둑판</option>
-		        	<option value="">리스트</option>
-		        	<option value="">간단히</option>
-		        </select>
+		       
 		    </div>
 		    
 		    <c:set var="allShops" value="${fn:length(shop)}"/>
 		    <c:set var="rowEnd" value="${(allShops+2)/3}"/>
 		    
-		    
+<!-- 		    shop.shopName -->
 		    	
-		
+<!-- 		rowLength가 열의 개수( 한 줄에 몇 개인지): 내가 정해줘야 함 -->
+<!-- 		columnlength가 행의 개수(줄이 몇 개인지): 데이터베이스에 따라 달라져야 함 -->
 <!-- 		바둑판 정렬 -->
 		    <div class="storeCollectGrid">
-		        <c:forEach var="rowLength" begin="0" end="${rowEnd}">
+		        <c:forEach var="rowLength" begin="0" end="2"> 
 			    	<div class="outer">
-			    		<c:forEach var="columnLength" begin="0" end="2">
-			    			<div class="storeAlbum">
-			    			<c:forEach var="index" begin="0" end="${allShops}">
-			    			${shop[0].shopName}
-			    			</c:forEach>
-			        			
-			        		</div>
+			    		<c:forEach var="columnLength" begin="0" end="${rowEnd}">
+			    			<c:set var="index" value="${columnLength*3+rowLength}"/>
+			    				<div class="storeAlbum">
+			    				<img src="/images/${shop[index].shopProfile }">
+			    					<span>${shop[index].shopName}</span><br>
+			    					${shop[index].location}
+			    				</div>
+			    			
 			    		</c:forEach>
 			    	</div>
 		    	</c:forEach>
@@ -211,8 +212,13 @@
                     <div class="xplace cancel" onclick="logout()"></div>
                     로그아웃 하시겠습니까?
                     <div class="logoutBtns">
-                        <input type="button" value="확인">
-                        <input type="button" value="취소" class="cancle" onclick="logout()">
+                    <form action="/logout" method="post">
+				    	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+				    	<input type ="submit" value="확인">
+				    	<input type="button" value="취소" class="cancle" onclick="logout()">
+				    </form>
+                        
+                        
                     </div>
                     
                 </div>
