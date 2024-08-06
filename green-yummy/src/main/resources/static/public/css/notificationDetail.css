@@ -1,0 +1,33 @@
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.notifiDetail{
+	width: 1280px;
+	border-collapse: collapse;
+}
+
+.notifiDetail, .notifiDetail tr{
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	
+}
+
+.notifiDetail tr{
+	height: 50px;	
+}
+
+.notifiDetail th{
+	font-weight: bold;
+    text-align: center;
+    background: lightgray;
+}
+
+.notifiDetail td{
+	background: #f8f8f8;
+}
+
