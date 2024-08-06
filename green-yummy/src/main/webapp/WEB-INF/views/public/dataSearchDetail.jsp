@@ -13,9 +13,7 @@
 
 <jsp:include page="../public/header.jsp"/>
 
-<form>
-    <input type="hidden" id="shopUkId" name="shopUkId" value="${shop.shopUkId}">
-</form>
+
 
 <div class="outContainer">
     <div class="innerContainer">
@@ -62,7 +60,12 @@
 
         <div class="review">
             <div class="reviewTag"> 리뷰 </div>
-            <input type="button" value="리뷰쓰기" class="reviewBtn" onclick="window.location.href='/user/createReview/${shop.shopUkId}'">
+            
+            <form onsubmit="event.preventDefault(); checkReview();">
+		        <input type="hidden" id="shopUkId" name="shopUkId" value="${shop.shopUkId}">
+		        <input type="hidden" id="userUkId" name="userUkId" value="1">
+		        <input type="button" value="리뷰쓰기" class="reviewBtn" onclick="checkReview()">
+		    </form>
             <div class="reviewsContainer" id="reviewsContainer"></div>
         </div>
 

@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             alert('리뷰가 성공적으로 수정되었습니다.');
-             window.location.href = `/user/reviewList`;
+             window.location.href = `/user/userPage`;
         })
         .catch(error => {
             alert('리뷰 수정에 실패했습니다: ' + error.message);

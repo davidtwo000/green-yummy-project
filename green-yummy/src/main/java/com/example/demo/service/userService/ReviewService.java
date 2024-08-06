@@ -30,5 +30,8 @@ public interface ReviewService {
 	//원래 리뷰 가져오는 창
 	ReviewDTO getReviewById(Integer reviewId) throws Exception;
 	
+	//이미 작성한 리뷰 있는지 확인
+	boolean hasUserReviewedShop(Integer userUkId, Integer shopUkId);
+	
 	
 }
