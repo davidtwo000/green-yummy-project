@@ -16,20 +16,21 @@
 
 <jsp:include page="../public/header.jsp"/>
 
+
     <main>
         <div class="loginContainer">
             
                 <div class="loginforms">
-                	<form action="/login" method="post" class="loginbox">
+                	<form action="/login" method="post" class="loginbox" onsubmit="return validateForm()">
                 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                     <table>
                         <tr>
                             <td>아이디</td>
-                            <td><input type="text" name="username" placeholder="아이디를 입력하세요."></td>
+                            <td><input type="text" id="username" name="username" placeholder="아이디를 입력하세요."></td>
                         </tr>
                         <tr>
                             <td>비밀번호</td>
-                            <td><input type="password" name="password" ></td>
+                            <td><input type="password" id="password" name="password" ></td>
                         </tr>
                        
                     </table>
