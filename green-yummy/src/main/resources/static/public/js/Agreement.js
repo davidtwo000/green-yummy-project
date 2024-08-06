@@ -40,6 +40,9 @@ function requireCheck(){
 			alert("약관을 확인해주세요.");
 			break;
 		}
+		if((pleaseCheck[i+1].checked==true)&&(policyChk[i].classList.contains("checkComplete")==true)){
+			window.location.href="/public/userRegist";
+		}
 	}
 	
 }
