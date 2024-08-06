@@ -1,8 +1,9 @@
 header{
     display: flex;
     justify-content: center;
-
-    background: lemonchiffon;
+    border-top: 4px solid salmon;
+    border-bottom: 4px solid salmon;
+	background: white;
 }
 .headcontainer{
     display: flex;
@@ -11,22 +12,16 @@ header{
     width: 1280px;
     height: 170px;
 
-    border: 1px solid green;
 }
-.logopic,
-.logopic a{
-    width: 200px;
-    height: 100px;
-    margin-left: 20px;
-
-    border: 1px solid salmon;
+.headcontainer a{
+	margin-left: 20px;
+}
+ .headcontainer img{
+    width: 128px;
+    height: 128px;
 }
 
-.loginplace,
 .loginplace a{
-    width: 100px;
-    height: 50px;
-    margin-right: 20px;
-
-    border: 2px solid skyblue;
+	margin-right: 40px;
+	font: normal bold 15pt 'sans-serif';
 }
