@@ -5,7 +5,7 @@ main{
 	align-items: center;
 	margin: 100px 0 100px 0;
 }
-.innerContainer{
+.collectContainer{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -13,7 +13,7 @@ main{
 	width: 1280px;
 }
 .map{
-	position: fixed;
+/* 	position: fixed; */
 	top: 0;
 	
 	width: 960px;
@@ -23,7 +23,7 @@ main{
 	position: relative;
 	z-index: 10;
 	width: 1280px;
-	margin: 540px 0px 0px 0px;
+/* 	margin: 540px 0px 0px 0px; */
 	
 	border: 2px solid blue;
 }
