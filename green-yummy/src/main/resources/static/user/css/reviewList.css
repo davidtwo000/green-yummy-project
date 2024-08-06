@@ -35,19 +35,44 @@ tr{
     position: fixed;
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
     background: rgba(0,0,0,0.5);
 }
 
 .deleteModal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    vertical-align: middle;
     width: 400px;
     height: 200px;
     background: white;
+    opacity: 1;
 }
-
+.deleteBtns>input[type="button"]{
+	box-sizing: border-box;
+    width: 80px;
+    height: 30px;
+    background: salmon;
+    border: none;
+    cursor: pointer;
+    font: normal bold 11pt 'sans-serif';
+    margin: 20px 10px 0 10px;
+}
 .xplace{
+    position: absolute;
+    left: 340px;
+    top: 10px;
     width: 50px;
     height: 50px;
-    background: rgba(8, 157, 70, 0.5)
+    cursor: pointer; 
+}
+.xplace > img{
+	width: 50px;
+	height: 50px;
 }
  .hidden{
     display: none;
