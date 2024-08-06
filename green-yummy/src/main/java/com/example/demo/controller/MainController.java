@@ -54,17 +54,6 @@ public class MainController {
 		return "public/userRegist";
 	}
 	
-	//shopcontroller로 옮김
-	//@GetMapping("public/dataSearch")
-	//public String dataSearch() {
-		//return "public/dataSearch";
-	//}
-	
-	//@GetMapping("public/dataSearchDetail")
-	//public String dataSearchDetail() {
-	//return "public/dataSearchDetail";
-	//}
-	
 	@GetMapping("public/pictureOCR")
 	public String pictureOCR() {
 		return "public/pictureOCR";
@@ -85,8 +74,7 @@ public class MainController {
 		return "public/serviceIntro";
 	}
 	
-	//노티피케이션 (이 밑으로 notification 관련은 그냥 구현해본거. 필요 없는 기능들은 나중에 삭제할 예정)
-	//GPT에 'jpa로 sql의 insert, update, select, delete 구현' 검색해서 공부해도 무관
+	
 	@Autowired
     private NotificationService notificationService;
 	
