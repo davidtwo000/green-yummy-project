@@ -21,7 +21,7 @@ public interface ReviewRepository extends JpaRepository<Review, Integer> {
     List<Review> findAllByShopUkId(@Param("shopUkId") Integer shopUkId);
 
     // 특정 가게 ID에 대한 리뷰 평점의 평균 계산
-    @Query("SELECT AVG(r.reviewRate) FROM Review r WHERE r.shopUkId = :shopUkId")
+    @Query("SELECT AVG(r.reviewRating) FROM Review r WHERE r.shopUkId = :shopUkId")
     Double findAverageRatingByShopUkId(@Param("shopUkId") Integer shopUkId);
 
     // 작성한 리뷰 존재 여부 확인

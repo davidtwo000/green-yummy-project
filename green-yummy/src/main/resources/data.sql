@@ -23,7 +23,7 @@ VALUES
     ('중국회관', 'profile2.jpg', '중식', '서울시 종로구', '02-8765-4321', '10:00', '21:00', '매주 월요일', '배달 서비스 제공', 37.572416, 126.976123),
     ('이탈리아 레스토랑', 'profile3.jpg', '양식', '서울시 송파구', '02-1357-2468', '12:00', '23:00', '매주 화요일', '예약 필수', 37.514034, 127.105671);
 
-INSERT INTO REVIEWS (USER_UK_ID, SHOP_UK_ID, REVIEW_RATE, REVIEW_COMMENT, REVIEW_CONTENT)
+INSERT INTO REVIEWS (USER_UK_ID, SHOP_UK_ID, REVIEW_RATING, REVIEW_COMMENT, REVIEW_CONTENT)
 VALUES (1, 1, 5, '맛있어요', '맛있어요'),
 (1, 3, 5, '맛있어요', '맛있어요'),
 (2, 2, 5, '맛있어요', '맛있어요'),

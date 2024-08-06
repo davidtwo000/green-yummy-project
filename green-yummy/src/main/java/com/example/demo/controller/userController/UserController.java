@@ -60,10 +60,6 @@ public class UserController {
 		return "user/userInfoChange";
 	}
 	
-	@GetMapping("user/createReview")
-	public String createReview() {
-		return "user/createReview";
-	}
 	
 	@GetMapping("user/changeReview")
 	public String changeReview() {

@@ -24,7 +24,9 @@ function formatCommentAsHashtags(comment) {
 //리뷰 표시
 function displayReviews(reviews) {
     const reviewsContainer = document.getElementById('reviewsContainer');
-    reviewsContainer.innerHTML = ''; // Clear existing reviews
+    reviewsContainer.innerHTML = '';
+	
+	console.log('Reviews:', reviews);
 
     if (!reviews || reviews.length === 0) {
         reviewsContainer.innerHTML = '<tr><td colspan="5">리뷰가 없습니다.</td></tr>';
@@ -36,9 +38,10 @@ function displayReviews(reviews) {
 
         reviewRow.innerHTML = `
             <td>${review.user.id}</td>
-            <td>${review.reviewRate}</td>
+            <td>${review.reviewRating}</td>
 			<td>${formatCommentAsHashtags(review.reviewComment)}</td>
             <td>${review.reviewContent}</td>
+			<td>${review.reviewImg}</td>
             <td>${new Date(review.reviewDate).toLocaleDateString()}</td>
         `;
 
