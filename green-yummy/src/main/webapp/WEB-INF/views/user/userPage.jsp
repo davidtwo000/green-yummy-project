@@ -106,9 +106,9 @@
 		            <option value="">양식</option>
 		            <option value="">그 외</option>
 		        </select>
-		        
-		        <img src="/images/gridview.png" class="gridview">
 		        <img src="/images/orderByList.png" class="listview">
+		        <img src="/images/gridview.png" class="gridview">
+		        
 		        
 		       
 		    </div>
@@ -153,7 +153,7 @@
 		    			<td>${shop[index].location}</td>
 		    		</tr>
 		    		<tr>
-		    			<td>${shop[index].shopTel}</td>
+		    			<td colspan="2">${shop[index].shopTel}</td>
 		    		</tr>
 		    		
 		    		</table>
@@ -195,10 +195,15 @@
         
             <div class="modalContainer hidden" id="deleteModalContainer">
                 <div class="deleteModal">
-                    <div class="xplace"></div>
+                    <div class="xplace">
+                    	<img src="/images/closeBtn.png" onclick="hideDeleteModal()">
+                    </div>
                     삭제하시겠습니까?
-                    <input type="button" value="삭제" onclick="confirmDelete()" />
-        			<input type="button" value="취소" onclick="hideDeleteModal()" />
+                    <div class="deleteBtns">
+	                    <input type="button" value="삭제" onclick="confirmDelete()" />
+	        			<input type="button" value="취소" onclick="hideDeleteModal()" />
+                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -209,7 +214,9 @@
         
             <div class="modalContainer1 hidden">
                 <div class="logoutModal">
-                    <div class="xplace cancel" onclick="logout()"></div>
+                    <div class="xplace cancel" onclick="logout()">
+                    	<img src="/images/closeBtn.png">
+                    </div>
                     로그아웃 하시겠습니까?
                     <div class="logoutBtns">
                     <form action="/logout" method="post">
@@ -226,7 +233,9 @@
         
             <div class="modalContainer2 hidden">
                 <div class="userOutModal">
-                    <div class="xplace cancel" onclick="userBye()"></div>
+                    <div class="xplace cancel" onclick="userBye()">
+                    	<img src="/images/closeBtn.png">
+                    </div>
                     탈퇴하시겠습니까?
                     <div class="userOutBtns">
                         <input type="button" value="탈퇴">
