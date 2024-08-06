@@ -18,6 +18,8 @@
        
         
         <div class="reviewContainer">
+        	<div> ${user.id}</div>
+        
         	 <form id="createReview" method="post">
 		        <input type="hidden" name="shopUkId" value="${shop.shopUkId}">
 		        
@@ -47,6 +49,8 @@
 	
 	        <input type="text" name="reviewContent" required placeholder="Enter detailed content" class="reviewContent">
 	       <div class="reviewBtn">
+	       <div class="storePhoto"><input type="file"></div>
+	       
                 <input type="submit" value="리뷰 작성하기">
             </div>
 	    </form>
