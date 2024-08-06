@@ -12,7 +12,8 @@ main{
     width: 1280px;
     
     padding: 10px;
-    border: 2px solid skyblue;
+    border-radius: 5px;
+    border: 2px solid lightgray;
 }
 
 /*유저 프로필 부분*/
@@ -22,7 +23,8 @@ main{
     justify-content: space-evenly;
     padding: 20px;
     
-    border: 2px solid green;
+    border-radius: 5px;
+    border: 2px solid gray;
 }
 .userPic, .userPic > img{
     width: 200px;
@@ -77,8 +79,8 @@ main{
     height: 50px;
     list-style-type: none;
     font: normal bold 15pt 'sans-serif';
+    border-radius: 5px;
     
-    border: 2px solid orange;
     background: salmon;
 }
 .mypageTab > li{
@@ -109,10 +111,12 @@ main{
     width: 50px;
     height: 50px;
     cursor: pointer;
-
-    background: green;
-    opacity: 0.5;
 }
+.xplace>img{
+	width: 50px;
+	height: 50px;
+}
+
 .logoutModal,
 .userOutModal{
     display: flex;
