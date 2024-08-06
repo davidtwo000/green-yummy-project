@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.dto.publicDto.ShopDTO;
 import com.example.demo.dto.userDto.ReviewDTO;
+import com.example.demo.model.userModel.User;
 import com.example.demo.service.publicService.ShopService;
 import com.example.demo.service.userService.ReviewService;
+import com.example.demo.service.userService.UserServiceImpl;
 
 @Controller
 public class ReviewController {
@@ -35,11 +37,17 @@ public class ReviewController {
 	    return "user/userPage"; // 리뷰를 표시할 뷰 이름
 	}
     
+	@Autowired 
+	private UserServiceImpl userService;
+	
   //식당 정보 가져와서 createReview 창 띄우기
     @GetMapping("user/createReview/{shopUkId}")
     public String showCreateReviewForm(@PathVariable("shopUkId") Integer shopUkId, Model model) {
         ShopDTO shop = shopService.getShopByUkId(shopUkId);
         model.addAttribute("shop", shop); 
+        
+        User user = userService.getCurrentUser();
+        model.addAttribute("user", user);
    
         return "user/createReview"; 
     }
