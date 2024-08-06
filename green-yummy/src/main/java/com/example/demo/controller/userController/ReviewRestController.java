@@ -1,15 +1,22 @@
 package com.example.demo.controller.userController;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-
-import java.util.HashMap;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
+import java.util.UUID;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,8 +30,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.dto.userDto.ReviewDTO;
-import com.example.demo.dto.userDto.ReviewPhotoDTO;
+
 import com.example.demo.service.userService.ReviewService;
+import com.example.demo.util.FileUploader;
+
 
 
 @RestController
@@ -33,6 +42,9 @@ public class ReviewRestController {
 
     @Autowired
     private ReviewService reviewService; 
+    
+    @Autowired
+    private FileUploader fileUploader;
     
 
     @DeleteMapping("/delete/{id}")
@@ -44,25 +56,35 @@ public class ReviewRestController {
             return ResponseEntity.status(500).body("Failed to delete review: " + e.getMessage());
         }
     }
+   
     
     //리뷰 작성 
+   
+
+  //리뷰 작성 
     @PostMapping("/createReview/{shopUkId}")
     public ResponseEntity<String> createReview(
             @PathVariable("shopUkId") Integer shopUkId,
             @RequestParam("userUkId") Integer userUkId,
-            @RequestParam("reviewRate") Byte reviewRate,
-            @RequestParam("reviewComment") String reviewComment, // Capture as a comma-separated string
-            @RequestParam("reviewContent") String reviewContent) {
+            @RequestParam("reviewRating") Byte reviewRating,
+            @RequestParam("reviewComment") String reviewComment,
+            @RequestParam("reviewContent") String reviewContent,
+            @RequestParam(value = "reviewImg", required = false) MultipartFile reviewImg) {
 
         try {
             ReviewDTO review = new ReviewDTO();
             review.setShopUkId(shopUkId);
             review.setUserUkId(userUkId);
-            review.setReviewRating(reviewRate);
-            review.setReviewComment(reviewComment); // Store as a list
+            review.setReviewRating(reviewRating);
+            review.setReviewComment(reviewComment);
             review.setReviewContent(reviewContent);
 
-            // Call the service to create the review
+            if (reviewImg != null && !reviewImg.isEmpty()) {
+                String folder = "images"; // Folder where images will be saved
+                String fileName = fileUploader.uploadFileAndGetChangedFileName(reviewImg, folder);
+                review.setReviewImg(folder + "/" + fileName);
+            }
+
             reviewService.createReview(review);
 
             return ResponseEntity.ok("리뷰가 성공적으로 생성되었습니다.");
@@ -70,6 +92,9 @@ public class ReviewRestController {
             return ResponseEntity.status(500).body("Failed to create review: " + e.getMessage());
         }
     }
+    
+
+
     
     //리뷰 이미 작성했으면 못하게
     @PostMapping("/check")

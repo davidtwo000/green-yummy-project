@@ -38,5 +38,7 @@ public interface ReviewService {
 	//리뷰 페이지화
 	Page<ReviewDTO> getReviewsPage(int page, int size);
 	
+	int getNextReviewId();
+	
 	
 }
