@@ -110,35 +110,5 @@ public class MainController {
         }
     }
 	
-	//이 밑은 jpa로 생성,수정 구현해본것
-    @GetMapping("/public/notification/new")
-    public String createNotificationForm(Model model) {
-        model.addAttribute("notice", new NotificationDTO());
-        return "public/notificationForm";  // 폼 JSP
-    }
-
-    @PostMapping("/newNotification")
-    public String saveNotification(@ModelAttribute NotificationDTO noticeDTO) {
-        notificationService.saveNotice(noticeDTO);
-        return "redirect:/public/notification";
-    }
-    
-    @GetMapping("/notificationUpdate/{id}")
-    public String updateNotification(@PathVariable("id") int id, Model model) {
-    	    	
-    	Optional<NotificationDTO> notice = notificationService.getNotificationById(id);
-        if (notice.isPresent()) {
-            model.addAttribute("notice", notice.get());
-            return "public/notificationUpdate";  // JSP 파일 이름
-        } else {
-            return "redirect:/public/notification";
-        } 
-    }
-    
-    @PostMapping("/updateNotification")
-    public String newsaveNotification(@ModelAttribute NotificationDTO noticeDTO) {
-        notificationService.updateNotice(noticeDTO);
-        return "redirect:/public/notification";
-    }
-    //여기까지가 생성-수정 기능 순
+	
 }

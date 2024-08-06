@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공지사항</title>
     <link href="/public/css/notification.css" rel="stylesheet" type="text/css">
+    
 </head>
 <body>
 
@@ -27,31 +28,29 @@
                     <td>조회수</td>
                 </tr>
     
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>공지사항이 없습니다.</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-    <!-- 예시로 넣어둔 것. 이 부분은 백엔드와 jsp foreach 사용 -->
-    			<c:forEach items ="${notices}" var="notice">
-    			<tr onclick="window.location.href='/public/notificationDetail/${notice.noticeId}'">
-                    <td>${notice.noticeId}</td>
-                    <td>${notice.author}</td>
-                    <td>${notice.title}</td>
-                    <td>${notice.postDate}</td>
-                    <td>${notice.viewCount}</td>
-                </tr>
-                <tr>
-                	<td><a href="/notificationUpdate/${notice.noticeId}">공지 수정 예시</a></td>
-                </tr>
-    			</c:forEach>
+                <c:choose>
+		            <c:when test="${empty notices}">
+		                <tr>
+		                    <td colspan="5">공지사항이 없습니다.</td>
+		                </tr>
+		            </c:when>
+		            <c:otherwise>
+		                <c:forEach items="${notices}" var="notice">
+		                    <tr onclick="window.location.href='/public/notificationDetail/${notice.noticeId}'">
+		                        <td>${notice.noticeId}</td>
+		                        <td>${notice.author}</td>
+		                        <td>${notice.title}</td>
+		                        <td>${notice.postDate}</td>
+		                        <td>${notice.viewCount}</td>
+		                    </tr>
+		                </c:forEach>
+		            </c:otherwise>
+		        </c:choose>
                
             </table>
         </div>
         
-        <a href="/public/notification/new">새 공지사항</a>
+        
         
     </main>
     
