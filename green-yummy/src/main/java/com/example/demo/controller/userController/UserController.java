@@ -52,7 +52,11 @@ public class UserController {
 	
 	
 	@GetMapping("user/userInfoChange")
-	public String userInfoChange() {
+	public String userInfoChange(Model model) {
+		
+		User user = userService.getCurrentUser();
+        model.addAttribute("user", user);	
+		
 		return "user/userInfoChange";
 	}
 	
