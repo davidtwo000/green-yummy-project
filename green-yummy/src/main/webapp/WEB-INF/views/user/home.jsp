@@ -41,5 +41,8 @@
     	<input type ="submit" value="로그아웃">
     </form>
     
+   	<a href="/">홈으로 돌아가기</a>
+   	<a href="/user/userPage">마이페이지로 가기</a>
+    
 </body>
 </html>

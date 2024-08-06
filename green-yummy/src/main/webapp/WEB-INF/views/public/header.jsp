@@ -16,7 +16,7 @@
             </div>
 
             <div class="loginplace">
-                <a href="/userLogin">로그인</a>
+                <a href="/user/userLogin">로그인</a>
             </div>
         </div>
         
