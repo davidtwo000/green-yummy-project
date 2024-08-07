@@ -2,7 +2,7 @@
 
 .recommandCon{
     width: 1280px;
-/* 	overflow: hidden; */
+	overflow: hidden;
 	border: 2px solid turquoise;
 }
 
@@ -45,15 +45,15 @@
 	height: 100px;
 	cursor: pointer;
 	
-	background: rgba(35, 23, 44, 0.5);
+/* 	background: rgba(35, 23, 44, 0.5); */
 }
 .recPrevBtn{
 	top: 301px;
-	left: -100px;
+	left: -690px;
 }
 .recNextBtn{
 	top: -301px;
-	left: 1280px;
+	left: 690px;
 }
 
 .recommandDetail{
