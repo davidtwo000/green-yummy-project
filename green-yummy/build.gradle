@@ -92,16 +92,14 @@ dependencies {
 	implementation 'commons-fileupload:commons-fileupload:1.4'
 	implementation 'commons-io:commons-io:2.11.0'
 	
-<<<<<<< Updated upstream
+
 	
 	//웹소켓
 	implementation 'org.springframework.boot:spring-boot-starter-websocket'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+    	implementation 'org.springframework.boot:spring-boot-starter-web'
 
 	
-=======
-	// Uncomment if needed
->>>>>>> Stashed changes
+
 	/*
 	// Security
 	implementation 'io.jsonwebtoken:jjwt:0.9.1'
