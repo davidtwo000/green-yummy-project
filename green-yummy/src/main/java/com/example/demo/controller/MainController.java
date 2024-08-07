@@ -106,11 +106,14 @@ public class MainController {
 	    int startPage = Math.max(1, page - maxButtons / 2);
 	    int endPage = Math.min(totalPages, startPage + maxButtons - 1);
 
-	    // startPage가 1보다 작으면 endPage 조정
-	    /*if (endPage - startPage + 1 < maxButtons) {
-	        endPage = Math.min(totalPages, startPage + maxButtons - 1);
-	        startPage = Math.max(1, endPage - maxButtons + 1);
-	    }*/
+	    if(totalPages<6){
+	    	startPage = 1;
+	    	endPage = Math.min(totalPages, startPage + maxButtons - 1);
+	   	}else if(page>=totalPages-2){
+	   		startPage = totalPages - 4;
+	   		endPage = totalPages;
+	   	}
+	   	
 	    
 	    model.addAttribute("notices", notices);
 	    model.addAttribute("currentPage", page);

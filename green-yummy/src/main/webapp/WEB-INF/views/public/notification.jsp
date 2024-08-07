@@ -13,6 +13,18 @@
         
      
     <script>
+    function goFirst(){
+    	window.location.href = "/public/notification?page=" + (1) + 
+						        "&searchType=" + encodeURIComponent("${param.searchType}") + 
+						        "&searchKeyword=" + encodeURIComponent("${param.searchKeyword}");
+    }
+    
+    function goLast(){
+    	window.location.href = "/public/notification?page=" + (${totalPages}) + 
+						        "&searchType=" + encodeURIComponent("${param.searchType}") + 
+						        "&searchKeyword=" + encodeURIComponent("${param.searchKeyword}");
+    }
+    
     function goPrevious() {
         window.location.href = "/public/notification?page=" + (${currentPage} - 1) + 
                                 "&searchType=" + encodeURIComponent("${param.searchType}") + 
@@ -84,8 +96,11 @@
         </table>
 
         <div class="pagination">
+        	<c:if test="${currentPage > 1 && totalPages > 5}">
+		        <input type="button" onclick="goFirst()" value="<<">
+		    </c:if>
 		    <c:if test="${currentPage > 1}">
-		        <input type="button" onclick="goPrevious()" value="이전">
+		        <input type="button" onclick="goPrevious()" value="<">
 		    </c:if>
 		    
 		    <c:forEach begin="${startPage}" end="${endPage}" var="i">
@@ -98,7 +113,10 @@
 		    </c:forEach>
 		    
 		    <c:if test="${currentPage < totalPages}">
-		        <input type="button" onclick="goNext()" value="다음">
+		        <input type="button" onclick="goNext()" value=">">
+		    </c:if>
+		    <c:if test="${currentPage < totalPages && totalPages > 5}">
+		        <input type="button" onclick="goLast()" value=">>">
 		    </c:if>
 		</div>
     </div>
