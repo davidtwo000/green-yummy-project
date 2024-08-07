@@ -16,28 +16,46 @@ form{
 	border-radius: 10px;
 	border: 2px solid lightgray;
 }
-table, tr, th, td{
-	border: 1px solid turquoise;
-}
+/* table, tr, th, td{ */
+/* 	border: 1px solid turquoise; */
+/* } */
 table{
-	width: 600px;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	border-collapse: collapse;
 	margin: 30px;
+}
+table img{
+	cursor: pointer;
+	opacity: 0.5;
+}
+td, th{
+	padding: 10px;
+	border-bottom: 1px solid gray;
+}
+th{
+	width: 100px;
+	text-align: center;
+	font: normal bold 13pt 'sans-serif';
+}
+
+
+
+.shopLocation{
+	width: 900px;
+}
+input[type="text"]:not(.shopLocation){
+	width: 400px;
 }
 input[type="text"]{
 	box-sizing: border-box;
-	width: 400px;
 	padding: 10px;
 	border: none;
 	outline: none;
 	background: #f2f2f2;
 }
-th, td{
-	padding: 10px;
-}
-th{
-	width: 150px;
-	text-align: center;
-	font: normal bold 13pt 'sans-serif';
+input[type="file"]{
+	display: none;
 }
 .shopApplyBtns{
 	display: flex;
@@ -50,6 +68,7 @@ input[type="reset"]{
 	margin: 10px;
 	cursor: pointer;
 	font: normal bold 13pt 'sans-serif';
+	border-radius: 8px;
 	border: none;
 	background: salmon;
 }
