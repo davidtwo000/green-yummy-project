@@ -17,6 +17,7 @@
 <jsp:include page="../public/header.jsp"/>
 
     <main>
+    
         <div class="userContainer">
             <div class="forUser">
                 <div class="userPic">
@@ -25,7 +26,8 @@
                 
                 <div class="helloUser">
 	                <div class="userInfo">
-	                	<p>${users.id}님, 환영합니다!
+	                	<p>${user.id}님, 환영합니다! 
+	                	<input type="hidden" name="userUkId" id="userUkId" value="${user.userUkId}">
 		                <img src="/images/pencil.png" onclick="infoChange()"></p>
 		                <span>*회원정보를 수정하시려면 연필 버튼을 눌러주세요.</span>
 	                </div>
@@ -183,21 +185,9 @@
                     <td>삭제</td>
                 </tr>
              
-                <c:forEach items="${reviews}" var="review" varStatus="status">
-				    <tr>
-				        <td>${status.index + 1}</td>
-				        <td>${review.shop.shopName}</td>
-				        <td>${review.reviewContent}</td>
-				        <td>${review.reviewRating}</td>
-				        <td id="reviewDate">${review.reviewDate}</td>
-				        <td>
-				        <img src="/images/reviewUpdate.png" onclick="updateReview(${review.reviewId})">
-				        </td>
-				        <td>
-				        <img src="/images/reviewDelete.png" onclick="showDeleteModal(${review.reviewId})">
-				        </td>
-				    </tr>
-				</c:forEach>
+
+                
+
             </table>
         
             <div class="modalContainer hidden" id="deleteModalContainer">

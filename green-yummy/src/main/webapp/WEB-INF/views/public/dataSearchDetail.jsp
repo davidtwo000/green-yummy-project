@@ -15,13 +15,31 @@
 
 
 
-<div class="outContainer">
+<div class="outContainer">	
+
+		<input type="hidden" id="userUkId" name="userUkId" value="${user.userUkId}">
+		<input type="hidden" id="shopUkId" name="shopUkId" value="${shop.shopUkId}">
+ 		
+ 		
+	
     <div class="innerContainer">
+    	
+    	<div class="backBtn">
+		    <input type="button" id="backButton" value="목록으로" />
+		</div>
+    
+    
         <div class="restaurantTitle"> 
             <div class="name">${shop.shopName}</div>
             <div class="type">${shop.shopType}</div>
             <div class="rating"> 평점 </div>
         	<div class="averageRating" id="averageRating"> </div>
+        </div>
+        
+        <div class="bookmarkBtn">
+        	<form id="bookmarkForm">
+			    <input type="button" onclick="bookmark()" value="북마크 저장">
+			</form>	
         </div>
         
         <div class="restaurantImgContainer">
@@ -61,12 +79,19 @@
         <div class="review">
             <div class="reviewTag"> 리뷰 </div>
             
-            <form onsubmit="event.preventDefault(); checkReview();">
-		        <input type="hidden" id="shopUkId" name="shopUkId" value="${shop.shopUkId}">
-		        <input type="hidden" id="userUkId" name="userUkId" value="8">
-		        <input type="button" value="리뷰쓰기" class="reviewBtn" onclick="checkReview()">
-		    </form>
+		        <input type="button" value="리뷰쓰기" class="reviewBtn" onclick="createReview(${shop.shopUkId})">
             <div class="reviewsContainer" id="reviewsContainer"></div>
+            
+            <!-- 자세히 보기 창 -->
+            <div id="modal" class="modal">
+		        <div class="modal-content">
+		            <span id="closeBtn" class="close-btn">&times;</span>
+		            <div id="modalBody">
+		                <!-- Dynamic content will be inserted here -->
+		            </div>
+		        </div>
+		    </div>
+            
         </div>
 
         <div class="random">
