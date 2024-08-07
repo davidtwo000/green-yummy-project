@@ -170,6 +170,9 @@
 		
 <!-- 		리뷰리스트 페이지 -->
 <div class="reviewContainer hidden" id="tab2">
+
+<h4>나의 리뷰 보기</h4>
+<hr>
         	
             <table>
                 <tr>
@@ -182,7 +185,9 @@
                     <td>삭제</td>
                 </tr>
              
+
                 
+
             </table>
         
             <div class="modalContainer hidden" id="deleteModalContainer">
@@ -201,8 +206,6 @@
         </div>
         
         	
-<!--             <iframe src="../user/storeCollection" class="stores"></iframe> -->
-<!--             <iframe src="../user/reviewList" class="reviews hidden"></iframe> -->
         
             <div class="modalContainer1 hidden">
                 <div class="logoutModal">

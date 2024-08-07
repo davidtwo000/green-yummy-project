@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="/user/css/createReview.css" rel="stylesheet" type="text/css">
    	<script src="/user/js/updateReview.js"></script>
 </head>
 <body>

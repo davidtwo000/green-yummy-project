@@ -14,11 +14,30 @@
 			<a href="/"><img src="/images/강남맛집.png"></a>
 
 			<div class="loginplace">
-                <a href="/user/userLogin">로그인</a>
+                <a href="/public/userLogin">로그인</a>
             </div>
             
         </div>
         
+        
+         
+        
+        
     </header>
+    
+    <ul class="category">
+                <li>
+                    지역별
+                </li>
+                <li>
+                    업종별
+                </li>
+                <li>
+                    메뉴별
+                </li>
+				<li>
+					평점별
+				</li>
+            </ul>
 </body>
 </html>

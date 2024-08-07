@@ -10,6 +10,9 @@ public interface NotificationService {
 	List<NotificationDTO> getAllNotices();
     Optional<NotificationDTO> getNotificationById(int id);
     void incrementViewCount(int id);
-    //void saveNotice(NotificationDTO noticeDTO);
-    //void updateNotice(NotificationDTO noticeDTO);
+    
+    List<NotificationDTO> getNotices(int start, int pageSize);
+    int getTotalNotices();
+    List<NotificationDTO> searchNotices(String searchType, String searchKeyword, int start, int pageSize);
+    int getSearchTotalNotices(String searchType, String searchKeyword);
 }

@@ -33,7 +33,6 @@ public class NotificationServiceImpl implements NotificationService{
 	@Transactional
 	public void incrementViewCount(int id) {
 	    Optional<Notification> optionalNotification = notificationRepository.findById(id);
-	    
         Notification notification = optionalNotification.get();
         notification.setViewCount(notification.getViewCount() + 1);
         notificationRepository.save(notification);
@@ -49,48 +48,54 @@ public class NotificationServiceImpl implements NotificationService{
         dto.setViewCount(notice.getViewCount());
         return dto;
     }
-
-    
-
-
-    /*
-     * 수정, 생성 기능
-	@Override
-	public void saveNotice(NotificationDTO noticeDTO) {
-		Notification notice = convertToEntity(noticeDTO);
-        notificationRepository.save(notice);
-	}
 	
-	@Override
-	public void updateNotice(NotificationDTO noticeDTO) {
-		System.out.println("Notice ID: " + noticeDTO.getNoticeId());
-		
-        // 기존 엔티티를 데이터베이스에서 조회
-        Optional<Notification> existingNotification = notificationRepository.findById(noticeDTO.getNoticeId());
-
-        if (existingNotification.isPresent()) {
-            Notification notice = existingNotification.get();
-            // DTO에서 수정된 값으로 엔티티 업데이트
-            notice.setAuthor(noticeDTO.getAuthor());
-            notice.setTitle(noticeDTO.getTitle());
-            notice.setViewCount(noticeDTO.getViewCount());
-            // 변경된 엔티티를 저장
-            notificationRepository.save(notice);
-        }else {
-        	throw new EntityNotFoundException("Notification not found with id: " + noticeDTO.getNoticeId());
-        }
+	///
+	
+	public List<NotificationDTO> getNotices(int start, int pageSize) {
+        return notificationRepository.findAll().stream()
+                .skip(start)
+                .limit(pageSize)
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
     }
-    
-    private Notification convertToEntity(NotificationDTO dto) {
-        Notification notice = new Notification();
-        notice.setNoticeId(dto.getNoticeId());
-        notice.setAuthor(dto.getAuthor());
-        notice.setTitle(dto.getTitle());
-        notice.setContent(dto.getContent());
-        notice.setPostDate(dto.getPostDate());
-        notice.setViewCount(dto.getViewCount());
-        return notice;
-    }
-	*/
 
+    public int getTotalNotices() {
+        return (int) notificationRepository.count();
+    }
+
+    public List<NotificationDTO> searchNotices(String searchType, String searchKeyword, int start, int pageSize) {
+        List<Notification> filteredNotices = notificationRepository.findAll().stream()
+                .filter(notice -> {
+                    if ("title".equals(searchType)) {
+                        return notice.getTitle().contains(searchKeyword);
+                    } else if ("content".equals(searchType)) {
+                        return notice.getContent().contains(searchKeyword);
+                    } else if ("titleContent".equals(searchType)) {
+                        return notice.getTitle().contains(searchKeyword) || notice.getContent().contains(searchKeyword);
+                    }
+                    return false;
+                })
+                .collect(Collectors.toList());
+
+        return filteredNotices.stream()
+                .skip(start)
+                .limit(pageSize)
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
+    }
+
+    public int getSearchTotalNotices(String searchType, String searchKeyword) {
+        return (int) notificationRepository.findAll().stream()
+                .filter(notice -> {
+                    if ("title".equals(searchType)) {
+                        return notice.getTitle().contains(searchKeyword);
+                    } else if ("content".equals(searchType)) {
+                        return notice.getContent().contains(searchKeyword);
+                    } else if ("titleContent".equals(searchType)) {
+                        return notice.getTitle().contains(searchKeyword) || notice.getContent().contains(searchKeyword);
+                    }
+                    return false;
+                })
+                .count();
+    }
 }

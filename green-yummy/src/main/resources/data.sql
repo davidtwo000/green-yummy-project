@@ -13,6 +13,7 @@ VALUES ('admin', '공지사항 제목2', '공지사항 내용입니다2.kkkkkkk'
 
 
 
+
 -- 데이터 추가
 INSERT INTO USERS (NAME, EMAIL, PASSWORD, ID) VALUES ('USER1','USER1@EXAMPLE.COM','12345','USER1');
 INSERT INTO USERS (NAME, EMAIL, PASSWORD, ID) VALUES ('USER2','USER2@EXAMPLE.COM','12345','USER2');
@@ -34,3 +35,28 @@ VALUES (1, 1, 5, '맛있어요', '맛있어요'),
 
 SELECT * FROM users;
 
+
+
+-- 공지 실험용
+
+INSERT INTO Notifications (author, title, content, post_date, view_count)
+VALUES ('admin', '공지사항 제목1', '공지사항 내용입니다.kkkkkkk', NOW(), 0),
+('admin', '공지사항 제목2', '공지사항 내용입니다.kkkkkkk', NOW(), 0),
+('admin', '공지사항 제목3', '공지사항 내용입니다.kkkkkkk', NOW(), 0),
+('admin', '공지사항 제목4', '공지사항 내용입니다.kkkkkkk', NOW(), 0),
+('admin', '공지사항 제목5', '공지사항 내용입니다.kkkkkkk', NOW(), 0),
+('admin', '공지사항 제목6', '공지사항 내용입니다.kkkkkkk', NOW(), 0),
+('admin', '공지사항 제목7', '공지사항 내용입니다.kkkkkkk', NOW(), 0),
+('admin', '공지사항 제목8', '공지사항 내용입니다.kkkkkkk', NOW(), 0),
+('admin', '공지사항 제목9', '공지사항 내용입니다.kkkkkkk', NOW(), 0),
+('admin', '공지사항 제목10', '공지사항 내용입니다.kkkkkkk', NOW(), 0),
+('admin', '공지사항 제목11', '공지사항 내용입니다.kkkkkkk', NOW(), 0),
+('admin', '공지사항 제목12', '공지사항 내용입니다.kkkkkkk', NOW(), 0),
+('admin', '공지사항 제목13', '공지사항 내용입니다.kkkkkkk', NOW(), 0),
+('admin', '공지사항 제목14', '공지사항 내용입니다.kkkkkkk', NOW(), 0),
+('admin', '공지사항 제목15', '공지사항 내용입니다.kkkkkkk', NOW(), 0),
+('admin', '공지사항 제목16', '공지사항 내용입니다.kkkkkkk', NOW(), 0),
+('admin', '공지사항 제목17', '공지사항 내용입니다.kkkkkkk', NOW(), 0),
+('admin', '공지사항 제목18', '공지사항 내용입니다.kkkkkkk', NOW(), 0),
+('admin', '공지사항 제목19', '공지사항 내용입니다.kkkkkkk', NOW(), 0),
+('admin', '공지사항 제목20', '공지사항 내용입니다.kkkkkkk', NOW(), 0);
