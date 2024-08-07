@@ -14,7 +14,7 @@
 			<a href="/"><img src="/images/강남맛집.png"></a>
 
 			<div class="loginplace">
-                <a href="/user/userLogin">로그인</a>
+                <a href="/public/userLogin">로그인</a>
             </div>
             
         </div>
