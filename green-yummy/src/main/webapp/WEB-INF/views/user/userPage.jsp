@@ -168,6 +168,9 @@
 		
 <!-- 		리뷰리스트 페이지 -->
 <div class="reviewContainer hidden" id="tab2">
+
+<h4>나의 리뷰 보기</h4>
+<hr>
         	
             <table>
                 <tr>
@@ -187,8 +190,12 @@
 				        <td>${review.reviewContent}</td>
 				        <td>${review.reviewRating}</td>
 				        <td id="reviewDate">${review.reviewDate}</td>
-				        <td><input type="button" value="수정" onclick="updateReview(${review.reviewId})"></td>
-				        <td><input type="button" value="삭제" onclick="showDeleteModal(${review.reviewId})" /></td>
+				        <td>
+				        <img src="/images/reviewUpdate.png" onclick="updateReview(${review.reviewId})">
+				        </td>
+				        <td>
+				        <img src="/images/reviewDelete.png" onclick="showDeleteModal(${review.reviewId})">
+				        </td>
 				    </tr>
 				</c:forEach>
             </table>

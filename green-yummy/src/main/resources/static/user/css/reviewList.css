@@ -4,28 +4,34 @@ main{
     align-items: center;
 }
 .reviewContainer{
+	box-sizing: border-box;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 1280px;
+    padding: 5px;
     
-
-    border: 1px solid coral;
+	border-radius: 8px;
+    border: 2px solid gray;
 }
 table{
 	width: 100%;
+	border-top: 1px solid gray;
+	border-collapse: collapse;
+}
+tr{
+	border-bottom: 1px solid gray;
 }
 table, tr, td{
+	table-layout: fixed;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-    border: 1px solid green;
 }
-tr:nth-of-type(2), td:nth-of-type(2){
-	display: block;
-}
+
 td:nth-of-type(3){
-	padding-left: 10px;
+	padding-left: 20px;
 }
 tr:first-child,
 td:not(:nth-of-type(3)){
@@ -53,15 +59,12 @@ table, tr{
 tr{
     background: #fefefe;
 }
-.reviewContainer input[type="button"]{
-	box-sizing: border-box;
-    width: 80px;
-    height: 30px;
-    background: lightgray;
-    border: none;
-    cursor: pointer;
-    font: normal bold 11pt 'sans-serif';
+td > img{
+	width: 40px;
+	height: 40px;
+	cursor: pointer
 }
+
 
 /*모달 창*/
 .modalContainer{

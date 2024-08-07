@@ -6,6 +6,7 @@ main{
 	margin: 100px 0 100px 0;
 }
 .collectContainer{
+	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -13,7 +14,6 @@ main{
 	width: 1280px;
 }
 .map{
-/* 	position: fixed; */
 	top: 0;
 	
 	width: 1280px;
@@ -21,7 +21,6 @@ main{
 }
 .userContentCon{
 	width: 1280px;
-/* 	margin: 540px 0px 0px 0px; */
 	
 }
 
