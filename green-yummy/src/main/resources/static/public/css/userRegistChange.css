@@ -40,8 +40,7 @@ td:nth-child(2){
     color: red;
 }
 
-input[type="text"],
-select{
+input[type="text"], input[type="password"], select{
     width: 320px;
     height: 30px;
     border: none;
