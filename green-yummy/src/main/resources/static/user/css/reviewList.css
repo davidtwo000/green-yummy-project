@@ -12,13 +12,33 @@ main{
 
     border: 1px solid coral;
 }
+table{
+	width: 100%;
+}
 table, tr, td{
+	overflow: hidden;
     border: 1px solid green;
 }
-tr:first-child{
-    text-align: center;
+td:nth-of-type(3){
+	padding-left: 10px;
+}
+tr:first-child,
+td:not(:nth-of-type(3)){
+	text-align: center;
+}
+td:nth-of-type(even), 
+td:last-child, 
+td:first-child{
+	width: 80px;
+}
+td:nth-of-type(5){
+	width: 150px;
+}
+
+tr:first-child > td{
+	padding: 10px 0 10px 0;
     font-weight: bold;
-    background: lightgray;
+    background: #f2f2f2;
 }
 table, tr{
     border-top: 1px solid gray;
@@ -27,7 +47,17 @@ table, tr{
 tr{
     background: #fefefe;
 }
+.reviewContainer input[type="button"]{
+	box-sizing: border-box;
+    width: 80px;
+    height: 30px;
+    background: lightgray;
+    border: none;
+    cursor: pointer;
+    font: normal bold 11pt 'sans-serif';
+}
 
+/*모달 창*/
 .modalContainer{
     display: flex;
     justify-content: center;

@@ -209,8 +209,6 @@
         </div>
         
         	
-<!--             <iframe src="../user/storeCollection" class="stores"></iframe> -->
-<!--             <iframe src="../user/reviewList" class="reviews hidden"></iframe> -->
         
             <div class="modalContainer1 hidden">
                 <div class="logoutModal">
