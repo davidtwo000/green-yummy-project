@@ -14,45 +14,62 @@
 <jsp:include page="../public/header.jsp"/>
 
 <div class="outContainer">
+
+<div class="searchContainer">
+                <input type="text" placeholder="검색어를 입력하세요" class="searchBar">
+                <div class="customSearchBtn"><img src="/images/search.png"></div>
+                <div class="ocricon">
+	                <img src="/images/picture.png" title="OCR. 사진으로 검색하기." 
+	                onclick="location.href='/public/pictureOCR'">
+                </div>
+                
+<!--                 <input type="button" value="OCR" class="OCRBtn"  -->
+<!--                 onclick="location.href='/public/pictureOCR'"> -->
+            </div>
+
+
         <div class="innerContainer">
+        
+        
+        	
 
 
-				<div class="mainPrevBtn"></div>
+				<div class="mainPrevBtn">
+				<img src="/images/prevBtn2.png"></div>
 				<div class="eventImgCon">
 				<ul class="eventImgList">
 					<li><div class="mainImg">
 						<img src="images/pasta.jpg"> 이미지 first </div></li>
-					<li><div class="mainImg"> 이미지 </div></li>
-					<li><div class="mainImg"> 이미지 </div></li>
-					<li><div class="mainImg"> 이미지 </div></li>
+					<li><div class="mainImg"> 
+					<img src="/images/profile1.jpg">이미지 </div></li>
+					<li><div class="mainImg">
+					<img src="/images/profile2.jpg"> 이미지 </div></li>
+					<li><div class="mainImg">
+					<img src="/images/profile3.jpg"> 이미지 </div></li>
 					<li><div class="mainImg">
 						<img src="images/steak.jpg"> 이미지 last </div></li>
 				</ul>
 				</div>
-					<div class="mainNextBtn"></div>
+					<div class="mainNextBtn">
+					<img src="/images/nextBtn2.png"></div>
 
 
-            <div class="searchContainer">
-                <input type="text" placeholder="검색어를 입력하세요" class="searchBar">
-                <div class="customSearchBtn"></div>
-                <input type="button" value="OCR" class="OCRBtn" 
-                onclick="() =>  window.location.href='/public/pictureOCR';">
-            </div>
+            
 
-            <ul class="category">
-                <li>
-                    지역별
-                </li>
-                <li>
-                    업종별
-                </li>
-                <li>
-                    메뉴별
-                </li>
-				<li>
-					평점별
-				</li>
-            </ul>
+<!--             <ul class="category"> -->
+<!--                 <li> -->
+<!--                     지역별 -->
+<!--                 </li> -->
+<!--                 <li> -->
+<!--                     업종별 -->
+<!--                 </li> -->
+<!--                 <li> -->
+<!--                     메뉴별 -->
+<!--                 </li> -->
+<!-- 				<li> -->
+<!-- 					평점별 -->
+<!-- 				</li> -->
+<!--             </ul> -->
             
 			
 			
@@ -60,7 +77,8 @@
 			
             
  
-            <div class="recPrevBtn"></div>
+            <div class="recPrevBtn">
+            <img src="/images/prevBtn2.png"></div>
 	           <div class="recommandCon">
 	           <div class="recommandTag"> 추천 맛집</div>
 	                <div class="lookMoreRec">자세히 보기</div>
@@ -91,7 +109,8 @@
 	                    </li>
 	                </ul>
 	           </div>
-           	<div class="recNextBtn"></div>
+           	<div class="recNextBtn">
+           	<img src="/images/nextBtn2.png"></div>
             
             
             
