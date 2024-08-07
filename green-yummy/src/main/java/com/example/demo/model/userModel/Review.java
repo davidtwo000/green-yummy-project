@@ -1,24 +1,29 @@
 package com.example.demo.model.userModel;
 
 import java.time.LocalDateTime;
-import jakarta.persistence.*;
-import lombok.*;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-@Table(name = "reviews")
-@AllArgsConstructor
-@NoArgsConstructor
+@Table(name="reviews")
 public class Review {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "REVIEW_ID")
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
+	@Column(name = "REVIEW_ID")
     private Integer reviewId; // 리뷰 ID
-
-    @ManyToOne
-    @JoinColumn(name = "USER_UK_ID", insertable = false, updatable = false)
-    private User user; // 사용자
 
     @Column(name = "USER_UK_ID")
     private Integer userUkId; // 사용자 ID
@@ -36,15 +41,17 @@ public class Review {
     private String reviewContent; // 리뷰 내용
 
     @Column(name = "REVIEW_DATE", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime reviewDate;
-
+    private LocalDateTime reviewDate; 
+    
     @Column(name = "REVIEW_IMG")
     private String reviewImg;
-
+    
     @PrePersist
     protected void onCreate() {
         if (reviewDate == null) {
             reviewDate = LocalDateTime.now();
         }
     }
+
+	
 }
