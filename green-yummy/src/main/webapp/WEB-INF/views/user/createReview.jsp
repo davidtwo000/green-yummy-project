@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>리뷰 쓰기</title>
     <link href="/user/css/createReview.css" rel="stylesheet" type="text/css">
     
     <script src="/user/js/createReview.js"></script>
