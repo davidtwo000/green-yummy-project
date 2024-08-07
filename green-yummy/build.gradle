@@ -87,6 +87,12 @@ dependencies {
 	implementation 'commons-fileupload:commons-fileupload:1.4'
 	implementation 'commons-io:commons-io:2.11.0'
 	
+	
+	//웹소켓
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	
 	/*
 	//security
 	implementation 'io.jsonwebtoken:jjwt:0.9.1'

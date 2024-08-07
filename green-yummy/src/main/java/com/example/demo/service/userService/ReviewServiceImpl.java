@@ -36,12 +36,6 @@ public class ReviewServiceImpl implements ReviewService {
     @Autowired
     private UserRepository userRepository;
 
-    @Override
-    public List<ReviewDTO> getAllReviews() {
-        return reviewRepository.findAll().stream()
-                .map(this::convertToDto)
-                .collect(Collectors.toList());
-    }
 
     private ReviewDTO convertToDto(Review review) {
         // ReviewDTO 객체 생성
@@ -53,6 +47,7 @@ public class ReviewServiceImpl implements ReviewService {
         dto.setReviewComment(review.getReviewComment());
         dto.setReviewContent(review.getReviewContent());
         dto.setReviewDate(review.getReviewDate());
+        dto.setReviewImg(review.getReviewImg());
 
         // ShopDTO 객체 생성 및 ShopRepository 사용
         ShopDTO shopDTO = new ShopDTO();
@@ -127,16 +122,18 @@ public class ReviewServiceImpl implements ReviewService {
     public List<ReviewDTO> findByShopUkId(Integer shopUkId) {
         List<Review> reviews = reviewRepository.findByShopUkId(shopUkId);  // List<Review>를 반환
         return reviews.stream()
-                      .map(this::convertToDto)  // Review를 ReviewDTO로 변환
+                      .map(this::convertToDto)  
                       .collect(Collectors.toList());
     }
     
-    //유저Ukid로 리뷰 출력
-	@Override
-	public List<ReviewDTO> getReviewsByUserId(Integer userUkId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+   //나의 리뷰
+    @Override
+    public List<ReviewDTO> findByUserUkId(Integer userUkId) {
+    	List<Review> reviews = reviewRepository.findByUserUkId(userUkId);
+    	return reviews.stream()
+    			.map(this::convertToDto)  
+                .collect(Collectors.toList());
+    }
 	
 	
 	//가게별 평점 구하기
@@ -174,20 +171,18 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public void updateReview(ReviewDTO reviewDTO) throws Exception {
-        // 리뷰 ID를 기반으로 데이터베이스에서 리뷰를 찾습니다.
+       
         Optional<Review> existingReview = reviewRepository.findById(reviewDTO.getReviewId());
 
         if (existingReview.isPresent()) {
             Review review = existingReview.get();
 
-            // DTO에서 리뷰 정보를 가져와서 리뷰 객체를 업데이트합니다.
             review.setReviewComment(reviewDTO.getReviewComment()); // 이 부분은 필드 매핑에 따라 다를 수 있습니다.
             review.setReviewContent(reviewDTO.getReviewContent());
             review.setReviewRating(reviewDTO.getReviewRating());
             
             review.setReviewDate(LocalDateTime.now());
 
-            // 수정된 리뷰를 저장합니다.
             reviewRepository.save(review);
         } else {
             throw new Exception("리뷰를 찾을 수 없습니다.");

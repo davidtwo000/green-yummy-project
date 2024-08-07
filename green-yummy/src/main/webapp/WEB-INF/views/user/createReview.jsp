@@ -18,22 +18,9 @@
        
         
         <div class="reviewContainer">
-<%--         	<div> 유저 아이디 ${user.id}</div> --%>
-        	
-<!--         	<div class="visitShop"> -->
-<%--         	 	<img src="/images/${shop.shopProfile}"> --%>
-<!--         	 	<div class="visitShopInfo"> -->
-<%--         	 	<span>${shop.shopName}</span> --%>
-<%--         	 	<p>${shop.shopType}</p> --%>
-<%--         	 	<p>${shop.location }</p> --%>
-<!--         	 	</div> -->
-        	 	
-<%--         	 	<p>${user.id}님! ${shop.shopName}(${shop.location })에 대한 소감을 남겨주세요!</p> --%>
-        	 	
-<!--         	 	</div> -->
-        	 	
-        	 	
-        
+
+       
+       
         	 <form id="createReview" method="post">
         	 	
         	 	<p>${user.id}님! ${shop.shopName}(${shop.location })에 대한 소감을 남겨주세요!</p>
@@ -41,9 +28,10 @@
         	 
         	 
 		        <input type="hidden" name="shopUkId" value="${shop.shopUkId}">
-		        
-		        <!-- 임시 유저 아이디 -->
-		        <input type="hidden" name="userUkId" value="1">
+
+		        <input type="hidden" name="userUkId" value="${user.userUkId}">
+		       
+
 	        <fieldset class="rateSelect">
 	            <legend>평점</legend>
 	            
@@ -78,10 +66,8 @@
 	        <textarea rows="15" name="reviewContent" required placeholder="Enter detailed content" class="reviewContent"></textarea>
 	       
 	       <div class="reviewBtn">
-	       		<div class="storePhoto">
-	       		<label for="photo"><img src="/images/addPhoto.png"></label>
-	       		<input type="file" name="reviewImg" id="photo"></div>
-	       
+	       		<div class="storePhoto"><input type="file" name="reviewImg"></div>
+
                 
             </div>
             <input type="submit" value="리뷰 작성하기">

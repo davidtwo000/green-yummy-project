@@ -14,7 +14,11 @@ import com.example.demo.model.userModel.User;
 
 @Repository
 public interface ReviewRepository extends JpaRepository<Review, Integer> {
+	//가게별 리뷰 추출하기
 	List<Review> findByShopUkId(Integer shopUkId);
+	
+	//내가 작성한 리뷰
+	List<Review> findByUserUkId(Integer userUkId);
 	
 	// 특정 가게 ID에 대한 모든 리뷰 조회
     @Query("SELECT r FROM Review r WHERE r.shopUkId = :shopUkId")
@@ -29,6 +33,5 @@ public interface ReviewRepository extends JpaRepository<Review, Integer> {
             "FROM Review r WHERE r.userUkId = :userUkId AND r.shopUkId = :shopUkId")
      boolean existsByUserAndShop(@Param("userUkId") Integer userUkId,
                                  @Param("shopUkId") Integer shopUkId);
-    
-	
+
 }
