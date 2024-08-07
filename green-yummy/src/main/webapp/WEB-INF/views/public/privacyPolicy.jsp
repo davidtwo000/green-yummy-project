@@ -157,7 +157,7 @@
 
    
 
-<jsp:include page="public/footer.jsp"/>
+<jsp:include page="../public/footer.jsp"/>
 
 </body>
 </html>
