@@ -17,12 +17,12 @@
 <main>
 	<div class="mainContainer">
 		
-		<form>
+		<form id="shopapply" onsubmit="applyCheck(e)">
 		
 		<table>
 		<tr>
-			<th>이름</th>
-			<td><input type="text"></td>
+			<th>가게명</th>
+			<td><input type="text" id="shopName"></td>
 			<td colspan="2"><input type="radio" name="foodType" value="중식">중식
 			<input type="radio" name="foodType" value="양식">양식
 			<input type="radio" name="foodType" value="일식">일식
@@ -30,25 +30,27 @@
 		</tr>
 		<tr>
 			<th>주소</th>
-			<td colspan="3"><input type="text" class="shopLocation"></td>
+			<td colspan="3"><input type="text" id="shopLoc" class="shopLocation"></td>
 		</tr>
 		<tr>
 			<th>연락처</th>
-			<td colspan="3"><input type="text"></td>
+			<td colspan="3"><input type="text" id="shopTel"></td>
 		</tr>
 		<tr>
 			<th>OPEN</th>
-			<td><input type="text"></td>
+			<td><input type="text" id="shopOpen"></td>
 			<th>CLOSE</th>
-			<td><input type="text"></td>
+			<td><input type="text" id="shopClose"></td>
 		</tr>
 		<tr>
 			<th>휴무일</th>
-			<td colspan="3"><input type="text"></td>
+			<td colspan="3"><input type="text" id="shopRest"></td>
 		</tr>
 		<tr>
 			<th>기타사항</th>
-			<td colspan="3"><input type="text" placeholder="예약 가능, 테이크아웃 전문, 반려동물 동반 가능 등등"></td>
+			<td colspan="3"><input type="text" 
+			placeholder="예약 가능, 테이크아웃 전문, 반려동물 동반 가능 등등"
+			id="shopEtc"></td>
 		</tr>
 		<tr>
 			<td colspan="4">
@@ -112,6 +114,8 @@
 </main>
 
 <jsp:include page="../public/footer.jsp"/>
+
+<script src="/user/js/shopApply.js"></script>
 
 </body>
 </html>
