@@ -1,20 +1,15 @@
 package com.example.demo.model.userModel;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import java.util.List;
 
 @Entity
 @Table(name = "USERS")
 @Getter
 @Setter
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "USER_UK_ID")
@@ -43,4 +38,7 @@ public class User {
 
     @Column(name = "IS_ADMIN", columnDefinition = "TINYINT(1) DEFAULT 0")
     private Boolean isAdmin; // 관리자 여부 (0: 일반 사용자, 1: 관리자)
+
+    @OneToMany(mappedBy = "user")
+    private List<Review> reviews; // 사용자 리뷰들
 }

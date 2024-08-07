@@ -1,6 +1,5 @@
-
 -- 데이터베이스 선택
-use yummy;
+USE yummy;
 
 -- 테이블 삭제 (제약조건 포함)
 
@@ -14,10 +13,13 @@ DROP TABLE IF EXISTS SHOPS;
 DROP TABLE IF EXISTS USERS;
 DROP TABLE IF EXISTS NOTIFICATIONS;
 DROP TABLE IF EXISTS APPLICATIONS;
+<<<<<<< Updated upstream
 
 SET FOREIGN_KEY_CHECKS = 1;
 
 
+=======
+>>>>>>> Stashed changes
 
 -- 사용자
 CREATE TABLE USERS (
@@ -59,7 +61,11 @@ CREATE TABLE REVIEWS (
     REVIEW_IMG VARCHAR(36), -- 리뷰 PATH
     REVIEW_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- 리뷰 작성 날짜
     FOREIGN KEY (USER_UK_ID) REFERENCES USERS(USER_UK_ID) ON DELETE CASCADE,
+<<<<<<< Updated upstream
     FOREIGN KEY (SHOP_UK_ID) REFERENCES SHOPS(SHOP_UK_ID) ON DELETE CASCADE
+=======
+    FOREIGN KEY (SHOP_UK_ID) REFERENCES SHOPS(SHOP_UK_ID)
+>>>>>>> Stashed changes
 );
 
 -- 가게 사진
@@ -76,7 +82,12 @@ CREATE TABLE BOOKMARKS (
     USER_UK_ID INT, -- 사용자 ID
     SHOP_UK_ID INT, -- 식당 ID
     FOREIGN KEY (USER_UK_ID) REFERENCES USERS(USER_UK_ID) ON DELETE CASCADE,
+<<<<<<< Updated upstream
     FOREIGN KEY (SHOP_UK_ID) REFERENCES SHOPS(SHOP_UK_ID) ON DELETE CASCADE
+=======
+    FOREIGN KEY (SHOP_UK_ID) REFERENCES SHOPS(SHOP_UK_ID) ON DELETE CASCADE,
+    PRIMARY KEY (USER_UK_ID, SHOP_UK_ID)
+>>>>>>> Stashed changes
 );
 
 -- 리뷰 좋아요
@@ -85,21 +96,36 @@ CREATE TABLE REVIEWLIKES (
     USER_UK_ID INT, -- 사용자 ID
     REVIEW_ID INT, -- 리뷰 ID
     FOREIGN KEY (USER_UK_ID) REFERENCES USERS(USER_UK_ID) ON DELETE CASCADE,
+<<<<<<< Updated upstream
     FOREIGN KEY (REVIEW_ID) REFERENCES REVIEWS(REVIEW_ID) ON DELETE CASCADE
+=======
+    FOREIGN KEY (REVIEW_ID) REFERENCES REVIEWS(REVIEW_ID) ON DELETE CASCADE,
+    PRIMARY KEY (USER_UK_ID, REVIEW_ID)
+>>>>>>> Stashed changes
 );
 
 -- 공지사항
 CREATE TABLE NOTIFICATIONS (
+<<<<<<< Updated upstream
     NOTICE_ID INT AUTO_INCREMENT PRIMARY KEY,	
     AUTHOR VARCHAR(30) NOT NULL,
     TITLE VARCHAR(100) NOT NULL,
     CONTENT TEXT NOT NULL,
     POST_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
     VIEW_COUNT INT DEFAULT 0	
+=======
+    notice_id INT AUTO_INCREMENT PRIMARY KEY,    
+    author VARCHAR(30) NOT NULL,
+    title VARCHAR(100) NOT NULL,
+    content TEXT NOT NULL,
+    post_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    view_count INT DEFAULT 0    
+>>>>>>> Stashed changes
 );
 
 -- 가게 신청하기
 CREATE TABLE APPLICATIONS (
+<<<<<<< Updated upstream
     APPLICATION_ID INT AUTO_INCREMENT PRIMARY KEY,  -- 신청 ID
     APPLICATION_SHOP_NAME VARCHAR(50),              -- 상점 이름
     APPLICATION_SHOP_TYPE VARCHAR(20),              -- 상점 유형
@@ -110,3 +136,15 @@ CREATE TABLE APPLICATIONS (
     USER_UK_ID INT,                                 -- 사용자 ID
     FOREIGN KEY (USER_UK_ID) REFERENCES USERS(USER_UK_ID) ON DELETE CASCADE -- 외래 키 참조 (USERS 테이블)
 );
+=======
+    application_id INT AUTO_INCREMENT PRIMARY KEY,  -- 신청 ID
+    application_shop_name VARCHAR(50),              -- 상점 이름
+    application_shop_type VARCHAR(20),              -- 상점 유형
+    application_shop_location VARCHAR(100),         -- 상점 위치
+    application_reason VARCHAR(100),                -- 신청 이유
+    application_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- 신청 날짜
+    application_status ENUM('PENDING', 'APPROVED', 'REJECTED') DEFAULT 'PENDING', -- 신청 상태
+    user_uk_id INT,                                 -- 사용자 ID
+    FOREIGN KEY (user_uk_id) REFERENCES USERS(user_uk_id) ON DELETE CASCADE -- 외래 키 참조 (USERS 테이블)
+);
+>>>>>>> Stashed changes
