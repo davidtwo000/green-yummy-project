@@ -56,3 +56,90 @@ storeTab.onclick = (e) => {
 
 
 
+///여기서부터 sg가
+function myreviewList() {
+    const userUkId = document.getElementById('userUkId').value;
+    
+    fetch(`/reviews/myreview/${userUkId}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Reviews fetched successfully:', data);
+        populateReviews(data); // Populate the reviews in the table
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+}
+
+function populateReviews(reviews) {
+    const table = document.querySelector('#tab2 table');
+
+    const rows = table.querySelectorAll('tr:not(:first-child)');
+    rows.forEach(row => row.remove());
+
+    reviews.forEach((review, index) => {
+        const row = document.createElement('tr');
+        
+        row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${review.shop.shopName}</td>
+            <td>${review.reviewContent}</td>
+            <td>${review.reviewRating}</td>
+            <td>${new Date(review.reviewDate).toLocaleDateString()}</td>
+            <td><button onclick="updateReview(${review.reviewId})">수정</button></td>
+            <td><button onclick="showDeleteModal(${review.reviewId})">삭제</button></td>
+        `;
+        
+        table.appendChild(row);
+    });
+}
+
+function showDeleteModal(reviewId) {
+	reviewIdToDelete = reviewId;
+	document.getElementById('deleteModalContainer').classList.remove('hidden');
+}
+	
+function hideDeleteModal() {
+	document.getElementById('deleteModalContainer').classList.add('hidden');
+	reviewIdToDelete = null;
+}
+	
+//리뷰 삭제
+function confirmDelete() {
+    fetch(`/reviews/delete/${reviewIdToDelete}`, {
+        method: 'DELETE'
+    })
+    .then(response => {
+        if (response.ok) {
+            window.location.reload();
+        } else {
+            alert('리뷰 삭제에 실패했습니다.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('리뷰 삭제에 실패했습니다.');
+    })
+    .finally(() => {
+        hideDeleteModal();
+    });
+}
+
+function updateReview(reviewId) {
+    console.log("Navigating to review edit page with ID:", reviewId);
+    window.location.href = `/user/updateReview/${reviewId}`; // PathVariable을 사용한 URL로 수정
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+            myreviewList(); // Call the function when the DOM is fully loaded
+        });

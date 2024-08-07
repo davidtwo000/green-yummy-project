@@ -18,16 +18,16 @@
         <div class="reviewContainer">
         	 <form id="updateReviewForm">
 			    <input type="hidden" name="reviewId" value="">
-			    <input type="hidden" name="userUkId" value="1">
-			    <input type="hidden" name="shopUkId" value="${review.shopUkId}">
+			    <input type="hidden" name="shopUkId" value="${shop.shopUkId}">
+		        <input type="hidden" name="userUkId" value="${user.userUkId}">
 			
 			    <fieldset class="rateSelect">
 			        <legend>평점</legend>
-			        <label><input type="radio" name="reviewRate" value="1" required> 1</label>
-			        <label><input type="radio" name="reviewRate" value="2"> 2</label>
-			        <label><input type="radio" name="reviewRate" value="3"> 3</label>
-			        <label><input type="radio" name="reviewRate" value="4"> 4</label>
-			        <label><input type="radio" name="reviewRate" value="5"> 5</label>
+			        <label><input type="radio" name="reviewRating" value="1" required> 1</label>
+			        <label><input type="radio" name="reviewRating" value="2"> 2</label>
+			        <label><input type="radio" name="reviewRating" value="3"> 3</label>
+			        <label><input type="radio" name="reviewRating" value="4"> 4</label>
+			        <label><input type="radio" name="reviewRating" value="5"> 5</label>
 			    </fieldset>
 			
 			    <fieldset class="keywordSelect">
@@ -44,21 +44,14 @@
 			
 			    <input type="text" id="reviewContent" name="reviewContent" required placeholder="Enter detailed content" class="reviewContent">
 			    <div class="reviewBtn">
-			        <input type="submit" value="리뷰 수정하기">
+				    <div class="reviewBtn">
+		       		<div class="storePhoto"><input type="file" name="reviewImg"></div>       
+	            </div>
+			        
 			    </div>
+			    <input type="submit" value="리뷰 수정하기">
 			</form>
         	 
-        	 
-        	 
-  
-            <!-- <div class="reviewPhotos">
-                <div class="storePhoto"><input type="file"></div>
-                <div class="storePhoto"><input type="file"></div>
-                <div class="storePhoto"><input type="file"></div>
-                <div class="storePhoto"><input type="file"></div>
-                <div class="storePhoto"><input type="file"></div>
-            </div>
-            <!-- 사진 최대 게시 한도를 정해두면 어떨까 -->
             
         </div>
     </main>

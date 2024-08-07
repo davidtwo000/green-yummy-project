@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // 폼 데이터를 객체로 변환
         const reviewData = {
             reviewId: formData.get('reviewId'),
-            reviewRate: formData.get('reviewRate'),
+            reviewRating: formData.get('reviewRating'),
             reviewComment: formData.get('reviewComment'),
             reviewContent: formData.get('reviewContent')
         };
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                reviewRate: reviewData.reviewRate,
+                reviewRating: reviewData.reviewRating,
                 reviewComment: reviewData.reviewComment,
                 reviewContent: reviewData.reviewContent
             })

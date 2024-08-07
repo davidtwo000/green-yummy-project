@@ -18,13 +18,11 @@
        
         
         <div class="reviewContainer">
-        	<div> 유저 아이디 ${user.id}</div>
+       
         
         	 <form id="createReview" method="post">
 		        <input type="hidden" name="shopUkId" value="${shop.shopUkId}">
-		        
-		        <!-- 임시 유저 아이디 -->
-		        <input type="hidden" name="userUkId" value="1">
+		        <input type="hidden" name="userUkId" value="${user.userUkId}">
 		       
 	        <fieldset class="rateSelect">
 	            <legend>평점</legend>
@@ -50,9 +48,9 @@
 	        <input type="text" name="reviewContent" required placeholder="Enter detailed content" class="reviewContent">
 	       <div class="reviewBtn">
 	       		<div class="storePhoto"><input type="file" name="reviewImg"></div>
-	       
-                <input type="submit" value="리뷰 작성하기">
+                
             </div>
+            <input type="submit" value="리뷰 작성하기">
 	    </form>
             <!-- <div class="reviewPhotos">
                 <div class="storePhoto"><input type="file"></div>

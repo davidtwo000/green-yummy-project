@@ -8,9 +8,6 @@ import com.example.demo.dto.userDto.ReviewDTO;
 import com.example.demo.model.userModel.Review;
 
 public interface ReviewService {
-	List<ReviewDTO> getAllReviews(); // 모든 리뷰 가져오기
-    List<ReviewDTO> getReviewsByUserId(Integer userId);
-	
 	// 리뷰 삭제
     void deleteReview(Integer reviewukid);
     
@@ -30,7 +27,7 @@ public interface ReviewService {
 	void updateReview(ReviewDTO reviewDTO) throws Exception;
 	
 	//원래 리뷰 가져오는 창
-	ReviewDTO getReviewById(Integer reviewId) throws Exception;
+	ReviewDTO getReviewById(Integer Integer) throws Exception;
 	
 	//리뷰 작성했는지 확인
 	boolean hasUserReviewedShop(Integer userUkId, Integer shopUkId);
@@ -40,5 +37,6 @@ public interface ReviewService {
 	
 	int getNextReviewId();
 	
-	
+	//나의 리뷰 보기
+	List<ReviewDTO> findByUserUkId(Integer userUkId);
 }

@@ -30,8 +30,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.dto.userDto.ReviewDTO;
-
+import com.example.demo.model.userModel.User;
 import com.example.demo.service.userService.ReviewService;
+import com.example.demo.service.userService.UserServiceImpl;
 import com.example.demo.util.FileUploader;
 
 
@@ -46,19 +47,21 @@ public class ReviewRestController {
     @Autowired
     private FileUploader fileUploader;
     
-
+    @Autowired
+    private UserServiceImpl userService;
+    
+  
+    
+    //리뷰 삭제
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteReview(@PathVariable("id") Integer id) {
         try {
-            reviewService.deleteReview(id); // 서비스 메서드를 호출하여 삭제
+            reviewService.deleteReview(id); 
             return ResponseEntity.ok("Review deleted successfully.");
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Failed to delete review: " + e.getMessage());
         }
     }
-   
-    
-    //리뷰 작성 
    
 
   //리뷰 작성 
@@ -80,7 +83,7 @@ public class ReviewRestController {
             review.setReviewContent(reviewContent);
 
             if (reviewImg != null && !reviewImg.isEmpty()) {
-                String folder = "images"; // Folder where images will be saved
+                String folder = "images";
                 String fileName = fileUploader.uploadFileAndGetChangedFileName(reviewImg, folder);
                 review.setReviewImg(folder + "/" + fileName);
             }
@@ -93,22 +96,25 @@ public class ReviewRestController {
         }
     }
     
-
-
     
-    //리뷰 이미 작성했으면 못하게
-    @PostMapping("/check")
-    @ResponseBody
-    public boolean checkUserReview(@RequestParam("shopUkId") Integer shopUkId,
-                                    @RequestParam("userUkId") Integer userUkId) {
-        return reviewService.hasUserReviewedShop(userUkId, shopUkId);
+    //나의 리뷰
+    @GetMapping("/myreview/{userUkId}")
+    public ResponseEntity<List<ReviewDTO>> getReviewsByUserUkId(@PathVariable("userUkId") Integer userUkId) {
+    	List<ReviewDTO> reviews = reviewService.findByUserUkId(userUkId);
+    	 if (reviews.isEmpty()) {
+             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+         }
+         return new ResponseEntity<>(reviews, HttpStatus.OK);
     }
+
     
+
     
     // 가게ukId로 리뷰 출력
     @GetMapping("/shop/{shopUkId}")
     public ResponseEntity<List<ReviewDTO>> getReviewsByShopUkId(@PathVariable("shopUkId") Integer shopUkId) {
         List<ReviewDTO> reviews = reviewService.findByShopUkId(shopUkId);
+
         if (reviews.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -161,4 +167,3 @@ public class ReviewRestController {
   
     
 }
-

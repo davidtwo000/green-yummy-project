@@ -71,5 +71,14 @@ public class UserController {
 		return "user/shopApply";
 	}
 	
+	@GetMapping("user/userPage")
+	public String review(Model model) {
+		User user = userService.getCurrentUser();
+        model.addAttribute("user", user);
+	    return "user/userPage"; // 리뷰를 표시할 뷰 이름
+	}
+    
+	
+	
 	
 }

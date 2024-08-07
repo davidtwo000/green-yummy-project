@@ -54,8 +54,5 @@ function confirmDelete() {
 
 //리뷰 수정 창 띄우기 
 //리뷰 update로 이동
-function updateReview(reviewId) {
-    console.log("Navigating to review edit page with ID:", reviewId);
-    window.location.href = `/user/updateReview/${reviewId}`; // PathVariable을 사용한 URL로 수정
-}
+
 //여기까지 sg가

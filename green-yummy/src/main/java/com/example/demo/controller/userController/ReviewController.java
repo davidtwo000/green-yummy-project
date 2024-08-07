@@ -25,18 +25,6 @@ public class ReviewController {
 	@Autowired
 	private ShopService shopService;
     
-	@GetMapping("user/userPage")
-	public String review(Model model) {
-	    List<ReviewDTO> reviews = reviewService.getAllReviews(); // 모든 리뷰 가져오기
-	    
-	    // 콘솔에 데이터를 출력하기
-	    System.out.println("Reviews: " + reviews);
-	    
-	    // 모델에 데이터를 추가하고 뷰를 반환하기
-	    model.addAttribute("reviews", reviews);
-	    return "user/userPage"; // 리뷰를 표시할 뷰 이름
-	}
-    
 	@Autowired 
 	private UserServiceImpl userService;
 	
@@ -57,6 +45,10 @@ public class ReviewController {
     public String showUpdateReviewForm(@PathVariable("reviewId") Integer reviewId, Model model) {
         List<ReviewDTO> review = reviewService.getReviewsByReviewId(reviewId); // 단일 리뷰 조회
         model.addAttribute("review", review); // 모델에 리뷰 데이터 추가
+        
+        User user = userService.getCurrentUser();
+        model.addAttribute("user", user);
+        
         return "user/updateReview"; // 수정 폼을 보여주는 뷰 이름
     }
  
