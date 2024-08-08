@@ -9,6 +9,7 @@
     <link href="/user/css/createReview.css" rel="stylesheet" type="text/css">
     
     <script src="/user/js/createReview.js"></script>
+    <script src="/user/js/reviewRate.js"></script>
 </head>
 <body>
 
@@ -35,6 +36,11 @@
 	        <fieldset class="rateSelect">
 	            <legend>평점</legend>
 	            
+	            <img src="/images/onestar.png">
+	            <img src="/images/twostar.png">
+	            <img src="/images/threestar.png">	
+	            <img src="/images/fourstar.png">
+	            <img src="/images/fivestar.png">
 	            
 	            <div class="radioBtns">
 		            <label><input type="radio" name="reviewRating" value="1" required> 1</label>
