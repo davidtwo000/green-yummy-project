@@ -86,10 +86,14 @@ legend{
 	cursor: pointer;
 	opacity: 0.5;
 }
+
+
+
+/*파일 업로드 버튼 보이게 설정했음 -sg*/
 input[type="file"]{
-	display: none;
-	
+
 }
+
 input[type="submit"]{
     width: 100px;
     height: 50px;

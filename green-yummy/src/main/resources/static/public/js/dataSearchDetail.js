@@ -16,6 +16,15 @@ function fetchReviews(shopUkId) {
         });
 }
 
+//날짜 형식 바꾸기
+function formatDate(dateStr) {
+    const date = new Date(dateStr);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = String(date.getFullYear()).slice(-2); // Get last 2 digits of the year
+    return `${year}/${month}/${day}`;
+}
+
 
 function displayReviews(reviews) {
     const reviewsContainer = document.getElementById('reviewsContainer');
@@ -27,6 +36,21 @@ function displayReviews(reviews) {
     const table = document.createElement('table');
     table.classList.add('reviews-table');
 	
+
+	const thead = document.createElement('thead');
+	thead.innerHTML = `
+	    <tr>
+	        <th>사진</th>
+	        <th>아이디</th>
+	        <th>평점</th>
+	        <th>코멘트</th>
+	        <th>내용</th>
+	        <th>날짜</th>
+	        <th>좋아요</th>
+	    </tr>
+	`;
+	table.appendChild(thead);
+
 
     reviews.forEach(review => {
         const row = document.createElement('tr');
@@ -43,7 +67,9 @@ function displayReviews(reviews) {
             <td>${review.reviewRating}</td>
             <td>${formattedComment}</td>
             <td>${review.reviewContent}</td>
-			<td>${review.reviewDate.substr(0,10)}</td>
+
+			<td>${formatDate(review.reviewDate)}</td>
+
 			<td><input type="checkbox" class="review-checkbox" data-review-id="${review.reviewId}" /> 좋아요 버튼</td>
 			 `;
 

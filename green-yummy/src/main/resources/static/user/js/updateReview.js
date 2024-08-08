@@ -29,29 +29,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			const keywordsString = keywords.join(',');
 			formData.set('reviewComment', keywordsString);
-
-        // 폼 데이터를 객체로 변환
-        const reviewData = {
-            reviewId: formData.get('reviewId'),
-            reviewRating: formData.get('reviewRating'),
-            reviewComment: formData.get('reviewComment'),
-            reviewContent: formData.get('reviewContent')
-        };
-
-        // 콘솔에 데이터 출력
-        console.log('Form Data:', reviewData);
-
-        // fetch를 사용하여 PUT 요청 보내기
-        fetch(`/reviews/update/${reviewData.reviewId}`, {
+			
+        fetch(`/reviews/updateReview/${reviewId}`, {
             method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                reviewRating: reviewData.reviewRating,
-                reviewComment: reviewData.reviewComment,
-                reviewContent: reviewData.reviewContent
-            })
+           	body:formData
         })
         .then(response => {
             if (!response.ok) {
@@ -114,10 +95,10 @@ function getReview() {
 		reviewContentField.value = data.reviewContent;
 		
 		// 평점
-		const reviewRate = data.reviewRate;
+		const reviewRating = data.reviewRating;
 		const rateButtons = document.querySelectorAll('fieldset.rateSelect input[type="radio"]');
 		rateButtons.forEach(button => {
-			if (button.value === reviewRate.toString()) {
+			if (button.value === reviewRating.toString()) {
 				button.checked = true;
 			}
     	})
@@ -135,6 +116,8 @@ function getReview() {
 					checkbox.checked = true;
 				}
 			});
+			
+		//리뷰 사진 추가해야됨	
 			
 	})
     .catch(error => {
