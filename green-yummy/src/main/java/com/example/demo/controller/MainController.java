@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.dto.publicDto.NotificationDTO;
+import com.example.demo.model.userModel.User;
 import com.example.demo.service.publicService.NotificationService;
+import com.example.demo.service.publicService.UserRegistService;
 
 @Controller
 public class MainController {
@@ -139,6 +141,35 @@ public class MainController {
         } else {
             return "redirect:/public/notification";
         }
+    }
+	
+	@Autowired
+    private UserRegistService userRegistService;
+	
+	@PostMapping("/userJoin")
+    public String userJoin(@RequestParam("name") String name,
+            @RequestParam("nickname") String nickname,
+            @RequestParam("id") String id,
+            @RequestParam("password") String password,
+            @RequestParam("phone") String phone,
+            @RequestParam("emailone") String emailone,
+            @RequestParam("emailtwo") String emailtwo) {
+    	
+    	 String email = emailone + "@" + emailtwo;
+
+         User user = new User();
+         user.setName(name);
+         user.setNickname(nickname);
+         user.setId(id);
+         user.setPassword(password);
+         user.setPhone(phone);
+         user.setEmail(email);
+         user.setIsAdmin(false);
+         
+         userRegistService.saveUser(user);
+
+         
+    	return "public/userLogin";
     }
 	
 	@GetMapping("/login")

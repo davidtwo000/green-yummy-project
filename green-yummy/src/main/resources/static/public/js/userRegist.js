@@ -167,7 +167,9 @@ document.querySelector(".nickcheck").addEventListener("click", checkNickname);
 document.querySelector("form").addEventListener("submit", function (event) {
     if (!userJoin()) {
         event.preventDefault();
-    }
+    }else{
+		alert("회원가입이 완료되었습니다.");
+	}
 });
 
 

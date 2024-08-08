@@ -30,29 +30,6 @@ public class RegistRestController {
         return ResponseEntity.ok(isNicknameAvailable);
     }
 	
-    @PostMapping("/userJoin")
-    public String userJoin(@RequestParam("name") String name,
-            @RequestParam("nickname") String nickname,
-            @RequestParam("id") String id,
-            @RequestParam("password") String password,
-            @RequestParam("phone") String phone,
-            @RequestParam("emailone") String emailone,
-            @RequestParam("emailtwo") String emailtwo) {
-    	
-    	 String email = emailone + "@" + emailtwo;
-
-         User user = new User();
-         user.setName(name);
-         user.setNickname(nickname);
-         user.setId(id);
-         user.setPassword(password);
-         user.setPhone(phone);
-         user.setEmail(email);
-
-         userRegistService.saveUser(user);
-
-         
-    	return "public/userLogin";
-    }
+    
     
 }
