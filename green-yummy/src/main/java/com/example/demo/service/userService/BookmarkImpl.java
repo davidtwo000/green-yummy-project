@@ -2,6 +2,7 @@ package com.example.demo.service.userService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.model.userModel.Bookmark;
 import com.example.demo.repository.userRepository.BookmarkRepository;
@@ -24,4 +25,11 @@ public class BookmarkImpl implements BookmarkService {
         bookmark.setShopUkId(shopUkId);
         return bookmarkRepository.save(bookmark);
     }
+
+	@Transactional
+	public boolean removeBookmark(Integer userUkId, Integer shopUkId) {
+		return bookmarkRepository.deleteByUserUkIdAndShopUkId(userUkId, shopUkId) > 0;
+	}
+	
+	
 }

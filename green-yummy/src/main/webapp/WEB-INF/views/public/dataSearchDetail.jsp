@@ -42,9 +42,10 @@
         </div>
         
         <div class="bookmarkBtn">
-        	<form id="bookmarkForm">
-			    <input type="button" onclick="bookmark()" value="북마크 저장">
-			</form>	
+        	
+			    <input type="button" onclick="addBookmark()" value="북마크 저장">
+			    <input type="button" onclick="removeBookmark()" value="북마크 해제">
+
 			<div class="backBtn">
 		    <input type="button" id="backButton" value="목록으로" />
 		</div>
