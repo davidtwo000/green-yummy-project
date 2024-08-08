@@ -58,3 +58,6 @@ VALUES ('admin', '공지사항 제목1', '공지사항 내용입니다.kkkkkkk',
 ('admin', '공지사항 제목18', '공지사항 내용입니다.kkkkkkk', NOW(), 0),
 ('admin', '공지사항 제목19', '공지사항 내용입니다.kkkkkkk', NOW(), 0),
 ('admin', '공지사항 제목20', '공지사항 내용입니다.kkkkkkk', NOW(), 0);
+
+
+commit;

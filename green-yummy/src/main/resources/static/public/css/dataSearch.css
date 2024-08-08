@@ -13,6 +13,78 @@
     flex-direction: column;
 }
 
+/* 검색 부분 */
+.searchContainer{
+	position: relative;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 50px;
+	padding: 10px;
+}
+.searchContainer::before{
+	content:"";
+	background: #f2f2f2;
+	position: absolute;
+	z-index: -5;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.ocricon{
+	position: relative;
+	top: -3px;
+	width: 50px;
+	height: 50px;
+	border: 4px solid gray;
+	border-radius: 5px;
+	background: white;
+}
+.ocricon img{
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+}
+.searchBar {
+	box-sizing: border-box;
+    width: 800px;
+    height: 50px;
+    display: inline-block; 
+    outline: none;
+    border-radius: 50px;
+    border: 2px solid salmon;
+    padding: 10px 10px 10px 20px;
+    background: white;
+    
+    /* border: 1px solid brown; */
+}
+.customSearchBtn, .OCRBtn{
+    width: 50px;
+    height: 50px;
+    display: inline-block; 
+    cursor: pointer; 
+}
+.customSearchBtn img {
+	position: relative;
+	top: 3px;
+	left: -2px;
+	width: 40px;
+	height: 40px;
+}
+.customSearchBtn{
+	position: relative;
+	left: -50px;
+	border-radius: 0 50px 50px 0;
+}
+.OCRBtn{
+	margin-left: 20px;
+}
+.customSearchBtn{
+	background: salmon;
+}
+
+/* 지도 */
 .map {
     width: 60%;
     height: 300px;

@@ -17,6 +17,7 @@
 
 	<jsp:include page="../public/header.jsp" />
 	<div class="outContainer">
+
 		<div class="innerContainer">
 		<div class="box">
 			
@@ -53,9 +54,11 @@
 
 			</div>
 
+
 			<div id="shop-list"></div>
 			<div id="pagination"></div>
 
 			<jsp:include page="../public/footer.jsp" />
+
 </body>
 </html>

@@ -21,7 +21,10 @@ public class ShopController {
 	@Autowired 
 	private UserServiceImpl userService;
 	
-	
+	@GetMapping("public/dataSearch")
+	public String shop(Model model) {
+		return "public/dataSearch";
+	}
 	
 	@GetMapping("public/dataSearchDetail/{shopUkId}")
     public String getShopDetail(@PathVariable("shopUkId") Integer shopUkId, Model model) {
