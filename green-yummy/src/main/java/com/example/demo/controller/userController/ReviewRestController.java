@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.dto.userDto.ReviewDTO;
+import com.example.demo.model.publicModel.Shop;
 import com.example.demo.model.userModel.User;
 import com.example.demo.service.userService.ReviewService;
 import com.example.demo.service.userService.UserServiceImpl;
@@ -158,6 +159,7 @@ public class ReviewRestController {
     public Double getAverageRating(@PathVariable("shopUkId") Integer shopUkId) {
         return reviewService.getAverageRatingForShop(shopUkId);
     }
+    
     
     
     //원래 리뷰 정보 가져오기

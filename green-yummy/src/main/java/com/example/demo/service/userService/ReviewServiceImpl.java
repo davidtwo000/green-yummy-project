@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.dto.publicDto.ShopDTO;
 import com.example.demo.dto.userDto.ReviewDTO;
@@ -141,6 +142,7 @@ public class ReviewServiceImpl implements ReviewService {
     public Double getAverageRatingForShop(Integer shopUkId) {
         return reviewRepository.findAverageRatingByShopUkId(shopUkId);
     }
+	
 
 	@Override
 	public ReviewDTO getReviewById(Integer reviewId) throws Exception {
@@ -197,17 +199,6 @@ public class ReviewServiceImpl implements ReviewService {
         return reviewRepository.existsByUserAndShop(userUkId, shopUkId);
     }
 
-	@Override
-	public Page<ReviewDTO> getReviewsPage(int page, int size) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public int getNextReviewId() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
 
 }
