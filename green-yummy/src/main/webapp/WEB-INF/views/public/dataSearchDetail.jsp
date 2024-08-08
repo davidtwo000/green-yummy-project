@@ -24,23 +24,33 @@
 	
     <div class="innerContainer">
     	
-    	<div class="backBtn">
-		    <input type="button" id="backButton" value="목록으로" />
-		</div>
+    	
     
     
         <div class="restaurantTitle"> 
             <div class="name">${shop.shopName}</div>
-            <div class="type">${shop.shopType}</div>
-            <div class="rating"> 평점 </div>
-        	<div class="averageRating" id="averageRating"> </div>
+            <div class="typeNrate">
+	            <div class="type">${shop.shopType}</div>
+	            <div class="rating">
+		            <div class="rateset">
+			             평점 <div class="averageRating" id="averageRating"> 
+			            </div>
+		            </div>
+	            </div>
+        	</div>
+        	
         </div>
         
         <div class="bookmarkBtn">
         	<form id="bookmarkForm">
 			    <input type="button" onclick="bookmark()" value="북마크 저장">
 			</form>	
+			<div class="backBtn">
+		    <input type="button" id="backButton" value="목록으로" />
+		</div>
         </div>
+        
+        <hr>
         
         <div class="restaurantImgContainer">
             <div class="restaurantImg"> 
@@ -50,6 +60,9 @@
             <div class="restaurantImg"> </div>
         </div>
         
+        <hr>
+        <h3>가게 정보</h3>
+        <hr>
        
 
         <div class="detail">
@@ -71,13 +84,26 @@
                 </tr>
             </table>
             
-            <div class="map">
+            <div class="map" id="map">
             지도
             </div>
+            <script type="text/javascript" 
+			    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=349c2cb0976e7672467f9c85e9839ed5"></script>
+			    <script>
+					var container = document.getElementById('map');
+					var options = {
+						center: new kakao.maps.LatLng(33.450701, 126.570667),
+						level: 3
+					};
+			
+					var map = new kakao.maps.Map(container, options);
+			</script>
         </div>
 
         <div class="review">
-            <div class="reviewTag"> 리뷰 </div>
+        	<hr>
+            <div class="reviewTag"> <h3>리뷰</h3> </div>
+            <hr>
             
 		        <input type="button" value="리뷰쓰기" class="reviewBtn" onclick="createReview(${shop.shopUkId})">
             <div class="reviewsContainer" id="reviewsContainer"></div>
