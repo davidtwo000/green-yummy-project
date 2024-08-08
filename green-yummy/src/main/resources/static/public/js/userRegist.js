@@ -135,7 +135,7 @@ function userJoin(){
 		phone.focus();
 		return false;
 	}if(phonereg.test(phone.value)==false){
-		alert("전화번호는 '-'를 제외하고 입력해 주세요.");
+		alert("전화번호는 '-'를 제외하고 숫자만 입력해 주세요.");
 		return false;
 	}
 	

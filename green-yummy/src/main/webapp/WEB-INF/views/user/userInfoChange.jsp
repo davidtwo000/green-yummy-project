@@ -73,6 +73,7 @@
                             <option value="nate.com">nate.com</option>
                             <option value="hanmail.net">hanmail.net</option>
                         </select>
+                        <input type="hidden" id="fullEmail" name="email">
                     </td>
                 </tr>
             </table>

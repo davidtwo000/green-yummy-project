@@ -8,14 +8,19 @@ import org.springframework.ui.Model;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.dto.publicDto.ShopDTO;
+import com.example.demo.dto.userDto.UserFormDTO;
 import com.example.demo.model.userModel.User;
 import com.example.demo.service.publicService.ShopService;
 import com.example.demo.service.userService.ReviewService;
 import com.example.demo.service.userService.UserServiceImpl;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
@@ -65,9 +70,35 @@ public class UserController {
 		return "user/userInfoChange";
 	}
 	
+	@Autowired
+    private PasswordEncoder passwordEncoder;
+	
 	@PostMapping("/letsInfoChange")
-	public String letsInfoChange() {
-		return "user/userPage";
+	public String letsInfoChange(@ModelAttribute UserFormDTO form, HttpSession session) {
+		
+		User user = userService.getCurrentUser();
+        
+		if (user != null) {
+            if (form.getNickname() != null && !form.getNickname().isEmpty() && !form.getNickname().equals(user.getNickname())) {
+                user.setNickname(form.getNickname());
+            }
+            if (form.getPhone() != null && !form.getPhone().isEmpty() && !form.getPhone().equals(user.getPhone())) {
+                user.setPhone(form.getPhone());
+            }
+            if (form.getEmail() != null && !form.getEmail().isEmpty() && !form.getEmail().equals(user.getEmail())) {
+                user.setEmail(form.getEmail());
+            }
+            if (form.getPassword() != null && !form.getPassword().isEmpty()) {
+                String hashedPassword = passwordEncoder.encode(form.getPassword());
+                user.setPassword(hashedPassword);
+            }
+            
+            userService.updateUser(user);
+
+            return "redirect:/user/userPage";
+        }
+		
+		return "redirect:/public/userLogin";
 	}
 	
 	
