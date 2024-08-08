@@ -54,7 +54,10 @@ function selectLimit() {
 }
 
 
+
+
 document.addEventListener('DOMContentLoaded', function() {
     createReview();
 	selectLimit();
+	reviewRate();
 });
