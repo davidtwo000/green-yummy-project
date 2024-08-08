@@ -11,7 +11,6 @@ let emailChoose = document.getElementById("selEmail");
 
 
 let passreg = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^])(?!.*[가-힣])[A-Za-z\d@$!%*#?&]{8,20}$/;
-/*let idreg = /[]/*/
 let phonereg = /[\d]{2,3}[\d]{3,4}[\d]{4}/;
 let emailreg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -24,42 +23,63 @@ emailChoose.addEventListener("change", function () {
 	console.log(email2.textContent);
 });
 	
-/*중복체크
-async function checkDuplicate(field, value) {
-    try {
-        let response = await fetch(`/check-duplicate?field=${field}&value=${value}`);
-        let result = await response.json();
-        return result.isDuplicate;
-    } catch (error) {
-        console.error('Error checking duplicate:', error);
-        return true;
-    }
+
+
+let isUserIdAvailable = false;
+let isNicknameAvailable = false;
+
+function checkNickname() {
+    fetch(`/checkNickname?nickname=${nickname.value}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+		alert("서버로부터 받은 값" +data);
+        if (data) {
+            alert("사용 가능한 닉네임입니다.");
+            isNicknameAvailable = true;
+        } else {
+            alert("이미 사용 중인 닉네임입니다.");
+            nickname.focus();
+            isNicknameAvailable = false;
+        }
+    })
+    .catch(error => {
+        console.error("Error checking nickname:", error);
+        isNicknameAvailable = false;
+    });
 }
 
-let nicknameChecked = false;
-let userIdChecked = false;
+function checkUserId() {
+	
+    fetch(`/checkUserId?userId=${userId.value}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+		alert("서버로부터 받은 값" +data);
+        if (data) {
+            alert("사용 가능한 아이디입니다.");
+            isUserIdAvailable = true;
+        } else {
+            alert("이미 사용 중인 아이디입니다.");
+            userId.focus();
+            isUserIdAvailable = false;
+        }
+    })
+    .catch(error => {
+        console.error("Error checking user ID:", error);
+        isUserIdAvailable = false;
+    });
+}
 
-document.querySelector(".nickcheck").addEventListener("click", async function () {
-    let isDuplicate = await checkDuplicate('nickname', nickname.value);
-    if (isDuplicate) {
-        alert("닉네임이 중복되었습니다.");
-        nicknameChecked = false;
-    } else {
-        alert("닉네임을 사용할 수 있습니다.");
-        nicknameChecked = true;
-    }
-});
 
-document.querySelector(".idcheck").addEventListener("click", async function () {
-    let isDuplicate = await checkDuplicate('id', userId.value);
-    if (isDuplicate) {
-        alert("아이디가 중복되었습니다.");
-        userIdChecked = false;
-    } else {
-        alert("아이디를 사용할 수 있습니다.");
-        userIdChecked = true;
-    }
-});*/
 
 //유효성 체크
 //정규식
@@ -75,23 +95,24 @@ function userJoin(){
 		nickname.focus();
 		return false;
 	}
-	/*if (!nicknameChecked) {
-        alert("닉네임 중복 확인을 진행해주세요.");
+	if (!isNicknameAvailable) {
+        alert("닉네임 중복 확인을 해주세요.");
         nickname.focus();
         return false;
-    }*/
+    }
+    
 	
 	if(userId.value==""){
 		alert("아이디를 입력해주세요");
 		userId.focus();
 		return false;
 	}
-	/*if (!userIdChecked) {
-        alert("아이디 중복 확인을 진행해주세요.");
+	if (!isUserIdAvailable) {
+        alert("아이디 중복 확인을 해주세요.");
         userId.focus();
         return false;
-    }*/
-	
+    }
+    
 	if(pswd.value==""){
 		alert("비밀번호를 입력해주세요.");
 		pswd.focus();
@@ -135,8 +156,23 @@ function userJoin(){
 		return false;
 	}
 	    
-	return true;
+	    
+	return true;     
+    
 }
+
+
+// 중복 체크 버튼 이벤트 리스너
+document.querySelector(".idcheck").addEventListener("click", checkUserId);
+document.querySelector(".nickcheck").addEventListener("click", checkNickname);
+
+// form submit 이벤트에서 userJoin을 호출하여 유효성 검사를 기다립니다.
+document.querySelector("form").addEventListener("submit", function (event) {
+    if (!userJoin()) {
+        event.preventDefault();
+    }
+});
+
 
 
 //취소를 누르면 메인으로 간다 - 로그인 화면으로 변경해둠
