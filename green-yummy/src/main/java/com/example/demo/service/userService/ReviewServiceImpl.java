@@ -138,12 +138,7 @@ public class ReviewServiceImpl implements ReviewService {
 	
 	//가게별 평점 구하기
 	@Override
-	 // 특정 가게에 대한 리뷰 평점 평균 구하기
     public Double getAverageRatingForShop(Integer shopUkId) {
-		logger.info("Calculating average rating for shop with ID: {}", shopUkId);
-        
-        Double averageRating = reviewRepository.findAverageRatingByShopUkId(shopUkId);
-        logger.info("Average rating for shop with ID {}: {}", shopUkId, averageRating);
         return reviewRepository.findAverageRatingByShopUkId(shopUkId);
     }
 

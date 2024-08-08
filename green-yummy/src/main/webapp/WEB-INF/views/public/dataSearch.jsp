@@ -11,6 +11,7 @@
 <title>dataSearch</title>
 
 <link rel="stylesheet" href="/public/css/dataSearch.css">
+<script src="/public/js/dataSearch.js" defer></script>
 
 </head>
 <body>
@@ -49,31 +50,8 @@
                 
             </div>
             
-            <div class="shop-list">
-			    <c:forEach items="${shops}" var="shop" varStatus="status">
-			        <div class="shop-item" onclick="window.location.href='/public/dataSearchDetail/${shop.shopUkId}'" >
-				        <div class="shop-profile">
-				              <img src="/images/${shop.shopProfile}" alt="${shop.shopName} 프로필 이미지" />
-				        </div>
-				        <table class="shopdetail">
-				   
-				        	<tr> 
-				        		<td class="shop-name">${shop.shopName} </td><td>${shop.shopType} </td>
-					        </tr>
-					        <tr> 
-					        	<td >평점</td><td>★★★★★</td>
-					        </tr>
-					        <tr> 
-					        	<td >주소</td><td>${shop.location}</td>
-					        </tr>
-					        <tr> 
-					        	<td >전화번호</td><td>${shop.shopTel}</td>
-					        </tr>
-					        
-				        </table>
-			        
-			        </div>
-			    </c:forEach>
+            <div class="shop-list" id="shop-list">
+			   
 			</div>
             
     
