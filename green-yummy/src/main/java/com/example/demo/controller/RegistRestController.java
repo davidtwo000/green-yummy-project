@@ -55,9 +55,4 @@ public class RegistRestController {
     	return "public/userLogin";
     }
     
-    @GetMapping("/login")
-    public String login() {
-        return "public/userLogin";
-    }
-    
 }
