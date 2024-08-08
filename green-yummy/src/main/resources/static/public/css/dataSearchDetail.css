@@ -11,6 +11,16 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+    margin: 100px 0 100px 0;
+    
+    border: 2px solid orange;
+}
+h4{
+	text-align: left;
+}
+hr{
+	width: 1270px;
+	border: 2px solid lightgray;
 }
 
 .restaurantTitle {
@@ -21,8 +31,23 @@
 }
 
 .name {
-    font-size: 25px;
+	font: normal bold 25px 'sans-serif';
     margin: 10px;
+}
+.typeNrate{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	text-align: left;
+}
+.rateset{
+	display: flex;
+}
+.bookmarkBtn{
+	display: flex;
+}
+.bookmarkBtn > form > input{
+	float: right;
 }
 
 .restaurantImgContainer {
@@ -45,9 +70,9 @@
     height: 250px;
 }
 
-.rating {
-    margin: 20px;
-}
+/* .rating { */
+/*     margin: 20px; */
+/* } */
 
 .detail {
     justify-content: center;
@@ -85,8 +110,9 @@
 
 
 .reviewTag {
+	width: 100%;
     float: left;
-    margin: 20px;
+/*     margin: 20px; */
 }
 
 .reviewBtn{
@@ -121,7 +147,13 @@
     border-radius: 5px; 
     background-color: #f9f9f9;
 }
-
+.reviewsContainer table{
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+}
+/* .reviewContainer table td{ */
+/* 	border-bottom: 1px solid lightgray; */
+/* } */
 .review {
     display: flex;
     flex-direction: column;

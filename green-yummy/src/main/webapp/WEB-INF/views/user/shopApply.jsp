@@ -17,7 +17,7 @@
 <main>
 	<div class="mainContainer">
 		
-		<form id="shopapply" onsubmit="applyCheck(e)">
+		<form id="shopapply" onsubmit="applyCheck(event)">
 		
 		<table>
 		<tr>
@@ -54,9 +54,11 @@
 		</tr>
 		<tr>
 			<td colspan="4">
-			<p>*사진 추가하기</p>
-			<label for="file"><img src="/images/addPhoto.png"></label>
-			<input type="file" id="file">
+				<p>*사진 추가하기</p>
+				<div class="photoPlace">
+					<label for="file"><img src="/images/addPhoto.png" id="addPhoto"></label>
+					<input type="file" id="file" class="hidden">
+				</div>
 			</td>
 		</tr>
 		
