@@ -12,24 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.dto.publicDto.ShopDTO;
-import com.example.demo.dto.userDto.ReviewDTO;
-import com.example.demo.dto.userDto.UserDTO;
 import com.example.demo.model.userModel.User;
 import com.example.demo.service.publicService.ShopService;
 import com.example.demo.service.userService.ReviewService;
 import com.example.demo.service.userService.UserServiceImpl;
-
-
-
-
-
-
-/*
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import com.example.demo.domain.User;
-import com.example.demo.service.UserService;
-*/
 
 @Controller
 public class UserController {
