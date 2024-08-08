@@ -88,18 +88,6 @@ function userJoin(){
 		return false;
 	}
 	
-	if(nickname.value==""){
-		alert("사용할 닉네임을 입력해 주세요.");
-		nickname.focus();
-		return false;
-	}
-	if (!isNicknameAvailable) {
-        alert("닉네임 중복 확인을 해주세요.");
-        nickname.focus();
-        return false;
-    }
-    
-	
 	if(userId.value==""){
 		alert("아이디를 입력해주세요");
 		userId.focus();
@@ -108,6 +96,17 @@ function userJoin(){
 	if (!isUserIdAvailable) {
         alert("아이디 중복 확인을 해주세요.");
         userId.focus();
+        return false;
+    }
+    
+	if(nickname.value==""){
+		alert("사용할 닉네임을 입력해 주세요.");
+		nickname.focus();
+		return false;
+	}
+	if (!isNicknameAvailable) {
+        alert("닉네임 중복 확인을 해주세요.");
+        nickname.focus();
         return false;
     }
     

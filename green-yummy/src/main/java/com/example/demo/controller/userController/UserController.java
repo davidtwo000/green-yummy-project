@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.dto.publicDto.ShopDTO;
 import com.example.demo.dto.userDto.ReviewDTO;
@@ -76,6 +77,11 @@ public class UserController {
         model.addAttribute("user", userJin);	
 		
 		return "user/userInfoChange";
+	}
+	
+	@PostMapping("/letsInfoChange")
+	public String letsInfoChange() {
+		return "user/userPage";
 	}
 	
 	

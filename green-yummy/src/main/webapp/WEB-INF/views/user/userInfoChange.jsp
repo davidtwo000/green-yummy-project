@@ -17,14 +17,18 @@
 <jsp:include page="../public/header.jsp"/>
     
 <main>
-    <form method="post" action="/userJoin">
+    <form method="post" action="/letsInfoChange">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
     모든 항목을 필수로 입력하셔야 합니다.
         <div class="tablecontainer">
             <table>
-                <tr>
+            	<tr>
                     <td>이름</td>
-                    <td><input type="text" id="name" name="name" value="${user.name}"></td>
+                    <td>${user.name}</td>
+                </tr>
+            	<tr>
+                    <td>아이디</td>
+                    <td>${user.id}</td>
                 </tr>
                 <tr>
                     <td>닉네임</td>
@@ -34,15 +38,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>아이디</td>
-                    <td>
-                        <input type="text" id="userId" name="id" value="${user.id}">
-                        <input type="button" class="idcheck" value="중복확인">
-                    </td>
-                </tr>
-                <tr>
                     <td>비밀번호</td>
-                    <td><input type="password" id="pswd" name="password" value="${user.password}"></td>
+                    <td><input type="password" id="pswd" name="password"></td>
                 </tr>
                 <tr>
                     <td colspan="2">
