@@ -9,6 +9,7 @@ let email2 = document.getElementById("emailtwo");
 
 let emailChoose = document.getElementById("selEmail");
 
+let currentNick = document.querySelector("#currentNickname");
 
 let passreg = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^])(?!.*[가-힣])[A-Za-z\d@$!%*#?&]{8,20}$/;
 let phonereg = /[\d]{2,3}[\d]{3,4}[\d]{4}/;
@@ -57,59 +58,49 @@ function checkNickname() {
 //유효성 체크
 //정규식
 function userJoin(){
+	
 	if(nickname.value==""){
-		alert("사용할 닉네임을 입력해 주세요.");
-		nickname.focus();
-		return false;
-	}
-	if (!isNicknameAvailable) {
+	}else if(nickname.value==currentNick.value){
+	}else if(!isNicknameAvailable){
         alert("닉네임 중복 확인을 해주세요.");
         nickname.focus();
         return false;
     }
     
-	if(pswd.value==""){
-		alert("비밀번호를 입력해주세요.");
-		pswd.focus();
-		return false;
-	}
-	if(pswd.value.length < 8 || pswd.value.length > 20){
+    
+    if(pswd.value==""&&passCheck.value==""){
+	}else if(pswd.value.length < 8 || pswd.value.length > 20){
 		alert("비밀번호는 8자리 이상 20자리 이하여야 합니다.");
 		pswd.focus();
 		return false;
-	}
-	if(passreg.test(pswd.value)==false){
+	}else if(passreg.test(pswd.value)==false){
 		alert("비밀번호는 영문자, 숫자, 기호가 하나씩 들어가 있어야 합니다. (한글 사용 불가)");
 		return false;
-	}
-	if(passCheck.value!=pswd.value || !passCheck.value){
+	}else if(passCheck.value!=pswd.value || !passCheck.value){
 		alert("비밀번호가 일치하는지 확인해 주세요.");
 		passCheck.focus();
 		return false;
 	}
 	
+	
 	if(phone.value==""){
-		alert("전화번호를 입력해주세요.");
-		phone.focus();
-		return false;
-	}if(phonereg.test(phone.value)==false){
+	}else if(phonereg.test(phone.value)==false){
 		alert("전화번호는 '-'를 제외하고 입력해 주세요.");
 		return false;
 	}
 	
-	if(email1.value=="" || email2.value==""){
-		alert("이메일을 입력해주세요.");
-		email1.focus();
-		return false;
+	
+	if(email1.value=="" && email2.value==""){		
+	}else{
+		let email0 = `${email1.value}@${email2.value}`;
+	
+		if(!emailreg.test(email0)){
+			alert("유효한 이메일 주소를 입력해주세요.");
+	        email1.focus();
+			return false;
+		}
 	}
 	
-	let email0 = `${email1.value}@${email2.value}`;
-	
-	if(!emailreg.test(email0)){
-		alert("유효한 이메일 주소를 입력해주세요.");
-        email1.focus();
-		return false;
-	}
 	    
 	return true;     
 }

@@ -19,7 +19,10 @@
 <main>
     <form method="post" action="/letsInfoChange">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-    모든 항목을 필수로 입력하셔야 합니다.
+    <input type="hidden" id="currentNickname" value="${user.nickname}">
+	<input type="hidden" id="currentPhone" value="${user.phone}">
+	<input type="hidden" id="currentEmail" value="${user.email}">
+    수정할 항목만 입력해주세요.
         <div class="tablecontainer">
             <table>
             	<tr>
@@ -33,7 +36,7 @@
                 <tr>
                     <td>닉네임</td>
                     <td>
-                        <input type="text" id="nickname" name="nickname" value="${user.nickname}">
+                        <input type="text" id="nickname" name="nickname">
                         <input type="button" class="nickcheck" value="중복확인">
                     </td>
                 </tr>
@@ -53,14 +56,14 @@
                 <tr>
                     <td>전화번호</td>
                     <td>
-                        <input type="text" id="phone" name="phone" value="${user.phone}"><br>
+                        <input type="text" id="phone" name="phone"><br>
                         <span>'-'를 제외하고 입력해주세요.</span>
                     </td>
                 </tr>
                 <tr>
                     <td>이메일</td>
                     <td>
-                        <input type="text" id="emailone" name="emailone" value="${user.email}">@
+                        <input type="text" id="emailone" name="emailone">@
                         <input type="text" id="emailtwo" name="emailtwo">
                         <select id="selEmail">
                             <option value="">이메일 선택</option>
