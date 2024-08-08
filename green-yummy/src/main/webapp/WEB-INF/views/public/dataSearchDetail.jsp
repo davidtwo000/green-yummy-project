@@ -96,7 +96,7 @@
             </div>
             <script type="text/javascript" 
 			    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=349c2cb0976e7672467f9c85e9839ed5"></script>
-			    <script>
+            <script>
 			    document.addEventListener('DOMContentLoaded', function() {
 	                  var container = document.getElementById('map');
 	                  var options = {
