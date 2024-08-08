@@ -6,103 +6,142 @@
 }
 
 .innerContainer {
+	box-sizing: border-box;
     width: 1280px;
     justify-content: center;
     text-align: center;
     display: flex;
     flex-direction: column;
     margin: 100px 0 100px 0;
+    padding: 10px;
     
-    border: 2px solid orange;
+    border-radius: 8px;
+    border: 2px solid gray;
 }
+.restaurantImgContainer,
+.detail, .review, .random{
+	margin: 20px 0 20px 0;
+}
+
+
+
 h3{
 	margin: 10px 0 10px 0;
 	padding-left: 20px;
 	text-align: left;
 }
 hr{
-	width: 1270px;
-	border: 2px solid lightgray;
+	width: 1250px;
+	border: 1px solid lightgray;
+	border-radius: 50px;
 }
 
+/* 가게 이름 */
 .restaurantTitle {
     justify-content: center;
     text-align: center;
     display: flex;
-    flex-direction: row;
+	height: 100px;
 }
-
 .name {
-	font: normal bold 25px 'sans-serif';
+	display: flex;
+	align-items: center;
+	font: normal bold 45px 'sans-serif';
     margin: 10px;
 }
 .typeNrate{
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: center;
 	text-align: left;
+	
+	margin: 5px 0 5px 0;
 }
 .rateset{
 	display: flex;
+	font: normal bold 13pt 'sans-serif';
 }
 .bookmarkBtn{
 	display: flex;
+	justify-content: right;
+	align-items: center;
 }
 .bookmarkBtn > form > input{
 	float: right;
 }
+.bookmarkIcon, .backBtn,
+.bookmarkIcon img, .backBtn img{
+	width: 40px;
+	height: 40px;
+}
+.bookmarkIcon, .backBtn{
+	
+	margin: 0 10px 0 10px;
+	cursor: pointer;
+}
 
+
+/* 썸네일 사진 */
 .restaurantImgContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
     width: 100%;
     height: 300px;
     border: 1px solid gray;
-    display: flex;
-    flex-direction: row;
+   
 }
-
-.restaurantImg {
+.restaurantImg, .restaurantImg img {
     width: 250px;
     height: 250px;
     border: 1px solid gray;
+}
+.restaurantImg {
     margin: 10px;
 }
 
-.restaurantImg img {
-    width: 250px;
-    height: 250px;
-}
 
-/* .rating { */
-/*     margin: 20px; */
-/* } */
 
+/* 가게 정보 */
 .detail {
     justify-content: center;
     text-align: center;
     display: flex;
-    flex-direction: row;
 }
-
-
+.detailtable, .plusInfo{
+	width: 600px;
+    height: 240px;
+    margin: 10px 0 10px 0;
+    
+}
+.plusInfo{
+	border-radius: 8px;
+	background: lightgray;
+}
 .detailtable {
-    border: 1px solid gray; 
+/*     border: 1px solid gray;  */
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
     border-collapse: collapse;
-    width: 600px;
+    
+    
     margin-right: 50px;
 }
-
 .detailtable td {
-    border: 1px solid gray; 
+/*     border: 1px solid gray;  */
+    border-bottom: 1px solid lightgray;
     padding: 8px; 
 }
-
 .detailtable td:nth-child(odd) {
-    width: 200px;
+    width: 100px;
+    font: normal bold 13pt 'sans-serif';
+    background: #f2f2f2;
 }
 .detailtable td:nth-child(even) {
+	text-align: left;
     width: 400px;
+    padding-left: 20px;
 }
-
 .map {
     width: 500px;
     height: 500px;
@@ -110,35 +149,31 @@ hr{
 }
 
 
-
+/* 리뷰 버튼 */
 .reviewTag {
 	width: 100%;
     float: left;
-/*     margin: 20px; */
 }
-
 .reviewBtn{
-    float: right;
+	width: 100%;
+	height: 40px;
     margin: 20px;
+    
+}
+.reviewBtn img{
+	float: right;
+	margin-right: 30px;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	border: 2px solid salmon;
+	border-radius: 5px;
 }
 
-.random {
-    width: 100%;
-    height: 300px;
-    border: 1px solid gray;
-    display: flex;
-    flex-direction: row;
-    margin-top: 20px;
-}
-
-.randomRestaurant{
-    width: 250px;
-    height: 250px;
-    border: 1px solid gray;
-    margin: 10px;
-}
-
+/* 리뷰들 */
 .reviewsContainer {
+	display: flex;
+	justify-content: center;
     width: 100%; 
     max-width: 1200px; 
     margin: 0 auto;
@@ -152,28 +187,55 @@ hr{
 .reviewsContainer table{
 	border-top: 2px solid black;
 	border-bottom: 2px solid black;
+	border-collapse: collapse;
 }
-/* .reviewContainer table td{ */
-/* 	border-bottom: 1px solid lightgray; */
-/* } */
+.reviewsContainer table td{
+	padding: 5px 0 5px 0;
+	border-bottom: 1px solid lightgray;
+	cursor: pointer;
+	background: white;
+}
+.reviewsContainer table td:nth-of-type(2){
+	font-weight: bold;
+}
 .review {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 .review-img {
 	width:100px;
-	
 }
-.review-img-container {
-	border:1px solid black;
+.review-detail-img {
+	width:300px;
 }
+/* .review-img-container { */
+/* 	border:1px solid black; */
+/* } */
 .reviews-table {
-	border : 1px solid black;
+/* 	border : 1px solid black; */
 	width:90%;
 }
 
+/* 랜덤 추천 */
+.random {
+    width: 100%;
+    height: 300px;
+/*     border: 1px solid gray; */
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    
+    
+}
+.randomRestaurant{
+    width: 250px;
+    height: 250px;
+    border: 1px solid gray;
+    margin: 10px;
+}
+
+/* 모달 창 */
 .modal {
     display: none; /* Hidden by default */
     position: fixed;
@@ -185,7 +247,6 @@ hr{
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
 }
-
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
@@ -193,14 +254,12 @@ hr{
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
 }
-
 .close-btn {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
-
 .close-btn:hover,
 .close-btn:focus {
     color: black;
@@ -208,7 +267,5 @@ hr{
     cursor: pointer;
 }
 
-.review-detail-img {
-	width:300px;
-}
+
 
