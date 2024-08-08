@@ -1,7 +1,7 @@
 
 
 INSERT INTO users (name, email, password, id) VALUES ('john_doe', 'john@example.com', '12345', 'johoho');
-INSERT INTO users (name, email, password, id) VALUES ('jooheu', 'john@gmail.com', '12345' ,'joo');
+INSERT INTO users (name, email, password, id) VALUES ('jooheu', 'john@gmail.com', '12345' ,'joho');
 INSERT INTO users (name, email, password, id) VALUES ('jooho', 'joo@gmail.com', '$2a$10$bRGXy/TfBZpdpiy85bDS7eMcTFsyKAVtZnARm/xWwoR2vFz3mWQ.W' ,'joo');
 INSERT INTO users (name, email, password, id) VALUES ('joohoo', 'abc@gmail.com', '$2a$10$bRGXy/TfBZpdpiy85bDS7eMcTFsyKAVtZnARm/xWwoR2vFz3mWQ.W' ,'abc');
 -- id : abc, joo / 비밀번호 : 12345
@@ -32,8 +32,6 @@ VALUES (1, 1, 5, '맛있어요', '맛있어요'),
 (2, 3, 5, '맛있어요', '맛있어요');
 
 
-
-SELECT * FROM users;
 
 
 
