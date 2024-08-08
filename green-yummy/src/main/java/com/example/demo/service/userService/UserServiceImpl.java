@@ -53,4 +53,8 @@ public class UserServiceImpl implements UserDetailsService{
         }
         return null;
     }
+    
+    public void updateUser(User user) {
+        userRepository.save(user);
+    }
 }
