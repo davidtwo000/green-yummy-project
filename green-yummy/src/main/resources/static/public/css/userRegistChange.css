@@ -69,7 +69,7 @@ select{
     height: 100px;
 }
 input[type="submit"],
-.joincancel,.idcheck{
+.joincancel,.idcheck, .nickcheck{
     float:right;
     cursor: pointer;
     border: none;
@@ -82,7 +82,7 @@ input[type="submit"],
     height: 50px;
     margin: 10px 10px 0 10px;
 }
-.idcheck{
+.idcheck, .nickcheck{
     width: 80px;
     height: 30px;
 }

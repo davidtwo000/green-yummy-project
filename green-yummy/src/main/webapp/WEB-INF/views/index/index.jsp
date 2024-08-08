@@ -15,7 +15,7 @@
 
 <div class="outContainer">
 
-<div class="searchContainer">
+			<div class="searchContainer">
                 <input type="text" placeholder="검색어를 입력하세요" class="searchBar">
                 <div class="customSearchBtn"><img src="/images/search.png"></div>
                 <div class="ocricon">
@@ -23,8 +23,6 @@
 	                onclick="location.href='/public/pictureOCR'">
                 </div>
                 
-<!--                 <input type="button" value="OCR" class="OCRBtn"  -->
-<!--                 onclick="location.href='/public/pictureOCR'"> -->
             </div>
 
 

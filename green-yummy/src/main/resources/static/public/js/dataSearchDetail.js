@@ -36,6 +36,7 @@ function displayReviews(reviews) {
     const table = document.createElement('table');
     table.classList.add('reviews-table');
 	
+
 	const thead = document.createElement('thead');
 	thead.innerHTML = `
 	    <tr>
@@ -49,6 +50,7 @@ function displayReviews(reviews) {
 	    </tr>
 	`;
 	table.appendChild(thead);
+
 
     reviews.forEach(review => {
         const row = document.createElement('tr');
@@ -65,9 +67,11 @@ function displayReviews(reviews) {
             <td>${review.reviewRating}</td>
             <td>${formattedComment}</td>
             <td>${review.reviewContent}</td>
+
 			<td>${formatDate(review.reviewDate)}</td>
+
 			<td><input type="checkbox" class="review-checkbox" data-review-id="${review.reviewId}" /> 좋아요 버튼</td>
-        `;
+			 `;
 
         // Add click event to open modal
 		row.addEventListener('click', (event) => {
