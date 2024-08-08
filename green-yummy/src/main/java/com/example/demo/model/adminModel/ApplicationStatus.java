@@ -1,4 +1,4 @@
-package com.example.demo.admin.entity;
+package com.example.demo.model.adminModel;
 
 public enum ApplicationStatus {
     PENDING, APPROVED, REJECTED
