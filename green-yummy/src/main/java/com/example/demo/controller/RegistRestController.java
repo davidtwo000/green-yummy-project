@@ -19,14 +19,14 @@ public class RegistRestController {
     @GetMapping("/checkUserId")
     public ResponseEntity<Boolean> checkUserId(@RequestParam(name="userId") String userId) {
         boolean isUserIdAvailable = userRegistService.isUserIdAvailable(userId);
-        System.out.println("Is User ID Available: " + isUserIdAvailable);
+        //System.out.println("Is User ID Available: " + isUserIdAvailable);
         return ResponseEntity.ok(isUserIdAvailable);
     }
 
     @GetMapping("/checkNickname")
     public ResponseEntity<Boolean> checkNickname(@RequestParam(name="nickname") String nickname) {
         boolean isNicknameAvailable = userRegistService.isNicknameAvailable(nickname);
-        System.out.println("Is User ID Available: " + isNicknameAvailable);
+        //System.out.println("Is User ID Available: " + isNicknameAvailable);
         return ResponseEntity.ok(isNicknameAvailable);
     }
 	

@@ -48,18 +48,7 @@ public class UserController {
 		List<ShopDTO> shop = shopservice.getAllShops();
 		model.addAttribute("shop", shop);
 		return "user/storeCollection";
-	}
-	
-	
-	@GetMapping("user/userInfoChange")
-	public String userInfoChange(Model model) {
-		
-		User user = userService.getCurrentUser();
-        model.addAttribute("user", user);	
-		
-		return "user/userInfoChange";
-	}
-	
+	}	
 	
 	@GetMapping("user/changeReview")
 	public String changeReview() {
@@ -79,6 +68,15 @@ public class UserController {
 	}
     
 	
+	
+	@GetMapping("user/userInfoChange")
+	public String userInfoChange(Model model) {
+		
+		User userJin = userService.getCurrentUser();
+        model.addAttribute("user", userJin);	
+		
+		return "user/userInfoChange";
+	}
 	
 	
 }

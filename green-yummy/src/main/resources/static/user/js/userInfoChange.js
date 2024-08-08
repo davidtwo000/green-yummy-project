@@ -37,6 +37,7 @@ function checkNickname() {
     })
     .then(response => response.json())
     .then(data => {
+		alert("서버로부터 받은 값" +data);
         if (data) {
             alert("사용 가능한 닉네임입니다.");
             isNicknameAvailable = true;
@@ -62,6 +63,7 @@ function checkUserId() {
     })
     .then(response => response.json())
     .then(data => {
+		alert("서버로부터 받은 값" +data);
         if (data) {
             alert("사용 가능한 아이디입니다.");
             isUserIdAvailable = true;
