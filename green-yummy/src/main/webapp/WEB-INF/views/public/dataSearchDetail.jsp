@@ -61,7 +61,7 @@
         </div>
         
         <hr>
-        <h4>가게 정보</h4>
+        <h3>가게 정보</h3>
         <hr>
        
 
@@ -102,7 +102,7 @@
 
         <div class="review">
         	<hr>
-            <div class="reviewTag"> <h4>리뷰</h4> </div>
+            <div class="reviewTag"> <h3>리뷰</h3> </div>
             <hr>
             
 		        <input type="button" value="리뷰쓰기" class="reviewBtn" onclick="createReview(${shop.shopUkId})">

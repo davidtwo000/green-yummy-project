@@ -72,7 +72,9 @@
 	        <textarea rows="15" name="reviewContent" required placeholder="Enter detailed content" class="reviewContent"></textarea>
 	       
 	       <div class="reviewBtn">
-	       		<div class="storePhoto"><input type="file" name="reviewImg"></div>
+	       		<div class="storePhoto">
+	       		<label for="file"><img src="/images/addPhoto.png"></label>
+	       		<input type="file" name="reviewImg" id="file"></div>
 
                 
             </div>
