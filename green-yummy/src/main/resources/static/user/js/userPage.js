@@ -9,20 +9,20 @@ let reviewPage = document.querySelector("#tab2");
 
 
 //회원 정보란의 버튼들. 각각 회원정보수정, 로그아웃, 회원탈퇴 버튼.
-function infoChange(){
-	window.location.href="/user/userInfoChange";
+function infoChange() {
+	window.location.href = "/user/userInfoChange";
 }
-function logout(){
-	if(logoutBtn.classList.contains("hidden")){
+function logout() {
+	if (logoutBtn.classList.contains("hidden")) {
 		logoutBtn.classList.remove("hidden");
-	}else{
+	} else {
 		logoutBtn.classList.add("hidden");
 	}
 }
-function userBye(){
-	if(userOut.classList.contains("hidden")){
+function userBye() {
+	if (userOut.classList.contains("hidden")) {
 		userOut.classList.remove("hidden");
-	}else{
+	} else {
 		userOut.classList.add("hidden");
 	}
 }
@@ -32,24 +32,24 @@ function userBye(){
 
 
 reviewTab.onclick = (e) => {
-	if(!reviewTab.classList.contains('youHere')){
+	if (!reviewTab.classList.contains('youHere')) {
 		e.preventDefault();
 		reviewTab.classList.add('youHere');
 		reviewPage.classList.remove('hidden');
 		storeTab.classList.remove('youHere');
 		storePage.classList.add('hidden');
-	}else{
+	} else {
 		return true;
 	}
 }
 storeTab.onclick = (e) => {
-	if(!storeTab.classList.contains('youHere')){
+	if (!storeTab.classList.contains('youHere')) {
 		e.preventDefault();
 		storeTab.classList.add('youHere');
 		storePage.classList.remove('hidden');
 		reviewTab.classList.remove('youHere');
 		reviewPage.classList.add('hidden');
-	}else{
+	} else {
 		return true;
 	}
 }
@@ -58,39 +58,39 @@ storeTab.onclick = (e) => {
 
 ///여기서부터 sg가
 function myreviewList() {
-    const userUkId = document.getElementById('userUkId').value;
-    
-    fetch(`/reviews/myreview/${userUkId}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Reviews fetched successfully:', data);
-        populateReviews(data); // Populate the reviews in the table
-    })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-    });
+	const userUkId = document.getElementById('userUkId').value;
+
+	fetch(`/reviews/myreview/${userUkId}`, {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
+		.then(response => {
+			if (!response.ok) {
+				throw new Error('Network response was not ok');
+			}
+			return response.json();
+		})
+		.then(data => {
+			console.log('Reviews fetched successfully:', data);
+			populateReviews(data); // Populate the reviews in the table
+		})
+		.catch(error => {
+			console.error('There was a problem with the fetch operation:', error);
+		});
 }
 
 function populateReviews(reviews) {
-    const table = document.querySelector('#tab2 table');
+	const table = document.querySelector('#tab2 table');
 
-    const rows = table.querySelectorAll('tr:not(:first-child)');
-    rows.forEach(row => row.remove());
+	const rows = table.querySelectorAll('tr:not(:first-child)');
+	rows.forEach(row => row.remove());
 
-    reviews.forEach((review, index) => {
-        const row = document.createElement('tr');
-        
-        row.innerHTML = `
+	reviews.forEach((review, index) => {
+		const row = document.createElement('tr');
+
+		row.innerHTML = `
             <td>${index + 1}</td>
             <td>${review.shop.shopName}</td>
             <td>${review.reviewContent}</td>
@@ -99,47 +99,50 @@ function populateReviews(reviews) {
             <td><button onclick="updateReview(${review.reviewId})">수정</button></td>
             <td><button onclick="showDeleteModal(${review.reviewId})">삭제</button></td>
         `;
-        
-        table.appendChild(row);
-    });
+
+		table.appendChild(row);
+	});
+
+	const reviewTabLink = document.getElementById('reviewTabLink');
+	reviewTabLink.textContent = `나의 리뷰(${reviews.length}개)`;
 }
 
 function showDeleteModal(reviewId) {
 	reviewIdToDelete = reviewId;
 	document.getElementById('deleteModalContainer').classList.remove('hidden');
 }
-	
+
 function hideDeleteModal() {
 	document.getElementById('deleteModalContainer').classList.add('hidden');
 	reviewIdToDelete = null;
 }
-	
+
 //리뷰 삭제
 function confirmDelete() {
-    fetch(`/reviews/delete/${reviewIdToDelete}`, {
-        method: 'DELETE'
-    })
-    .then(response => {
-        if (response.ok) {
-            window.location.reload();
-        } else {
-            alert('리뷰 삭제에 실패했습니다.');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('리뷰 삭제에 실패했습니다.');
-    })
-    .finally(() => {
-        hideDeleteModal();
-    });
+	fetch(`/reviews/delete/${reviewIdToDelete}`, {
+		method: 'DELETE'
+	})
+		.then(response => {
+			if (response.ok) {
+				window.location.reload();
+			} else {
+				alert('리뷰 삭제에 실패했습니다.');
+			}
+		})
+		.catch(error => {
+			console.error('Error:', error);
+			alert('리뷰 삭제에 실패했습니다.');
+		})
+		.finally(() => {
+			hideDeleteModal();
+		});
 }
 
 function updateReview(reviewId) {
-    console.log("Navigating to review edit page with ID:", reviewId);
-    window.location.href = `/user/updateReview/${reviewId}`; // PathVariable을 사용한 URL로 수정
+	console.log("Navigating to review edit page with ID:", reviewId);
+	window.location.href = `/user/updateReview/${reviewId}`; // PathVariable을 사용한 URL로 수정
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
-            myreviewList(); // Call the function when the DOM is fully loaded
-        });
+	myreviewList(); // Call the function when the DOM is fully loaded
+});

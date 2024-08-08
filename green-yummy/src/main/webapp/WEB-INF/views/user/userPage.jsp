@@ -46,7 +46,7 @@
             <ul class="mypageTab">
                 <li>
                 <a href="#tab1" class="storeTab youHere">나의 맛집(${fn:length(shop)}개)</a></li>
-                <li><a href="#tab2" class="reviewTab">나의 리뷰(${fn:length(reviews)}개)</a></li>
+                <li><a id="reviewTabLink" href="#tab2" class="reviewTab">나의 리뷰(0개)</a></li>
             </ul>
             
 <!--             storecollection 페이지 -->

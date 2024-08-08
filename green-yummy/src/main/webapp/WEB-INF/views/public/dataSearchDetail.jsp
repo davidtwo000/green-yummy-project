@@ -43,13 +43,15 @@
         </div>
         
         <div class="bookmarkBtn">
-        	<form id="bookmarkForm">
-        		<div class="bookmarkIcon" title="북마크 저장" onclick="bookmark()">
-        		<img src="/images/bookmark.png"></div>
-			</form>	
-			<div class="backBtn" id="backButton" title="목록으로 돌아가기">
-			<img src="/images/dataList.png">
-			</div>
+
+        	
+			    <input type="button" onclick="addBookmark()" value="북마크 저장">
+			    <input type="button" onclick="removeBookmark()" value="북마크 해제">
+
+			<div class="backBtn">
+		    <input type="button" id="backButton" value="목록으로" />
+		</div>
+
         </div>
         
         <hr>
