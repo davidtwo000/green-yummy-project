@@ -52,6 +52,7 @@ public class MainController {
 	
 	@GetMapping("public/userRegist")
 	public String userRegist() {
+		//다 구현하고 나서 userLogin으로 보내기
 		return "public/userRegist";
 	}
 	

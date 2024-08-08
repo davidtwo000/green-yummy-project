@@ -17,14 +17,14 @@ public class UserRegistService {
     private PasswordEncoder passwordEncoder;
 	
     public boolean isUserIdAvailable(String id) {
-    	boolean exists = userRegistRepository.existsById(id);
-    	System.out.println("User ID exists: " + exists);
+    	//boolean exists = userRegistRepository.existsById(id);
+    	//System.out.println("User ID exists: " + exists);
         return !userRegistRepository.existsById(id);
     }
 
     public boolean isNicknameAvailable(String nickname) {
-    	boolean exists = userRegistRepository.existsByNickname(nickname);
-    	System.out.println("User ID exists: " + exists);
+    	//boolean exists = userRegistRepository.existsByNickname(nickname);
+    	//System.out.println("User ID exists: " + exists);
         return !userRegistRepository.existsByNickname(nickname);
     }
     
