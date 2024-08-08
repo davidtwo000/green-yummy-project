@@ -168,7 +168,7 @@ public class ReviewServiceImpl implements ReviewService {
         }
     }
 	
-
+	//리뷰 수정
 	@Override
 	public void updateReview(ReviewDTO reviewDTO) throws Exception {
        
@@ -177,9 +177,10 @@ public class ReviewServiceImpl implements ReviewService {
         if (existingReview.isPresent()) {
             Review review = existingReview.get();
 
-            review.setReviewComment(reviewDTO.getReviewComment()); // 이 부분은 필드 매핑에 따라 다를 수 있습니다.
+            review.setReviewComment(reviewDTO.getReviewComment()); 
             review.setReviewContent(reviewDTO.getReviewContent());
             review.setReviewRating(reviewDTO.getReviewRating());
+            review.setReviewImg(reviewDTO.getReviewImg());
             
             review.setReviewDate(LocalDateTime.now());
 
