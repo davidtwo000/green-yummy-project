@@ -30,12 +30,13 @@
         <div class="restaurantTitle"> 
             <div class="name">${shop.shopName}</div>
             <div class="typeNrate">
-	            <div class="type">${shop.shopType}</div>
+	            
 	            <div class="rating">
 		            <div class="rateset">
-			             평점 <div class="averageRating" id="averageRating"> 
+			             평점&nbsp; <div class="averageRating" id="averageRating"> 
 			            </div>
 		            </div>
+		            <div class="type">${shop.shopType}</div>
 	            </div>
         	</div>
         	
@@ -43,20 +44,21 @@
         
         <div class="bookmarkBtn">
         	<form id="bookmarkForm">
-			    <input type="button" onclick="bookmark()" value="북마크 저장">
+        		<div class="bookmarkIcon" title="북마크 저장" onclick="bookmark()">
+        		<img src="/images/bookmark.png"></div>
 			</form>	
-			<div class="backBtn">
-		    <input type="button" id="backButton" value="목록으로" />
-		</div>
+			<div class="backBtn" id="backButton" title="목록으로 돌아가기">
+			<img src="/images/dataList.png">
+			</div>
         </div>
         
         <hr>
         
         <div class="restaurantImgContainer">
-            <div class="restaurantImg"> 
-                <img src="/images/${shop.shopProfile}" alt="${shop.shopName} 프로필 이미지" />
-            </div>
             <div class="restaurantImg"> </div>
+            <div class="restaurantImg">
+            <img src="/images/${shop.shopProfile}" alt="${shop.shopName} 프로필 이미지" />
+             </div>
             <div class="restaurantImg"> </div>
         </div>
         
@@ -66,37 +68,55 @@
        
 
         <div class="detail">
-            <table class="detailtable">
-                <tr>
-                    <td> 주소 </td> <td> ${shop.location} </td>
-                </tr>
-                <tr>
-                    <td> OPEN </td> <td> ${shop.openHours}</td>
-                </tr>
-                <tr>
-                    <td> CLOSE </td> <td>${shop.closeHours} </td>
-                </tr>
-                <tr>
-                    <td> 전화번호 </td> <td>${shop.shopTel} </td>
-                </tr>
-                <tr>
-                    <td> 기타사항 </td> <td> ${shop.etc}</td>
-                </tr>
-            </table>
+	        <div class="tableNinfo">
+		        <table class="detailtable">
+	                <tr>
+	                    <td> 주소 </td> <td> ${shop.location} </td>
+	                </tr>
+	                <tr>
+	                    <td> OPEN </td> <td> ${shop.openHours}</td>
+	                </tr>
+	                <tr>
+	                    <td> CLOSE </td> <td>${shop.closeHours} </td>
+	                </tr>
+	                <tr>
+	                    <td> 전화번호 </td> <td>${shop.shopTel} </td>
+	                </tr>
+	                <tr>
+	                    <td> 기타사항 </td> <td> ${shop.etc}</td>
+	                </tr>
+	            </table>
+	            
+	            <div class="plusInfo"></div>
+	        </div>
+            
             
             <div class="map" id="map">
             지도
             </div>
             <script type="text/javascript" 
 			    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=349c2cb0976e7672467f9c85e9839ed5"></script>
-			    <script>
-					var container = document.getElementById('map');
-					var options = {
-						center: new kakao.maps.LatLng(33.450701, 126.570667),
-						level: 3
-					};
-			
-					var map = new kakao.maps.Map(container, options);
+            <script>
+			    document.addEventListener('DOMContentLoaded', function() {
+	                  var container = document.getElementById('map');
+	                  var options = {
+	                      center: new kakao.maps.LatLng(
+	                          parseFloat('${shop.latitude}'),
+	                          parseFloat('${shop.longitude}')
+	                      ),
+	                      level: 3
+	                  };
+
+	                  var map = new kakao.maps.Map(container, options);
+	                  var markerPosition  = new kakao.maps.LatLng('${shop.latitude}','${shop.longitude}');
+	                  
+	                  var marker = new kakao.maps.Marker({
+	                      position: markerPosition
+	                  });
+
+	                  marker.setMap(map);
+	              });
+	               var map = new kakao.maps.Map(container, options); 
 			</script>
         </div>
 
@@ -105,8 +125,12 @@
             <div class="reviewTag"> <h3>리뷰</h3> </div>
             <hr>
             
-		        <input type="button" value="리뷰쓰기" class="reviewBtn" onclick="createReview(${shop.shopUkId})">
-            <div class="reviewsContainer" id="reviewsContainer"></div>
+            <div class="reviewBtn" title="리뷰 작성하기" onclick="createReview(${shop.shopUkId})">
+            <img src="/images/reviewWrite.png"></div>
+           
+           <div class="reviewsContainer" id="reviewsContainer">
+           </div>
+            
             
             <!-- 자세히 보기 창 -->
             <div id="modal" class="modal">
@@ -117,8 +141,11 @@
 		            </div>
 		        </div>
 		    </div>
-            
         </div>
+        
+        <hr>
+            <div class="reviewTag"> <h3>이런 가게는 어때요?</h3> </div>
+        <hr>
 
         <div class="random">
             <div class="randomRestaurant"> </div>

@@ -8,7 +8,6 @@
     
     border: 2px solid lightgray;
 }
-
 .MainContainer{
 	display: flex;
 	flex-direction: column;
@@ -16,19 +15,26 @@
 	justify-content: center; 
     align-items: center;
 }
+
+/* 사진 + 설명 */
 .introBox{
 	margin: 20px;
+	border-radius: 8px;
 	border: 2px solid salmon;
+}
+.introBox p{
+	font: normal bold 35px 'sans-serif';
 }
 .threeWays .introBox{
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	width: 1280px;
 	height: 400px;
 }
 .introText{
 	width: 700px;
+	height: 300px;
 	margin: 0 0 0 30px;
 	
 	border: 1px solid black;
@@ -40,7 +46,6 @@
 	float: left;
 	width: 300px;
 	height: 300px;
-	margin: 0 0 0 40px;
 	
 	border: 2px solid gray;
 }

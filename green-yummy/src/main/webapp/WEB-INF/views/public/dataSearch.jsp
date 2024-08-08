@@ -18,20 +18,45 @@
 <jsp:include page="../public/header.jsp"/>
 	<div class="outContainer">
         <div class="innerContainer">
-            
-            <div class="searchBar">
-                <select class="selectBox">
+        
+        
+        	<div class="searchContainer">
+        
+        		<select class="selectBox">
                     <option value="" disabled selected>선택없음</option>
                     <option value="area">지역별</option>
                     <option value="category">업종별</option>
                     <option value="menu">메뉴별</option>
                     <option value="rating">평점별</option>
                 </select>
-
-                <input type="text" placeholder="검색어를 입력하세요" class="searchText">
+        
+                <input type="text" placeholder="검색어를 입력하세요" class="searchBar">
+                <div class="customSearchBtn"><img src="/images/search.png"></div>
+                <div class="ocricon">
+	                <img src="/images/picture.png" title="OCR. 사진으로 검색하기." 
+	                onclick="location.href='/public/pictureOCR'">
+                </div>
+                
             </div>
             
-            <div class="map"> 지도 </div>
+<!--             <div class="searchBar"> -->
+                
+
+<!--                 <input type="text" placeholder="검색어를 입력하세요" class="searchText"> -->
+<!--             </div> -->
+            
+            <div class="map" id="map"> 지도 </div>
+            <script type="text/javascript" 
+			    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=349c2cb0976e7672467f9c85e9839ed5"></script>
+			    <script>
+					var container = document.getElementById('map');
+					var options = {
+						center: new kakao.maps.LatLng(33.450701, 126.570667),
+						level: 3
+					};
+			
+					var map = new kakao.maps.Map(container, options);
+			</script>
 
             <div class="sortOptions">
                 <label>
@@ -75,7 +100,8 @@
 			        </div>
 			    </c:forEach>
 			</div>
-            
+         </div>
+       </div>   
     
 <jsp:include page="../public/footer.jsp"/>  
 </body>
