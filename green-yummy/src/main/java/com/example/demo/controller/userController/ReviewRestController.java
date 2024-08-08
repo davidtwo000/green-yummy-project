@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.dto.userDto.ReviewDTO;
+import com.example.demo.model.publicModel.Shop;
 import com.example.demo.model.userModel.User;
 import com.example.demo.service.userService.ReviewService;
 import com.example.demo.service.userService.UserServiceImpl;
@@ -97,6 +98,37 @@ public class ReviewRestController {
     }
     
     
+    //리뷰 수정
+    @PutMapping("/updateReview/{reviewId}")
+    public ResponseEntity<String> updateReview(
+    		@PathVariable ("reviewId") Integer reviewId, 
+            @RequestParam("reviewComment") String reviewComment,
+            @RequestParam("reviewContent") String reviewContent,
+            @RequestParam("reviewRating") Byte reviewRating,
+            @RequestParam("reviewImg") MultipartFile reviewImg) {
+    	
+    	 try {
+    		 ReviewDTO review = new ReviewDTO();
+             review.setReviewId(reviewId);
+             review.setReviewComment(reviewComment);
+             review.setReviewContent(reviewContent);
+             review.setReviewRating(reviewRating);
+             
+             if (reviewImg != null && !reviewImg.isEmpty()) {
+                 String folder = "images";
+                 String fileName = fileUploader.uploadFileAndGetChangedFileName(reviewImg, folder);
+                 review.setReviewImg(folder + "/" + fileName);
+             }
+    	
+            reviewService.updateReview(review);
+
+            return ResponseEntity.ok("리뷰가 성공적으로 수정되었습니다.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("리뷰 수정에 실패했습니다: " + e.getMessage());
+        }
+    }
+    
+    
     //나의 리뷰
     @GetMapping("/myreview/{userUkId}")
     public ResponseEntity<List<ReviewDTO>> getReviewsByUserUkId(@PathVariable("userUkId") Integer userUkId) {
@@ -129,6 +161,7 @@ public class ReviewRestController {
     }
     
     
+    
     //원래 리뷰 정보 가져오기
     @GetMapping("/{reviewId}")
     public ResponseEntity<ReviewDTO> getReviewById(@PathVariable("reviewId") Integer reviewId) {
@@ -145,25 +178,8 @@ public class ReviewRestController {
     }
     
     
-    //리뷰 수정
-    @PutMapping("/update/{reviewId}")
-    public ResponseEntity<String> updateReview(
-            @PathVariable("reviewId") Integer reviewId,
-            @RequestBody ReviewDTO reviewDTO) {
-
-        try {
-            // 리뷰 DTO에서 reviewId를 가져와서 설정
-            reviewDTO.setReviewId(reviewId);
-
-            // 리뷰 업데이트를 위한 서비스 호출
-            reviewService.updateReview(reviewDTO);
-
-            return ResponseEntity.ok("리뷰가 성공적으로 수정되었습니다.");
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body("리뷰 수정에 실패했습니다: " + e.getMessage());
-        }
-    }
+   
+}
     
   
     
-}

@@ -19,45 +19,17 @@ public class RegistRestController {
     @GetMapping("/checkUserId")
     public ResponseEntity<Boolean> checkUserId(@RequestParam(name="userId") String userId) {
         boolean isUserIdAvailable = userRegistService.isUserIdAvailable(userId);
-        System.out.println("Is User ID Available: " + isUserIdAvailable);
+        //System.out.println("Is User ID Available: " + isUserIdAvailable);
         return ResponseEntity.ok(isUserIdAvailable);
     }
 
     @GetMapping("/checkNickname")
     public ResponseEntity<Boolean> checkNickname(@RequestParam(name="nickname") String nickname) {
         boolean isNicknameAvailable = userRegistService.isNicknameAvailable(nickname);
-        System.out.println("Is User ID Available: " + isNicknameAvailable);
+        //System.out.println("Is User ID Available: " + isNicknameAvailable);
         return ResponseEntity.ok(isNicknameAvailable);
     }
 	
-    @PostMapping("/userJoin")
-    public String userJoin(@RequestParam("name") String name,
-            @RequestParam("nickname") String nickname,
-            @RequestParam("id") String id,
-            @RequestParam("password") String password,
-            @RequestParam("phone") String phone,
-            @RequestParam("emailone") String emailone,
-            @RequestParam("emailtwo") String emailtwo) {
-    	
-    	 String email = emailone + "@" + emailtwo;
-
-         User user = new User();
-         user.setName(name);
-         user.setNickname(nickname);
-         user.setId(id);
-         user.setPassword(password);
-         user.setPhone(phone);
-         user.setEmail(email);
-
-         userRegistService.saveUser(user);
-
-         
-    	return "public/userLogin";
-    }
     
-    @GetMapping("/login")
-    public String login() {
-        return "public/userLogin";
-    }
     
 }

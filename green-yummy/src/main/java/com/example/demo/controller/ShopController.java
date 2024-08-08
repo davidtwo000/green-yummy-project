@@ -23,8 +23,6 @@ public class ShopController {
 	
 	@GetMapping("public/dataSearch")
 	public String shop(Model model) {
-		List<ShopDTO> shops = shopService.getAllShops();
-		model.addAttribute("shops",shops);
 		return "public/dataSearch";
 	}
 	

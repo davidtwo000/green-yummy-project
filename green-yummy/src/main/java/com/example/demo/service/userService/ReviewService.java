@@ -32,11 +32,7 @@ public interface ReviewService {
 	//리뷰 작성했는지 확인
 	boolean hasUserReviewedShop(Integer userUkId, Integer shopUkId);
 	
-	//리뷰 페이지화
-	Page<ReviewDTO> getReviewsPage(int page, int size);
-	
-	int getNextReviewId();
-	
 	//나의 리뷰 보기
 	List<ReviewDTO> findByUserUkId(Integer userUkId);
+	
 }

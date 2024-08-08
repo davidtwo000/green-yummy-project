@@ -18,4 +18,5 @@ public class ShopDTO {
     private String etc;                // 기타 사항
     private Double latitude;           // 위도
     private Double longitude;          // 경도
+
 }

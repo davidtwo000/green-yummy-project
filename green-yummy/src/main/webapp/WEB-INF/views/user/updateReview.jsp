@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="/user/css/createReview.css" rel="stylesheet" type="text/css">
+    <link href="/user/css/updateReview.css" rel="stylesheet" type="text/css">
    	<script src="/user/js/updateReview.js"></script>
 </head>
 <body>
@@ -44,12 +44,7 @@
 		        </fieldset>
 			
 			    <input type="text" id="reviewContent" name="reviewContent" required placeholder="Enter detailed content" class="reviewContent">
-			    <div class="reviewBtn">
-				    <div class="reviewBtn">
-		       		<div class="storePhoto"><input type="file" name="reviewImg"></div>       
-	            </div>
-			        
-			    </div>
+			   	<div class="storePhoto"><input type="file" name="reviewImg"></div>  
 			    <input type="submit" value="리뷰 수정하기">
 			</form>
         	 

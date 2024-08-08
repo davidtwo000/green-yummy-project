@@ -97,7 +97,11 @@
     margin-top: 20px;
 }
 
-
+.box {
+	border:1px solid gray;
+	height:300px;
+	width:90%;
+}
 
 .shop-item {
     width: 90%;

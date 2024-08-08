@@ -53,14 +53,14 @@ public class Shop {
 
     @Column(name = "LONGITUDE")
     private Double longitude; // 경도
-
+    
     // 기본 생성자
     public Shop() {}
 
     // 전체 필드를 매개변수로 하는 생성자 (선택 사항)
     public Shop(Integer shopUkId, String shopName, String shopProfile, String shopType, String location,
                 String shopTel, String openHours, String closeHours, String closedDays, String etc,
-                Double latitude, Double longitude) {
+                Double latitude, Double longitude, Double shopRating) {
         this.shopUkId = shopUkId;
         this.shopName = shopName;
         this.shopProfile = shopProfile;
