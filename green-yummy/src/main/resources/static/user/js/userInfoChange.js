@@ -25,7 +25,6 @@ emailChoose.addEventListener("change", function () {
 	
 
 
-let isUserIdAvailable = false;
 let isNicknameAvailable = false;
 
 function checkNickname() {
@@ -37,7 +36,6 @@ function checkNickname() {
     })
     .then(response => response.json())
     .then(data => {
-		alert("서버로부터 받은 값" +data);
         if (data) {
             alert("사용 가능한 닉네임입니다.");
             isNicknameAvailable = true;
@@ -53,43 +51,12 @@ function checkNickname() {
     });
 }
 
-function checkUserId() {
-	
-    fetch(`/checkUserId?userId=${userId.value}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-		alert("서버로부터 받은 값" +data);
-        if (data) {
-            alert("사용 가능한 아이디입니다.");
-            isUserIdAvailable = true;
-        } else {
-            alert("이미 사용 중인 아이디입니다.");
-            userId.focus();
-            isUserIdAvailable = false;
-        }
-    })
-    .catch(error => {
-        console.error("Error checking user ID:", error);
-        isUserIdAvailable = false;
-    });
-}
 
 
 
 //유효성 체크
 //정규식
 function userJoin(){
-	if(username.value==""){
-		alert("이름을 입력해주세요.");
-		username.focus();
-		return false;
-	}
-	
 	if(nickname.value==""){
 		alert("사용할 닉네임을 입력해 주세요.");
 		nickname.focus();
@@ -98,18 +65,6 @@ function userJoin(){
 	if (!isNicknameAvailable) {
         alert("닉네임 중복 확인을 해주세요.");
         nickname.focus();
-        return false;
-    }
-    
-	
-	if(userId.value==""){
-		alert("아이디를 입력해주세요");
-		userId.focus();
-		return false;
-	}
-	if (!isUserIdAvailable) {
-        alert("아이디 중복 확인을 해주세요.");
-        userId.focus();
         return false;
     }
     
@@ -156,14 +111,11 @@ function userJoin(){
 		return false;
 	}
 	    
-	    
 	return true;     
-    
 }
 
 
 // 중복 체크 버튼 이벤트 리스너
-document.querySelector(".idcheck").addEventListener("click", checkUserId);
 document.querySelector(".nickcheck").addEventListener("click", checkNickname);
 
 // form submit 이벤트에서 userJoin을 호출하여 유효성 검사를 기다립니다.

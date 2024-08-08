@@ -22,19 +22,20 @@
                     <td><input type="text" id="name" name="name"></td>
                 </tr>
                 <tr>
-                    <td>닉네임</td>
-                    <td>
-                        <input type="text" id="nickname" name="nickname">
-                        <input type="button" class="nickcheck" value="중복확인">
-                    </td>
-                </tr>
-                <tr>
                     <td>아이디</td>
                     <td>
                         <input type="text" id="userId" name="id">
                         <input type="button" class="idcheck" value="중복확인">
                     </td>
                 </tr>
+                <tr>
+                    <td>닉네임</td>
+                    <td>
+                        <input type="text" id="nickname" name="nickname">
+                        <input type="button" class="nickcheck" value="중복확인">
+                    </td>
+                </tr>
+                
                 <tr>
                     <td>비밀번호</td>
                     <td><input type="password" id="pswd" name="password"></td>
