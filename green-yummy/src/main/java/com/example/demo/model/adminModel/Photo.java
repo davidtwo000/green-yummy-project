@@ -24,9 +24,9 @@ public class Photo {
     @Column(name = "SHOP_UK_ID")
     private Integer shopId;
     
-    @ManyToOne
-    @JoinColumn(name = "REVIEW_ID")
-    private Review review;
+    //@ManyToOne
+    //@JoinColumn(name = "REVIEW_ID")
+    //private Review review;
 
     @Column(name = "SHOP_PHOTO_PATH")
     private String photoPath;
