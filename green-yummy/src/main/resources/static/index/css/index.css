@@ -21,10 +21,10 @@
 	cursor: pointer;
 	list-style-type: none;
 }
-.submenus:hover li{
-	text-decoration: underline;
-	color: red;
-}
+/* .submenus:hover li{ */
+/* 	text-decoration: underline; */
+/* 	color: red; */
+/* } */
 .starSublist>ul>li{
 	margin: 0 30px 0 30px;
 	display: inline-block;
