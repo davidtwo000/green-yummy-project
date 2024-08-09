@@ -34,9 +34,8 @@
                     <input type="button" value="자세히보기"
                      class="policyBtn" onclick="policyPop2()"></li>
                 <li><input type="checkbox" name="agreement">
-                    (선택)광고성 메일 수신에 동의합니다. 
-                    <input type="button" value="자세히 보기"
-                     class="policyBtn" onclick="adPop()"></li>
+                    (선택)광고성 메일 수신에 동의합니다.</li> 
+                    
             </ul>
                 
             
