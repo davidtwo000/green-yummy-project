@@ -17,13 +17,16 @@
 <main>
 	<div class="mainContainer">
 		
-		<form id="shopapply" onsubmit="applyCheck(event)">
+		<form id="shopApply" onsubmit="applyCheck(event)">
 		
 		<table>
 		<tr>
-			<th>가게명</th>
+			<th>맛집 이름</th>
 			<td><input type="text" id="shopName" name="shopName"></td>
-			<td colspan="2">
+		</tr>
+		<tr>
+			<th>음식 유형</th>			
+			<td>
 				<input type="radio" name="foodType" value="중식">중식
 				<input type="radio" name="foodType" value="양식">양식
 				<input type="radio" name="foodType" value="일식">일식
@@ -31,37 +34,16 @@
 			</td>
 		</tr>
 		<tr>
-			<th>주소</th>
-			<td colspan="3"><input type="text" id="shopLoc" class="shopLocation"></td>
+			<th>맛집 주소</th>
+			<td><input type="text" id="shopLocation" class="shopLocation" name="shopLocation"></td>
 		</tr>
 		<tr>
-			<th>연락처</th>
-			<td colspan="3"><input type="text" id="shopTel"></td>
+			<th>맛집 연락처</th>
+			<td><input type="text" id="shopPhone" name="shopPhone"></td>
 		</tr>
 		<tr>
-			<th>OPEN</th>
-			<td><input type="text" id="shopOpen"></td>
-			<th>CLOSE</th>
-			<td><input type="text" id="shopClose"></td>
-		</tr>
-		<tr>
-			<th>휴무일</th>
-			<td colspan="3"><input type="text" id="shopRest"></td>
-		</tr>
-		<tr>
-			<th>기타사항</th>
-			<td colspan="3"><input type="text" 
-			placeholder="예약 가능, 테이크아웃 전문, 반려동물 동반 가능 등등"
-			id="shopEtc"></td>
-		</tr>
-		<tr>
-			<td colspan="4">
-				<p>*사진 추가하기</p>
-				<div class="photoPlace">
-					<label for="file"><img src="/images/addPhoto.png" id="addPhoto"></label>
-					<input type="file" id="file" class="hidden">
-				</div>
-			</td>
+			<th>신청 이유</th>
+			<td><input type="text" id="shopReason" name="shopReason" placeholder="이유를 적어주세요"></td>
 		</tr>
 		</table>
 
