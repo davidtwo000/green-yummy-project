@@ -26,34 +26,3 @@ listBtn.onclick = () => {
 
 }
 
-function bookmarkremove(userUkId, shopUkId) {
-	console.log(userUkId);
-	console.log(shopUkId);
-
-	fetch(`/bookmark/remove/${userUkId}/${shopUkId}`, {
-		method: 'DELETE',
-		headers: {
-			'Content-Type': 'application/json'
-		}
-
-	})
-		.then(response => {
-			if (response.ok) {
-				return response.text();
-			} else {
-				throw new Error('북마크 제거에 실패했습니다.');
-			}
-		})
-		.then(message => {
-			alert(message);
-			
-			//제거되고 로드
-			setTimeout(() => {
-				window.location.reload();
-			}, 300); 
-		})
-		.catch(error => {
-			console.error('Error:', error);
-			alert('북마크 제거 중 오류가 발생했습니다.');
-		});
-}
