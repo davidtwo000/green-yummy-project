@@ -48,7 +48,12 @@ function applyCheck(event){
 		event.preventDefault();
 		shopReason.focus();
 		return false;
-	}
+	}else if(shopReason.value.length > 300) {
+        alert("신청 이유는 300자 이내로 작성해 주세요.");
+        event.preventDefault();
+        shopReason.focus();
+        return false;
+    }
 	
 	return true;
 }
