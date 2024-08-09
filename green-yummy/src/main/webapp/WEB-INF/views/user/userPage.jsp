@@ -47,7 +47,7 @@
 
 
 			<ul class="mypageTab">
-				<li><a href="#tab1" class="storeTab youHere">나의
+				<li><a id="bookmarkTabLink" href="#tab1" class="storeTab youHere">나의
 						맛집(${fn:length(shop)}개)</a></li>
 				<li><a id="reviewTabLink" href="#tab2" class="reviewTab">나의
 						리뷰(0개)</a></li>
@@ -105,64 +105,16 @@
 							<option value="">그 외</option>
 						</select> <img src="/images/orderByList.png" class="listview"> <img
 							src="/images/gridview.png" class="gridview">
-
-
-
-					</div>
-
-					<c:set var="allShops" value="${fn:length(shop)}" />
-					<c:set var="rowEnd" value="${(allShops+2)/3}" />
-
-					<!-- 		    shop.shopName -->
-
-					<!-- 		rowLength가 열의 개수( 한 줄에 몇 개인지): 내가 정해줘야 함 -->
-					<!-- 		columnlength가 행의 개수(줄이 몇 개인지): 데이터베이스에 따라 달라져야 함 -->
-					<!-- 		바둑판 정렬 -->
-					<div class="storeCollectGrid">
-						<c:forEach var="rowLength" begin="0" end="2">
-							<div class="outer">
-								<c:forEach var="columnLength" begin="0" end="${rowEnd}">
-									<c:set var="index" value="${columnLength*3+rowLength}" />
-									<div class="storeAlbum">
-										<a href="/public/dataSearchDetail/${shop[index].shopUkId}">
-											<img src="/images/${shop[index].shopProfile}"
-											alt="${shop[index].shopName}"> <span>${shop[index].shopName}</span><br>
-											${shop[index].location}
-										</a>
-										<!-- 북마크 제거하고 모달 뜨게 할건지 -->
-										<input type="button" class="bookmarkremoveBtn" value="북마크 제거" onclick="bookmarkremove(${user.userUkId},${shop[index].shopUkId})">
-									</div>
-								</c:forEach>
-							</div>
-						</c:forEach>
-					</div>
-
-
-					<!-- 		리스트 정렬     -->
-					<div class="storeCollectList invisible">
-						<c:forEach var="index" begin="0" end="${allShops}">
-							<div class="storeList">
-								<img src="/images/${shop[index].shopProfile}">
-								<table>
-									<tr>
-										<td>${shop[index].shopName}</td>
-										<td><img src="/images/fourstar.png">4.0</td>
-									</tr>
-									<tr>
-										<td>${shop[index].shopType}</td>
-										<td>${shop[index].location}</td>
-									</tr>
-									<tr>
-										<td colspan="2">${shop[index].shopTel}</td>
-									</tr>
-
-								</table>
-							</div>
-						</c:forEach>
 					</div>
 
 				</div>
-
+				
+				<div class="" id="myBookmark">
+					<ul class="" id="myBookmarkList">
+					</ul>
+				</div>
+				
+				
 			</div>
 
 

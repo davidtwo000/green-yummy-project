@@ -1,6 +1,7 @@
 package com.example.demo.controller.userController;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.dto.publicDto.ShopDTO;
 import com.example.demo.model.userModel.Bookmark;
+import com.example.demo.service.publicService.ShopService;
 import com.example.demo.service.userService.BookmarkService;
 
 @RestController
@@ -22,6 +25,9 @@ public class BookmarkRestController {
 
 	@Autowired
 	private BookmarkService bookmarkService;
+	
+	@Autowired
+	private ShopService shopService;
 
 	@PostMapping("/add/{userUkId}/{shopUkId}")
 	public ResponseEntity<String> addBookmark(@PathVariable("userUkId") Integer userUkId,
@@ -56,9 +62,24 @@ public class BookmarkRestController {
 		return bookmarkService.bookmarkExists(userUkId, shopUkId);
 	}
 	
-	//사용자가 저장한 북마크 찾기
+	
 	@GetMapping("/mybookmark/{userUkId}")
-    public List<Bookmark> getBookmarksByUser(@PathVariable("userUkId") Integer userUkId) {
-        return bookmarkService.getBookmarksByUserUkId(userUkId);
-    }
+	public ResponseEntity<List<ShopDTO>> getUserBookmarksShops(@PathVariable("userUkId") Integer userUkId) {
+	    List<Bookmark> bookmarks = bookmarkService.getBookmarksByUserUkId(userUkId);
+	    List<Integer> shopUkIds = bookmarks.stream()
+	                                       .map(Bookmark::getShopUkId)
+	                                       .collect(Collectors.toList());
+
+	    List<ShopDTO> shops;
+	    if (!shopUkIds.isEmpty()) {
+	        shops = shopUkIds.stream()
+	                         .map(shopService::getShopByUkId)
+	                         .filter(shop -> shop != null) // Null 값 필터링
+	                         .collect(Collectors.toList());
+	    } else {
+	        shops = List.of(); 
+	    }
+
+	    return ResponseEntity.ok(shops);
+	}
 }

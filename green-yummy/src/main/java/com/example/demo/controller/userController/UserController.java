@@ -62,30 +62,10 @@ public class UserController {
 	@GetMapping("user/userPage")
 	public String review(Model model) {
 		User user = userService.getCurrentUser();
-        model.addAttribute("user", user);
-        
-        List<Bookmark> bookmarks = bookmarkService.getBookmarksByUserUkId(user.getUserUkId());
-        
-        List<Integer> shopUkIds = bookmarks.stream().map(Bookmark::getShopUkId).collect(Collectors.toList());
-        
-        List<ShopDTO> shops;
-        if (!shopUkIds.isEmpty()) {
-            shops = shopUkIds.stream()
-                             .map(shopservice::getShopByUkId)
-                             .collect(Collectors.toList());
-        } else {
-            shops = List.of(); // 빈 리스트를 반환하거나, 필요한 경우 다른 처리
-        }
-
-        // 모델에 상점 데이터 추가
-        model.addAttribute("shop", shops);
-        
-        
-        
-	    return "user/userPage"; // 리뷰를 표시할 뷰 이름
+        model.addAttribute("user", user);        
+	    return "user/userPage"; 
 	}
     
-	
 	
 	@GetMapping("user/userInfoChange")
 	public String userInfoChange(Model model) {

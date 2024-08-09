@@ -144,31 +144,59 @@ function updateReview(reviewId) {
 }
 
 function mybookmark() {
-	const userUkId = document.getElementById('userUkId').value;
-	fetch(`/bookmark/mybookmark/${userUkId}`, {
-		method: 'GET',
-		headers: {
-			'Content-Type': 'application/json'
-		}
-	})
-		.then(response => {
-			if (!response.ok) {
-				throw new Error('Network response was not ok');
-			}
-			return response.json();
-		})
-		.then(data => {
-			console.log('북마크', data);
-			populateReviews(data);
-		})
-		.catch(error => {
-			console.error('There was a problem with the fetch operation:', error);
-		});
+    const userUkId = document.getElementById('userUkId').value;
+    fetch(`/bookmark/mybookmark/${userUkId}`, {
+        method: 'GET'
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        myBookmarkList(data);
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
 }
+
+function myBookmarkList(data) {
+    const myBookmarkList = document.getElementById('myBookmarkList');
+    
+    // 데이터가 비어있을 경우
+    if (data.length === 0) {
+        myBookmarkList.innerHTML = '<li>북마크가 없습니다.</li>';
+        return;
+    }
+    
+    // 데이터가 있을 경우
+    let html = '';
+    data.forEach(shop => {
+        html += `
+            <li>
+                <a href="/public/dataSearchDetail/${shop.shopUkId}">
+                    <img src="/images/${shop.shopProfile}" alt="${shop.shopName}" style="width: 100px; height: 100px;">
+                    <span>${shop.shopName}</span><br>
+                    ${shop.location}
+                </a>
+                <button onclick="bookmarkremove(${shop.userUkId}, ${shop.shopUkId})">북마크 제거</button>
+            </li>
+        `;
+    });
+    
+    myBookmarkList.innerHTML = html;
+	
+    const bookmarkTabLink = document.getElementById('bookmarkTabLink');
+    bookmarkTabLink.textContent = `나의 맛집(${data.length}개)`;
+}
+
+
 
 document.addEventListener('DOMContentLoaded', (event) => {
 	myreviewList();
-	mybookmark();
+	mybookmark()
 });
 
 
