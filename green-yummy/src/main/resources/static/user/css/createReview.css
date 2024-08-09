@@ -18,6 +18,7 @@ form{
 	border: 2px solid gray;
 }
 form > p{
+	margin: 30px 0 10px 0;
 	font: normal bold 15pt 'sans-serif';
 }
 .reviewContainer{
@@ -41,11 +42,13 @@ form > p{
     text-align: center;
 }
 legend{
+	font: normal bold 13pt 'sans-serif';
 	text-align: left;
 }
 .rateSelect img{
 	width: 190px;
-	height: 35px;	
+	height: 35px;
+	margin: 0 0 10px 0;	
 }
 .rateSelect img:not(:nth-of-type(3)){
 	display: none;
@@ -97,11 +100,12 @@ input[type="file"]{
 	
 }
 input[type="submit"]{
-    width: 100px;
+    width: 150px;
     height: 50px;
     margin: 20px 0 20px 0;
-    font: normal bold 10pt 'sans-serif';
+    font: normal bold 12pt 'sans-serif';
     cursor: pointer;
     border: none;
+    border-radius: 8px;
     background: salmon;
 }
