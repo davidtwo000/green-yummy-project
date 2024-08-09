@@ -72,27 +72,26 @@ async function displayShops(shops) {
 		});
 
 		const shopHtml = shops.map(shop => `
-            <div class="shop-item">
-                <div class="shop-profile">
-                    <img src="/images/${shop.shopProfile}" alt="${shop.shopName} 프로필 이미지" />
-                </div>
-				
-				
-				<div class="shopInfos">
-			        <div class="infoFirst">
-			        	<span>${shop.shopName }</span>
-			        	<span>${shop.shopType }</span>
-			        	<span>${shop.location }</span>
-			        </div>
-			        <div class="infoSecond">
-			        	<span>${shop.openHours } ~ ${shop.closeHours }</span>
-			        	<span>${shop.closedDays } 휴무</span>
-			        </div>
-			        <p>${shop.shopTel }</p>
-			        <p>${shop.etc }</p>
+		<a href="/public/dataSearchDetail/${shop.shopUkId}">
+		        <div class="shop-item">
+		            <div class="shop-profile">
+		                <img src="/images/${shop.shopProfile}" alt="${shop.shopName} 프로필 이미지" />
+		            </div>
+		            <div class="shopInfos">
+		                <div class="infoFirst">
+		                    <span>${shop.shopName}</span>
+		                    <span>${shop.shopType}</span>
+		                    <span>${shop.location}</span>
+		                </div>
+		                <div class="infoSecond">
+		                    <span>${shop.openHours} ~ ${shop.closeHours}</span>
+		                    <span>${shop.closedDays} 휴무</span>
+		                </div>
+		                <p>${shop.shopTel}</p>
+		                <p>${shop.etc}</p>
+		            </div>
 		        </div>
-				
-            </div>
+		    </a>
         `).join('');
 
 		shopListElement.innerHTML = shopHtml;
@@ -181,55 +180,63 @@ function findShop() {
 }
 
 
-//지도 표시
+
+
+// 지도 표시 함수
 function map(coordinatesMap) {
-    var mapContainer = document.getElementById('map'); // Get the map container
-    var mapOption = { 
-        center: new kakao.maps.LatLng(37.514034, 127.10567), // Map center coordinate
-        level: 3 // Map zoom level
-    };
+	var mapContainer = document.getElementById('map'); // 지도를 표시할 HTML 요소
+	var mapOption = {
+		center: new kakao.maps.LatLng(37.514034, 127.10567), // 지도의 중심 좌표
+		level: 3 // 지도의 확대 레벨
+	};
 
-    var map = new kakao.maps.Map(mapContainer, mapOption); // Create the map
-    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도 객체 생성
+	var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; // 마커 이미지 경로
 
-    for (var i = 0; i < coordinatesMap.length; i++) {
-        var imageSize = new kakao.maps.Size(24, 35);  
-        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+	// coordinatesMap 배열의 길이 확인
+	console.log('Coordinates Map Length:', coordinatesMap.length);
 
-        var marker = new kakao.maps.Marker({
-            map: map,
-            position: coordinatesMap[i].latlng, 
-            image: markerImage // Marker image
-        });
+	for (var i = 0; i < coordinatesMap.length; i++) {
+		var imageSize = new kakao.maps.Size(24, 35);
+		var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
 
-        var iwContent = `<div style="padding:5px;">${coordinatesMap[i].shopName || 'No info available'}</div>`;
-        var infowindow = new kakao.maps.InfoWindow({
-            content: iwContent,
-        });
+		var marker = new kakao.maps.Marker({
+			map: map,
+			position: coordinatesMap[i].latlng, // 마커의 위치 설정
+			image: markerImage // 마커 이미지 설정
+		});
 
+		var iwContent = `<div style="padding:5px;">${coordinatesMap[i].shopName || 'No info available'}</div>`;
+		var infowindow = new kakao.maps.InfoWindow({
+			content: iwContent, // 정보창 내용 설정
+		});
 
-        kakao.maps.event.addListener(marker, 'mouseover', (function(marker, infowindow) {
-            return function() {
-                infowindow.open(map, marker);
-            };
-        })(marker, infowindow));
+		// 마커에 마우스 오버 이벤트 추가
+		kakao.maps.event.addListener(marker, 'mouseover', (function(marker, infowindow) {
+			return function() {
+				infowindow.open(map, marker);
+			};
+		})(marker, infowindow));
 
-        kakao.maps.event.addListener(marker, 'mouseout', (function(infowindow) {
-            return function() {
-                infowindow.close();
-            };
-        })(infowindow));
-    }
+		// 마커에 마우스 아웃 이벤트 추가
+		kakao.maps.event.addListener(marker, 'mouseout', (function(infowindow) {
+			return function() {
+				infowindow.close();
+			};
+		})(infowindow));
+	}
 }
 
+
 document.addEventListener('scroll', function() {
-    // 스크롤 이벤트 핸들러 코드
 }, { passive: true });
 
 
-document.addEventListener('DOMContentLoaded', function() {
+
+
+window.addEventListener('load', function() {
+	console.log("오픈");
 	shoplist();
 	map();
 });
-
 //여기까지 sg
