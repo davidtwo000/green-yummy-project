@@ -1,0 +1,78 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.2'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// Spring Boot Starter
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:3.3.2'
+	implementation 'org.springframework.boot:spring-boot-devtools:3.3.2'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.3.2'
+
+
+	// Spring Boot Starter Web
+	implementation 'org.springframework.boot:spring-boot-starter-web:3.3.2'
+
+    // Spring Boot Starter Tomcat (Embedded Container)
+    implementation 'org.springframework.boot:spring-boot-starter-tomcat'
+	
+	//spring-boot-starter-validation
+	implementation 'org.springframework.boot:spring-boot-starter-validation:3.3.0'
+	
+	//Spring Boot Starter Security
+	implementation 'org.springframework.boot:spring-boot-starter-security:3.3.0'
+	implementation 'org.springframework.security:spring-security-taglibs:6.3.1'
+	
+    // JSP Support
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+    
+	// Jsp file necessary api
+	implementation 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+	implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl'
+	implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0'
+	
+	//logger
+	implementation 'org.hibernate.validator:hibernate-validator:8.0.1.Final'
+	implementation 'jakarta.el:jakarta.el-api:6.0.0'
+	implementation 'org.slf4j:slf4j-api:2.0.13'
+	testImplementation 'org.slf4j:slf4j-simple:2.0.13'
+	testImplementation 'ch.qos.logback:logback-classic:1.5.6'
+
+	//h2
+	testImplementation 'com.h2database:h2:2.3.230'
+
+	//mysql
+	implementation 'mysql:mysql-connector-java:8.0.33'
+
+	// Spring Boot Starter JDBC
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    
+    //lombok
+	compileOnly 'org.projectlombok:lombok:1.18.32'
+	annotationProcessor 'org.projectlombok:lombok:1.18.32'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	//mapStruct
+	annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
