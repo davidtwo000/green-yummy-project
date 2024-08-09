@@ -76,40 +76,22 @@ async function displayShops(shops) {
                 <div class="shop-profile">
                     <img src="/images/${shop.shopProfile}" alt="${shop.shopName} 프로필 이미지" />
                 </div>
-                <table class="shopdetail">
-                    <tr class="shop-row" data-shop-id="${shop.shopUkId}">
-                        <td class="shop-name">${shop.shopName}</td>
-                        <td>${shop.shopType}</td>
-                    </tr>
-                    <tr>
-                        <td>평점</td>
-                        <td>${shop.rating ? shop.rating.toFixed(1) : ''}</td>
-                    </tr>
-                    <tr>
-                        <td>주소</td>
-                        <td>${shop.location}</td>
-                    </tr>
-                    <tr>
-                        <td>전화번호</td>
-                        <td>${shop.shopTel}</td>
-                    </tr>
-                    <tr>
-                        <td>오픈 시간</td>
-                        <td>${shop.openHours}</td>
-                    </tr>
-                    <tr>
-                        <td>닫는 시간</td>
-                        <td>${shop.closeHours}</td>
-                    </tr>
-                    <tr>
-                        <td>휴무일</td>
-                        <td>${shop.closedDays}</td>
-                    </tr>
-                    <tr>
-                        <td>기타 사항</td>
-                        <td>${shop.etc}</td>
-                    </tr>
-                </table>
+				
+				
+				<div class="shopInfos">
+			        <div class="infoFirst">
+			        	<span>${shop.shopName }</span>
+			        	<span>${shop.shopType }</span>
+			        	<span>${shop.location }</span>
+			        </div>
+			        <div class="infoSecond">
+			        	<span>${shop.openHours } ~ ${shop.closeHours }</span>
+			        	<span>${shop.closedDays } 휴무</span>
+			        </div>
+			        <p>${shop.shopTel }</p>
+			        <p>${shop.etc }</p>
+		        </div>
+				
             </div>
         `).join('');
 

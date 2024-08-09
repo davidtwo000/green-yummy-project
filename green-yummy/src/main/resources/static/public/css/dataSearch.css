@@ -1,4 +1,17 @@
 @charset "UTF-8";
+
+
+/* 라디오 버튼 조정 */
+.sortOptions{/*밑에 있다. 마진 20. 나중에 합칠 것*/
+	width: 1280px;
+	border-radius: 8px;
+	border: 2px solid pink;
+}
+
+
+
+
+
 .outContainer {
     justify-content: center;
     text-align: center;
@@ -28,7 +41,7 @@
 	position: absolute;
 	z-index: -5;
 	top: 0;
-	bottom: 0;
+	bottom: 0;	
 	left: 0;
 	right: 0;
 }
@@ -97,22 +110,23 @@
     margin-top: 20px;
 }
 
-.box {
-	border:1px solid gray;
-	height:300px;
-	width:90%;
-}
+/* .box { */
+/* 	border:1px solid gray; */
+/* 	height:300px; */
+/* 	width:90%; */
+/* } */
 
 .shop-item {
-    width: 90%;
-    border: 1px solid gray;
+    width: 1280px;
     height: 300px;
-    justify-content: center;
+    justify-content: space-evenly;
     text-align: center;
     display: flex;
-    flex-direction: row;
     margin: 0 auto;
     margin-top: 10px;
+    
+    border: 2px solid brown;
+    border-radius: 8px;
 }
 
 .shop-profile {
@@ -128,6 +142,19 @@
     height: 280px;
 }
 
+
+/* 상세정보 */
+.infoFirst span:first-child{
+	font: normal bold 20pt 'sans-serif';
+}
+.infoFirst span:not(:first-child),
+.infoSecond span:not(:first-child){
+	font-size: 10pt;
+	color: gray;
+}
+.infoFirst span:nth-of-type(2)::after{
+	content:"	|";
+}
 
 .shopdetail {
 	border:1px solid black;

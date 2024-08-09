@@ -6,7 +6,14 @@ function reviewRate(){
 	
 	for(let i=0;i<radioBtns.length;i++){
 		radioBtns[i].onclick = () => {
+			rateStars[i].style.display = "block";
+			rateStars[i].style.textAlign = "center";
 			
+			rateStars.forEach((comp, idx) => {
+				if(idx!==i){
+					comp.style.display = "none";
+				}
+			});
 		}
 	}
 }
