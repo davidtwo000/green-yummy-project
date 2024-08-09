@@ -84,6 +84,11 @@ function checkEmail(){
 	
 	let email = `${email1.value}@${email2.value}`;
 	
+	if (!emailreg.test(email)) {
+        alert("유효하지 않은 이메일 형식입니다. 다시 입력해주세요.");
+        return;
+    }
+    
 	fetch(`/checkEmail?email=${email}`, {
         method: 'GET',
         headers: {
