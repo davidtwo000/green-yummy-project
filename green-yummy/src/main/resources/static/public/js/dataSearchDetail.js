@@ -104,14 +104,13 @@ function displayReviews(reviews) {
 			modal.style.display = 'none';
 		}
 	});
-
-	// Event delegation for checkbox clicks
 	reviewsContainer.addEventListener('change', (event) => {
 		if (event.target.classList.contains('review-checkbox')) {
 			handleCheckboxChange(event.target);
 		}
 	});
 }
+
 //코멘트 #표시
 function formatCommentAsHashtags(comment) {
 	const comments = comment.split(',');
@@ -129,8 +128,6 @@ function handleCheckboxChange(checkbox) {
 }
 
 
-
-
 function averageRating(shopUkId) {
 	fetch(`/reviews/rating/${shopUkId}`)
 		.then(response => response.json())
@@ -140,7 +137,7 @@ function averageRating(shopUkId) {
 		})
 		.catch(error => {
 			console.error('Failed to fetch average rating:', error);
-			document.getElementById('averageRating').textContent = '평균 평점: 정보를 불러올 수 없습니다.';
+			document.getElementById('averageRating').textContent = '';
 		});
 }
 
@@ -149,58 +146,7 @@ function createReview(shopUkId) {
 	window.location.href = `/user/createReview/${shopUkId}`;
 }
 
-//북마크 저장
-function addBookmark() {
-	const userUkId = document.getElementById('userUkId').value;
-	const shopUkId = document.getElementById('shopUkId').value;
 
-	fetch(`/bookmark/add/${userUkId}/${shopUkId}`, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({ userUkId, shopUkId })
-	})
-		.then(response => {
-			if (response.ok) {
-				alert('북마크가 저장되었습니다.');
-			} else {
-				alert('이미 저장되어 있습니다!');
-			}
-		})
-		.catch(error => {
-			console.error('Error:', error);
-			alert('북마크 저장 중 오류가 발생했습니다.');
-		});
-}
-
-//북마크 해제
-function removeBookmark() {
-    const userUkId = document.getElementById('userUkId').value;
-    const shopUkId = document.getElementById('shopUkId').value;
-
-    fetch(`/bookmark/remove/${userUkId}/${shopUkId}`, {
-        method: 'DELETE',  // 메서드를 대문자로 수정
-        headers: {
-            'Content-Type': 'application/json'
-        }
-        // DELETE 요청에서는 body를 포함하지 않습니다
-    })
-    .then(response => {
-        if (response.ok) {
-            return response.text();  // 응답을 텍스트로 변환
-        } else {
-            throw new Error('북마크 제거에 실패했습니다.');
-        }
-    })
-    .then(message => {
-        alert(message);  // 응답 메시지 표시
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('북마크 제거 중 오류가 발생했습니다.');
-    });
-}
 
 document.addEventListener('DOMContentLoaded', (event) => {
 	//돌아가기
