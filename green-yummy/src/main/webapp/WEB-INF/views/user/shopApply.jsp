@@ -17,7 +17,7 @@
 <main>
 	<div class="mainContainer">
 		
-		<form id="shopApply" onsubmit="applyCheck(event)">
+		<form id="shopApply" method="post" action="">
 		
 		<table>
 		<tr>
@@ -43,7 +43,7 @@
 		</tr>
 		<tr>
 			<th>신청 이유</th>
-			<td><input type="text" id="shopReason" name="shopReason" placeholder="이유를 적어주세요"></td>
+			<td><textarea id="shopReason" name="shopReason" placeholder="이유를 300자 이내로 적어주세요" rows="10" cols="100" style="resize: none;"></textarea></td>
 		</tr>
 		</table>
 
