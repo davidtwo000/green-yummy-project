@@ -40,40 +40,27 @@
             <div class="areaSublist submenus hide">
             	<ul>
             	<li>강남 전체</li>
-            	<li>개포동</li>
             	<li>논현동</li>
-            	<li>대치동</li>
-            	<li>도곡동</li>
-            	</ul>
-            	<ul>
-            	<li>삼성동</li>
-            	<li>세곡동</li>
-            	<li>수서동</li>
             	<li>신사동</li>
             	<li>압구정동</li>
-            	</ul>
-            	<ul>
             	<li>역삼동</li>
-            	<li>율현동</li>
-            	<li>일원동</li>
-            	<li>자곡동</li>
             	<li>청담동</li>
             	</ul>
             </div>
             <div class="typeSublist submenus hide">
             	<ul>
             	<li>한식</li>
+            	<li>분식</li>
             	<li>일식</li>
             	<li>중식</li>
             	<li>양식</li>
-            	<li>기타(멕시코, 베트남, 인도)</li>
             	</ul>
             	<ul>
             	<li>레스토랑</li>
             	<li>카페</li>
-            	<li>술(이자카야, 호프, 바)</li>
-            	<li>패스트푸드(치킨, 피자, 햄버거)</li>
-            	<li>이색음식점</li>
+            	<li>술집</li>
+            	<li>치킨/피자/햄버거</li>
+            	<li>기타</li>
             	</ul>
             </div>
             <div class="starSublist submenus hide">

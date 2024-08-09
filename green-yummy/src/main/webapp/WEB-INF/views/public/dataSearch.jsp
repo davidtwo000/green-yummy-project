@@ -42,6 +42,54 @@
                 </div>
                 
             </div>
+            
+            <ul class="category">
+                <li>
+                    지역별
+                </li>
+                <li>
+                    업종별
+                </li>
+				<li>
+					평점별
+				</li>
+            </ul>
+            
+            <div class="areaSublist submenus hide">
+            	<ul>
+            	<li>강남 전체</li>
+            	<li>논현동</li>
+            	<li>신사동</li>
+            	<li>압구정동</li>
+            	<li>역삼동</li>
+            	<li>청담동</li>
+            	</ul>
+            </div>
+            <div class="typeSublist submenus hide">
+            	<ul>
+            	<li>한식</li>
+            	<li>분식</li>
+            	<li>일식</li>
+            	<li>중식</li>
+            	<li>양식</li>
+            	</ul>
+            	<ul>
+            	<li>레스토랑</li>
+            	<li>카페</li>
+            	<li>술집</li>
+            	<li>치킨/피자/햄버거</li>
+            	<li>기타</li>
+            	</ul>
+            </div>
+            <div class="starSublist submenus hide">
+            	<ul>
+            	<li>5점대</li>
+            	<li>4점대</li>
+            	<li>3점대</li>
+            	<li>2점대</li>
+            	<li>1점대</li>
+            	</ul>
+            </div>
 
 
 <!-- 			<div class="searchBar"> -->
@@ -82,6 +130,8 @@
 			<div id="pagination"></div>
 
 			<jsp:include page="../public/footer.jsp" />
+			
+			<script src="/index/js/indexMenubar.js"></script>
 
 </body>
 </html>

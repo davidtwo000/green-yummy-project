@@ -73,7 +73,7 @@
 	       
 	       <div class="reviewBtn">
 	       		<div class="storePhoto">
-	       		<label for="file"><img src="/images/addPhoto.png"></label>
+	       		<label for="file"><img src="/images/addPhoto.png" id="addPhoto"></label>
 	       		<input type="file" name="reviewImg" id="file"></div>
 
                 

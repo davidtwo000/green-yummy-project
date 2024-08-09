@@ -17,3 +17,30 @@ function reviewRate(){
 		}
 	}
 }
+
+
+let emptybox = document.getElementById("addPhoto");
+let addfile = document.getElementById("file");
+
+function addReviewPhoto(){
+	
+	let myShopPhoto = addfile.files[0];
+	let reader = new FileReader();
+		
+	//	let filename = addfile.value;
+		
+		reader.onload = function(event){
+			let imgurl = event.target.result;
+			let thumbnail = document.createElement("img");
+			emptybox.classList.add("hidden");
+			label.appendChild(thumbnail);
+			thumbnail.src = imgurl;
+			thumbnail.style.opacity = "1";
+					
+			console.log(imgurl);
+		};
+		
+		reader.readAsDataURL(myShopPhoto);
+}
+
+addfile.addEventListener("change", addReviewPhoto);
