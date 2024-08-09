@@ -47,8 +47,8 @@ public class SecurityConfig {
                 .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
                 .invalidSessionUrl("/admin/login?message=noSession")
                 .sessionFixation().migrateSession()
-                .maximumSessions(1)
-                .maxSessionsPreventsLogin(true)
+                .maximumSessions(2)
+                .maxSessionsPreventsLogin(false)
             )
             .headers(headers -> headers
                 .frameOptions(frameOptions -> frameOptions
