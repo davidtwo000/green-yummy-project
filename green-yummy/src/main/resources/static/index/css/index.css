@@ -1,41 +1,5 @@
 @charset "UTF-8";
 
-/* 추가 페이지. 토글 아코디언? */
-.submenus{
-	position: absolute;
-	z-index: 5;
-	top: 430px;
-	display: flex;
-	justify-content: space-evenly;
-	width: 960px;
-	
-	border: 2px solid gray;
-	background: lemonchiffon;
-}
-.submenus ul{
-	padding: 0px;
-}
-.submenus ul li{
-	line-height: 2em;
-	font-weight: bold;
-	cursor: pointer;
-	list-style-type: none;
-}
-/* .submenus:hover li{ */
-/* 	text-decoration: underline; */
-/* 	color: red; */
-/* } */
-.starSublist>ul>li{
-	margin: 0 30px 0 30px;
-	display: inline-block;
-}
-.hide{
-	opacity: 0;
-}
-
-
-
-
 
 /* 컨테이너 */
 .outContainer {
@@ -155,6 +119,34 @@
 	color: black;
 	background: lemonchiffon;
 	transition: "all 300ms ease-in-out";
+}
+/* 추가 페이지. 토글 아코디언? */
+.submenus{
+	position: absolute;
+	z-index: 5;
+	top: 430px;
+	display: flex;
+	justify-content: space-evenly;
+	width: 960px;
+	
+	border: 2px solid gray;
+	background: lemonchiffon;
+}
+.submenus ul{
+	padding: 0px;
+}
+.submenus ul li{
+	line-height: 2em;
+	font-weight: bold;
+	cursor: pointer;
+	list-style-type: none;
+}
+.starSublist>ul>li{
+	margin: 0 30px 0 30px;
+	display: inline-block;
+}
+.hide{
+	opacity: 0;
 }
 
 /* 최상단 메인 이미지 */
