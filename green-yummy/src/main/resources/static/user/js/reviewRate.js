@@ -19,28 +19,29 @@ function reviewRate(){
 }
 
 
-let emptybox = document.getElementById("addPhoto");
-let addfile = document.getElementById("file");
 
 function addReviewPhoto(){
+	let photolabel = document.querySelector("label");
+	let addPhoto = document.getElementById("addPhoto");
+	let inputfile = document.getElementById("file");
+
 	
-	let myShopPhoto = addfile.files[0];
-	let reader = new FileReader();
+	let myReviewPhoto = inputfile.files[0];
+	let fr = new FileReader();
 		
 	//	let filename = addfile.value;
 		
-		reader.onload = function(event){
-			let imgurl = event.target.result;
-			let thumbnail = document.createElement("img");
-			emptybox.classList.add("hidden");
-			label.appendChild(thumbnail);
-			thumbnail.src = imgurl;
-			thumbnail.style.opacity = "1";
+		fr.onload = function(event){
+			let pictureUrl = event.target.result;
+			let imgtag = document.createElement("img");
+			addPhoto.classList.add("hidden");
+			photolabel.appendChild(imgtag);
+			imgtag.src = pictureUrl;
+			imgtag.style.opacity = "1";
 					
-			console.log(imgurl);
+			console.log(pictureUrl);
 		};
 		
-		reader.readAsDataURL(myShopPhoto);
+		fr.readAsDataURL(myReviewPhoto);
 }
 
-addfile.addEventListener("change", addReviewPhoto);
