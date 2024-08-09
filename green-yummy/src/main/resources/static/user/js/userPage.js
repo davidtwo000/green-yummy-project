@@ -74,7 +74,7 @@ function myreviewList() {
 		})
 		.then(data => {
 			console.log('Reviews fetched successfully:', data);
-			populateReviews(data); // Populate the reviews in the table
+			populateReviews(data);
 		})
 		.catch(error => {
 			console.error('There was a problem with the fetch operation:', error);
@@ -143,6 +143,34 @@ function updateReview(reviewId) {
 	window.location.href = `/user/updateReview/${reviewId}`; // PathVariable을 사용한 URL로 수정
 }
 
+function mybookmark() {
+	const userUkId = document.getElementById('userUkId').value;
+	fetch(`/bookmark/mybookmark/${userUkId}`, {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
+		.then(response => {
+			if (!response.ok) {
+				throw new Error('Network response was not ok');
+			}
+			return response.json();
+		})
+		.then(data => {
+			console.log('북마크', data);
+			populateReviews(data);
+		})
+		.catch(error => {
+			console.error('There was a problem with the fetch operation:', error);
+		});
+}
+
 document.addEventListener('DOMContentLoaded', (event) => {
-	myreviewList(); // Call the function when the DOM is fully loaded
+	myreviewList();
+	mybookmark();
 });
+
+
+
+
