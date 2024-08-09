@@ -25,7 +25,7 @@ function bookmark() {
 			});
 	} else {
 		const bookmarkRemoveModal = document.getElementById("bookmarkRemoveModal");
-		bookmarkRemoveModal.style.display = "block";
+		bookmarkRemoveModal.style.display = "flex";
 	}
 }
 

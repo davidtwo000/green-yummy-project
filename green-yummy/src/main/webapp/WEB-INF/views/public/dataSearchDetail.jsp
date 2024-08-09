@@ -53,9 +53,15 @@
 				
 				<!-- 북마크 해제 모달 -->
 				<div class="bookmarkRemoveModal" id="bookmarkRemoveModal">
+					<div class="messagePlace">
+					<div class="xplace">
+							<img src="/images/closeBtn.png" onclick="bookmarkCancel()"></div>
 					북마크를 해제하겠습니까?
-					<input type="button" id="bookmarkRemoveBtn" value="제거" onclick="bookmarkRemove()">
-					<input type="button" id="cancelBtn" value="취소" onclick="bookmarkCancel()">
+					<div class="bookmarkBtns">
+						<input type="button" id="bookmarkRemoveBtn" value="제거" onclick="bookmarkRemove()">
+						<input type="button" id="cancelBtn" value="취소" onclick="bookmarkCancel()">
+					</div>
+						</div>
 				</div>
 				
 				<div class="backBtn">

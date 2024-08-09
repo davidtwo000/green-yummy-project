@@ -217,10 +217,7 @@
 								value="${_csrf.token}"> <input type="submit" value="확인">
 							<input type="button" value="취소" class="cancle" onclick="logout()">
 						</form>
-
-
 					</div>
-
 				</div>
 			</div>
 
