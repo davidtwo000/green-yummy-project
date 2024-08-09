@@ -12,7 +12,7 @@ let emailChoose = document.getElementById("selEmail");
 
 let passreg = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^])(?!.*[가-힣])[A-Za-z\d@$!%*#?&]{8,20}$/;
 let phonereg = /[\d]{2,3}[\d]{3,4}[\d]{4}/;
-let emailreg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+let emailreg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 //셀렉터로 선택하면 emailtwo에 값이 입력된다. onchange
 emailChoose.addEventListener("change", function () {
