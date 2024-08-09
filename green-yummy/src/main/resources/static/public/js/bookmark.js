@@ -2,7 +2,11 @@ function bookmark() {
 	var checkbox = document.getElementById('bookmarkCheck');
 	const userUkId = document.getElementById('userUkId').value;
 	const shopUkId = document.getElementById('shopUkId').value;
-
+	
+	if (!userUkId) {
+	        alert('로그인 하셔야 합니다!');
+	        return; 
+	    }
 
 	if (checkbox.checked) {
 		fetch(`/bookmark/add/${userUkId}/${shopUkId}`, {
