@@ -15,7 +15,7 @@
 
 .recommandList{
 	position: relative;
-	left: -2520px;
+	left: -1260px;
 	display: flex;
     list-style: none;
     padding: 0px; 
@@ -44,6 +44,10 @@
 .recPrevBtn,
 .recNextBtn{
 	position: relative;
+	
+	z-index: 50;
+	border: 2px solid black;
+	
 	width: 100px;
 	height: 100px;
 	cursor: pointer;
