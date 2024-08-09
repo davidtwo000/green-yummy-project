@@ -21,7 +21,7 @@ function reviewRate(){
 
 
 function addReviewPhoto(){
-	let photolabel = document.querySelector("label");
+	let photolabel = document.querySelector(".storePhoto label");
 	let addPhoto = document.getElementById("addPhoto");
 	let inputfile = document.getElementById("file");
 
@@ -34,7 +34,9 @@ function addReviewPhoto(){
 		fr.onload = function(event){
 			let pictureUrl = event.target.result;
 			let imgtag = document.createElement("img");
+			
 			addPhoto.classList.add("hidden");
+			
 			photolabel.appendChild(imgtag);
 			imgtag.src = pictureUrl;
 			imgtag.style.opacity = "1";
