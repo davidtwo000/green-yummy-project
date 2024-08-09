@@ -6,4 +6,6 @@ public interface BookmarkService {
 	Bookmark addBookmark(Integer userUkId, Integer shopUkId);
 
 	boolean removeBookmark(Integer userUkId, Integer shopUkId);
+	
+	boolean bookmarkExists(Integer userUkId, Integer shopUkId);
 }

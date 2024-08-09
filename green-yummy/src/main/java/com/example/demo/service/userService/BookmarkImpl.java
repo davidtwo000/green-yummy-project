@@ -31,5 +31,9 @@ public class BookmarkImpl implements BookmarkService {
 		return bookmarkRepository.deleteByUserUkIdAndShopUkId(userUkId, shopUkId) > 0;
 	}
 	
+	//북마크 이미 있는지 확인
+	public boolean bookmarkExists(Integer userUkId, Integer shopUkId) {
+		return bookmarkRepository.existsByUserUkIdAndShopUkId(userUkId, shopUkId);
+	}
 	
 }
