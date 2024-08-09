@@ -70,13 +70,15 @@
 	
 	        <textarea rows="15" name="reviewContent" required placeholder="Enter detailed content" class="reviewContent"></textarea>
 	       
-	       <div class="reviewBtn">
-	       		<div class="storePhoto">
+	       <fieldset class="reviewBtn">
+	       <legend>사진 첨부</legend>
+	       <div class="storePhoto">
 	       		<label for="file"><img src="/images/addPhoto.png" id="addPhoto"></label>
 	       		<input type="file" name="reviewImg" id="file" onchange="addReviewPhoto()"></div>
-
+	       
+	       </fieldset>
+	       		
                 
-            </div>
             <input type="submit" value="리뷰 작성하기">
 	    </form>
             
