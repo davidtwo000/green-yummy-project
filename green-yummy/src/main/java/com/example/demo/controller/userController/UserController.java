@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,8 +16,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.dto.publicDto.ShopDTO;
 import com.example.demo.dto.userDto.UserFormDTO;
+import com.example.demo.model.userModel.Bookmark;
 import com.example.demo.model.userModel.User;
 import com.example.demo.service.publicService.ShopService;
+import com.example.demo.service.userService.BookmarkImpl;
+import com.example.demo.service.userService.BookmarkService;
 import com.example.demo.service.userService.ReviewService;
 import com.example.demo.service.userService.UserServiceImpl;
 
@@ -33,6 +37,9 @@ public class UserController {
     private ReviewService reviewService;
 	@Autowired
 	private UserServiceImpl userService;
+	
+	@Autowired
+	private BookmarkImpl bookmarkService;
 	
 	
 	@GetMapping("user/storeCollection")//이혜민, 추가한 부분
@@ -56,6 +63,25 @@ public class UserController {
 	public String review(Model model) {
 		User user = userService.getCurrentUser();
         model.addAttribute("user", user);
+        
+        List<Bookmark> bookmarks = bookmarkService.getBookmarksByUserUkId(user.getUserUkId());
+        
+        List<Integer> shopUkIds = bookmarks.stream().map(Bookmark::getShopUkId).collect(Collectors.toList());
+        
+        List<ShopDTO> shops;
+        if (!shopUkIds.isEmpty()) {
+            shops = shopUkIds.stream()
+                             .map(shopservice::getShopByUkId)
+                             .collect(Collectors.toList());
+        } else {
+            shops = List.of(); // 빈 리스트를 반환하거나, 필요한 경우 다른 처리
+        }
+
+        // 모델에 상점 데이터 추가
+        model.addAttribute("shop", shops);
+        
+        
+        
 	    return "user/userPage"; // 리뷰를 표시할 뷰 이름
 	}
     

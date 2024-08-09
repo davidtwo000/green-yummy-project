@@ -73,11 +73,11 @@ select{
 	
 	border: 2px solid gray;
 }
-.storeAlbum > img{
+.storeAlbum > a > img{
 	width: 320px;
 	height: 250px;
 }
-.storeAlbum > span{
+.storeAlbum > a > span{
 	font: normal bold 13pt 'sans-serif';
 }
 

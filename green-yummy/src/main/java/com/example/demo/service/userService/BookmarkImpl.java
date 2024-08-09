@@ -1,5 +1,7 @@
 package com.example.demo.service.userService;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,5 +33,14 @@ public class BookmarkImpl implements BookmarkService {
 		return bookmarkRepository.deleteByUserUkIdAndShopUkId(userUkId, shopUkId) > 0;
 	}
 	
+	//북마크 이미 있는지 확인
+	public boolean bookmarkExists(Integer userUkId, Integer shopUkId) {
+		return bookmarkRepository.existsByUserUkIdAndShopUkId(userUkId, shopUkId);
+	}
 	
+	// 사용자 ID로 북마크 찾기
+	@Override
+    public List<Bookmark> getBookmarksByUserUkId(Integer userUkId) {
+        return bookmarkRepository.findByUserUkId(userUkId);
+    }
 }
