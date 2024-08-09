@@ -1,5 +1,7 @@
 package com.example.demo.controller.userController;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -53,4 +55,10 @@ public class BookmarkRestController {
 			@PathVariable("shopUkId") Integer shopUkId) {
 		return bookmarkService.bookmarkExists(userUkId, shopUkId);
 	}
+	
+	//사용자가 저장한 북마크 찾기
+	@GetMapping("/mybookmark/{userUkId}")
+    public List<Bookmark> getBookmarksByUser(@PathVariable("userUkId") Integer userUkId) {
+        return bookmarkService.getBookmarksByUserUkId(userUkId);
+    }
 }
