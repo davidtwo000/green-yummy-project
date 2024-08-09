@@ -107,7 +107,8 @@ CREATE TABLE APPLICATIONS (
     APPLICATION_SHOP_NAME VARCHAR(50),              -- 상점 이름
     APPLICATION_SHOP_TYPE VARCHAR(20),              -- 상점 유형
     APPLICATION_SHOP_LOCATION VARCHAR(100),         -- 상점 위치
-    APPLICATION_REASON VARCHAR(100),                -- 신청 이유
+    APPLICATION_REASON VARCHAR(300),                -- 신청 이유
+    APPLICATION_SHOP_PHONE VARCHAR(20),             -- 해당 가게 전화 번호
     APPLICATION_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- 신청 날짜
     APPLICATION_STATUS ENUM('PENDING', 'APPROVED', 'REJECTED') DEFAULT 'PENDING', -- 신청 상태
     USER_UK_ID INT,                                 -- 사용자 ID
