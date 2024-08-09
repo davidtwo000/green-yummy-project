@@ -72,7 +72,9 @@ legend{
     margin:15px;
     line-height: 2em;
 }
-
+.hidden{
+	display: none;
+}
 .reviewContent {
 	border: 2px solid #ccc;
     border-radius: 8px;
