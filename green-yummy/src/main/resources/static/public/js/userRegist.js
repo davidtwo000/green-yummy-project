@@ -9,10 +9,12 @@ let email2 = document.getElementById("emailtwo");
 
 let emailChoose = document.getElementById("selEmail");
 
-
 let passreg = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^])(?!.*[가-힣])[A-Za-z\d@$!%*#?&]{8,20}$/;
 let phonereg = /[\d]{2,3}[\d]{3,4}[\d]{4}/;
 let emailreg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+let idreg = /^[A-Za-z0-9]+$/;
+let namereg = /^(?!.*[가-힣].*[a-zA-Z])(?!.*[a-zA-Z].*[가-힣])[가-힣a-zA-Z\s]+$/;
+
 
 //셀렉터로 선택하면 emailtwo에 값이 입력된다. onchange
 emailChoose.addEventListener("change", function () {
@@ -55,6 +57,11 @@ function checkNickname() {
 
 function checkUserId() {
 	
+	if (!idreg.test(userId.value)) {
+        alert("유효하지 않은 아이디 형식입니다. 다시 입력해주세요.");
+        return;
+    }
+    
     fetch(`/checkUserId?userId=${userId.value}`, {
         method: 'GET',
         headers: {
@@ -115,25 +122,35 @@ function checkEmail(){
 }
 
 
-//유효성 체크
-//정규식
+
 function userJoin(){
 	if(username.value==""){
 		alert("이름을 입력해주세요.");
 		username.focus();
 		return false;
 	}
+    if(!namereg.test(username.value)){
+        alert("한글 이름, 혹은 영어 이름을 입력해주세요.");
+        username.focus();
+        return false;
+    }
 	
 	if(userId.value==""){
 		alert("아이디를 입력해주세요");
 		userId.focus();
 		return false;
 	}
+    if(!idreg.test(userId.value)){
+        alert("영어와 숫자로만 이루어진 아이디를 만들어주세요.");
+        userId.focus();
+        return false;
+    }
 	if (!isUserIdAvailable) {
         alert("아이디 중복 확인을 해주세요.");
         userId.focus();
         return false;
     }
+    
     
 	if(nickname.value==""){
 		alert("사용할 닉네임을 입력해 주세요.");
@@ -156,7 +173,7 @@ function userJoin(){
 		pswd.focus();
 		return false;
 	}
-	if(passreg.test(pswd.value)==false){
+	if(!passreg.test(pswd.value)){
 		alert("비밀번호는 영문자, 숫자, 기호가 하나씩 들어가 있어야 합니다. (한글 사용 불가)");
 		return false;
 	}
@@ -171,7 +188,7 @@ function userJoin(){
 		phone.focus();
 		return false;
 	}
-	if(phonereg.test(phone.value)==false){
+	if(!phonereg.test(phone.value)){
 		alert("전화번호는 '-'를 제외하고 숫자만 입력해 주세요.");
 		return false;
 	}

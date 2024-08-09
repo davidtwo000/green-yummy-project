@@ -24,10 +24,7 @@ function policyPop2(){
 	window.open("../public/privacyPolicyCheckPage", "이용약관 확인", "width=400, height=400, top=50, left=50");
 	policyChk[1].classList.add("checkComplete");
 }
-function adPop(){
-	window.open("../public/advertisementCheckPage", "광고성 메일 수신 확인", "width=400, height=400, top=50, left=50");
-	policyChk[2].classList.add("checkComplete");
-}
+
 
 //유효성 체크. 필수항목 중 체크가 안 된 항목이 있거나, '자세히 보기'를 눌러 확인하지 않았다면 넘어가지 않는다.
 function requireCheck(){
@@ -46,3 +43,15 @@ function requireCheck(){
 	}
 	
 }
+
+
+
+/*
+<input type="button" value="자세히 보기"
+                     class="policyBtn" onclick="adPop()">
+                     
+function adPop(){
+	window.open("../public/advertisementCheckPage", "광고성 메일 수신 확인", "width=400, height=400, top=50, left=50");
+	policyChk[2].classList.add("checkComplete");
+}
+*/
