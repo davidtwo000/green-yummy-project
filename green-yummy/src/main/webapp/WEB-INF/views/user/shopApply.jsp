@@ -43,7 +43,7 @@
 		</tr>
 		<tr>
 			<th>신청 이유</th>
-			<td><textarea id="shopReason" name="shopReason" placeholder="이유를 300자 이내로 적어주세요" rows="10" cols="100" style="resize: none;"></textarea></td>
+			<td><textarea id="shopReason" name="shopReason" placeholder="이유를 300자 이내로 적어주세요" rows="6" cols="100" style="resize: none; font-size: 14px;"></textarea></td>
 		</tr>
 		</table>
 
