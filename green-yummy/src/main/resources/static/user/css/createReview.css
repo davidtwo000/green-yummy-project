@@ -86,7 +86,7 @@ legend{
 	padding: 20px;
 	
 }
-.storePhoto img{
+.storePhoto>label> img{
 	width: 200px;
 	height: 200px;
 	cursor: pointer;

@@ -68,26 +68,18 @@
 	            </div>
 	        </fieldset>
 	
-<!-- 	        <input type="text" name="reviewContent" required placeholder="Enter detailed content" class="reviewContent"> -->
 	        <textarea rows="15" name="reviewContent" required placeholder="Enter detailed content" class="reviewContent"></textarea>
 	       
 	       <div class="reviewBtn">
 	       		<div class="storePhoto">
 	       		<label for="file"><img src="/images/addPhoto.png" id="addPhoto"></label>
-	       		<input type="file" name="reviewImg" id="file"></div>
+	       		<input type="file" name="reviewImg" id="file" onchange="addReviewPhoto()"></div>
 
                 
             </div>
             <input type="submit" value="리뷰 작성하기">
 	    </form>
-            <!-- <div class="reviewPhotos">
-                <div class="storePhoto"><input type="file"></div>
-                <div class="storePhoto"><input type="file"></div>
-                <div class="storePhoto"><input type="file"></div>
-                <div class="storePhoto"><input type="file"></div>
-                <div class="storePhoto"><input type="file"></div>
-            </div>
-            <!-- 사진 최대 게시 한도를 정해두면 어떨까 -->
+            
             
         </div>
     </main>
