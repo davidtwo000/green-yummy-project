@@ -12,6 +12,7 @@
 
 <link rel="stylesheet" href="/public/css/dataSearch.css">
 <script src="/public/js/dataSearch.js" defer></script>
+<script src="/index/js/indexMenubar.js"></script>
 
 </head>
 <body>
@@ -50,12 +51,12 @@
 
 			<div class="areaSublist submenus" id="areaSublist">
 				<ul>
-					<li onclick="findbyarea('all')">강남 전체</li>
-					<li onclick="findbyarea('논현')">논현동</li>
-					<li onclick="findbyarea('신사')">신사동</li>
-					<li onclick="findbyarea('압구정')">압구정동</li>
-					<li onclick="findbyarea('역삼')">역삼동</li>
-					<li onclick="findbyarea('청담')">청담동</li>
+					<li onclick="findbyarea(all)">강남 전체</li>
+					<li onclick="findbyarea(논현)">논현동</li>
+					<li onclick="findbyarea(신사)">신사동</li>
+					<li onclick="findbyarea(압구정)">압구정동</li>
+					<li onclick="findbyarea(역삼)">역삼동</li>
+					<li onclick="findbyarea(청담)">청담동</li>
 				</ul>
 			</div>
 
@@ -98,7 +99,13 @@
 			<!-- 				<input type="button" id="seachBtn" onclick="findShop()" value="검색"> -->
 			<!-- 			</div> -->
 
-
+			<div class="check">
+				<ul>
+					<li onclick="findbyarea(1)"> 1 </li>
+					<li onclick="findbyarea(2)"> 2 </li>
+					<li onclick="findbyarea(3)"> 3 </li> 
+				</ul>
+			</div>
 
 			<div class="map" id="map">지도</div>
 			<script type="text/javascript"
@@ -124,7 +131,7 @@
 
 	<jsp:include page="../public/footer.jsp" />
 
-	<script src="/index/js/indexMenubar.js"></script>
+	
 
 </body>
 </html>

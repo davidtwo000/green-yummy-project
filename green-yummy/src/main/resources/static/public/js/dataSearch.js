@@ -1,7 +1,7 @@
 let currentPage = 1;
 
 //보여지는 개수
-const itemsPerPage = 5;
+const itemsPerPage = 1;
 let shops = [];
 
 //아무것도 없을때 전체
