@@ -19,20 +19,41 @@
 	<div class="outContainer">
 
 		<div class="innerContainer">
-		<div class="box">
+<!-- 		<div class="box"> -->
 			
-			</div>
+<!-- 			</div> -->
+
+			<div class="searchContainer">
+        
+        		<select class="selectBox" id="selectBox">
+                    <option value="" disabled selected>선택없음</option>
+                    <option value="area">지역별</option>
+                    <option value="category">업종별</option>
+                </select>
+        
+                <input type="text" id="findByOption" class="searchBar" name="findByOption"
+                 placeholder="검색어를 입력하세요">
+                <div class="customSearchBtn">
+                <img src="/images/search.png" id="seachBtn" onclick="findShop()">
+                </div>
+                <div class="ocricon">
+	                <img src="/images/picture.png" title="OCR. 사진으로 검색하기." 
+	                onclick="location.href='/public/pictureOCR'">
+                </div>
+                
+            </div>
 
 
-			<div class="searchBar">
-				<select class="selectBox" id="selectBox">
-					<!-- 아무것도 없을때는 가게 이름 -->
-					<option value="" disabled selected>가게 이름</option>
-					<option value="area">지역별</option>
-					<option value="type">업종별</option>
-				</select> <input type="text" id="findByOption" name="findByOption"> <input
-					type="button" id="seachBtn" onclick="findShop()" value="검색">
-			</div>
+<!-- 			<div class="searchBar"> -->
+<!-- 				<select class="selectBox" id="selectBox"> -->
+<!-- 					아무것도 없을때는 가게 이름 -->
+<!-- 					<option value="" disabled selected>가게 이름</option> -->
+<!-- 					<option value="area">지역별</option> -->
+<!-- 					<option value="type">업종별</option> -->
+<!-- 				</select>  -->
+<!-- 				<input type="text" id="findByOption" name="findByOption">  -->
+<!-- 				<input type="button" id="seachBtn" onclick="findShop()" value="검색"> -->
+<!-- 			</div> -->
 			
 			
 
@@ -53,6 +74,8 @@
 
 
 			</div>
+		</div>
+	</div>	
 
 
 			<div id="shop-list"></div>
