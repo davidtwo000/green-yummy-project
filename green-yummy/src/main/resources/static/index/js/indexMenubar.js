@@ -2,12 +2,11 @@
 let menuList = document.querySelectorAll(".category li");
 let areaMenu = document.querySelector(".areaSublist");
 let typeMenu = document.querySelector(".typeSublist");
-let foodMenu = document.querySelector(".menuSublist");
 let starMenu = document.querySelector(".starSublist");
-let subMenus = [areaMenu, typeMenu, foodMenu, starMenu];
+let subMenus = [areaMenu, typeMenu, starMenu];
 
 //클릭하면 나타났다가 사라진다. 
-for(let i=0;i<4;i++){
+for(let i=0;i<3;i++){
 	menuList[i].onclick = () => {
 		if(subMenus[i].classList.contains("hide")){
 			subMenus[i].classList.remove("hide");
