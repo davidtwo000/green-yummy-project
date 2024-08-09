@@ -139,33 +139,13 @@
 					<img src="/images/nextBtn2.png"></div>
 
 
-            
 
-<!--             <ul class="category"> -->
-<!--                 <li> -->
-<!--                     지역별 -->
-<!--                 </li> -->
-<!--                 <li> -->
-<!--                     업종별 -->
-<!--                 </li> -->
-<!--                 <li> -->
-<!--                     메뉴별 -->
-<!--                 </li> -->
-<!-- 				<li> -->
-<!-- 					평점별 -->
-<!-- 				</li> -->
-<!--             </ul> -->
-            
-			
-			
-			
-			
-            
  
             <div class="recPrevBtn">
             <img src="/images/prevBtn2.png"></div>
 	           <div class="recommandCon">
 	           <div class="recommandTag"> 추천 맛집</div>
+	           <hr>
 	                <div class="lookMoreRec">자세히 보기</div>
 	                <ul class="recommandList">
 	                    <li>

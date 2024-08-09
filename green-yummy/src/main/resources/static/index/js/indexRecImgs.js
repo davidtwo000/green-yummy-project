@@ -9,9 +9,9 @@ let recImgNext = document.querySelector('.recNextBtn');
 //li 복제해서 앞 뒤로 붙인다.
 let recCurIdx = 0;
 let recImgWidth =380;
-let recImgMargin = 20;
+let recImgMargin = 40;
 
-
+//li를 복제해서 앞뒤로 붙인다.
 recCloneLi();
 
 function recCloneLi(){
@@ -28,9 +28,12 @@ function recCloneLi(){
 	}
 }
 
+//클릭하면 앞뒤로 이동. 무한루프
 recImgPrev.onclick = () => {
-	if(recCurIdx===0){
-		
+	if(recCurIdx===-recImgNum){
+		recImgList.style.left = -2520 + "px";
+		recImgList.style.transition = "none";
+		recCurIdx = 0;
 	}else{
 		recCurIdx--;
 		recImgList.style.left = recCurIdx*(recImgWidth + recImgMargin) + "px";
@@ -39,8 +42,10 @@ recImgPrev.onclick = () => {
 }
 
 recImgNext.onclick = () => {
-	if(recCurIdx===recImgNum){
-		
+	if(recCurIdx===recImgNum*2){
+		recImgList.style.left = -7560 + "px";
+		recImgList.style.transition = "none";
+		recCurIdx = 6;
 	}else{
 		recCurIdx++;
 		recImgList.style.left = -recCurIdx*(recImgWidth + recImgMargin) + "px";
