@@ -27,6 +27,7 @@ emailChoose.addEventListener("change", function () {
 
 let isUserIdAvailable = false;
 let isNicknameAvailable = false;
+let isEmailAvailable = false;
 
 function checkNickname() {
     fetch(`/checkNickname?nickname=${nickname.value}`, {
@@ -41,7 +42,7 @@ function checkNickname() {
             alert("사용 가능한 닉네임입니다.");
             isNicknameAvailable = true;
         } else {
-            alert("이미 사용 중인 닉네임입니다.");
+            alert("이미 등록된 닉네임입니다.");
             nickname.focus();
             isNicknameAvailable = false;
         }
@@ -66,7 +67,7 @@ function checkUserId() {
             alert("사용 가능한 아이디입니다.");
             isUserIdAvailable = true;
         } else {
-            alert("이미 사용 중인 아이디입니다.");
+            alert("이미 등록된 아이디입니다.");
             userId.focus();
             isUserIdAvailable = false;
         }
@@ -77,6 +78,36 @@ function checkUserId() {
     });
 }
 
+
+
+function checkEmail(){
+	
+	let email = `${email1.value}@${email2.value}`;
+	
+	fetch(`/checkEmail?email=${email}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data) {
+            alert("사용 가능한 이메일입니다.");
+            isEmailAvailable = true;
+        } else {
+            alert("이미 등록된 이메일입니다.");
+            userId.focus();
+            isEmailAvailable = false;
+        }
+    })
+    .catch(error => {
+        console.error("Error checking email:", error);
+        isEmailAvailable = false;
+    });
+	
+	
+}
 
 
 //유효성 체크
@@ -134,7 +165,8 @@ function userJoin(){
 		alert("전화번호를 입력해주세요.");
 		phone.focus();
 		return false;
-	}if(phonereg.test(phone.value)==false){
+	}
+	if(phonereg.test(phone.value)==false){
 		alert("전화번호는 '-'를 제외하고 숫자만 입력해 주세요.");
 		return false;
 	}
@@ -152,7 +184,11 @@ function userJoin(){
         email1.focus();
 		return false;
 	}
-	    
+	if (!isEmailAvailable) {
+        alert("이메일 중복 확인을 해주세요.");
+        email1.focus();
+        return false;
+    }    
 	    
 	return true;     
     
@@ -162,6 +198,7 @@ function userJoin(){
 // 중복 체크 버튼 이벤트 리스너
 document.querySelector(".idcheck").addEventListener("click", checkUserId);
 document.querySelector(".nickcheck").addEventListener("click", checkNickname);
+document.querySelector(".emailcheck").addEventListener("click", checkEmail);
 
 // form submit 이벤트에서 userJoin을 호출하여 유효성 검사를 기다립니다.
 document.querySelector("form").addEventListener("submit", function (event) {

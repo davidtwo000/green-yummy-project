@@ -69,6 +69,7 @@
                             <option value="nate.com">nate.com</option>
                             <option value="hanmail.net">hanmail.net</option>
                         </select>
+                        <input type="button" class="emailcheck" value="중복확인">
                     </td>
                 </tr>
             </table>

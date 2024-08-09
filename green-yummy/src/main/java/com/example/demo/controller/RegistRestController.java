@@ -32,6 +32,12 @@ public class RegistRestController {
         return ResponseEntity.ok(isNicknameAvailable);
     }
 	
+    @GetMapping("/checkEmail")
+    public ResponseEntity<Boolean> checkEmail(@RequestParam(name="email") String email){
+    	boolean isEmailAvailable = userRegistService.isEmailAvailable(email);
+    	return ResponseEntity.ok(isEmailAvailable);
+    }
+    
     @Autowired
     private FindIdPasswordService userService;
     
