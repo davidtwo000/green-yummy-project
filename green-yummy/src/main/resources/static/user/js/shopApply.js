@@ -1,63 +1,87 @@
-let shopname = document.getElementById("shopName");
-let shoploc = document.getElementById("shopLoc");
-let shoptel = document.getElementById("shopTel");
-let shopopen = document.getElementById("shopOpen");
-let shopclose = document.getElementById("shopClose");
-let shoprest = document.getElementById("shopRest");
-let shopetc = document.getElementById("shopEtc");
+let shopName = document.getElementById("shopName");
+let shopLocation = document.getElementById("shopLocation");
+let shopPhone = document.getElementById("shopPhone");
+let shopReason = document.getElementById("shopReason");
 
-let label = document.querySelector("label");
-let shopform = document.getElementById("shopapply");
-let emptybox = document.getElementById("addPhoto");
-let addfile = document.getElementById("file");
+
+let shopform = document.getElementById("shopApply");
+
+let phonereg = /[\d]{2,3}[\d]{3,4}[\d]{4}/;
 
 //내용을 적어야만 넘어가게 하는 함수. 불필요한 내용은 함수에서 삭제한다.
 function applyCheck(event){
-	if(!shopname.value){
+	
+	if(!shopName.value){
 		alert("가게명을 입력해 주세요.");
 		event.preventDefault();
-		shopname.focus();
-		return false;
-	}
-	if(!shoploc.value){
-		alert("주소를 입력해 주세요.");
-		event.preventDefault();
-		shoploc.focus();
-		return false;
-	}
-	if(!shoptel.value){
-		alert("연락처를 입력해 주세요.");
-		event.preventDefault();
-		shoptel.focus();
-		return false;
-	}
-	if(!shopopen.value){
-		alert("개장 시간을 입력해 주세요.");
-		event.preventDefault();
-		shopopen.focus();
-		return false;
-	}
-	if(!shopclose.value){
-		alert("폐장 시간을 입력해 주세요.");
-		event.preventDefault();
-		shopclose.focus();
-		return false;
-	}
-	if(!shoprest.value){
-		alert("휴무일을 입력해 주세요.");
-		event.preventDefault();
-		shoprest.focus();
-		return false;
-	}
-	if(!shopetc.value){
-		alert("기타사항을 입력해 주세요.");
-		event.preventDefault();
-		shopetc.focus();
+		shopName.focus();
 		return false;
 	}
 	
+	let foodTypeChecked = document.querySelector('input[name="foodType"]:checked');
+	if (!foodTypeChecked) {
+        alert("음식 유형을 선택해 주세요.");
+        event.preventDefault();
+        return false;
+    }
+    
+	if(!shopLocation.value){
+		alert("주소를 입력해 주세요.");
+		event.preventDefault();
+		shopLocation.focus();
+		return false;
+	}
+	
+	if(!shopPhone.value){
+		alert("연락처를 입력해 주세요.");
+		event.preventDefault();
+		shopPhone.focus();
+		return false;
+	}else if(phonereg.test(shopPhone.value)==false){
+		alert("전화번호는 '-'를 제외하고 숫자만 입력해 주세요.");
+		event.preventDefault();
+		return false;
+	}
+	
+	if(!shopReason.value){
+		alert("신청 이유를 적어 주세요.");
+		event.preventDefault();
+		shopReason.focus();
+		return false;
+	}else if(shopReason.value.length > 300) {
+        alert("신청 이유는 300자 이내로 작성해 주세요.");
+        event.preventDefault();
+        shopReason.focus();
+        return false;
+    }
+	
 	return true;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+let label = document.querySelector("label");
+let emptybox = document.getElementById("addPhoto");
+let addfile = document.getElementById("file");
 
 //회색 빈 박스 이미지가 삽입한 이미지로 바뀌는 함수
 addfile.addEventListener("change", shopPhotos);
@@ -83,3 +107,20 @@ function shopPhotos(){
 	
 }
 
+
+<tr>
+	<th>기타사항</th>
+	<td colspan="3"><input type="text" 
+	placeholder="예약 가능, 테이크아웃 전문, 반려동물 동반 가능 등등"
+	id="shopEtc"></td>
+</tr>
+<tr>
+	<td colspan="4">
+		<p>*사진 추가하기</p>
+		<div class="photoPlace">
+			<label for="file"><img src="/images/addPhoto.png" id="addPhoto"></label>
+			<input type="file" id="file" class="hidden">
+		</div>
+	</td>
+</tr>
+*/
