@@ -10,10 +10,11 @@ let email2 = document.getElementById("emailtwo");
 let emailChoose = document.getElementById("selEmail");
 
 let currentNick = document.querySelector("#currentNickname");
+let currentEmail = document.querySelector("#currentEmail");
 
 let passreg = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^])(?!.*[가-힣])[A-Za-z\d@$!%*#?&]{8,20}$/;
 let phonereg = /[\d]{2,3}[\d]{3,4}[\d]{4}/;
-let emailreg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+let emailreg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 //셀렉터로 선택하면 emailtwo에 값이 입력된다. onchange
 emailChoose.addEventListener("change", function () {
@@ -26,6 +27,7 @@ emailChoose.addEventListener("change", function () {
 	
 
 let isNicknameAvailable = false;
+let isEmailAvailable = false;
 
 function checkNickname() {
     fetch(`/checkNickname?nickname=${nickname.value}`, {
@@ -51,7 +53,39 @@ function checkNickname() {
     });
 }
 
-
+function checkEmail(){
+	
+	let email = `${email1.value}@${email2.value}`;
+	
+	if (!emailreg.test(email)) {
+        alert("유효하지 않은 이메일 형식입니다. 다시 입력해주세요.");
+        return;
+    }
+    
+	fetch(`/checkEmail?email=${email}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data) {
+            alert("사용 가능한 이메일입니다.");
+            isEmailAvailable = true;
+        } else {
+            alert("이미 등록된 이메일입니다.");
+            userId.focus();
+            isEmailAvailable = false;
+        }
+    })
+    .catch(error => {
+        console.error("Error checking email:", error);
+        isEmailAvailable = false;
+    });
+	
+	
+}
 
 
 //유효성 체크
@@ -99,6 +133,11 @@ function userJoin(){
 	        email1.focus();
 			return false;
 		}
+		if (!isEmailAvailable) {
+	        alert("이메일 중복 확인을 해주세요.");
+	        email1.focus();
+	        return false;
+	    }  
 	}
 	
 	return true;     
@@ -107,6 +146,7 @@ function userJoin(){
 
 // 중복 체크 버튼 이벤트 리스너
 document.querySelector(".nickcheck").addEventListener("click", checkNickname);
+document.querySelector(".emailcheck").addEventListener("click", checkEmail);
 
 // form submit 이벤트에서 userJoin을 호출하여 유효성 검사를 기다립니다.
 document.querySelector("form").addEventListener("submit", function (event) {
