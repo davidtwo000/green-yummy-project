@@ -174,7 +174,7 @@
     height: 500px;
 }
 .mainImg:nth-child(2){
-	background-image: url("/resources/static/images/profile1.jpg");
+	background-image: url("/resources/static/images/mainimg1.jpg");
 }
 .mainImg img{
 	width: 1280px;

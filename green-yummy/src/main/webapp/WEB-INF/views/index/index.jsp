@@ -87,7 +87,7 @@
 					<li><div class="mainImg">
 						<img src="images/pasta.jpg"> 이미지 first </div></li>
 					<li><div class="mainImg"> 
-					<img src="/images/profile1.jpg">이미지 </div></li>
+					<img src="/images/mainimg1.jpg">이미지 </div></li>
 					<li><div class="mainImg">
 					<img src="/images/profile2.jpg"> 이미지 </div></li>
 					<li><div class="mainImg">
