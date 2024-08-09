@@ -28,6 +28,10 @@ public class UserRegistService {
         return !userRegistRepository.existsByNickname(nickname);
     }
     
+    public boolean isEmailAvailable(String email) {
+    	return !userRegistRepository.existsByEmail(email);
+    }
+    
     public void saveUser(User user) {
     	user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRegistRepository.save(user);
