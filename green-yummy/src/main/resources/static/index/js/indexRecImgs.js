@@ -119,13 +119,15 @@ function random() {
 
             // 상점 이미지 부분
             const imgContainer = document.createElement('div');
-
             imgContainer.className = 'recommandImg';
-
+            
             const img = document.createElement('img');
-
-	        img.src = `/images/${item.shopProfile}`;
-    	    img.className = 'recommandImg'; 
+            
+            imgSrc = item.shopProfile;
+                        
+            img.src = '/images/' + item.shopProfile;
+            img.className = 'recommandImg';
+            imgContainer.appendChild(img);
             
             // 상점 상세 정보 부분
             const detail = document.createElement('div');
@@ -137,6 +139,10 @@ function random() {
             li.appendChild(imgContainer);
             li.appendChild(detail);
 
+			li.addEventListener('click', () => {
+               window.location.href = `/public/dataSearchDetail/${item.shopUkId}`;
+            });
+            
             // <ul>에 <li> 추가
             recommandList.appendChild(li);
         });
