@@ -14,13 +14,25 @@
     <main>
         <div class="innerContainer">
         
-        <div class="OCRresult">
-                <input type="text" placeholder="이미지를 삽입해서 검색어를 입력하세요" readonly>
-                <input type="button" value="맛집 검색">
-            </div>
+        <div class="searchContainer">
+        <div class="OCRhelp">
+        <span>OCR 사진 검색 사용법</span>
+        <img src="/images/roundQ.png">
+        </div>
+			<input type="text" class="searchBar"
+			 placeholder="이미지를 삽입해서 검색어를 입력하세요" readonly>
+			<div class="customSearchBtn">
+				<img src="/images/search.png">
+			</div>
+		</div>
+        
+<!--         <div class="OCRresult"> -->
+<!--                 <input type="text" placeholder="이미지를 삽입해서 검색어를 입력하세요" readonly> -->
+<!--                 <input type="button" value="맛집 검색"> -->
+<!--             </div> -->
 
             
-            <div class="OCRexplain">
+            <div class="OCRexplain invisible">
 	           <h4>사진을 넣어서 맛집을 검색해 보세요!</h4>
 	                <ol>
 	                    <li>네모 박스를 눌러 찍어둔 맛집 간판 사진을 삽입합니다.</li>
