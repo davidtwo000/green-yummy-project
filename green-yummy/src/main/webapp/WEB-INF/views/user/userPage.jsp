@@ -102,8 +102,7 @@
 							<option value="">중식</option>
 							<option value="">양식</option>
 							<option value="">그 외</option>
-						</select> <img src="/images/orderByList.png" class="listview"> <img
-							src="/images/gridview.png" class="gridview">
+						</select> 
 					</div>
 
 				</div>
