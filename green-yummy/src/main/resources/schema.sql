@@ -44,7 +44,7 @@ CREATE TABLE SHOPS (
     CLOSE_HOURS VARCHAR(20), -- 식당 닫는 시간
     CLOSED_DAYS VARCHAR(50), -- 식당 휴무일
     ETC VARCHAR(100), -- 기타 사항
-    LATITUDE DECIMAL(16, 12), --위도
+    LATITUDE DECIMAL(16, 12), -- 위도
     LONGITUDE DECIMAL(16, 12) -- 경도
 );
 

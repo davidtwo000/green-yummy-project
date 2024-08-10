@@ -24,8 +24,9 @@ function userBye() {
 		userOut.classList.remove("hidden");
 	} else {
 		userOut.classList.add("hidden");
-	}
+	}	
 }
+
 
 //탭 메뉴. 나의 맛집, 나의 리뷰.
 //클릭을 한 쪽에 클래스를 주려면?
@@ -233,4 +234,27 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
 
+/*
+<input type="button" value="탈퇴">
 
+function userDel(){
+	const userId = document.getElementById('userDelId').value;
+    
+    // AJAX 요청을 통해 유저 삭제 요청 전송
+    fetch(`/deleteUser/${userId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            alert("회원탈퇴가 완료되었습니다.");
+            window.location.href = '/logout';  // 탈퇴 후 로그아웃 및 메인 페이지로 리다이렉트
+        } else {
+            alert("회원탈퇴에 실패했습니다. 다시 시도해 주세요.");
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+*/

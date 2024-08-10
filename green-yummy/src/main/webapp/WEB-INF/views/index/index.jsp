@@ -113,42 +113,43 @@
 
 
 			<div class="recPrevBtn">
-				<img src="/images/prevBtn2.png">
-			</div>
-			<div class="recommandCon">
-				<div class="recommandTag">추천 맛집</div>
-				<hr>
-				<div class="lookMoreRec">자세히 보기</div>
-				<ul class="recommandList">
-					<li>
-						<div class="recommandImg"></div>
-						<div class="recommandDetail">(first)가게 이름 / 평점</div>
-					</li>
-					<li>
-						<div class="recommandImg"></div>
-						<div class="recommandDetail">가게 이름 / 평점</div>
-					</li>
-					<li>
-						<div class="recommandImg"></div>
-						<div class="recommandDetail">가게 이름 / 평점</div>
-					</li>
-					<li>
-						<div class="recommandImg"></div>
-						<div class="recommandDetail">가게 이름 / 평점</div>
-					</li>
-					<li>
-						<div class="recommandImg"></div>
-						<div class="recommandDetail">가게 이름 / 평점</div>
-					</li>
-					<li>
-						<div class="recommandImg"></div>
-						<div class="recommandDetail">(last)가게 이름 / 평점</div>
-					</li>
-				</ul>
-			</div>
-			<div class="recNextBtn">
-				<img src="/images/nextBtn2.png">
-			</div>
+	            <img src="/images/prevBtn2.png">
+	         </div>
+	         <div class="recommandCon">
+	            <div class="recommandTag">추천 맛집</div>
+	            <hr>
+	            <div class="lookMoreRec">자세히 보기</div>
+	            <ul class="recommandList" id="recommandList">
+	               <li>
+	                  <div class="recommandImg"></div>
+	                  <div class="recommandDetail">(first)가게 이름 / 평점</div>
+	               </li>
+	               <li>
+	                  <div class="recommandImg"></div>
+	                  <div class="recommandDetail">가게 이름 / 평점</div>
+	               </li>
+	               <li>
+	                  <div class="recommandImg"></div>
+	                  <div class="recommandDetail">가게 이름 / 평점</div>
+	               </li>
+	               <li>
+	                  <div class="recommandImg"></div>
+	                  <div class="recommandDetail">가게 이름 / 평점</div>
+	               </li>
+	               <li>
+	                  <div class="recommandImg"></div>
+	                  <div class="recommandDetail">가게 이름 / 평점</div>
+	               </li>
+	               <li>
+	                  <div class="recommandImg"></div>
+	                  <div class="recommandDetail">(last)가게 이름 / 평점</div>
+	               </li>
+	            </ul>
+	         </div>
+	         <div class="recNextBtn">
+	            <img src="/images/nextBtn2.png">
+	         </div>
+
 
 
 

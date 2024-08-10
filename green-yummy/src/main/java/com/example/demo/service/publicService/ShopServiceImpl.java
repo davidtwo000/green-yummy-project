@@ -51,6 +51,11 @@ public class ShopServiceImpl implements ShopService {
     	return shops.stream().map(this::convertToDto).collect(Collectors.toList());
     }
 
+    @Override
+    public List<Shop> getRandomShops() {
+            return shopRepository.findRandomShops();
+    }
+    
     private ShopDTO convertToDto(Shop shop) {
         ShopDTO dto = new ShopDTO();
         dto.setShopUkId(shop.getShopUkId());

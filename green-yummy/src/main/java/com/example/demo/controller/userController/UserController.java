@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +14,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.dto.publicDto.ShopDTO;
 import com.example.demo.dto.userDto.UserFormDTO;
 import com.example.demo.model.userModel.Bookmark;
 import com.example.demo.model.userModel.User;
+import com.example.demo.repository.userRepository.UserFindRepository;
 import com.example.demo.service.publicService.ShopService;
 import com.example.demo.service.userService.BookmarkImpl;
 import com.example.demo.service.userService.BookmarkService;
@@ -66,6 +70,23 @@ public class UserController {
 	    return "user/userPage"; 
 	}
     
+	@Autowired
+    private UserFindRepository userFindRepository;
+	
+	@PostMapping("/deleteUser")
+	public String deleteUser(@RequestParam("userId") String userId, RedirectAttributes redirectAttributes) {
+		
+		Optional<User> user = userFindRepository.findById(userId);
+		
+		if (user.isPresent()) {
+            userFindRepository.delete(user.get());
+            redirectAttributes.addFlashAttribute("message", "회원탈퇴가 완료되었습니다.");
+            return "redirect:/logout";  
+        } else {
+            redirectAttributes.addFlashAttribute("message", "회원탈퇴에 실패했습니다. 다시 시도해 주세요.");
+            return "redirect:/user/userPage";  
+        }
+	}
 	
 	@GetMapping("user/userInfoChange")
 	public String userInfoChange(Model model) {

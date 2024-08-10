@@ -18,7 +18,6 @@
 	<jsp:include page="../public/header.jsp" />
 
 	<main>
-
 		<div class="userContainer">
 			<div class="forUser">
 				<div class="userPic">
@@ -165,8 +164,8 @@
 					로그아웃 하시겠습니까?
 					<div class="logoutBtns">
 						<form action="/logout" method="post">
-							<input type="hidden" name="${_csrf.parameterName}"
-								value="${_csrf.token}"> <input type="submit" value="확인">
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"> 
+							<input type="submit" value="확인">
 							<input type="button" value="취소" class="cancle" onclick="logout()">
 						</form>
 					</div>
@@ -180,8 +179,12 @@
 					</div>
 					탈퇴하시겠습니까?
 					<div class="userOutBtns">
-						<input type="button" value="탈퇴"> <input type="button"
-							value="취소" class="cancel" onclick="userBye()">
+						<form method="post" action="/deleteUser" id="deleteForm"> 
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+							<input type="hidden" name="userId" value="${user.id}">
+							<input type="submit" value="탈퇴">
+							<input type="button" value="취소" class="cancel" onclick="userBye()">
+						</form>
 					</div>
 
 				</div>

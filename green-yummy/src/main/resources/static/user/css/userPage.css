@@ -130,7 +130,8 @@ main{
 }
 .logoutBtns>form>input[type="button"],
 .logoutBtns>form>input[type="submit"],
-.userOutBtns>input[type="button"]{
+.userOutBtns>form>input[type="button"], 
+.userOutBtns>form>input[type="submit"]{
 	box-sizing: border-box;
     width: 80px;
     height: 30px;
