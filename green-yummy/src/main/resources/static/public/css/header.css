@@ -24,33 +24,38 @@ header{
 }
 
 .loginplace a{
+	position: relative;
+	top: -50px;
 	margin-right: 40px;
 	font: normal bold 15pt 'sans-serif';
 }
 
-
-/* 카테고리 부분 */
-.category {
-    list-style: none;
-    display: flex; 
-    justify-content: center; 
-    padding: 10px 0 10px 0;
-	margin: 0 0 10px 0;
-    
-	background: salmon;
-    /* border: 1px solid brown; */
+.btnAndLogin{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+	
 }
-.category li {
-	width: 200px;
-    padding: 10px; 
-    text-align: center;
-	font: normal bold 15pt 'sans-serif';
-	border-radius: 50px;
+.btnBox{
+	display: flex;
+}
+.shopApplyBtn, .myPageBtn,
+.shopApplyBtn a img, .myPageBtn a img{
+	width: 30px;
+	height: 30px;
 	cursor: pointer;
-	color: white;
+	border-radius: 50px;
 }
-.category li:hover{
-	color: black;
-	background: lemonchiffon;
-	transition: background 300ms ease-in-out;
+.shopApplyBtn a, .myPageBtn a{
+	margin: 0;
 }
+.shopApplyBtn, .myPageBtn{
+	padding: 5px;
+	margin: 10px 10px 0 10px;
+	background: black;
+}
+
+
+
+
