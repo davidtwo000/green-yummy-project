@@ -1,33 +1,28 @@
 @charset "UTF-8";
 
-
 /* 라디오 버튼 조정 */
-.sortOptions{/*밑에 있다. 마진 20. 나중에 합칠 것*/
+.sortOptions { /*밑에 있다. 마진 20. 나중에 합칠 것*/
 	width: 1280px;
 	border-radius: 8px;
 	border: 2px solid pink;
 }
 
-
-
-
-
 .outContainer {
-    justify-content: center;
-    text-align: center;
-    display: flex;
+	justify-content: center;
+	text-align: center;
+	display: flex;
 }
 
 .innerContainer {
-    width: 1280px;
-    justify-content: center;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
+	width: 1280px;
+	justify-content: center;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
 }
 
 /* 검색 부분 */
-.searchContainer{
+.searchContainer {
 	position: relative;
 	display: flex;
 	justify-content: center;
@@ -35,17 +30,19 @@
 	height: 50px;
 	padding: 10px;
 }
-.searchContainer::before{
-	content:"";
+
+.searchContainer::before {
+	content: "";
 	background: #f2f2f2;
 	position: absolute;
 	z-index: -5;
 	top: 0;
-	bottom: 0;	
+	bottom: 0;
 	left: 0;
 	right: 0;
 }
-.ocricon{
+
+.ocricon {
 	position: relative;
 	top: -3px;
 	width: 50px;
@@ -54,30 +51,34 @@
 	border-radius: 5px;
 	background: white;
 }
-.ocricon img{
+
+.ocricon img {
 	width: 50px;
 	height: 50px;
 	cursor: pointer;
 }
+
 .searchBar {
 	box-sizing: border-box;
-    width: 800px;
-    height: 50px;
-    display: inline-block; 
-    outline: none;
-    border-radius: 50px;
-    border: 2px solid salmon;
-    padding: 10px 10px 10px 20px;
-    background: white;
-    
-    /* border: 1px solid brown; */
+	width: 800px;
+	height: 50px;
+	display: inline-block;
+	outline: none;
+	border-radius: 50px;
+	border: 2px solid salmon;
+	padding: 10px 10px 10px 20px;
+	background: white;
+
+	/* border: 1px solid brown; */
 }
-.customSearchBtn, .OCRBtn{
-    width: 50px;
-    height: 50px;
-    display: inline-block; 
-    cursor: pointer; 
+
+.customSearchBtn, .OCRBtn {
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	cursor: pointer;
 }
+
 .customSearchBtn img {
 	position: relative;
 	top: 3px;
@@ -85,45 +86,49 @@
 	width: 40px;
 	height: 40px;
 }
-.customSearchBtn{
+
+.customSearchBtn {
 	position: relative;
 	left: -50px;
 	border-radius: 0 50px 50px 0;
 }
-.OCRBtn{
+
+.OCRBtn {
 	margin-left: 20px;
 }
-.customSearchBtn{
+
+.customSearchBtn {
 	background: salmon;
 }
 
 /* 카테고리 부분 */
 .category {
-    list-style: none;
-    display: flex; 
-    justify-content: space-around; 
-    padding: 10px 0 10px 0;
+	list-style: none;
+	display: flex;
+	justify-content: space-around;
+	padding: 10px 0 10px 0;
 	margin: 0 0 10px 0;
 	width: 100%;
-    
 	background: salmon;
-    /* border: 1px solid brown; */
+	/* border: 1px solid brown; */
 }
+
 .category li {
 	width: 200px;
-/*     padding: 10px;  */
+	/*     padding: 10px;  */
 	font: normal bold 15pt 'sans-serif';
 	border-radius: 50px;
 	cursor: pointer;
 	color: white;
 }
-.category li:hover{
+
+.category li:hover {
 	color: black;
 	background: lemonchiffon;
 	transition: "all 300ms ease-in-out";
 }
 /* 추가 페이지. 토글 아코디언? */
-.submenus{
+.submenus {
 	position: absolute;
 	z-index: 5;
 	top: 330px;
@@ -131,39 +136,41 @@
 	display: flex;
 	justify-content: space-evenly;
 	width: 960px;
-	
 	border: 2px solid gray;
 	background: lemonchiffon;
 }
-.submenus ul{
+
+.submenus ul {
 	padding: 0px;
 }
-.submenus ul li{
+
+.submenus ul li {
 	line-height: 2em;
 	font-weight: bold;
 	cursor: pointer;
 	list-style-type: none;
 }
-.starSublist>ul>li,
-.areaSublist>ul>li{
+
+.starSublist>ul>li, .areaSublist>ul>li {
 	margin: 0 30px 0 30px;
 	display: inline-block;
 }
-.hide{
+
+.hide {
 	opacity: 0;
 }
 
 /* 지도 */
 .map {
-    width: 60%;
-    height: 300px;
-    border: 2px solid green;
-    margin: 0 auto;
-    margin-top: 20px;
+	width: 60%;
+	height: 300px;
+	border: 2px solid green;
+	margin: 0 auto;
+	margin-top: 20px;
 }
 
-.sortOptions{
-    margin-top: 20px;
+.sortOptions {
+	margin-top: 20px;
 }
 
 /* .box { */
@@ -172,50 +179,124 @@
 /* 	width:90%; */
 /* } */
 
-.shop-item {
-    width: 1280px;
-    height: 300px;
-    justify-content: space-evenly;
-    text-align: center;
-    display: flex;
-    margin: 0 auto;
-    margin-top: 10px;
-    
-    border: 2px solid brown;
-    border-radius: 8px;
+/*가게 리스트*/
+#shop-list {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 20px;
+   width: 100%;
+   max-width: 1280px;
+   margin: 0 auto;
+   box-sizing: border-box;
+   margin-top: 20px;
+   justify-content: flex-start;
 }
 
+.shop-item {
+   width:600px;
+   box-sizing: border-box;
+   border: 1px solid brown;
+   border-radius: 5px;
+   display: flex;
+   flex-direction: column;
+} 
+
 .shop-profile {
-    width: 280px;
-    height: 280px;
-    border: 1px solid gray;
-    margin: 10px;
-    float:left;
+	width: 280px;
+	height: 280px;
+	border: 1px solid gray;
+	margin: 10px;
+	float: left;
+	overflow: hidden;
 }
 
 .shop-profile img {
-	 width: 280px;
-    height: 280px;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
-
-/* 상세정보 */
-.infoFirst span:first-child{
-	font: normal bold 20pt 'sans-serif';
-}
-.infoFirst span:not(:first-child),
-.infoSecond span:not(:first-child){
-	font-size: 10pt;
-	color: gray;
-}
-.infoFirst span:nth-of-type(2)::after{
-	content:"	|";
+.shopName {
+	font-size: 30px;
 }
 
-.shopdetail {
-	border:1px solid black;
+.infoFirst {
+	padding: 20px 0 20px 0; 
 }
 
-.shop-name {
-	font-size:20px;
+/*카페고리 부분*/
+.search-list {
+	display: flex;
+	justify-content: center;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	background: salmon;
+	width: 1280px;
+}
+
+.search-list li {
+	cursor: pointer;
+	padding: 10px;
+	border-bottom: 1px solid #ddd;
+}
+
+.search-list li:hover {
+	background-color: #f0f0f0;
+}
+
+.list-show {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.searchByArea, .searchByType, .searchByRating {
+	display: flex;
+	flex-direction: row;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	justify-content: center;
+	flex-direction: row; /* 수직 방향으로 정렬 */
+	align-items: center; /* 가로 방향으로 가운데 정렬 */
+}
+
+.searchByType, .searchByRating {
+	display: none;
+}
+
+.searchByArea li, .searchByType li, .searchByRating li {
+	cursor: pointer;
+	padding: 10px 15px;
+	margin: 5px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	background-color: #f0f0f0;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/*페이지*/
+.pagination {
+	display: flex;
+	justify-content: center;
+	padding: 0;
+	margin-top: 20px;
+	text-align: center;
+	font-size: 20px;
+}
+
+.pagination span {
+	margin: 0 10px;
+	cursor: pointer;
+	padding: 5px 10px;
+}
+
+.pagination span.current {
+	background-color: salmon;
+	color: white;
 }

@@ -28,84 +28,64 @@
 			<div class="searchContainer">
 
 				<select class="selectBox" id="selectBox">
-					<option value="" disabled selected>가게 이름</option>
-					<option value="area">지역별</option>
-					<option value="category">업종별</option>
-				</select> <input type="text" id="findByOption" class="searchBar"
-					name="findByOption" placeholder="검색어를 입력하세요">
-				<div class="customSearchBtn">
-					<img src="/images/search.png" id="seachBtn" onclick="findShop()">
+	               <option value="name" selected>가게 이름</option>
+	               <option value="area">지역별</option>
+	               <option value="type">업종별</option>
+	            </select> <input type="text" id="findByOption" class="searchBar"
+	               name="findByOption" placeholder="검색어를 입력하세요">
+	            <div class="customSearchBtn">
+	               <img src="/images/search.png" id="seachBtn" onclick="findShop()">
+	            </div>
+	            <div class="ocricon">
+	               <img src="/images/picture.png" title="OCR. 사진으로 검색하기."
+	                  onclick="location.href='/public/pictureOCR'">
+	            </div>
+
+			</div>
+
+			<div class="list-container">
+				<ul class="search-list" id="search-list">
+					<li onclick="search('area')">지역별</li>
+					<li onclick="search('type')">업종별</li>
+					<li onclick="search('rating')">평점별</li>
+				</ul>
+
+				<div class="list-show">
+					<ul class="searchByArea" id="searchByArea">
+						<li onclick="check('all')">전체</li>
+						<li onclick="check('area논현동')">논현동</li>
+						<li onclick="check('area대치동')">대치동</li>
+						<li onclick="check('area삼성동')">삼성동</li>
+						<li onclick="check('area신사동')">신사동</li>
+						<li onclick="check('area역삼동')">역삼동</li>
+						<li onclick="check('area청담동')">청담동</li>
+					</ul>
+
+					<ul class="searchByType" id="searchByType">
+	                  <li onclick="check('all')">전체</li>
+	                  <li onclick="check('type한식')">한식</li>
+	                  <li onclick="check('type양식')">양식</li>
+	                  <li onclick="check('type중식')">중식</li>
+	                  <li onclick="check('type일식')">일식</li>
+	                  <li onclick="check('type햄버거/치킨/피자')">햄버거/치킨/피자</li>
+	                  <li onclick="check('type분식')">분식</li>
+	                  <li onclick="check('type카페')">카페</li>
+	                  <li onclick="check('type기타')">기타</li>
+	               </ul>
+
+					<ul class="searchByRating" id="searchByRating">
+						<li onclick="check('5')">5점</li>
+						<li onclick="check('4')">4점</li>
+						<li onclick="check('3')">3점</li>
+						<li onclick="check('2')">2점</li>
+						<li onclick="check('1')">1점</li>
+					</ul>
 				</div>
-				<div class="ocricon">
-					<img src="/images/picture.png" title="OCR. 사진으로 검색하기."
-						onclick="location.href='/public/pictureOCR'">
-				</div>
+
 
 			</div>
 
-			<ul class="category">
-				<li>지역별</li>
-				<li>업종별</li>
-				<li>평점별</li>
-			</ul>
 
-			<div class="areaSublist submenus" id="areaSublist">
-				<ul>
-					<li onclick="findbyarea(all)">강남 전체</li>
-					<li onclick="findbyarea(논현)">논현동</li>
-					<li onclick="findbyarea(신사)">신사동</li>
-					<li onclick="findbyarea(압구정)">압구정동</li>
-					<li onclick="findbyarea(역삼)">역삼동</li>
-					<li onclick="findbyarea(청담)">청담동</li>
-				</ul>
-			</div>
-
-			<div class="typeSublist submenus hide">
-				<ul>
-					<li value="한식">한식</li>
-					<li value="분식">분식</li>
-					<li value="일식">일식</li>
-					<li value="중식">중식</li>
-					<li value="양식">양식</li>
-				</ul>
-				<ul>
-					<li value="레스토랑">레스토랑</li>
-					<li value="카페">카페</li>
-					<li value="술집">술집</li>
-					<li value="치킨/피자/햄버거">치킨/피자/햄버거</li>
-					<li value="기타">기타</li>
-				</ul>
-			</div>
-
-			<div class="starSublist submenus hide">
-				<ul>
-					<li value="5">5점대</li>
-					<li value="4">4점대</li>
-					<li value="3">3점대</li>
-					<li value="2">2점대</li>
-					<li value="1">1점대</li>
-				</ul>
-			</div>
-
-
-			<!-- 			<div class="searchBar"> -->
-			<!-- 				<select class="selectBox" id="selectBox"> -->
-			<!-- 					아무것도 없을때는 가게 이름 -->
-			<!-- 					<option value="" disabled selected>가게 이름</option> -->
-			<!-- 					<option value="area">지역별</option> -->
-			<!-- 					<option value="type">업종별</option> -->
-			<!-- 				</select>  -->
-			<!-- 				<input type="text" id="findByOption" name="findByOption">  -->
-			<!-- 				<input type="button" id="seachBtn" onclick="findShop()" value="검색"> -->
-			<!-- 			</div> -->
-
-			<div class="check">
-				<ul>
-					<li onclick="findbyarea(1)"> 1 </li>
-					<li onclick="findbyarea(2)"> 2 </li>
-					<li onclick="findbyarea(3)"> 3 </li> 
-				</ul>
-			</div>
 
 			<div class="map" id="map">지도</div>
 			<script type="text/javascript"
@@ -127,11 +107,11 @@
 
 
 	<div id="shop-list"></div>
-	<div id="pagination"></div>
+	<div id="pagination" class="pagination"></div>
 
 	<jsp:include page="../public/footer.jsp" />
 
-	
+
 
 </body>
 </html>
