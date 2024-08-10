@@ -23,4 +23,8 @@ public interface ShopRepository extends JpaRepository<Shop, Integer> {
 	//가게 이름으로 찾기
 	@Query("select s from Shop s where s.shopName like %:name%")
 	List<Shop> findByShopNameContaining(@Param("name") String name);
+	
+	@Query(value = "SELECT * FROM shops ORDER BY RAND() LIMIT 6", nativeQuery = true)
+	List<Shop> findRandomShops();
+
 }

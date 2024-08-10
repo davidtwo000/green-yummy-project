@@ -92,6 +92,63 @@ recImgPrev.onclick = () => {
 }
 
 
+function random() {
+
+    fetch('/shops/random', {
+        method: 'GET'
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+
+        // <ul> 요소 선택
+        const recommandList = document.getElementById('recommandList');
+
+        // 기존 <li> 요소를 모두 제거
+        recommandList.innerHTML = '';
+
+        // 데이터 배열을 순회하며 리스트 아이템 생성
+        data.forEach(item => {
+
+            const li = document.createElement('li');
+
+            // 상점 이미지 부분
+            const imgContainer = document.createElement('div');
+
+            imgContainer.className = 'recommandImg';
+
+            const img = document.createElement('img');
+
+	        img.src = `/images/${item.shopProfile}`;
+    	    img.className = 'recommandImg'; 
+            
+            // 상점 상세 정보 부분
+            const detail = document.createElement('div');
+
+            detail.textContent = `${item.shopName} / ${item.shopType}`; // 상점 이름과 평점
+            detail.className = 'recommandDetail'; // 스타일링 클래스
+
+            // <li>에 이미지와 상세 정보를 추가
+            li.appendChild(imgContainer);
+            li.appendChild(detail);
+
+            // <ul>에 <li> 추가
+            recommandList.appendChild(li);
+        });
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+}
+
+window.onload = () => {
+    random();
+};
 
 
 
