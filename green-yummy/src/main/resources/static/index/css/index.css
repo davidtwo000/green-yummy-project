@@ -95,59 +95,58 @@
 	background: salmon;
 }
 
-/* 카테고리 부분 */
-.category {
-    list-style: none;
-    display: flex; 
-    justify-content: space-around; 
-    padding: 10px 0 10px 0;
-	margin: 0 0 10px 0;
-	width: 100%;
-    
-	background: salmon;
-    /* border: 1px solid brown; */
+/*카페고리 부분*/
+
+
+.search-list{
+    display: flex;       
+    justify-content: center;
+    list-style-type: none; 
+    padding: 0;          
+    margin: 0;  
+    background: salmon;
+    width:1280px;
 }
-.category li {
-	width: 200px;
-/*     padding: 10px;  */
-	font: normal bold 15pt 'sans-serif';
-	border-radius: 50px;
-	cursor: pointer;
-	color: white;
+
+.search-list li {
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
 }
-.category li:hover{
-	color: black;
-	background: lemonchiffon;
-	transition: "all 300ms ease-in-out";
+
+.search-list li:hover {
+    background-color: #f0f0f0;
 }
-/* 추가 페이지. 토글 아코디언? */
-.submenus{
-	position: absolute;
-	z-index: 5;
-	top: 430px;
-	display: flex;
-	justify-content: space-evenly;
-	width: 960px;
-	
-	border: 2px solid gray;
-	background: lemonchiffon;
+
+.list-show {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
 }
-.submenus ul{
-	padding: 0px;
+
+.list-show ul {
+    display: none; 
+    flex-direction: row; 
+    list-style-type: none; 
+    padding: 0;    
+    margin: 0;
+    text-align:center; 
 }
-.submenus ul li{
-	line-height: 2em;
-	font-weight: bold;
-	cursor: pointer;
-	list-style-type: none;
+
+.list-show ul li {
+    cursor: pointer;
+    padding: 10px 15px;
+    margin: 5px; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f0f0f0;
 }
-.starSublist>ul>li{
-	margin: 0 30px 0 30px;
-	display: inline-block;
+
+.list-show ul li:hover {
+    background-color: #ddd;
+    color: #000;
 }
-.hide{
-	opacity: 0;
-}
+
 
 /* 최상단 메인 이미지 */
 .eventImgCon{
