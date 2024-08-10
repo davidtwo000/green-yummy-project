@@ -2,7 +2,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin: 100px 0 100px 0;
 }
 .innerContainer{
     display: flex;
@@ -14,41 +14,42 @@ main{
     border: 2px solid turquoise;
 }
 
-
-
-/*검색 결과란*/
-.OCRresult{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 1280px;
-    height: 100px;
-    background: lightgray;
+/* 도움말 부분 */
+.OCRhelp{
+	position:absolute;
+	top: 3px;
+	left: 270px;
 }
-input[type="text"]{
-    width: 1000px;
-    height: 50px;
-    border: none;
-    outline: none;
-    background: palegoldenrod;
+.OCRhelp span{
+	font-size: 10pt;
+	color: blue;
 }
-input[type="button"]{
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    border: onne;
-    background: skyblue;
+.OCRhelp img{
+	position: relative;
+	top: 3px;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
 }
-
 /*OCR 설명란*/
-h4{
-    padding-left: 10px;
-}
 .OCRexplain{
+/* 	position: absolute; */
+	position: relative;
+/* 	top: 150px; */
+/* 	left: 540px; */
+	top: -250px;
+	left: 20px;
     padding: 10px;
-	background: lightgray;
+	background: #f2f2f2;
+	opacity: 0.8;
 	
     border: 1px solid orange;
+}
+/* .invisible{ */
+/* 	opacity: 0; */
+/* } */
+h4{
+    padding-left: 10px;
 }
 .OCRexplain > ol > li{
 	box-sizing: border-box;
@@ -57,17 +58,72 @@ h4{
 	font: normal normal 10pt 'sans-serif';
 }
 
+
+/* 검색 부분 */
+.searchContainer{
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100px;
+	padding: 10px;
+}
+.searchContainer::before{
+	content:"";
+	background: #f2f2f2;
+	position: absolute;
+	z-index: -5;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.searchBar {
+	box-sizing: border-box;
+    width: 800px;
+    height: 50px;
+    display: inline-block; 
+    outline: none;
+    border-radius: 50px;
+    border: 2px solid salmon;
+    padding: 10px 10px 10px 20px;
+    background: white;
+    cursor: default;
+}
+.customSearchBtn, .OCRBtn{
+    width: 50px;
+    height: 50px;
+    display: inline-block; 
+    cursor: pointer; 
+}
+.customSearchBtn img {
+	position: absolute;
+	top: 3px;
+	width: 40px;
+	height: 40px;
+}
+.customSearchBtn{
+	position: absolute;
+	left: 1000px;
+	border-radius: 0 50px 50px 0;
+}
+.customSearchBtn{
+	background: salmon;
+}
+
+
 /*사진 삽입란*/
 .OCRsearch, input[type="file"]{
     width: 800px;
-    height: 600px;
+    height: 500px;
+    margin: 20px 0 20px 0;
     
     background: lightgray;
 }
 input[type="file"]{
-    position: relative;
+	position: absolute;
     z-index: 50;
-/*     top: 515px; */
     background: salmon;
     opacity: 0.5;
     display: hidden;

@@ -3,6 +3,9 @@ let storeSignImgInput = document.querySelector("#storeSign");
 let storeImgPlace = document.querySelector(".OCRsearch");
 let useComment = document.querySelector(".OCRsearch > span");
 
+let ocrQuestion = document.querySelector(".OCRhelp img");
+let ocrHelp = document.querySelector(".OCRexplain");
+
 let imgTag =document.createElement("img");
 
 
@@ -28,12 +31,15 @@ storeSignImgInput.onchange = (event) => {
         storeImgPlace.style.display = "none";
         useComment.style.display = "block";
     }
-    
-    
 }
 
-//삽입한 이미지를 서버로 보내는 함수(ocr 처리하기 위해서)
+ocrQuestion.onclick = () => {
+	if(ocrHelp.classList.contains("invisible")){
+		ocrHelp.classList.remove("invisible")
+		ocrHelp.style.transition = "opacity 300ms ease-in-out";
+	}else if(!ocrHelp.classList.contains("invisible")){
+		ocrHelp.classList.add("invisible");
+		ocrHelp.style.transition = "opacity 300ms ease-in-out";
+	}
+}
 
-//ocr 결과가 검색창에 뜨게 하는 함수
-
-//검색 버튼을 클릭하면 검색 결과 페이지(상세 페이지 말고)로 이동하는 함수
