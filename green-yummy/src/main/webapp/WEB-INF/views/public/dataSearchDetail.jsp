@@ -177,7 +177,7 @@
 			</div>
 			<hr>
 
-			<div class="random">
+			<div class="random" id="random">
 				<div class="randomRestaurant"></div>
 				<div class="randomRestaurant"></div>
 				<div class="randomRestaurant"></div>
