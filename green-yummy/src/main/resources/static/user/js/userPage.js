@@ -187,7 +187,7 @@ function myBookmarkList(data) {
                 </a>
 				<div class="bookmarkBtn">
 					<img src="/images/bookmark.png"
-					 onclick="bookmarkremove(${shop.userUkId}, ${shop.shopUkId})">
+					 onclick="bookmarkremove(${shop.shopUkId})">
 				</div>
 				
             </li>
@@ -200,9 +200,11 @@ function myBookmarkList(data) {
     bookmarkTabLink.textContent = `나의 맛집(${data.length}개)`;
 }
 
-function bookmarkremove(userUkId, shopUkId) {
-	console.log(userUkId);
-	console.log(shopUkId);
+
+function bookmarkremove(shopUkId) {
+	const userUkId = document.getElementById('userUkId').value; 
+	console.log("유저 아이디: "+userUkId);
+	console.log("가게 아이디: "+shopUkId);
 
 	fetch(`/bookmark/remove/${userUkId}/${shopUkId}`, {
 		method: 'DELETE',

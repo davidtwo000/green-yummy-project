@@ -5,6 +5,7 @@ main{
     margin: 100px 0 100px 0;
 }
 .innerContainer{
+	position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -35,16 +36,14 @@ main{
 /*OCR 설명란*/
 .OCRexplain{
 	position: absolute;
-/* 	position: relative; */
-	top: 150px;
-	left: 540px;
-/* 	top: -250px; */
-/* 	left: 20px; */
+	top: -150px;
+	left: 430px;
     padding: 10px;
 	background: #f2f2f2;
 	opacity: 0.8;
+	border-radius: 8px;
 	
-    border: 1px solid #f2f2f2;
+    border: 1px solid gray;
 }
 .invisible{
 	opacity: 0;

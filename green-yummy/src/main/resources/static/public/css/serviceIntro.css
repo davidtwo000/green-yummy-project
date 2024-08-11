@@ -16,11 +16,18 @@
     align-items: center;
 }
 
+h1{
+	margin: 30px 0 0 0;
+}
+
 /* 사진 + 설명 */
+
 .introBox{
 	margin: 20px;
 	border-radius: 8px;
 	border: 2px solid salmon;
+	
+	background: lemonchiffon;
 }
 .introBox p{
 	font: normal bold 35px 'sans-serif';
@@ -36,16 +43,51 @@
 	width: 700px;
 	height: 300px;
 	margin: 0 0 0 30px;
+	padding: 30px;
+	box-sizing: border-box;
 	
+	background: white;
+	border-radius: 8px;
 	border: 1px solid black;
 }
 .introText p{
+	margin: 0;
 	font: normal bold 15pt 'sans-serif';
+}
+.imgPlace, .imgPlace img{
+	width: 300px;
+	height: 300px;
+	border-radius: 8px;
 }
 .imgPlace{
 	float: left;
-	width: 300px;
-	height: 300px;
 	
 	border: 2px solid gray;
+}
+.letgo, .letgoMark,
+.letgo a, .letgoMark a{
+	position: relative;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 200px;
+	height: 50px;
+	font: normal bold 13pt 'sans-serif';
+	
+}
+.letgo{
+	top: 70px;
+	left: 450px;
+	border: 2px solid lightgray;
+}
+.letgoMark{
+	top: 110px;
+	left: 450px;
+	border: 2px solid lightgray;
+}
+.letgo img, .letgoMark img{
+	width: 30px;
+	height: 30px;
+	border-radius: 50px;
+	border: 2px solid lightgray;
 }
