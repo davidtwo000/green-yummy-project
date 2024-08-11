@@ -49,73 +49,56 @@ select{
 }
 
 
-/*모음집과 리뷰리스트가 정렬되는 공간*/
 /*바둑판 부분*/
-.invisible{
-	display: none;
-}
-.viewLook{
-	float: right;
-}
-.storeCollectGrid{
- 	display: grid; 
- 	grid-template: repeat(3, 1fr)/repeat(3, 1fr); 
- 	place-items: center center; 
-	width: 100%;
-	height: 1000px;
-	background: lemonchiffon;
-	
-}
-.storeAlbum{
-	width: 320px;
-	height: 320px;
-	margin: 40px 0 40px 0;
-	
-	border: 2px solid gray;
-}
-.storeAlbum > a > img{
-	width: 320px;
-	height: 250px;
-}
-.storeAlbum > a > span{
-	font: normal bold 13pt 'sans-serif';
-}
 
-/*리스트 부분*/
-.storeCollectList{
-	width: 100%;
-	height: 1000px;
+
+.myBookmarkList{
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(auto-fill, 1fr);
+	justify-items: center;
+	align-content: center;
+	width: 1280px;
+	padding: 0;
+	list-style-type: none;
 	
+/* 	border: 1px solid red; */
 }
-.storeList{
-	display: flex;
-	margin: 10px 0 10px 0;
-	padding: 10px;
-	background: white;
+.myBookmarkList li{
+	width: 300px;
+	margin: 5px;
 	border-radius: 10px;
-	border: 2px solid brown;
+	
+	border: 2px solid skyblue;
 }
-.storeList > img{
-	width: 200px;
-	height: 200px;
+.myBookmarkList img{
+	width: 300px;
+	height: 300px;
+	border-radius: 8px 8px 0 0;
 }
-.storeList > table{
-	box-sizing: border-box;
-	width: 1000px;
-	height: 200px;
-	margin-left: 10px;
-	border-collapse: collapse;
-}
-.storeList > table > tbody > tr > td{
+.bookShopInfo{
 	padding: 10px;
 }
-.storeList > table > tbody
- > tr:first-child > td:first-child{
+.bookShopInfo span:nth-of-type(1){
 	font: normal bold 15pt 'sans-serif';
 }
-.storeList > table > tbody >
- tr:first-child > 
- td:nth-child(2) > img{
-	width: 125px;
-	height: 20px;
+.bookShopInfo span:nth-of-type(2){
+	color: orange;
+	font: normal bold 13pt 'sans-serif';
 }
+.bookShopInfo span:nth-of-type(3){
+	color: gray;
+	font: normal normal 10pt 'sans-serif';
+}
+.bookmarkBtn, .bookmarkBtn img{
+	width: 40px;
+	height: 40px;
+}
+.bookmarkBtn{
+	background: white;
+	border-radius: 50px;
+	
+	border: 1px solid gray;
+}
+
+

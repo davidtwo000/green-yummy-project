@@ -107,8 +107,8 @@
 
 				</div>
 				
-				<div class="" id="myBookmark">
-					<ul class="" id="myBookmarkList">
+				<div class="myBookmark" id="myBookmark">
+					<ul class="myBookmarkList" id="myBookmarkList">
 					</ul>
 				</div>
 				

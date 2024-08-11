@@ -178,9 +178,13 @@ function myBookmarkList(data) {
         html += `
             <li>
                 <a href="/public/dataSearchDetail/${shop.shopUkId}">
-                    <img src="/images/${shop.shopProfile}" alt="${shop.shopName}" style="width: 100px; height: 100px;">
-                    <span>${shop.shopName}</span><br>
-                    ${shop.location}
+                    <img src="/images/${shop.shopProfile}" alt="${shop.shopName}">
+					<div class="bookShopInfo">
+					<span>${shop.shopName}</span>
+					<span>3.5</span>
+					<span>${shop.location}</span>
+					</div>
+                    
                 </a>
                 <button onclick="bookmarkremove(${shop.userUkId}, ${shop.shopUkId})">북마크 제거</button>
             </li>
