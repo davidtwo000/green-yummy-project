@@ -1,16 +1,12 @@
 let currentPage = 1;
 
-
-
-//보여지는 개수
-
 const itemsPerPage = 6;
 
 let shops = [];
 
 
 
-//아무것도 없을때 전체
+// 아무것도 없을 때 전체 리스트 로드
 
 function shoplist() {
 
@@ -32,8 +28,6 @@ function shoplist() {
 
 			shops = data;
 
-			console.log(data);
-
 			loadPage(currentPage);
 
 
@@ -50,8 +44,6 @@ function shoplist() {
 
 
 
-			console.log('Coordinates Map:', coordinatesMap);
-
 			map(coordinatesMap);
 
 		})
@@ -59,8 +51,6 @@ function shoplist() {
 		.catch(error => console.error('Error fetching shop data:', error));
 
 }
-
-
 
 
 
@@ -110,8 +100,6 @@ async function getShopRating(shopId) {
 
 
 
-
-
 async function displayShops(shops) {
 
 	const shopListElement = document.getElementById('shop-list');
@@ -126,19 +114,23 @@ async function displayShops(shops) {
 
 	try {
 
-		// 모든 평점 요청을 병렬로 실행
-
 		const ratings = await Promise.all(ratingRequests);
 
 
 
-		// 평점을 shops 배열에 추가
+
 
 		shops.forEach((shop, index) => {
 
 			shop.rating = ratings[index];
 
 		});
+
+
+
+		// 정렬 옵션이 필요하다면 여기에 추가
+
+		// 예: shops.sort((a, b) => b.rating - a.rating);
 
 
 
@@ -170,7 +162,7 @@ async function displayShops(shops) {
 
                             <span>${shop.openHours} ~ ${shop.closeHours}</span>
 
-                            <span>${shop.closedDays} 휴무</span>
+                            <span>휴무 ${shop.closedDays}</span>
 
                         </div>
 
@@ -204,7 +196,7 @@ async function displayShops(shops) {
 
 
 
-// 페이지 네비게이션을 업데이트하는 함수
+// 페이지 네비게이션 업데이트
 
 function updatePagination() {
 
@@ -248,120 +240,113 @@ function updatePagination() {
 
 
 
+// 쿼리 파라미터 추출
+
+const params = new URLSearchParams(window.location.search);
+
+const option = params.get('option');
+
+const content = params.get('content');
 
 
-//카테고리 클릭시
 
-function check(data) {
-   console.log(data);
+console.log('Option:', option);
 
-   let url = '';
-   if (data === 'all') {
-      url = '/shops/shopList';
-   } else if (data.startsWith('area')) {
-      const location = data.replace('area', ''); // 'area'를 제거하여 지역만 남기기
-      url = '/shops/findByLocation/' + encodeURIComponent(location);
-   } else if (data.startsWith('type')) {
-      const location = data.replace('type', ''); // 'type'을 제거하여 타입만 남기기
-      url = '/shops/findByType/' + encodeURIComponent(location);
-   }
+console.log('Content:', content);
 
-   fetch(url, {
-      method: 'GET',
-   })
-      .then(response => {
-         if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-         }
-         return response.json();
-      })
-      .then(data => {
-         if (data.length === 0) {
-            document.getElementById('shop-list').innerHTML = '검색된 가게가 없어요';
-            document.getElementById('pagination').innerHTML = ''
-            return;
-         }
 
-         shops = data;
-         currentPage = 1;
-         loadPage(currentPage);
 
-         const coordinatesMap = shops.map(shop => ({
-            shopUkId: shop.shopUkId,
-            shopName: shop.shopName,
-            latlng: new kakao.maps.LatLng(shop.latitude, shop.longitude)
-         }));
+function searchByIndex() {
 
-         map(coordinatesMap);
-      })
-      .catch(error => {
-         console.error('Error:', error);
-      });
+	let url = '';
+
+	if (!option && !content) {
+
+		url = '/shops/shopList';
+
+	} else if (option === 'name' && content) {
+
+		url = '/shops/findByShopName/' + encodeURIComponent(content); // URL 인코딩
+
+	} else if (option === 'area') {
+
+		url = '/shops/findByLocation/' + encodeURIComponent(content); // URL 인코딩
+
+	} else if (option === 'type') {
+
+		url = '/shops/findByType/' + encodeURIComponent(content); // URL 인코딩
+
+	}
+
+
+
+	console.log(url);
+
+
+
+	fetch(url, {
+
+		method: 'GET',
+
+	})
+
+		.then(response => {
+
+			if (!response.ok) {
+
+				throw new Error('Network response was not ok ' + response.statusText);
+
+			}
+
+			return response.json();
+
+		})
+
+		.then(data => {
+
+			if (data.length === 0) {
+
+				document.getElementById('shop-list').innerHTML = '검색된 가게가 없어요';
+
+				document.getElementById('pagination').innerHTML = '';
+
+				return;
+
+			}
+
+
+
+			shops = data;
+
+			currentPage = 1;
+
+			loadPage(currentPage);
+
+
+
+			const coordinatesMap = shops.map(shop => ({
+
+				shopUkId: shop.shopUkId,
+
+				shopName: shop.shopName,
+
+				latlng: new kakao.maps.LatLng(shop.latitude, shop.longitude)
+
+			}));
+
+
+
+			map(coordinatesMap);
+
+		})
+
+		.catch(error => {
+
+			console.error('Error:', error);
+
+		});
+
 }
-
-
-
-
-
-
-
-// 가게 검색하기
-
-function findShop(data) {
-   const findByOption = document.getElementById("findByOption");
-   const selectBox = document.getElementById('selectBox');
-
-
-   let url = '';
-   if (!findByOption.value && selectBox.value === '') {
-      url = '/shops/shopList';
-   } else if (selectBox.value === 'name' && findByOption.value) {
-      url = '/shops/findByShopName/' + encodeURIComponent(findByOption.value);
-   } else if (selectBox.value === 'area') {
-      url = '/shops/findByLocation/' + encodeURIComponent(findByOption.value);
-   } else if (selectBox.value === 'type') {
-      url = '/shops/findByType/' + encodeURIComponent(findByOption.value);
-   }
-
-   fetch(url, {
-      method: 'GET',
-   })
-      .then(response => {
-         if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-         }
-         return response.json();
-      })
-      .then(data => {
-         if (data.length === 0) {
-            document.getElementById('shop-list').innerHTML = '검색된 가게가 없어요';
-            document.getElementById('pagination').innerHTML = ''
-            return;
-         }
-
-         shops = data;
-         currentPage = 1;
-         loadPage(currentPage);
-
-         const coordinatesMap = shops.map(shop => ({
-            shopUkId: shop.shopUkId,
-            shopName: shop.shopName,
-            latlng: new kakao.maps.LatLng(shop.latitude, shop.longitude)
-         }));
-
-         map(coordinatesMap);
-      })
-      .catch(error => {
-         console.error('Error:', error);
-      });
-}
-
-
-
-
-
-
-
 
 
 
@@ -421,8 +406,6 @@ function map(coordinatesMap) {
 
 
 
-
-
 		kakao.maps.event.addListener(marker, 'mouseover', (function(marker, infowindow) {
 
 			return function() {
@@ -432,8 +415,6 @@ function map(coordinatesMap) {
 			};
 
 		})(marker, infowindow));
-
-
 
 
 
@@ -453,42 +434,18 @@ function map(coordinatesMap) {
 
 
 
-
-
-document.addEventListener('scroll', function() {
-
-
-
-}, { passive: true });
-
-
-
-document.querySelectorAll('.pagination span').forEach(page => {
-
-	page.addEventListener('click', function() {
-
-		document.querySelector('.pagination .page-number.active')?.classList.remove('active');
-
-
-
-		this.classList.add('active');
-
-	});
-
-});
-
-
-
-
+// 페이지 로드 시 함수 호출
 
 window.addEventListener('load', function() {
 
-	console.log("오픈");
+	if (option || content) {
 
-	shoplist();
+		searchByIndex();
 
-	map();
+	} else {
+
+		shoplist();
+
+	}
 
 });
-
-//여기까지 sg
