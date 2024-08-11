@@ -65,11 +65,12 @@ select{
 /* 	border: 1px solid red; */
 }
 .myBookmarkList li{
+	position: relative;
 	width: 300px;
 	margin: 5px;
 	border-radius: 10px;
 	
-	border: 2px solid skyblue;
+	border: 3px solid gray;
 }
 .myBookmarkList img{
 	width: 300px;
@@ -95,8 +96,12 @@ select{
 	height: 40px;
 }
 .bookmarkBtn{
+	position: absolute;
+	top: 10px;
+	left: 250px;
 	background: white;
 	border-radius: 50px;
+	cursor: pointer;
 	
 	border: 1px solid gray;
 }

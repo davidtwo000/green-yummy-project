@@ -184,9 +184,12 @@ function myBookmarkList(data) {
 					<span>3.5</span>
 					<span>${shop.location}</span>
 					</div>
-                    
                 </a>
-                <button onclick="bookmarkremove(${shop.userUkId}, ${shop.shopUkId})">북마크 제거</button>
+				<div class="bookmarkBtn">
+					<img src="/images/bookmark.png"
+					 onclick="bookmarkremove(${shop.userUkId}, ${shop.shopUkId})">
+				</div>
+				
             </li>
         `;
     });
