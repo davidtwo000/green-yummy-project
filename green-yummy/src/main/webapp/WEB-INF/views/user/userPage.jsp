@@ -102,14 +102,13 @@
 							<option value="">중식</option>
 							<option value="">양식</option>
 							<option value="">그 외</option>
-						</select> <img src="/images/orderByList.png" class="listview"> <img
-							src="/images/gridview.png" class="gridview">
+						</select> 
 					</div>
 
 				</div>
 				
-				<div class="" id="myBookmark">
-					<ul class="" id="myBookmarkList">
+				<div class="myBookmark" id="myBookmark">
+					<ul class="myBookmarkList" id="myBookmarkList">
 					</ul>
 				</div>
 				
