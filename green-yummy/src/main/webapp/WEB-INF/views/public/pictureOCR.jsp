@@ -26,10 +26,6 @@
 			</div>
 		</div>
         
-<!--         <div class="OCRresult"> -->
-<!--                 <input type="text" placeholder="이미지를 삽입해서 검색어를 입력하세요" readonly> -->
-<!--                 <input type="button" value="맛집 검색"> -->
-<!--             </div> -->
 
             
             <div class="OCRexplain invisible">
