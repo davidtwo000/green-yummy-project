@@ -146,6 +146,57 @@ function createReview(shopUkId) {
 	window.location.href = `/user/createReview/${shopUkId}`;
 }
 
+function random() {
+   fetch('/shops/random', { // 6개의 랜덤 데이터를 요청
+      method: 'GET'
+   })
+      .then(response => {
+         if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+         }
+         return response.json();
+      })
+      .then(data => {
+         console.log(data);
+         const filteredData = data.slice(0, 5);
+
+         const random = document.getElementById('random');
+         random.innerHTML = '';
+
+         filteredData.forEach(item => {
+            console.log(item);
+
+            const div = document.createElement('div');
+            div.className = 'randomRestaurant';
+
+            const imgContainer = document.createElement('div');
+            imgContainer.className = 'recommandImgContainer';
+            const img = document.createElement('img');
+
+            img.src = '/images/' + item.shopProfile;
+            img.className = 'recommandImg';
+            imgContainer.appendChild(img);
+
+            const detail = document.createElement('div');
+            detail.textContent = `${item.shopName} / ${item.shopType}`; // 상점 이름과 타입
+            detail.className = 'recommandDetail'; // 스타일링 클래스
+
+            div.appendChild(imgContainer);
+            div.appendChild(detail);
+
+            div.addEventListener('click', () => {
+               window.location.href = `/public/dataSearchDetail/${item.shopUkId}`;
+            });
+
+            random.appendChild(div);
+         });
+      })
+      .catch(error => {
+         console.error('There was a problem with the fetch operation:', error);
+      });
+}
+
+
 
 
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -164,5 +215,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 	averageRating(shopUkId);
 	fetchReviews(shopUkId);
+	random();
 });
 //여기까지 sg가 기능 구현한 것

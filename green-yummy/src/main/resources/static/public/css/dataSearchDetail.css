@@ -221,19 +221,33 @@ hr{
 /* 랜덤 추천 */
 .random {
     width: 100%;
-    height: 300px;
-/*     border: 1px solid gray; */
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
     margin-top: 20px;
-    
-    
 }
+
 .randomRestaurant{
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     border: 1px solid gray;
     margin: 10px;
+}
+
+.recommandImgContainer {
+    width: 200px;
+    height: 200px;
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recommandImg {
+    width: 100%;
+    height: auto;
 }
 
 /* 모달 창 */
