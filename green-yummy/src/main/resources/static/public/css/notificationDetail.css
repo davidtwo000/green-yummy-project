@@ -6,9 +6,13 @@ main{
     margin-top: 100px;
 }
 
+.tableContain{
+	margin-bottom: 30px;
+}
 .notifiDetail{
 	width: 1280px;
 	border-collapse: collapse;
+	margin-bottom: 10px;
 }
 
 .notifiDetail, .notifiDetail tr{
@@ -28,6 +32,29 @@ main{
 }
 
 .notifiDetail td{
+	padding-left : 10px;
 	background: #f8f8f8;
 }
 
+.thisContent{
+	height: 400px;
+}
+
+tr:last-child{
+	border-bottom: none;
+}
+
+.tableIn{
+	text-align: right;
+	padding-right: 10px;
+}
+
+.tableIn input[type="button"]{
+	width: 200px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    background: salmon;
+}

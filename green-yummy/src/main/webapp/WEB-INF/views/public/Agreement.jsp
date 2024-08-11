@@ -42,7 +42,7 @@
             
         
             <div class="agreeBtns">
-                <input type="button" value="뒤로">
+                <input type="button" value="뒤로" onclick="goBack()">
                 <input type="submit" value="다음" onclick="requireCheck()">
             </div>
             

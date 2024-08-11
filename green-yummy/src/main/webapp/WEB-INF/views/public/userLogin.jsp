@@ -37,8 +37,8 @@
                         </tr>
                     </table>
                     <div class="findNjoin">
-                    <p onclick="findIDPW()">아이디/비밀번호를 잊어버리셨나요?</p>
-                    <p onclick="userJoin()">아직 회원이 아니신가요?</p>
+                    <p onclick="findIDPW()">* 아이디/비밀번호를 잊어버리셨나요?</p>
+                    <p onclick="userJoin()">* 아직 회원이 아니신가요?</p>
                     </div>
                     
                     </form>
