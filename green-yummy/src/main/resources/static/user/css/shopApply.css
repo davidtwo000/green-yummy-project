@@ -77,3 +77,10 @@ input[type="reset"]{
 	border: none;
 	background: salmon;
 }
+
+#shopReason{
+	resize: none; 
+	font-size: 14px;
+	border : none;
+	background: #f2f2f2;
+}

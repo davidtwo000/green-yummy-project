@@ -44,6 +44,9 @@ function requireCheck(){
 	
 }
 
+function goBack(){
+	window.location.href="/public/userLogin";
+}
 
 
 /*
