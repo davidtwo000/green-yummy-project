@@ -3,17 +3,15 @@ let shopLocation = document.getElementById("shopLocation");
 let shopPhone = document.getElementById("shopPhone");
 let shopReason = document.getElementById("shopReason");
 
-
 let shopform = document.getElementById("shopApply");
 
 let phonereg = /[\d]{2,3}[\d]{3,4}[\d]{4}/;
 
 //내용을 적어야만 넘어가게 하는 함수. 불필요한 내용은 함수에서 삭제한다.
-function applyCheck(event){
+function applyCheck(){
 	
 	if(!shopName.value){
-		alert("가게명을 입력해 주세요.");
-		event.preventDefault();
+		alert("맛집 이름을 입력해 주세요.");
 		shopName.focus();
 		return false;
 	}
@@ -21,36 +19,31 @@ function applyCheck(event){
 	let foodTypeChecked = document.querySelector('input[name="foodType"]:checked');
 	if (!foodTypeChecked) {
         alert("음식 유형을 선택해 주세요.");
-        event.preventDefault();
         return false;
     }
     
 	if(!shopLocation.value){
-		alert("주소를 입력해 주세요.");
-		event.preventDefault();
+		alert("맛집 주소를 입력해 주세요.");
 		shopLocation.focus();
 		return false;
 	}
 	
 	if(!shopPhone.value){
-		alert("연락처를 입력해 주세요.");
-		event.preventDefault();
+		alert("맛집 연락처를 입력해 주세요.");
 		shopPhone.focus();
 		return false;
 	}else if(phonereg.test(shopPhone.value)==false){
 		alert("전화번호는 '-'를 제외하고 숫자만 입력해 주세요.");
-		event.preventDefault();
+		shopPhone.focus();
 		return false;
 	}
 	
 	if(!shopReason.value){
 		alert("신청 이유를 적어 주세요.");
-		event.preventDefault();
 		shopReason.focus();
 		return false;
 	}else if(shopReason.value.length > 300) {
         alert("신청 이유는 간단히 적어 주세요.");
-        event.preventDefault();
         shopReason.focus();
         return false;
     }

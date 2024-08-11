@@ -5,6 +5,7 @@ package com.example.demo.controller.userController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -19,6 +20,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.dto.publicDto.ShopDTO;
 import com.example.demo.dto.userDto.UserFormDTO;
+import com.example.demo.model.adminModel.Application;
+import com.example.demo.model.adminModel.ApplicationStatus;
 import com.example.demo.model.userModel.Bookmark;
 import com.example.demo.model.userModel.User;
 import com.example.demo.repository.userRepository.UserFindRepository;
@@ -26,6 +29,7 @@ import com.example.demo.service.publicService.ShopService;
 import com.example.demo.service.userService.BookmarkImpl;
 import com.example.demo.service.userService.BookmarkService;
 import com.example.demo.service.userService.ReviewService;
+import com.example.demo.service.userService.ShopApplyService;
 import com.example.demo.service.userService.UserServiceImpl;
 
 import jakarta.servlet.http.HttpSession;
@@ -59,9 +63,42 @@ public class UserController {
 	}
 	
 	@GetMapping("user/shopApply")
-	public String shopApply() {
+	public String shopApply(Model model) {
+		
+		User user = userService.getCurrentUser();
+        model.addAttribute("user", user); 
+        
 		return "user/shopApply";
 	}
+	
+	@Autowired
+	private ShopApplyService shopApplyService;
+	
+	@PostMapping("/applyShop")
+	public String applyShop(@RequestParam("shopName") String shopName,
+            @RequestParam("foodType") String foodType,
+            @RequestParam("shopLocation") String shopLocation,
+            @RequestParam("shopPhone") String shopPhone,
+            @RequestParam("shopReason") String shopReason, 
+            @RequestParam("userUkId") int userUkId) {
+		
+		User user = new User();
+        user.setUserUkId(userUkId);
+        
+		Application application = new Application();
+        application.setApplicationShopName(shopName);
+        application.setApplicationShopType(foodType);
+        application.setApplicationShopLocation(shopLocation);
+        application.setApplicationReason(shopReason);
+        application.setApplicationDate(LocalDateTime.now());
+        application.setApplicationStatus(ApplicationStatus.PENDING);
+        application.setUser(user);
+		
+        shopApplyService.saveApplication(application);
+        
+		return "user/userPage";
+	}
+	
 	
 	@GetMapping("user/userPage")
 	public String review(Model model) {
