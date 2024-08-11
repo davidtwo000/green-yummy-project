@@ -52,16 +52,24 @@
 
 <main>
     <div class="notiContainer">
-        <div>
+        <div class="SearchBar">
            	<form method="get" action="/public/notification">
-           		총 페이지 : ${totalPages}
-           		<select name="searchType">
-                    <option value="titleContent" <c:if test="${param.searchType == 'titleContent'}">selected</c:if>>제목과 본문</option>
-                    <option value="title" <c:if test="${param.searchType == 'title'}">selected</c:if>>제목</option>
-                    <option value="content" <c:if test="${param.searchType == 'content'}">selected</c:if>>본문</option>
-                </select>
-                <input type="text" placeholder="검색어를 입력하세요" name="searchKeyword" value="${param.searchKeyword}">
-                <input type="submit" value="검색">
+           	<table class="SearchTab">
+           	<tr>
+           		<th class="SearchTot">
+           			총 페이지 : ${totalPages}
+           		</th>
+           		<th class="SearchTyp">
+           			<select name="searchType">
+	                    <option value="titleContent" <c:if test="${param.searchType == 'titleContent'}">selected</c:if>>제목과 본문</option>
+	                    <option value="title" <c:if test="${param.searchType == 'title'}">selected</c:if>>제목</option>
+	                    <option value="content" <c:if test="${param.searchType == 'content'}">selected</c:if>>본문</option>
+	                </select>
+	                <input type="text" placeholder="검색어를 입력하세요" name="searchKeyword" value="${param.searchKeyword}">
+	                <input type="submit" value="검색">
+           		</th>
+           	</tr>           	
+           	</table>
             </form>
         </div>
     
@@ -105,7 +113,7 @@
 		    
 		    <c:forEach begin="${startPage}" end="${endPage}" var="i">
 		        <c:if test="${i == currentPage}">
-		            <input type="button" value="${i}" disabled>
+		            <input type="button" value="${i}" class="disButt" disabled>
 		        </c:if>
 		        <c:if test="${i != currentPage}">
 		            <input type="button" value="${i}" onclick="goNumPage(${i})">

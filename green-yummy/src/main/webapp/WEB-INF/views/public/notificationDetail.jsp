@@ -15,7 +15,7 @@
 <jsp:include page="../public/header.jsp"/>
 <main>
 	
-	<div>
+	<div class="tableContain">
 		<table class="notifiDetail">
 			<tr>
 				<th>제목</th>
@@ -31,12 +31,15 @@
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td colspan="3">${notice.content}</td>
+				<td colspan="3" class="thisContent">${notice.content}</td>
 			</tr>
-			<tr>
-				<td colspan="4"><input type="button" value="목록으로 돌아가기" onclick="goNotificationList()"></td>
-			</tr>
+			
+				
+			
 		</table>
+		<div class="tableIn">
+			<input type="button" value="목록으로 돌아가기" onclick="goNotificationList()">
+		</div>
 	</div>
 	
    
