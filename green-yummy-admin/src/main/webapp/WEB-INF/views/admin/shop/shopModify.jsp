@@ -126,10 +126,10 @@
     <div class="header1">
         <span><a href="/admin/shopList?page=1" id="a">Back to Dashboard</a></span>
     </div>
-    <form action="/admin/shopModify" method="post">
+    <form action="/admin/shopModify" method="post" enctype="multipart/form-data">
     <div class="container">
         <div class="profile-image">
-            <img src="/admin/images/${shopDTO.shopProfile}" alt="Shop Profile">
+            <input type="file" name="shopProfileFile" accept="image/*">
         </div>
         
         <table class="details">
