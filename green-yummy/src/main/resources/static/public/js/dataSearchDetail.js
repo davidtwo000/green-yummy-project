@@ -78,10 +78,11 @@ function displayReviews(reviews) {
 			if (!event.target.classList.contains('review-checkbox')) {
 				modalBody.innerHTML = `
 					${review.reviewImg ? `<img src="/upload/${review.reviewImg}" alt="Review Image" class="review-detail-img" />` : ''}
-					<div> 작성자 ${review.user.id}</div>
-					<div>${review.reviewRating}</div>
-					<div>${formattedComment}</div>
-					<div>${review.reviewContent}</div>
+					<div class="reviewUser"><span> ${review.user.id}</span>
+					<span>${review.reviewRating}</span>
+					<span>${review.reviewDate.substr(2, 8)}</span></div>
+					<div class="userComment"><p>${formattedComment}</p>
+					${review.reviewContent}</div>
 				`;
 				modal.style.display = 'block';
 			}
@@ -178,8 +179,12 @@ function random() {
             imgContainer.appendChild(img);
 
             const detail = document.createElement('div');
-            detail.textContent = `${item.shopName} / ${item.shopType}`; // 상점 이름과 타입
+			const detailType = document.createElement('span');
+            detail.textContent = `${item.shopName}`; // 상점 이름과 타입
+			detail.appendChild(detailType);
+			detailType.textContent = `${item.shopType}`;
             detail.className = 'recommandDetail'; // 스타일링 클래스
+			detailType.className = 'detailType';
 
             div.appendChild(imgContainer);
             div.appendChild(detail);
