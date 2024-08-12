@@ -153,6 +153,8 @@ public class ReviewRestController {
         return new ResponseEntity<>(reviews, HttpStatus.OK);
     }
     
+   
+    
     
     //리뷰 평균 평점 조회
     @GetMapping("/rating/{shopUkId}")

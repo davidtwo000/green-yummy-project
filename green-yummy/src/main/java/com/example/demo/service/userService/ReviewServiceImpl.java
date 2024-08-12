@@ -198,7 +198,8 @@ public class ReviewServiceImpl implements ReviewService {
 	public boolean hasUserReviewedShop(Integer userUkId, Integer shopUkId) {
         return reviewRepository.existsByUserAndShop(userUkId, shopUkId);
     }
-
+	
+	
 
 
 }

@@ -41,7 +41,6 @@
 			<ul class="search-list" id="search-list">
 				<li onclick="search('area')">지역별</li>
 				<li onclick="search('type')">업종별</li>
-				<li onclick="search('rating')">평점별</li>
 			</ul>
 
 			<div class="list-show">

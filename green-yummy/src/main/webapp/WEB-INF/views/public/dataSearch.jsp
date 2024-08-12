@@ -47,7 +47,6 @@
 			<ul class="search-list" id="search-list">
 				<li onclick="search('area')">지역별</li>
 				<li onclick="search('type')">업종별</li>
-				<li onclick="search('rating')">평점별</li>
 			</ul>
 
 			<div class="list-show">
@@ -89,17 +88,12 @@
 			<script type="text/javascript"
 				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=349c2cb0976e7672467f9c85e9839ed5"></script>
 
-			<div class="sortOptions">
+			<div class="sortOptions" id="sortOptions">
 				<label> <input type="radio" name="sort" value="ratingAsc">
 					평점 낮은 순
 				</label> <label> <input type="radio" name="sort" value="ratingDesc">
 					평점 높은 순
-				</label> <label> <input type="radio" name="sort"
-					value="alphabetical"> 리뷰 많은 순
 				</label>
-
-
-
 			</div>
 
 
