@@ -13,6 +13,8 @@ INSERT INTO users (id, nickname, password, name, email, phone, IS_ADMIN) VALUES
 ('indiaInd', 'india00', '$2b$12$4rJ6xGU4whJ.RBP.7a1ttOwkKR9xi/1AS1cVWnpj2ZwW/JCWo/wRW', '윤지혁', 'india00@naver.com', '01090123456', 0), -- 비밀번호: IndiaInd#00
 ('juliettJ', 'juliettJ', '$2b$12$Pm4F3V.R8spo.FQMMhSwf.Q4u0HEMJTC6Bvtm/GY81tt4y.YaFeQa', '박성호', 'juliettJ@gmail.com', '01091234567', 0); -- 비밀번호: Juliett!99
 
+-- 어드민 아이디/비밀번호 admin/admin 
+INSERT INTO users (id, name, password, email, phone, profile, nickname, IS_ADMIN) VALUES ('admin', 'admin', '$2a$10$v95g76gFHcfRQHQCoPR6GeIeUXP4JhCIt3UPyO13XcjEN6Xw8w2Oy', 'admin1@gmail.com', '010-1234-5678', '프로필.png', 'admin', 1);
 
 
 INSERT INTO Notifications (author, title, content, post_date, view_count)
