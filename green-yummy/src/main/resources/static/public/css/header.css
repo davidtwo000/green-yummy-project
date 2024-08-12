@@ -23,13 +23,45 @@ header{
     height: 128px;
 }
 
-.loginplace a{
+/* 로그인 이후의 로그아웃 텍스트 */
+.iamUser{
+	position:relative;
+	top: -50px;
+	margin-right: 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	vertical-align: middle;
+}
+.loginplace .iamUser span{
+	position: relative;
+	top: -1px;
+	margin: 0 20px 0 5px;
+	font: normal bold 15pt 'sans-serif';
+}
+.hereLogin{
 	position: relative;
 	top: -50px;
 	margin-right: 40px;
 	font: normal bold 15pt 'sans-serif';
 }
-
+.logoutLogo, .logoutLogo a img{
+	width: 30px;
+	height: 30px;
+	border-radius: 50px;
+}
+.logoutLogo{
+	padding: 5px;
+	background: indigo;
+	overflow: hidden;
+}
+.logoutLogo a{
+	margin: 0;
+}
+.logoutLogo a img{
+	position: relative;
+	left: 3px;
+}
 .btnAndLogin{
 	display: flex;
 	flex-direction: column;
