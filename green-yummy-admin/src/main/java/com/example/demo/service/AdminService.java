@@ -156,7 +156,7 @@ public class AdminService implements UserDetailsService {
     }
     
     // 가게 업데이트
-    public void updateShop(int id, String shopName, String shopType, String location, String shopTel, String openHours, String closeHours, String closedDays, MultipartFile shopProfileFile) {
+    public void updateShop(int id, String shopName, String shopType, String location, String shopTel, String openHours, String closeHours, String closedDays, MultipartFile shopProfileFile, String shopProfile) {
         Shop shop = shopRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("Shop not found with id: " + id));
 
@@ -178,6 +178,8 @@ public class AdminService implements UserDetailsService {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }else {
+        	shop.setShopProfile(shopProfile);
         }
         // 데이터베이스에 저장
         shopRepository.save(shop);

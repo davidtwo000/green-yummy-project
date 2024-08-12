@@ -1,6 +1,10 @@
-let recImgs = document.querySelectorAll('.recommandList > li');
-let recImgNum = recImgs.length;
+//let recImgs = document.querySelectorAll('.recommandList > li');
+////let recImgs = document.querySelecorAll('.recommandDetail > li');
+//let recImgNum = recImgs.length;
 let recImgList = document.querySelector('.recommandList');
+
+//recCloneLi();
+
 let recImgPrev = document.querySelector('.recPrevBtn');
 let recImgNext = document.querySelector('.recNextBtn');
 
@@ -12,7 +16,7 @@ let recImgWidth =380;
 let recImgMargin = 40;
 
 //li를 복제해서 앞뒤로 붙인다.
-recCloneLi();
+//recCloneLi();
 
 //function recCloneLi(){
 //	
@@ -30,16 +34,26 @@ recCloneLi();
 
 function recCloneLi(){
 	
-	for(let i=0;i<recImgNum/2;i++){
-		let clone = recImgs[i].cloneNode(true);
-		clone.classList.add("cloneNext");
-		recImgList.appendChild(clone);//오른쪽에 붙였다
-	}
-	for(let j=5;j>=3;j--){
-		let clone = recImgs[j].cloneNode(true);
-		clone.classList.add("clonePrev");
-		recImgList.prepend(clone);
-	}
+//	for(let i=0;i<recImgNum/2;i++){
+//		let clone = recImgs[i].cloneNode(true);
+//		clone.classList.add("cloneNext");
+//		recImgList.appendChild(clone);//오른쪽에 붙였다
+//	}
+//	for(let j=5;j>=3;j--){
+//		let clone = recImgs[j].cloneNode(true);
+//		clone.classList.add("clonePrev");
+//		recImgList.prepend(clone);
+//	}
+
+//length-idx 라면 거꾸로도 될지도
+	
+			let clonenext =item.cloneNode(true);
+			clonenext.classList.add("cloneNext");
+			recommandList.appendChild(clone);//오른쪽에 붙였다
+			
+			let cloneprev = item.cloneNode(true);
+			cloneprev.classList.add("clonePrev");
+			recommandList.prepend(clone);
 }
 
 //클릭하면 앞뒤로 이동. 무한루프
@@ -108,14 +122,18 @@ function random() {
 
         // <ul> 요소 선택
         const recommandList = document.getElementById('recommandList');
+		
+		//hm 추가작성. 복제함수용
 
         // 기존 <li> 요소를 모두 제거
         recommandList.innerHTML = '';
+		
+		const li = document.createElement('li');
 
         // 데이터 배열을 순회하며 리스트 아이템 생성
         data.forEach(item => {
 
-            const li = document.createElement('li');
+            
 
             // 상점 이미지 부분
             const imgContainer = document.createElement('div');
@@ -145,12 +163,14 @@ function random() {
             
             // <ul>에 <li> 추가
             recommandList.appendChild(li);
+			
         });
     })
     .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
     });
 }
+
 
 window.onload = () => {
     random();

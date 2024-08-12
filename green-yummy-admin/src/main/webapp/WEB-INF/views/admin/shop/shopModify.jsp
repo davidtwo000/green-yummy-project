@@ -49,7 +49,11 @@
         }
         .profile-image {
             flex: 1;
-            text-align: center;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+            height:80%;
         }
         .profile-image img {
         	margin-top:15px;
@@ -129,9 +133,14 @@
     <form action="/admin/shopModify" method="post" enctype="multipart/form-data">
     <div class="container">
         <div class="profile-image">
-            <input type="file" name="shopProfileFile" accept="image/*">
+        	<label style="margin-bottom:20px;">이미지 파일 선택</label>
+            <input type="file" name="shopProfileFile" accept="image/*" style="margin-bottom:30px;">
+            <c:if test="${not empty shopDTO.shopProfile}">
+                <b>현재 이미지:</b>
+                <img src="/admin/images/${shopDTO.shopProfile}" alt="Shop Image" style="width: 250px; height: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+            </c:if>
         </div>
-        
+        <input type="hidden" name="shopProfile" value="${shopDTO.shopProfile}">
         <table class="details">
             <tr>
                 <th>항목</th>

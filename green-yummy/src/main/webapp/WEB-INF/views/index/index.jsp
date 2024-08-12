@@ -26,7 +26,7 @@
 				<option value="area">지역별</option>
 				<option value="type">업종별</option>
 			</select> <input type="text" id="findByOption" class="searchBar"
-				name="findByOption" placeholder="검색어를 입력하세요">
+				name="findByOption" placeholder="검색어를 입력하세요" onkeydown="pressEnter(event)">
 			<div class="customSearchBtn">
 				<img src="/images/search.png" id="seachBtn" onclick="searchBytext()">
 			</div>

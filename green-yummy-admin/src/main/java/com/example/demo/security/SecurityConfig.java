@@ -23,6 +23,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.INCLUDE).permitAll()
                 .requestMatchers("/resources/static/admin/**").permitAll()
+                .requestMatchers("/").permitAll()
                 .requestMatchers("/admin/login").permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
@@ -30,7 +31,7 @@ public class SecurityConfig {
             .formLogin(form -> form
                 .loginPage("/admin/login")
                 .loginProcessingUrl("/admin/login")
-                .defaultSuccessUrl("/admin/main",true)
+                .defaultSuccessUrl("/admin/main")
                 .failureUrl("/admin/login?message=loginFail")
                 .usernameParameter("id")
                 .passwordParameter("pw")
@@ -48,7 +49,7 @@ public class SecurityConfig {
                 .invalidSessionUrl("/admin/login?message=noSession")
                 .sessionFixation().migrateSession()
                 .maximumSessions(1)
-                .maxSessionsPreventsLogin(true)
+                .maxSessionsPreventsLogin(false)
             )
             .headers(headers -> headers
                 .frameOptions(frameOptions -> frameOptions

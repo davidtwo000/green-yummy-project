@@ -495,6 +495,7 @@ public class AdminController {
     		@RequestParam("shopProfileFile") MultipartFile shopProfileFile,
     		@RequestParam("id") Integer id,
             @RequestParam("shopName") String shopName,
+            @RequestParam("shopProfile") String shopProfile,
             @RequestParam("shopType") String shopType,
             @RequestParam("location") String location,
             @RequestParam("shopTel") String shopTel,
@@ -502,7 +503,7 @@ public class AdminController {
             @RequestParam("closeHours") String closeHours,
             @RequestParam("closedDays") String closedDays,
             Model model) {
-    	adminService.updateShop(id,shopName,shopType,location,shopTel,openHours,closeHours,closedDays,shopProfileFile);
+    	adminService.updateShop(id,shopName,shopType,location,shopTel,openHours,closeHours,closedDays,shopProfileFile,shopProfile);
         return "redirect:/admin/shopDetail?id=" + id + "&message=modify";
     }
     
