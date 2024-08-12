@@ -1,5 +1,7 @@
 
-
+.recommandDetail, .detailType{
+	text-overflow: ellipsis;
+}
 .recommandDetail{
 	padding: 10px 0 10px 0;
 	font: normal bold 15pt 'sans-serif';

@@ -56,89 +56,22 @@
 	height: 50px;
 	cursor: pointer;
 }
-.searchBar {
+.searchBar, .selectBox{
 	box-sizing: border-box;
-    width: 800px;
-    height: 50px;
-    display: inline-block; 
-    outline: none;
-    border-radius: 50px;
-    border: 2px solid salmon;
-    padding: 10px 10px 10px 20px;
-    background: white;
-    
-    /* border: 1px solid brown; */
+	padding: 10px 10px 10px 20px;
+	outline: none;
+	border: 2px solid salmon;
+	border-radius: 50px;
 }
-.customSearchBtn, .OCRBtn{
-    width: 50px;
-    height: 50px;
-    display: inline-block; 
-    cursor: pointer; 
-}
-.customSearchBtn img {
-	position: relative;
-	top: 3px;
-	width: 40px;
-	height: 40px;
-}
-.customSearchBtn{
-	position: relative;
-	left: -50px;
-	border-radius: 0 50px 50px 0;
-}
-.OCRBtn{
-	margin-left: 20px;
-}
-.customSearchBtn{
-	background: salmon;
-}
-
-/* 검색 부분 */
-
-.searchContainer{
-	position: relative;
-	display: flex;
-	justify-content: center;
-	width: 100%;
-	height: 50px;
-	padding: 10px;
-}
-.searchContainer::before{
-	content:"";
-	background: #f2f2f2;
-	position: absolute;
-	z-index: -5;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-}
-.ocricon{
-	position: relative;
-	top: -3px;
-	width: 50px;
-	height: 50px;
-	border: 4px solid gray;
-	border-radius: 5px;
-	background: white;
-}
-.ocricon img{
-	width: 50px;
-	height: 50px;
+.selectBox{
 	cursor: pointer;
 }
 .searchBar {
-	box-sizing: border-box;
     width: 800px;
     height: 50px;
     display: inline-block; 
-    outline: none;
-    border-radius: 50px;
-    border: 2px solid salmon;
-    padding: 10px 10px 10px 20px;
+    margin-left: 10px;
     background: white;
-    
-    /* border: 1px solid brown; */
 }
 .customSearchBtn, .OCRBtn{
     width: 50px;
@@ -164,50 +97,22 @@
 	background: salmon;
 }
 
-/*카페고리 부분*/
 
 
-.search-list{
-    display: flex;       
-    justify-content: center;
-    list-style-type: none; 
-    padding: 0;          
-    margin: 0;  
-    background: salmon;
-    width:1280px;
-}
 
-.search-list li {
-    cursor: pointer;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.search-list li:hover {
-    background-color: #f0f0f0;
-}
-
-.list-show {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; 
-}
-
-.list-show ul {
-    display: none; 
-    flex-direction: row; 
-    list-style-type: none; 
-    padding: 0;    
-    margin: 0;
-    text-align:center; 
-}
 
 /* 라디오 버튼 조정 */
 .sortOptions { /*밑에 있다. 마진 20. 나중에 합칠 것*/
+	box-sizing: border-box;
 	width: 1280px;
+	padding: 10px 10px 10px 30px;
+	text-align: left;
+	font-weight: bold;
 	border-radius: 8px;
+	background: #fed6d1;
 	border: 2px solid pink;
 }
+
 
 /* 지도 */
 .map {
@@ -238,7 +143,7 @@
 	margin: 0 auto;
 	box-sizing: border-box;
 	margin-top: 20px;
-	justify-content: flex-start;
+	justify-content: center;
 }
 
 .shop-item {
@@ -248,6 +153,7 @@
 	border-radius: 5px;
 	display: flex;
 	flex-direction: column;
+	cursor: pointer;
 }
 
 .shop-profile {
@@ -266,11 +172,22 @@
 }
 
 .shopName {
-	font-size: 30px;
+	font: normal bold 30px 'sans-serif';
 }
-
+.infoFirst, .infoSecond,
+.shopInfos p{
+	text-align: left;
+}
 .infoFirst {
 	padding: 20px 0 20px 0; 
+}
+.infoFirst span:nth-of-type(2){
+	font: normal bold 15pt 'sans-serif';
+	color: orange;
+}
+.infoFirst span:nth-of-type(n+3){
+	font-size: 11pt;
+	color: gray;
 }
 
 /*카페고리 부분*/
@@ -280,29 +197,37 @@
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
+	border-radius: 50px;
 	background: salmon;
 	width: 1280px;
 }
 
 .search-list li {
+	box-sizing: border-box;
 	cursor: pointer;
-	padding: 10px;
-	border-bottom: 1px solid #ddd;
+	height: 40px;
+	padding: 10px 20px 10px 20px;
+	margin: 10px;
+	font: normal bold 13pt 'sans-serif';
+	
+	border-radius: 50px;
 }
 
 .search-list li:hover {
-	background-color: #f0f0f0;
+/* 	background-color: #f0f0f0; */
+	background-color: lemonchiffon;
+	transition: 200ms ease-in-out;
 }
 
 .list-show {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	gap: 20px;
 }
 
 .searchByArea, .searchByType, .searchByRating {
 	display: flex;
-	flex-direction: row;
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
@@ -324,6 +249,7 @@
 	border-radius: 5px;
 	background-color: #f0f0f0;
 	text-align: center;
+	font-weight: bold;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -340,12 +266,20 @@
 }
 
 .pagination span {
-	margin: 0 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 20px;
+	height: 20px;
+	margin: 0 5px 0 5px;
 	cursor: pointer;
-	padding: 5px 10px;
+	padding: 10px;
+	font-weight: bold;
+	border: 2px solid salmon;
+	border-radius: 5px;
 }
 
 .pagination span.current {
-	background-color: salmon;
-	color: white;
+	background-color: #feedeb;
+	color: #b31706;
 }
