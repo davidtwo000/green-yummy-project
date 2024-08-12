@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.dto.AnnounceDTO;
 import com.example.demo.dto.RequestDTO;
@@ -102,7 +103,7 @@ public class AdminController {
     @PostMapping("/userDelete")
     public String userDelete(Model model, @RequestParam("id") Integer id) {
     	adminService.deleteUser(id);
-        return "redirect:/admin/userList";
+        return "redirect:/admin/userList?message=delete";
     }
 
     // Announce
@@ -172,7 +173,7 @@ public class AdminController {
     }
 
     @GetMapping("/announceCreate")
-    public String announceCreate(Model model) {
+    public String announceCreate() {
         return "admin/announce/announceCreate";
     }
     
@@ -183,7 +184,7 @@ public class AdminController {
     		Model model) {
     	
     	adminService.createAnnounce(title, content);
-        return "redirect:/admin/announceList";
+        return "redirect:/admin/announceList?message=create";
     }
     
     @GetMapping("/announceModify")
@@ -200,13 +201,13 @@ public class AdminController {
             @RequestParam("content") String content,
             Model model) {
     	adminService.updateAnnounce(id,title,content);
-        return "redirect:/admin/announceDetail?id=" + id;
+        return "redirect:/admin/announceDetail?id=" + id + "&message=modify";
     }
     
     @PostMapping("/announceDelete")
     public String announceDelete(Model model, @RequestParam("id") Integer id) {
     	adminService.deleteAnnounce(id);
-        return "redirect:/admin/announceList";
+        return "redirect:/admin/announceList?message=delete";
     }
 
     // Review
@@ -276,7 +277,7 @@ public class AdminController {
     @PostMapping("/reviewDelete")
     public String reviewDelete(Model model, @RequestParam("id") Integer id) {
     	adminService.deleteReview(id);
-        return "redirect:/admin/reviewList";
+        return "redirect:/admin/reviewList?message=delete";
     }
 
     // Request
@@ -388,13 +389,13 @@ public class AdminController {
     @PostMapping("/requestStatus")
     public String requestStatus(Model model, @RequestParam("id") Integer id, @RequestParam("status") String status) {
     	adminService.updateRequest(id, status);
-        return "redirect:/admin/requestList";
+        return "redirect:/admin/requestList?message=modify";
     }
     
     @PostMapping("/requestDelete")
     public String requestDelete(Model model, @RequestParam("id") Integer id) {
     	adminService.deleteRequest(id);
-        return "redirect:/admin/requestList";
+        return "redirect:/admin/requestList?message=delete";
     }
     
     // Shop
@@ -461,9 +462,53 @@ public class AdminController {
         return "admin/shop/shopDetail";
     }
     
+    @GetMapping("/shopCreate")
+    public String shopCreate() {
+        return "admin/shop/shopCreate";
+    }
+    
+    @PostMapping("/shopCreate")
+    public String shopCreatePerform(
+    		@RequestParam("shopProfileFile") MultipartFile shopProfileFile,
+            @RequestParam("shopName") String shopName,
+            @RequestParam("shopType") String shopType,
+            @RequestParam("location") String location,
+            @RequestParam("shopTel") String shopTel,
+            @RequestParam("openHours") String openHours,
+            @RequestParam("closeHours") String closeHours,
+            @RequestParam("closedDays") String closedDays,
+    		Model model) {
+    	
+    	adminService.createShop(shopProfileFile,shopName,shopType,location,shopTel,openHours,closeHours,closedDays);
+        return "redirect:/admin/shopList?message=create";
+    }
+    
+    @GetMapping("/shopModify")
+    public String shopModify(Model model, @RequestParam("id") Integer id) {
+    	ShopDTO shopDTO = adminService.getShopById(id);
+        model.addAttribute("shopDTO", shopDTO);
+        return "admin/shop/shopModify";
+    }
+    
+    @PostMapping("/shopModify")
+    public String shopModifyPerform(
+    		@RequestParam("shopProfileFile") MultipartFile shopProfileFile,
+    		@RequestParam("id") Integer id,
+            @RequestParam("shopName") String shopName,
+            @RequestParam("shopType") String shopType,
+            @RequestParam("location") String location,
+            @RequestParam("shopTel") String shopTel,
+            @RequestParam("openHours") String openHours,
+            @RequestParam("closeHours") String closeHours,
+            @RequestParam("closedDays") String closedDays,
+            Model model) {
+    	adminService.updateShop(id,shopName,shopType,location,shopTel,openHours,closeHours,closedDays,shopProfileFile);
+        return "redirect:/admin/shopDetail?id=" + id + "&message=modify";
+    }
+    
     @PostMapping("/shopDelete")
     public String shopDelete(Model model, @RequestParam("id") Integer id) {
     	adminService.deleteShop(id);
-        return "redirect:/admin/shopList";
+        return "redirect:/admin/shopList?message=delete";
     }
 }

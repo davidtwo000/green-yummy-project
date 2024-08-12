@@ -20,66 +20,7 @@ main{
     width: 1280px;
 }
 
-table{
-    width: 1280px;
-    border-collapse: collapse;
-}
-table, tr{
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-}
-tr:first-child{
-    font-weight: bold;
-    text-align: center;
-    background: lightgray;
-}
-tr:not(first-child){
-    background: #f8f8f8;
-}
-td{
-    padding: 10px;
-}
-td:nth-child(1), td:nth-child(5){
-    width: 50px;
-}
-
-td:not(:nth-child(3)){
-    text-align: center;
-}
-td:nth-child(2), td:nth-child(4){
-    width: 100px;
-}
-tr:not(:first-child) td:nth-child(3){
-	text-align:center;
-}
-
-
-
-
-.pagination{
-	margin-top: 10px;
-	margin-bottom: 30px;	
-}
-
-.pagination > input[type = "button"]{
-    width: 30px;
-    height: 30px;
-    font-weight: bold;
-    font-size: 14px;
-    border: none;
-    cursor: pointer;
-    background: salmon;
-}
-
-.pagination > .disButt{
-	width: 30px;
-    height: 30px;
-    font-weight: bold;
-    font-size: 14px;
-    border: none;
-    background: pink !important;
-}
-
+/* 상단 셀렉트 */
 .SearchBar{
 	width: 1280px;
     padding-top: 10px;
@@ -91,9 +32,9 @@ tr:not(:first-child) td:nth-child(3){
     justify-content: center;
     align-items: center;               
 }
-
 .SearchTab{
 	width:1200px;
+	border: none;
 }
 .SearchTot{
 	border-top: 1px solid white;
@@ -115,13 +56,104 @@ tr:not(:first-child) td:nth-child(3){
 	margin: 0;
 	padding: 0;
 	height: 30px;
+	cursor: pointer;
+	border: 2px solid black;
+	outline: none;
 }
 .SearchTyp input[type="text"]{
 	margin: 0;
 	height: 24px;
+	border: 2px solid black;
+	outline: none;
 }
 .SearchTyp input[type="submit"]{
+	position: relative;
+	top: 2px;
 	margin: 0;
 	height: 28px;
+	cursor: pointer;
+	font: normal bold 12pt 'sans-serif';
+	border: none;
+	background: lightgray;
+	border-radius: 5px;
 }
+
+table{
+    width: 1280px;
+    border-collapse: collapse;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+tr{
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+}
+/* table, tr{ */
+/*     border-top: 1px solid black; */
+/*     border-bottom: 1px solid black; */
+/* } */
+tr:first-child{
+    font-weight: bold;
+    text-align: center;
+    background: lightgray;
+}
+tr:not(first-child){
+	background: white;
+/*     background: #f8f8f8; */
+}
+td{
+    padding: 10px;
+}
+td:nth-child(1), td:nth-child(5){
+    width: 50px;
+}
+td:nth-child(2), td:nth-child(4){
+    width: 100px;
+}
+td:nth-child(2){
+	font-weight: bold;
+}
+tr:not(:first-child) td:nth-of-type(3){
+	text-align:left;
+}
+td:not(:nth-of-type(3)){
+    text-align: center;
+}
+
+
+
+
+.pagination{
+	margin-top: 10px;
+	margin-bottom: 30px;	
+}
+
+.pagination > input[type = "button"]{
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 14px;
+/*     border: none; */
+    cursor: pointer;
+    
+    border: 2px solid black;
+    border-radius: 5px;
+	background: white;
+}
+.pagination > input[type = "button"]:hover{
+/* 	background: #fff3f2; */
+	background: #f9f9f9;
+}
+.pagination > .disButt{
+	width: 30px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    
+
+/*     background: pink !important; */
+}
+
+
+
 

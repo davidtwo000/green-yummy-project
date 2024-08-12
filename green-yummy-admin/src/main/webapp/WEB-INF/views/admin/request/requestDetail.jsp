@@ -77,7 +77,7 @@
         .content-text {
             margin-top: 20px;
             line-height: 1.6;
-            height:190px;
+            height:170px;
         }
         .back-link {
             display: block;

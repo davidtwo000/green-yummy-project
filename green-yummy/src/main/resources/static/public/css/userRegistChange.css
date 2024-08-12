@@ -13,30 +13,40 @@ form{
     align-items: center;
     width: 1280px;
     
-    border: 1px solid red;
-
+    border: 2px solid gray;
+    border-radius: 8px;
+}
+.upperComment{
+	width: 1000px;
+	float: left;
+	margin: 30px 0 0px 0;
+	color: red;
 }
 .tablecontainer{
     display:flex;
     justify-content: center;
 }
-table, tr, td{
-
-    border: 1px solid skyblue;
-}
 table{
-    width: 600px;
+    width: 1000px;
     margin: 20px 0 0 0;
+    border-collapse: collapse;
+    border-top: 2px solid black;
+	border-bottom: 2px solid black;
 }
-
-td:nth-child(1){
+tr{
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+}
+th{
     width: 120px;
     text-align:center;
 }
-td:nth-child(2){
+td{
     padding: 10px 10px 10px 30px;
 }
 .passrequire{
+	margin: 0;
+	font: normal bold 10pt 'sans-serif';
     color: red;
 }
 
@@ -69,18 +79,22 @@ select{
     height: 100px;
 }
 input[type="submit"],
-.joincancel,.idcheck, .nickcheck, .emailcheck{
-    float:right;
+.joincancel, .idcheck, .nickcheck, .emailcheck{
     cursor: pointer;
     border: none;
+    border-radius: 5px;
     font-weight: bold;
-    background: salmon;
+}
+.idcheck, .nickcheck, .emailcheck{
+	color: white;
+	background: indigo;
 }
 input[type="submit"],
 .joincancel{
     width: 100px;
     height: 50px;
-    margin: 10px 10px 0 10px;
+    margin: 20px 10px 0 10px;
+    background: salmon;
 }
 .idcheck, .nickcheck, .emailcheck{
     width: 80px;

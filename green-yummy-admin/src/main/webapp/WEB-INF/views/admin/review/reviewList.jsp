@@ -127,7 +127,7 @@
                 	<option value="total">전체</option>
 			        <option value="id">작성자</option>
 			        <option value="name">상호명</option>
-			        <option value="rate">평점</option>
+			        <option value="Rating">평점</option>
 			    </select>
                 <input type="text" placeholder="검색..." name="search">
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
@@ -141,7 +141,7 @@
 	                <th>NO</th>
 	                <th>USER</th>
 	                <th>SHOPNAME</th>
-	                <th>RATE</th>
+	                <th>Rate</th>
 	                <th>DATE</th>
 	                <th>ACTIONS</th>
 	            </tr>
@@ -150,7 +150,7 @@
 	                <td>${review.reviewId }</td>
 	                <td>${review.userId }</td>
 	                <td>${review.shopName }</td>
-	                <td>${review.reviewRate }</td>
+	                <td>${review.reviewRating }</td>
 	                <td>${review.reviewDate }</td>
 	                <td><a href="/admin/reviewDetail?id=${review.reviewId}" class="btn">View</a></td>
 	            </tr>

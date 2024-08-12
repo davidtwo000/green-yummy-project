@@ -71,8 +71,13 @@
         .details th {
             background-color: #f4f4f4;
         }
-        .details td {
+        .details td:nth-child(odd) {
             background-color: #fff;
+            width:30%;
+        }
+        .details td:nth-child(even) {
+            background-color: #fff;
+            width:70%;
         }
         .details tr:nth-child(even) td {
             background-color: #f9f9f9;
@@ -97,18 +102,32 @@
         a#b:hover,input:hover {
             background-color: #444;
         }
-        input{
+        form:nth-child(1){
         	position:absolute;
-        	bottom:40px;
-        	width:800px;
-        	left:100px;
+        	bottom:30px;
+        	left:150px;
+        }
+        form:nth-child(2){
+        	position:absolute;
+        	bottom:30px;
+        	right:150px;
+        }
+        input{
+        	width:350px;
         	height:60px;
         	font-size:1.5em;
         	cursor:pointer;
         }
     </style>
+	<script>
+	    function alarm(){
+	    	let message = "<%= request.getParameter("message") %>";
+	    	if(message == "modify")
+	    		alert("정보가 수정되었습니다.");
+	    }	
+	</script>
 </head>
-<body>
+<body onload="alarm()">
     <div class="header">
         <span>Welcome, Admin</span>
     </div>
@@ -145,7 +164,7 @@
             </tr>
             <tr>
                 <td><strong>영업시간:</strong></td>
-                <td>${shopDTO.openHours}~${shopDTO.closeHours}</td>
+                <td>${shopDTO.openHours} ~ ${shopDTO.closeHours}</td>
             </tr>
             <tr>
                 <td><strong>휴일:</strong></td>
@@ -153,6 +172,10 @@
             </tr>
         </table>
         <div>
+	        <form action="/admin/shopModify" method="get">
+			    <input type="hidden" name="id" value="${shopDTO.shopUkId}">
+			    <input type="submit" value="Modify">
+			</form>
 	        <form action="/admin/shopDelete" method="post">
 	        	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	        	<input type="hidden" name="id" value="${shopDTO.shopUkId}">

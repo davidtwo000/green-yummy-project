@@ -73,7 +73,7 @@
             </form>
         </div>
     
-        <div class="notifyTitle">공지사항</div>
+<!--         <div class="notifyTitle">공지사항</div> -->
         <table>
             <tr>
                 <td>번호</td>
@@ -86,7 +86,7 @@
             <c:choose>
                 <c:when test="${empty notices}">
                     <tr>
-                        <td colspan="5">공지사항이 없습니다.</td>
+                        <td colspan="5" style="cursor: default">공지사항이 없습니다.</td>
                     </tr>
                 </c:when>
                 <c:otherwise>
@@ -94,7 +94,7 @@
                         <tr onclick="window.location.href='/public/notificationDetail/${notice.noticeId}'">
                             <td>${notice.noticeId}</td>
                             <td>${notice.author}</td>
-                            <td>${notice.title}</td>
+                            <td style="cursor: pointer">${notice.title}</td>
                             <td>${notice.postDate}</td>
                             <td>${notice.viewCount}</td>
                         </tr>

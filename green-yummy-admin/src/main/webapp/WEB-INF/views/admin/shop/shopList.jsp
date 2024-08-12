@@ -115,7 +115,17 @@
 			font-size:18px;
 		}
     </style>
-<body>
+	<script>
+	    function alarm(){
+	    	let message = "<%= request.getParameter("message") %>";
+	    	if(message == "create")
+	    		alert("정보가 추가되었습니다.");
+	    	else if(message == "delete")
+	    		alert("정보가 삭제되었습니다.");
+	    }	
+    </script>
+</head>
+<body onload="alarm()">
     <div class="header">
         <span>Welcome, Admin</span>
     </div>
@@ -152,7 +162,7 @@
 	                <td>${shop.shopUkId }</td>
 	                <td>${shop.shopName }</td>
 	                <td>${shop.shopType }</td>
-	                <td>${shop.openHours }~${shop.closeHours }</td>
+	                <td>${shop.openHours } ~ ${shop.closeHours }</td>
 	                <td>${shop.location }</td>
 	                <td>${shop.shopTel }</td>
 	                <td><a href="/admin/shopDetail?id=${shop.shopUkId}" class="btn">View</a></td>
