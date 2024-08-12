@@ -58,7 +58,9 @@
 
 				<!-- 북마크 체크박스 -->
 				<input type="checkbox" id="bookmarkCheck" onclick="bookmark()"> 북마크
-
+<!-- 				북마크 -->
+				<label for="bookmarkCheck"><img src="/images/bookmark.png" class="bookmarkIcon" title="북마크">
+				<img src="/images/pencil.png" class="bookmarkIconOff hidein"></label>
 				
 				
 				<!-- 북마크 해제 모달 -->
