@@ -3,6 +3,7 @@ package com.example.demo.service.userService;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.dto.userDto.ReviewDTO;
 import com.example.demo.model.userModel.Review;
@@ -11,8 +12,7 @@ public interface ReviewService {
 	// 리뷰 삭제
     void deleteReview(Integer reviewukid);
     
-    //리뷰 작성
-    void createReview(ReviewDTO reviewDTO);
+   
     
     //가게ID 리뷰
     List<ReviewDTO> findByShopUkId(Integer shopUkId);
@@ -34,5 +34,7 @@ public interface ReviewService {
 	
 	//나의 리뷰 보기
 	List<ReviewDTO> findByUserUkId(Integer userUkId);
+
+	void createReview(ReviewDTO reviewDTO, MultipartFile file);
 	
 }
