@@ -124,8 +124,15 @@
         	cursor:pointer;
         }
     </style>
+	<script>
+	    function alarm(){
+	    	let message = "<%= request.getParameter("message") %>";
+	    	if(message == "modify")
+	    		alert("정보가 수정되었습니다.");
+	    }	
+	</script>
 </head>
-<body>
+<body onload="alarm()">
     <div class="header">
         <span>Welcome, Admin</span>
     </div>
