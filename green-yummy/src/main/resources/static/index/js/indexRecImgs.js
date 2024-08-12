@@ -128,12 +128,12 @@ function random() {
         // 기존 <li> 요소를 모두 제거
         recommandList.innerHTML = '';
 		
-		const li = document.createElement('li');
+		
 
         // 데이터 배열을 순회하며 리스트 아이템 생성
         data.forEach(item => {
 
-            
+			const li = document.createElement('li');
 
             // 상점 이미지 부분
             const imgContainer = document.createElement('div');

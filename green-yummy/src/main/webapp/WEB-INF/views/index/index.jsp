@@ -41,6 +41,7 @@
 			<ul class="search-list" id="search-list">
 				<li onclick="search('area')">지역별</li>
 				<li onclick="search('type')">업종별</li>
+				<li onclick="search('rating')">평점별</li>
 			</ul>
 
 			<div class="list-show">
@@ -119,30 +120,30 @@
 				<hr>
 				<div class="lookMoreRec">자세히 보기</div>
 				<ul class="recommandList" id="recommandList">
-					<li>
-						<div class="recommandImg"></div>
-						<div class="recommandDetail">(first)가게 이름 / 평점</div>
-					</li>
-					<li>
-						<div class="recommandImg"></div>
-						<div class="recommandDetail">가게 이름 / 평점</div>
-					</li>
-					<li>
-						<div class="recommandImg"></div>
-						<div class="recommandDetail">가게 이름 / 평점</div>
-					</li>
-					<li>
-						<div class="recommandImg"></div>
-						<div class="recommandDetail">가게 이름 / 평점</div>
-					</li>
-					<li>
-						<div class="recommandImg"></div>
-						<div class="recommandDetail">가게 이름 / 평점</div>
-					</li>
-					<li>
-						<div class="recommandImg"></div>
-						<div class="recommandDetail">(last)가게 이름 / 평점</div>
-					</li>
+<!-- 					<li> -->
+<!-- 						<div class="recommandImg"></div> -->
+<!-- 						<div class="recommandDetail">(first)가게 이름 / 평점</div> -->
+<!-- 					</li> -->
+<!-- 					<li> -->
+<!-- 						<div class="recommandImg"></div> -->
+<!-- 						<div class="recommandDetail">가게 이름 / 평점</div> -->
+<!-- 					</li> -->
+<!-- 					<li> -->
+<!-- 						<div class="recommandImg"></div> -->
+<!-- 						<div class="recommandDetail">가게 이름 / 평점</div> -->
+<!-- 					</li> -->
+<!-- 					<li> -->
+<!-- 						<div class="recommandImg"></div> -->
+<!-- 						<div class="recommandDetail">가게 이름 / 평점</div> -->
+<!-- 					</li> -->
+<!-- 					<li> -->
+<!-- 						<div class="recommandImg"></div> -->
+<!-- 						<div class="recommandDetail">가게 이름 / 평점</div> -->
+<!-- 					</li> -->
+<!-- 					<li> -->
+<!-- 						<div class="recommandImg"></div> -->
+<!-- 						<div class="recommandDetail">(last)가게 이름 / 평점</div> -->
+<!-- 					</li> -->
 				</ul>
 			</div>
 			<div class="recNextBtn">
