@@ -41,6 +41,7 @@
 			<ul class="search-list" id="search-list">
 				<li onclick="search('area')">지역별</li>
 				<li onclick="search('type')">업종별</li>
+				<li onclick="search('rating')">평점별</li>
 			</ul>
 
 			<div class="list-show">
@@ -89,19 +90,19 @@
 			<div class="eventImgCon">
 				<ul class="eventImgList">
 					<li><div class="mainImg">
-							<img src="images/pasta.jpg"> 이미지 first
+							<img src="images/pasta.jpg">
 						</div></li>
 					<li><div class="mainImg">
-							<img src="/images/mainimg1.jpg">이미지
+							<img src="/images/mainimg1.jpg">
 						</div></li>
 					<li><div class="mainImg">
-							<img src="/images/profile2.jpg"> 이미지
+							<img src="/images/profile2.jpg">
 						</div></li>
 					<li><div class="mainImg">
-							<img src="/images/profile3.jpg"> 이미지
+							<img src="/images/profile3.jpg">
 						</div></li>
 					<li><div class="mainImg">
-							<img src="images/steak.jpg"> 이미지 last
+							<img src="images/steak.jpg">
 						</div></li>
 				</ul>
 			</div>
@@ -115,34 +116,38 @@
 				<img src="/images/prevBtn2.png">
 			</div>
 			<div class="recommandCon">
-				<div class="recommandTag">추천 맛집</div>
+				<div class="recommandTag"><span>추천 맛집</span>
+					<div class="lookMore">
+						<a href="/public/dataSearch">
+						<img src="/images/lookmore.png"></a>
+					</div>
+				</div>
 				<hr>
-				<div class="lookMoreRec">자세히 보기</div>
 				<ul class="recommandList" id="recommandList">
-					<li>
-						<div class="recommandImg"></div>
-						<div class="recommandDetail">(first)가게 이름 / 평점</div>
-					</li>
-					<li>
-						<div class="recommandImg"></div>
-						<div class="recommandDetail">가게 이름 / 평점</div>
-					</li>
-					<li>
-						<div class="recommandImg"></div>
-						<div class="recommandDetail">가게 이름 / 평점</div>
-					</li>
-					<li>
-						<div class="recommandImg"></div>
-						<div class="recommandDetail">가게 이름 / 평점</div>
-					</li>
-					<li>
-						<div class="recommandImg"></div>
-						<div class="recommandDetail">가게 이름 / 평점</div>
-					</li>
-					<li>
-						<div class="recommandImg"></div>
-						<div class="recommandDetail">(last)가게 이름 / 평점</div>
-					</li>
+<!-- 					<li> -->
+<!-- 						<div class="recommandImg"></div> -->
+<!-- 						<div class="recommandDetail">(first)가게 이름 / 평점</div> -->
+<!-- 					</li> -->
+<!-- 					<li> -->
+<!-- 						<div class="recommandImg"></div> -->
+<!-- 						<div class="recommandDetail">가게 이름 / 평점</div> -->
+<!-- 					</li> -->
+<!-- 					<li> -->
+<!-- 						<div class="recommandImg"></div> -->
+<!-- 						<div class="recommandDetail">가게 이름 / 평점</div> -->
+<!-- 					</li> -->
+<!-- 					<li> -->
+<!-- 						<div class="recommandImg"></div> -->
+<!-- 						<div class="recommandDetail">가게 이름 / 평점</div> -->
+<!-- 					</li> -->
+<!-- 					<li> -->
+<!-- 						<div class="recommandImg"></div> -->
+<!-- 						<div class="recommandDetail">가게 이름 / 평점</div> -->
+<!-- 					</li> -->
+<!-- 					<li> -->
+<!-- 						<div class="recommandImg"></div> -->
+<!-- 						<div class="recommandDetail">(last)가게 이름 / 평점</div> -->
+<!-- 					</li> -->
 				</ul>
 			</div>
 			<div class="recNextBtn">

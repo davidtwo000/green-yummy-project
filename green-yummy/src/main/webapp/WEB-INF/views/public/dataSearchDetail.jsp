@@ -57,6 +57,11 @@
 			<div class="bookmarkBtn">
 
 				<!-- 북마크 체크박스 -->
+<!-- 				<input type="checkbox" id="bookmarkCheck" onclick="bookmark()"> 북마크 -->
+				<img src="/images/bookmark.png" class="bookmarkIcon"
+					id="bookmarkCheck" onclick="bookmark()" title="북마크">
+				
+				
 				<!-- 				<input type="checkbox" id="bookmarkCheck" onclick="bookmark()"> 북마크 -->
 				<img src="/images/bookmark.png" class="bookmarkIcon"
 					id="bookmarkCheck" onclick="bookmark()" title="북마크">
