@@ -48,8 +48,12 @@
             gap: 20px;
         }
         .profile-image {
-            flex: 1;
-            text-align: center;
+			flex: 1;
+            display:flex;
+            justify-content:center;
+            align-items:center;  
+            flex-direction:column;  
+            height:80%;
         }
         .profile-image img {
         	margin-top:15px;
@@ -129,6 +133,7 @@
     <form action="/admin/shopCreate" method="post" enctype="multipart/form-data">
     <div class="container">
         <div class="profile-image">
+        	 <label style="margin-bottom:50px;">이미지 파일 선택</label>
         	 <input type="file" name="shopProfileFile" accept="image/*">
         </div>
         
