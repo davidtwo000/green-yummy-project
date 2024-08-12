@@ -3,7 +3,6 @@ package com.example.demo.service;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -157,7 +156,7 @@ public class AdminService implements UserDetailsService {
     }
     
     // 가게 업데이트
-    public void updateShop(int id, String shopName, String shopType, String location, String shopTel, String openHours, String closeHours, String closedDays) {
+    public void updateShop(int id, String shopName, String shopType, String location, String shopTel, String openHours, String closeHours, String closedDays, MultipartFile shopProfileFile) {
         Shop shop = shopRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("Shop not found with id: " + id));
 
@@ -169,7 +168,17 @@ public class AdminService implements UserDetailsService {
         shop.setOpenHours(openHours);
         shop.setCloseHours(closeHours);
         shop.setClosedDays(closedDays);
-
+        if (!shopProfileFile.isEmpty()) {
+            try {
+                String uploadDirectory = "D:/STS4/sts4-workspace/green-yummy-admin/src/main/resources/static/admin/images/";
+                String fileName = shopProfileFile.getOriginalFilename();
+                shopProfileFile.transferTo(new File(uploadDirectory + fileName));
+                shop.setShopProfile(fileName);
+                
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         // 데이터베이스에 저장
         shopRepository.save(shop);
     }
@@ -185,10 +194,6 @@ public class AdminService implements UserDetailsService {
 
         String author = authentication.getName();
         LocalDateTime now = LocalDateTime.now().withSecond(0).withNano(0);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
-        String formattedDate = now.format(formatter);
-
-        System.out.println(formattedDate);
     	Notification notification = new Notification();
     	notification.setAuthor(author);
     	notification.setTitle(title);
@@ -207,8 +212,6 @@ public class AdminService implements UserDetailsService {
                 String uploadDirectory = "D:/STS4/sts4-workspace/green-yummy-admin/src/main/resources/static/admin/images/";
                 String fileName = shopProfileFile.getOriginalFilename();
                 shopProfileFile.transferTo(new File(uploadDirectory + fileName));
-                System.out.println(fileName);
-                // 업로드된 파일의 경로를 Shop 객체에 설정
                 Shop shop = new Shop();
                 shop.setShopName(shopName);
                 shop.setShopType(shopType);
