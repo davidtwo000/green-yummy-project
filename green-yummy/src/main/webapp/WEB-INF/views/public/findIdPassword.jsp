@@ -21,7 +21,7 @@
 	        <div class="findIdPassCon">
 	        	<ul>
 	                <li class="findThis">아이디 찾기</li>
-	                <li>비밀번호 찾기</li>
+	                <li>비밀번호 초기화</li>
 	            </ul>
 	
 	            <div class="findId">
@@ -49,7 +49,7 @@
 	        
 	        <div class="findBtns">
 		        <input type="button" id="myId" value="아이디 찾기">
-		        <input type="button" class="hidden" id="newPswd" value="비밀번호 찾기">
+		        <input type="button" class="hidden" id="newPswd" value="비밀번호 초기화">
 	        </div>
 	        
         </div>
