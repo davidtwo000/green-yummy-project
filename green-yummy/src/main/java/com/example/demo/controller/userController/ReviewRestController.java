@@ -14,7 +14,9 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
@@ -139,15 +141,16 @@ public class ReviewRestController {
 	}
 
 	// 가게ukId로 리뷰 출력
-	@GetMapping("/shop/{shopUkId}")
-	public ResponseEntity<List<ReviewDTO>> getReviewsByShopUkId(@PathVariable("shopUkId") Integer shopUkId) {
-		List<ReviewDTO> reviews = reviewService.findByShopUkId(shopUkId);
+    @GetMapping("/shop/{shopUkId}")
+    public ResponseEntity<List<ReviewDTO>> getReviewsByShopUkId(@PathVariable("shopUkId") Integer shopUkId) {
+        List<ReviewDTO> reviews = reviewService.findByShopUkId(shopUkId);
 
-		if (reviews.isEmpty()) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-		return new ResponseEntity<>(reviews, HttpStatus.OK);
-	}
+        if (reviews.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(reviews, HttpStatus.OK);
+    }
+    
 
 	// 리뷰 평균 평점 조회
 	@GetMapping("/rating/{shopUkId}")
@@ -169,5 +172,16 @@ public class ReviewRestController {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
 		}
 	}
+	
+	// 사용자가 특정 가게에 대해 리뷰를 작성했는지 확인
+    @GetMapping("/hasReviewed/{shopUkId}/{userUkId}")
+    public ResponseEntity<Boolean> hasReviewed(
+            @PathVariable("shopUkId") Integer shopUkId,
+            @PathVariable("userUkId") Integer userUkId) {
+
+        boolean hasReviewed = reviewService.userHasReviewed(shopUkId, userUkId);
+        return ResponseEntity.ok(hasReviewed);
+    }
+	
 
 }
