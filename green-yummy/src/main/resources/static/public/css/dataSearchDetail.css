@@ -113,16 +113,29 @@ hr{
     justify-content: center;
     text-align: center;
     display: flex;
+    align-items: center;
+    flex-direction: row;
 }
-.detailtable, .plusInfo{
-	width: 600px;
-    height: 240px;
-    margin: 10px 0 10px 0;
-    
+
+.imgAndTable {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    width: 600px; 
 }
-.plusInfo{
-	border-radius: 8px;
-	background: lightgray;
+
+.shopImg, .tableNinfo {
+    width: 100%; 
+}
+
+.shopImg img {
+    width: 400px; 
+    height: auto; 
+}
+
+
+.tableNinfo {
+    flex: 1; 
 }
 .detailtable {
 /*     border: 1px solid gray;  */
@@ -148,10 +161,13 @@ hr{
     width: 400px;
     padding-left: 20px;
 }
+
 .map {
     width: 500px;
     height: 500px;
     border: 2px solid green;
+    display: flex;
+    align-items: center;
 }
 
 
@@ -254,8 +270,3 @@ hr{
     width: 100%;
     height: auto;
 }
-
-
-
-
-
