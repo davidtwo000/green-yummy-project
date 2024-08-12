@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.dto.AnnounceDTO;
 import com.example.demo.dto.RequestDTO;
@@ -172,7 +173,7 @@ public class AdminController {
     }
 
     @GetMapping("/announceCreate")
-    public String announceCreate(Model model) {
+    public String announceCreate() {
         return "admin/announce/announceCreate";
     }
     
@@ -459,6 +460,49 @@ public class AdminController {
     	ShopDTO shopDTO = adminService.getShopById(id);
         model.addAttribute("shopDTO", shopDTO);
         return "admin/shop/shopDetail";
+    }
+    
+    @GetMapping("/shopCreate")
+    public String shopCreate() {
+        return "admin/shop/shopCreate";
+    }
+    
+    @PostMapping("/shopCreate")
+    public String shopCreatePerform(
+    		@RequestParam("shopProfileFile") MultipartFile shopProfileFile,
+            @RequestParam("shopName") String shopName,
+            @RequestParam("shopType") String shopType,
+            @RequestParam("location") String location,
+            @RequestParam("shopTel") String shopTel,
+            @RequestParam("openHours") String openHours,
+            @RequestParam("closeHours") String closeHours,
+            @RequestParam("closedDays") String closedDays,
+    		Model model) {
+    	
+    	adminService.createShop(shopProfileFile,shopName,shopType,location,shopTel,openHours,closeHours,closedDays);
+        return "redirect:/admin/shopList";
+    }
+    
+    @GetMapping("/shopModify")
+    public String shopModify(Model model, @RequestParam("id") Integer id) {
+    	ShopDTO shopDTO = adminService.getShopById(id);
+        model.addAttribute("shopDTO", shopDTO);
+        return "admin/shop/shopModify";
+    }
+    
+    @PostMapping("/shopModify")
+    public String shopModifyPerform(
+    		@RequestParam("id") Integer id,
+            @RequestParam("shopName") String shopName,
+            @RequestParam("shopType") String shopType,
+            @RequestParam("location") String location,
+            @RequestParam("shopTel") String shopTel,
+            @RequestParam("openHours") String openHours,
+            @RequestParam("closeHours") String closeHours,
+            @RequestParam("closedDays") String closedDays,
+            Model model) {
+    	adminService.updateShop(id,shopName,shopType,location,shopTel,openHours,closeHours,closedDays);
+        return "redirect:/admin/shopDetail?id=" + id;
     }
     
     @PostMapping("/shopDelete")

@@ -30,7 +30,7 @@ public class SecurityConfig {
             .formLogin(form -> form
                 .loginPage("/admin/login")
                 .loginProcessingUrl("/admin/login")
-                .defaultSuccessUrl("/admin/main")
+                .defaultSuccessUrl("/admin/main",true)
                 .failureUrl("/admin/login?message=loginFail")
                 .usernameParameter("id")
                 .passwordParameter("pw")
@@ -38,7 +38,7 @@ public class SecurityConfig {
             )
             .logout(logout -> logout
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/admin/login/?message=logoutSuccess")
+                .logoutSuccessUrl("/admin/login?message=logoutSuccess")
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID")
                 .permitAll()
@@ -47,8 +47,8 @@ public class SecurityConfig {
                 .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
                 .invalidSessionUrl("/admin/login?message=noSession")
                 .sessionFixation().migrateSession()
-                .maximumSessions(2)
-                .maxSessionsPreventsLogin(false)
+                .maximumSessions(1)
+                .maxSessionsPreventsLogin(true)
             )
             .headers(headers -> headers
                 .frameOptions(frameOptions -> frameOptions

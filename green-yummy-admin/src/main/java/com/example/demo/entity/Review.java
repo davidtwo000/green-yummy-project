@@ -30,7 +30,7 @@ public class Review {
     @JoinColumn(name = "SHOP_UK_ID")
     private Shop shop;
 
-    private Byte reviewRate;
+    private Byte reviewRating;
     private String reviewComment;
     private String reviewContent;
 

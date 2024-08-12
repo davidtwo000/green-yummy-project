@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -14,6 +16,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.dto.AnnounceDTO;
 import com.example.demo.dto.RequestDTO;
@@ -153,6 +156,25 @@ public class AdminService implements UserDetailsService {
         requestRepository.save(application);
     }
     
+    // 가게 업데이트
+    public void updateShop(int id, String shopName, String shopType, String location, String shopTel, String openHours, String closeHours, String closedDays) {
+        Shop shop = shopRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Shop not found with id: " + id));
+
+        // 각 필드에 대한 값을 설정
+        shop.setShopName(shopName);
+        shop.setShopType(shopType);
+        shop.setLocation(location);
+        shop.setShopTel(shopTel);
+        shop.setOpenHours(openHours);
+        shop.setCloseHours(closeHours);
+        shop.setClosedDays(closedDays);
+
+        // 데이터베이스에 저장
+        shopRepository.save(shop);
+    }
+
+    
     // 공지 생성
     public void createAnnounce(String title, String content) {
     	
@@ -174,6 +196,35 @@ public class AdminService implements UserDetailsService {
     	notification.setPostDate(now);
     	notification.setViewCount(0);
     	announceRepository.save(notification);
+    	
+    }
+    
+    // 가게 생성
+    public void createShop(MultipartFile shopProfileFile, String shopName, String shopType, String location, String shopTel, String openHours, String closeHours, String closedDays) {
+    	
+    	if (!shopProfileFile.isEmpty()) {
+            try {
+                String uploadDirectory = "D:/STS4/sts4-workspace/green-yummy-admin/src/main/resources/static/admin/images/";
+                String fileName = shopProfileFile.getOriginalFilename();
+                shopProfileFile.transferTo(new File(uploadDirectory + fileName));
+                System.out.println(fileName);
+                // 업로드된 파일의 경로를 Shop 객체에 설정
+                Shop shop = new Shop();
+                shop.setShopName(shopName);
+                shop.setShopType(shopType);
+                shop.setLocation(location);
+                shop.setShopTel(shopTel);
+                shop.setOpenHours(openHours);
+                shop.setCloseHours(closeHours);
+                shop.setClosedDays(closedDays);
+                shop.setShopProfile(fileName);
+                
+                // 데이터베이스에 저장
+                shopRepository.save(shop);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     	
     }
 

@@ -38,7 +38,7 @@ public class AdminJoin {
         
         String sql = "INSERT INTO users " +
                 "(id, name, password, email, phone, profile, nickname, IS_ADMIN) " +
-                "VALUES ('" + adminId + "', '" + adminName + "', '" + encodedPassword + "', '" + adminEmail + "', '" + phone + "', '" + "'프로필.png'" + "', '" + nickname + "', " + 1 + ")";
+                "VALUES ('" + adminId + "', '" + adminName + "', '" + encodedPassword + "', '" + adminEmail + "', '" + phone + "', '" + "프로필.png" + "', '" + nickname + "', " + 1 + ")";
    
         logger.info("\n보안에 주의하십시오.\n " + sql + ";");
     }
