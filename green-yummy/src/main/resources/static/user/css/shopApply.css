@@ -50,7 +50,7 @@ th{
 	width: 900px;
 }
 input[type="text"]:not(.shopLocation){
-	width: 400px;
+	width: 900px;
 }
 input[type="text"]{
 	box-sizing: border-box;
@@ -83,4 +83,5 @@ input[type="reset"]{
 	font-size: 14px;
 	border : none;
 	background: #f2f2f2;
+	outline:none;
 }
