@@ -116,9 +116,13 @@
 				<img src="/images/prevBtn2.png">
 			</div>
 			<div class="recommandCon">
-				<div class="recommandTag">추천 맛집</div>
+				<div class="recommandTag"><span>추천 맛집</span>
+					<div class="lookMore">
+						<a href="/public/dataSearch">
+						<img src="/images/lookmore.png"></a>
+					</div>
+				</div>
 				<hr>
-				<div class="lookMoreRec">자세히 보기</div>
 				<ul class="recommandList" id="recommandList">
 <!-- 					<li> -->
 <!-- 						<div class="recommandImg"></div> -->
