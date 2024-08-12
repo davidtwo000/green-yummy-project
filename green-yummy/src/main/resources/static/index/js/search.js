@@ -2,8 +2,13 @@ function searchBytext() {
     const option = document.getElementById('selectBox').value;
     const content = document.getElementById('findByOption').value;
 
-  
+  	
     window.location.href = `/public/dataSearch?option=${encodeURIComponent(option)}&content=${encodeURIComponent(content)}&by=search`;
+}
+
+function pressEnter(e) {
+	if (e.key === "Enter") 
+            searchBytext();
 }
 
 
