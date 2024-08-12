@@ -89,13 +89,12 @@
 				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=349c2cb0976e7672467f9c85e9839ed5"></script>
 
 			<div class="sortOptions" id="sortOptions">
-				<label> <input type="radio" name="sort" value="ratingAsc">
+				<label> <input type="radio" name="sort" value="ratingDesc"
+					checked> 평점 높은 순
+				</label> <label> <input type="radio" name="sort" value="ratingAsc">
 					평점 낮은 순
-				</label> <label> <input type="radio" name="sort" value="ratingDesc">
-					평점 높은 순
 				</label>
 			</div>
-
 
 			<div id="shop-list"></div>
 			<div id="pagination" class="pagination"></div>
