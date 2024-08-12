@@ -29,10 +29,8 @@ function formatDate(dateStr) {
 function displayReviews(reviews) {
 	const reviewsContainer = document.getElementById('reviewsContainer');
 	const modal = document.getElementById('modal');
-//	const modalBody = document.getElementById('modalBody');
+	const modalBody = document.getElementById('modalBody');
 	const closeBtn = document.getElementById('closeBtn');
-	//hm 추가
-	const modalContent = document.querySelector(".modal-content");
 
 	// Create table structure
 	const table = document.createElement('table');
@@ -78,9 +76,7 @@ function displayReviews(reviews) {
 		// Add click event to open modal
 		row.addEventListener('click', (event) => {
 			if (!event.target.classList.contains('review-checkbox')) {
-//				modalBody.innerHTML = ` 
-				modalContent.innerHTML = `
-				<span id="closeBtn" class="close-btn">&times;</span>
+				modalBody.innerHTML = `
 					${review.reviewImg ? `<img src="/upload/${review.reviewImg}" alt="Review Image" class="review-detail-img" />` : ''}
 					<div class="reviewUser"><span> ${review.user.id}</span>
 					<span>${review.reviewRating}</span>
@@ -183,8 +179,12 @@ function random() {
             imgContainer.appendChild(img);
 
             const detail = document.createElement('div');
-            detail.textContent = `${item.shopName} / ${item.shopType}`; // 상점 이름과 타입
+			const detailType = document.createElement('span');
+            detail.textContent = `${item.shopName}`; // 상점 이름과 타입
+			detail.appendChild(detailType);
+			detailType.textContent = `${item.shopType}`;
             detail.className = 'recommandDetail'; // 스타일링 클래스
+			detailType.className = 'detailType';
 
             div.appendChild(imgContainer);
             div.appendChild(detail);

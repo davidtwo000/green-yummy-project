@@ -48,11 +48,18 @@
 				</div>
 
 			</div>
+			
+				<div class="backBtn">
+<!-- 					<input type="button" id="backButton" value="목록으로" /> -->
+					<img src="/images/letsback.png" id="backButton" title="검색창으로 돌아가기">
+				</div>
 
 			<div class="bookmarkBtn">
 
 				<!-- 북마크 체크박스 -->
-				<input type="checkbox" id="bookmarkCheck" onclick="bookmark()"> 북마크
+<!-- 				<input type="checkbox" id="bookmarkCheck" onclick="bookmark()"> 북마크 -->
+				<img src="/images/bookmark.png" class="bookmarkIcon" 
+				id="bookmarkCheck" onclick="bookmark()" title="북마크">
 				
 				
 				<!-- 북마크 해제 모달 -->
@@ -68,21 +75,17 @@
 						</div>
 				</div>
 				
-				<div class="backBtn">
-					<input type="button" id="backButton" value="목록으로" />
-				</div>
+
 
 			</div>
 
 			<hr>
 
 			<div class="restaurantImgContainer">
-				<div class="restaurantImg"></div>
 				<div class="restaurantImg">
 					<img src="/images/${shop.shopProfile}"
 						alt="${shop.shopName} 프로필 이미지" />
 				</div>
-				<div class="restaurantImg"></div>
 			</div>
 
 			<hr>
@@ -164,10 +167,11 @@
 				<!-- 자세히 보기 창 -->
 				<div id="modal" class="modal">
 					<div class="modal-content">
-						<span id="closeBtn" class="close-btn">&times;</span>
-<!-- 						<div id="modalBody" class="modalBody"> -->
+					<img src="/images/closeBtn.png" id="closeBtn" class="close-btn">
+<!-- 						<span id="closeBtn" class="close-btn">&times;</span> -->
+						<div id="modalBody" class="modalBody">
 							<!-- Dynamic content will be inserted here -->
-<!-- 						</div> -->
+						</div>
 					</div>
 				</div>
 			</div>

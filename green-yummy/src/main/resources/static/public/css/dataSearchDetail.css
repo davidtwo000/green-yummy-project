@@ -81,6 +81,11 @@ hr{
 	cursor: pointer;
 }
 
+.backBtn{
+	position: relative;
+	top: 40px;
+	left: -5px;
+}
 
 /* 썸네일 사진 */
 .restaurantImgContainer {
@@ -93,7 +98,7 @@ hr{
    
 }
 .restaurantImg, .restaurantImg img {
-    width: 250px;
+    width: 500px;
     height: 250px;
     border: 1px solid gray;
 }
