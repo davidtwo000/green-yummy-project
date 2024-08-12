@@ -23,9 +23,9 @@
 		<input type="hidden" id="userUkId" name="userUkId"
 			value="${user.userUkId}"> <input type="hidden" id="shopUkId"
 			name="shopUkId" value="${shop.shopUkId}">
-			
-			
-			
+
+
+
 
 
 
@@ -48,78 +48,95 @@
 				</div>
 
 			</div>
-			
-				<div class="backBtn">
-<!-- 					<input type="button" id="backButton" value="목록으로" /> -->
-					<img src="/images/letsback.png" id="backButton" title="검색창으로 돌아가기">
-				</div>
+
+			<div class="backBtn">
+				<!-- 					<input type="button" id="backButton" value="목록으로" /> -->
+				<img src="/images/letsback.png" id="backButton" title="검색창으로 돌아가기">
+			</div>
 
 			<div class="bookmarkBtn">
 
 				<!-- 북마크 체크박스 -->
-					<input type="checkbox" id="bookmarkCheck" onclick="bookmark()"> 북마크
-<!-- 				<img src="/images/bookmark.png" class="bookmarkIcon" -->
-<!-- 					id="bookmarkCheck" onclick="bookmark()" title="북마크"> -->
+<!-- 				<input type="checkbox" id="bookmarkCheck" onclick="bookmark()"> 북마크 -->
+				<img src="/images/bookmark.png" class="bookmarkIcon"
+					id="bookmarkCheck" onclick="bookmark()" title="북마크">
 				
 				
+				<!-- 				<input type="checkbox" id="bookmarkCheck" onclick="bookmark()"> 북마크 -->
+				<img src="/images/bookmark.png" class="bookmarkIcon"
+					id="bookmarkCheck" onclick="bookmark()" title="북마크">
+
+
 				<!-- 북마크 해제 모달 -->
 				<div class="bookmarkRemoveModal" id="bookmarkRemoveModal">
 					<div class="messagePlace">
-					<div class="xplace">
-							<img src="/images/closeBtn.png" onclick="bookmarkCancel()"></div>
-					북마크를 해제하겠습니까?
-					<div class="bookmarkBtns">
-						<input type="button" id="bookmarkRemoveBtn" value="제거" onclick="bookmarkRemove()">
-						<input type="button" id="cancelBtn" value="취소" onclick="bookmarkCancel()">
-					</div>
+						<div class="xplace">
+							<img src="/images/closeBtn.png" onclick="bookmarkCancel()">
 						</div>
+						북마크를 해제하겠습니까?
+						<div class="bookmarkBtns">
+							<input type="button" id="bookmarkRemoveBtn" value="제거"
+								onclick="bookmarkRemove()"> <input type="button"
+								id="cancelBtn" value="취소" onclick="bookmarkCancel()">
+						</div>
+					</div>
 				</div>
-				
+
 
 
 			</div>
 
 			<hr>
 
-			<div class="restaurantImgContainer">
-				<div class="restaurantImg">
-					<img src="/images/${shop.shopProfile}"
-						alt="${shop.shopName} 프로필 이미지" />
-				</div>
-			</div>
 
-			<hr>
+
+
 			<h3>가게 정보</h3>
 			<hr>
 
 
 			<div class="detail">
-				<div class="tableNinfo">
-					<table class="detailtable">
-						<tr>
-							<td>주소</td>
-							<td>${shop.location}</td>
-						</tr>
-						<tr>
-							<td>OPEN</td>
-							<td>${shop.openHours}</td>
-						</tr>
-						<tr>
-							<td>CLOSE</td>
-							<td>${shop.closeHours}</td>
-						</tr>
-						<tr>
-							<td>전화번호</td>
-							<td>${shop.shopTel}</td>
-						</tr>
-						<tr>
-							<td>기타사항</td>
-							<td>${shop.etc}</td>
-						</tr>
-					</table>
+				<div class="imgAndTable">
 
-					<div class="plusInfo"></div>
+					<div class="shopImg">
+						<img src="/images/${shop.shopProfile}"
+							alt="${shop.shopName} 프로필 이미지" />
+					</div>
+
+
+					<div class="tableNinfo">
+						<table class="detailtable">
+							<tr>
+								<td>주소</td>
+								<td>${shop.location}</td>
+							</tr>
+							<tr>
+								<td>OPEN</td>
+								<td>${shop.openHours}</td>
+							</tr>
+							<tr>
+								<td>CLOSE</td>
+								<td>${shop.closeHours}</td>
+							</tr>
+							<tr>
+								<td>전화번호</td>
+								<td>${shop.shopTel}</td>
+							</tr>
+							<tr>
+								<td>기타사항</td>
+								<td>${shop.etc}</td>
+							</tr>
+						</table>
+
+
+					</div>
+
+
+
 				</div>
+
+
+
 
 
 				<div class="map" id="map">지도</div>
@@ -167,8 +184,8 @@
 				<!-- 자세히 보기 창 -->
 				<div id="modal" class="modal">
 					<div class="modal-content">
-					<img src="/images/closeBtn.png" id="closeBtn" class="close-btn">
-<!-- 						<span id="closeBtn" class="close-btn">&times;</span> -->
+						<img src="/images/closeBtn.png" id="closeBtn" class="close-btn">
+						<!-- 						<span id="closeBtn" class="close-btn">&times;</span> -->
 						<div id="modalBody" class="modalBody">
 							<!-- Dynamic content will be inserted here -->
 						</div>

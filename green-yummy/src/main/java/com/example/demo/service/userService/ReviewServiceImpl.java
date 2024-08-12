@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -43,8 +44,6 @@ public class ReviewServiceImpl implements ReviewService {
 	@Autowired
 	private UserRepository userRepository;
 
-	@Autowired
-	private ReviewRepository reviewRepository1;
 
 	@Autowired
 	private FileUploadService fileUploadService;
@@ -139,11 +138,14 @@ public class ReviewServiceImpl implements ReviewService {
 
 
 	// 가게ukId로 리뷰 출력
-	@Override
-	public List<ReviewDTO> findByShopUkId(Integer shopUkId) {
-		List<Review> reviews = reviewRepository.findByShopUkId(shopUkId); // List<Review>를 반환
-		return reviews.stream().map(this::convertToDto).collect(Collectors.toList());
-	}
+    @Override
+    public List<ReviewDTO> findByShopUkId(Integer shopUkId) {
+        List<Review> reviews = reviewRepository.findByShopUkId(shopUkId);  // List<Review>를 반환
+        return reviews.stream()
+                      .map(this::convertToDto)  
+                      .collect(Collectors.toList());
+    }
+    
 
 	// 나의 리뷰
 	@Override
@@ -209,8 +211,10 @@ public class ReviewServiceImpl implements ReviewService {
 
 	// 이미 작성한 리뷰 있는지 없는지
 	@Override
-	public boolean hasUserReviewedShop(Integer userUkId, Integer shopUkId) {
-		return reviewRepository.existsByUserAndShop(userUkId, shopUkId);
-	}
+    public boolean userHasReviewed(Integer shopUkId, Integer userUkId) {
+        return reviewRepository.existsByShopUkIdAndUserUkId(shopUkId, userUkId);
+    }
+
+
 
 }

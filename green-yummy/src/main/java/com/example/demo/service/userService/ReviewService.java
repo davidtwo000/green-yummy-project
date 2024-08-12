@@ -3,6 +3,7 @@ package com.example.demo.service.userService;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.dto.userDto.ReviewDTO;
@@ -13,7 +14,6 @@ public interface ReviewService {
     void deleteReview(Integer reviewukid);
     
    
-    
     //가게ID 리뷰
     List<ReviewDTO> findByShopUkId(Integer shopUkId);
 	
@@ -30,11 +30,15 @@ public interface ReviewService {
 	ReviewDTO getReviewById(Integer Integer) throws Exception;
 	
 	//리뷰 작성했는지 확인
-	boolean hasUserReviewedShop(Integer userUkId, Integer shopUkId);
+	
 	
 	//나의 리뷰 보기
 	List<ReviewDTO> findByUserUkId(Integer userUkId);
 
 	void createReview(ReviewDTO reviewDTO, MultipartFile file);
+
+
+	boolean userHasReviewed(Integer shopUkId, Integer userUkId);
+
 	
 }

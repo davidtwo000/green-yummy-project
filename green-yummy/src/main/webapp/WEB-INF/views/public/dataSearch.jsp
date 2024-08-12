@@ -32,7 +32,7 @@
 				<option value="area">지역별</option>
 				<option value="type">업종별</option>
 			</select> <input type="text" id="findByOption" class="searchBar"
-				name="findByOption" placeholder="검색어를 입력하세요">
+				name="findByOption" placeholder="검색어를 입력하세요" onkeydown="pressEnter(event)">
 			<div class="customSearchBtn">
 				<img src="/images/search.png" id="seachBtn" onclick="searchBytext()">
 			</div>
@@ -89,13 +89,12 @@
 				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=349c2cb0976e7672467f9c85e9839ed5"></script>
 
 			<div class="sortOptions" id="sortOptions">
-				<label> <input type="radio" name="sort" value="ratingAsc">
+				<label> <input type="radio" name="sort" value="ratingDesc"
+					checked> 평점 높은 순
+				</label> <label> <input type="radio" name="sort" value="ratingAsc">
 					평점 낮은 순
-				</label> <label> <input type="radio" name="sort" value="ratingDesc">
-					평점 높은 순
 				</label>
 			</div>
-
 
 			<div id="shop-list"></div>
 			<div id="pagination" class="pagination"></div>

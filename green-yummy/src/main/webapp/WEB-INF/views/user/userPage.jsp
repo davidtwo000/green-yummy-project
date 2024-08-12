@@ -72,36 +72,28 @@
 						<select class="order">
 							<option value="">가게명</option>
 							<option value="">가게명 역순</option>
-							<option value="">먼저 추가한 날짜 순서</option>
-							<option value="">나중에 추가한 날짜 순서</option>
+						
 							<option value="">평점 낮은 순</option>
 							<option value="">평점 높은 순</option>
 						</select> <select class="filterOne">
 							<option value="0">지역별</option>
-							<option value="">신사동</option>
-							<option value="">압구정동</option>
 							<option value="">논현동</option>
-							<option value="">청담동</option>
-							<option value="">삼성동</option>
-							<option value="">역삼동</option>
 							<option value="">대치동</option>
-							<option value="">개포동</option>
-							<option value="">도곡동</option>
-							<option value="">일원동</option>
+							<option value="">삼성동</option>
+							<option value="">신사동</option>
+							<option value="">역삼동</option>
+							<option value="">청담동</option>
+							
 						</select> <select class="filterTwo">
 							<option value="">업종별</option>
-							<option value="">레스토랑</option>
-							<option value="">카페</option>
-							<option value="">이자카야</option>
-							<option value="">바</option>
-							<option value=""></option>
-						</select> <select class="filterThree">
-							<option value="">종류별</option>
 							<option value="">한식</option>
-							<option value="">일식</option>
-							<option value="">중식</option>
 							<option value="">양식</option>
-							<option value="">그 외</option>
+							<option value="">중식</option>
+							<option value="">일식</option>
+							<option value="">패스트푸드</option>
+							<option value="">분식</option>
+							<option value="">카페</option>
+							<option value="">기타</option>
 						</select> 
 					</div>
 
