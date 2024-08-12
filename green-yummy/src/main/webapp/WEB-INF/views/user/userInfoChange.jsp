@@ -22,7 +22,7 @@
     <input type="hidden" id="currentNickname" value="${user.nickname}">
 	<input type="hidden" id="currentPhone" value="${user.phone}">
 	<input type="hidden" id="currentEmail" value="${user.email}">
-    수정할 항목만 입력해주세요.
+    <p class="upperComment">수정할 항목만 입력해주세요.</p>
         <div class="tablecontainer">
             <table>
             	<tr>

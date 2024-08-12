@@ -13,13 +13,20 @@ main{
 	width: 1280px;
 	border-collapse: collapse;
 	margin-bottom: 10px;
+	
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+}
+.notifiDetail tr{
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
 }
 
-.notifiDetail, .notifiDetail tr{
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
+/* .notifiDetail, .notifiDetail tr{ */
+/* 	border-top: 1px solid black; */
+/* 	border-bottom: 1px solid black; */
 	
-}
+/* } */
 
 .notifiDetail tr{
 	height: 50px;	
@@ -33,10 +40,14 @@ main{
 
 .notifiDetail td{
 	padding-left : 10px;
-	background: #f8f8f8;
+/* 	background: #f8f8f8; */
+	background: white;
 }
 
 .thisContent{
+	box-sizing: border-box;
+	vertical-align: top;
+	padding: 10px;
 	height: 400px;
 }
 
@@ -50,11 +61,15 @@ tr:last-child{
 }
 
 .tableIn input[type="button"]{
-	width: 200px;
-    height: 30px;
-    font-weight: bold;
-    font-size: 14px;
+	width: 150px;
+    height: 50px;
+    font: normal bold 14px 'sans-serif';
+/*     font-weight: bold; */
+/*     font-size: 14px; */
     border: none;
+    border-radius: 5px;
     cursor: pointer;
-    background: salmon;
+    color: white;
+/*     background: salmon; */
+	background: indigo;
 }
