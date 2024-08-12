@@ -45,6 +45,7 @@ function displayReviews(reviews) {
 	        <th>코멘트</th>
 	        <th>내용</th>
 	        <th>날짜</th>
+	       
 	    </tr>
 	`;
 	table.appendChild(thead);
@@ -69,6 +70,7 @@ function displayReviews(reviews) {
 
 			<td>${formatDate(review.reviewDate)}</td>
 
+			
 			 `;
 
 		// Add click event to open modal
@@ -142,8 +144,25 @@ function averageRating(shopUkId) {
 
 
 function createReview(shopUkId) {
-	window.location.href = `/user/createReview/${shopUkId}`;
+	const userUkId = document.getElementById('userUkId').value;
+
+    // 리뷰 작성 여부를 확인하는 API 호출
+    fetch(`/reviews/hasReviewed/${shopUkId}/${userUkId}`)
+        .then(response => response.json())
+        .then(hasReviewed => {
+            if (hasReviewed) {
+                alert('리뷰를 이미 작성했습니다.');
+            } else {
+                // 리뷰 작성 페이지로 이동
+                window.location.href = `/user/createReview/${shopUkId}`;
+            }
+        })
+        .catch(error => {
+            console.error('Error checking review status:', error);
+            alert('An error occurred while checking your review status.');
+        });
 }
+
 
 function random() {
    fetch('/shops/random', { // 6개의 랜덤 데이터를 요청

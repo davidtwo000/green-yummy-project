@@ -3,11 +3,14 @@ package com.example.demo.repository.userRepository;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.dto.userDto.ReviewDTO;
 import com.example.demo.model.publicModel.Shop;
 import com.example.demo.model.userModel.Review;
 import com.example.demo.model.userModel.User;
@@ -28,10 +31,10 @@ public interface ReviewRepository extends JpaRepository<Review, Integer> {
     @Query("SELECT AVG(r.reviewRating) FROM Review r WHERE r.shopUkId = :shopUkId")
     Double findAverageRatingByShopUkId(@Param("shopUkId") Integer shopUkId);
 
-    // 작성한 리뷰 존재 여부 확인
-    @Query("SELECT CASE WHEN COUNT(r) > 0 THEN true ELSE false END " +
-            "FROM Review r WHERE r.userUkId = :userUkId AND r.shopUkId = :shopUkId")
-     boolean existsByUserAndShop(@Param("userUkId") Integer userUkId,
-                                 @Param("shopUkId") Integer shopUkId);
+    
+    Page<Review> findByShopUkId(Integer shopUkId, Pageable pageable);
+    
+    //리뷰 이미 적으면 못적게
+    boolean existsByShopUkIdAndUserUkId(Integer shopUkId, Integer userUkId);
 
 }
