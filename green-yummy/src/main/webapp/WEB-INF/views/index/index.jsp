@@ -90,19 +90,19 @@
 			<div class="eventImgCon">
 				<ul class="eventImgList">
 					<li><div class="mainImg">
-							<img src="images/pasta.jpg"> 이미지 first
+							<img src="images/pasta.jpg">
 						</div></li>
 					<li><div class="mainImg">
-							<img src="/images/mainimg1.jpg">이미지
+							<img src="/images/mainimg1.jpg">
 						</div></li>
 					<li><div class="mainImg">
-							<img src="/images/profile2.jpg"> 이미지
+							<img src="/images/profile2.jpg">
 						</div></li>
 					<li><div class="mainImg">
-							<img src="/images/profile3.jpg"> 이미지
+							<img src="/images/profile3.jpg">
 						</div></li>
 					<li><div class="mainImg">
-							<img src="images/steak.jpg"> 이미지 last
+							<img src="images/steak.jpg">
 						</div></li>
 				</ul>
 			</div>
