@@ -3,6 +3,8 @@ package com.example.demo.dto.userDto;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.example.demo.dto.publicDto.ShopDTO;
 
 import lombok.Getter;

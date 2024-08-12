@@ -45,7 +45,6 @@ function displayReviews(reviews) {
 	        <th>코멘트</th>
 	        <th>내용</th>
 	        <th>날짜</th>
-	        <th>좋아요</th>
 	    </tr>
 	`;
 	table.appendChild(thead);
@@ -70,7 +69,6 @@ function displayReviews(reviews) {
 
 			<td>${formatDate(review.reviewDate)}</td>
 
-			<td><input type="checkbox" class="review-checkbox" data-review-id="${review.reviewId}" /> 좋아요 버튼</td>
 			 `;
 
 		// Add click event to open modal

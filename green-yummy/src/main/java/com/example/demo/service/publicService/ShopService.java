@@ -18,4 +18,5 @@ public interface ShopService {
 	List<ShopDTO> findByShopName(String shopName); 
 
 	List<Shop> getRandomShops();
+
 }
