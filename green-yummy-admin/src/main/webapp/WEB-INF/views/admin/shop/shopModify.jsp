@@ -34,66 +34,61 @@
             color: #333;
         }
         .container {
+        	position:relative;
             width: 80%;
             max-width: 1000px;
-            height:560px;
-            margin: 40px auto;
+            height:450px;
+            margin: 80px auto;
             padding: 20px;
             background-color: white;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            position:relative;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
         }
-        h1 {
+        .profile-image {
+            flex: 1;
             text-align: center;
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #333;
+        }
+        .profile-image img {
+        	margin-top:15px;
+            width: 250px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
         .details {
+            flex: 2;
             width: 100%;
             border-collapse: collapse;
         }
         .details th, .details td {
-            border: none;
-            padding: 12px;
+            border: 1px solid #ddd;
+            padding: 12px 15px;
             text-align: left;
         }
         .details th {
             background-color: #f4f4f4;
-            color: #555;
-            width: 120px;
         }
-        .details td {
+        .details td:nth-child(odd) {
             background-color: #fff;
+            width:30%;
+        }
+        .details td:nth-child(even) {
+            background-color: #fff;
+            width:70%;
+        }
+        .details tr:nth-child(even) td {
+            background-color: #f9f9f9;
+        }
+        .details strong {
             color: #333;
-        }
-        .details tr {
-            border-bottom: 1px solid #ddd;
-        }
-        .details tr:last-child {
-            border-bottom: none;
-        }
-        .content-text {
-            margin-top: 20px;
-            line-height: 1.6;
-            height:190px;
-        }
-        .back-link {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-        }
-        .back-link:hover {
-            text-decoration: underline;
         }
         a#a {
             color: white;
         }
-        a#b,input {
+        a#b,input[type="submit"] {
             display: inline-block;
             margin-top: 20px;
             text-decoration: none;
@@ -104,17 +99,20 @@
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
             font-size:16px;
         }
-        a#b:hover,input:hover {
+        a#b:hover,input[type="submit"]:hover {
             background-color: #444;
         }
-        input{
+        input[type="submit"]{
         	position:absolute;
-        	bottom:40px;
+        	bottom:20px;
         	width:800px;
         	left:100px;
         	height:60px;
         	font-size:1.5em;
         	cursor:pointer;
+        }
+        td input{
+        	height:24px;
         }
     </style>
 </head>
@@ -123,47 +121,53 @@
         <span>Welcome, Admin</span>
     </div>
     <div class="content">
-        <h1>리뷰내역 세부 내용</h1>
+        <h1>가게 상세 정보</h1>
     </div>
     <div class="header1">
-        <span><a href="/admin/reviewList?page=1" id="a">Back to Dashboard</a></span>
+        <span><a href="/admin/shopList?page=1" id="a">Back to Dashboard</a></span>
     </div>
+    <form action="/admin/shopModify" method="post">
     <div class="container">
+        <div class="profile-image">
+            <img src="/admin/images/${shopDTO.shopProfile}" alt="Shop Profile">
+        </div>
+        
         <table class="details">
-        	<tr>
-                <th>상호명</th>
-                <td>${reviewDTO.shopName }</td>
-            </tr>
             <tr>
-                <th>제목</th>
-                <td>${reviewDTO.reviewComment }</td>
-            </tr>
-            <tr>
-                <th>작성자</th>
-                <td>${reviewDTO.userId }</td>
-            </tr>
-            <tr>
-                <th>작성일</th>
-                <td>${reviewDTO.reviewDate }</td>
-            </tr>
-            <tr>
-                <th>평점</th>
-                <td>${reviewDTO.reviewRating }</td>
-            </tr>
-            <tr>
+                <th>항목</th>
                 <th>내용</th>
-                <td class="content-text">
-                    ${reviewDTO.reviewContent }
-                </td>
+            </tr>
+            <tr>
+                <td><strong>상호명:</strong></td>
+                <td><input type="text" name="shopName" value="${shopDTO.shopName}"></td>
+            </tr>
+            <tr>
+                <td><strong>업종:</strong></td>
+                <td><input type="text" name="shopType" value="${shopDTO.shopType}"></td>
+            </tr>
+            <tr>
+                <td><strong>위치:</strong></td>
+                <td><input type="text" name="location" value="${shopDTO.location}"></td>
+            </tr>
+            <tr>
+                <td><strong>전화번호:</strong></td>
+                <td><input type="text" name="shopTel" value="${shopDTO.shopTel}"></td>
+            </tr>
+            <tr>
+                <td><strong>영업시간:</strong></td>
+                <td><input type="text" name="openHours" value="${shopDTO.openHours}"> ~ <input type="text" name="closeHours" value="${shopDTO.closeHours}"></td>
+            </tr>
+            <tr>
+                <td><strong>휴일:</strong></td>
+                <td><input type="text" name="closedDays" value="${shopDTO.closedDays}"></td>
             </tr>
         </table>
-        <div>
-	        <form action="/admin/reviewDelete" method="post">
+        	<div>
 	        	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-	        	<input type="hidden" name="id" value="${reviewDTO.reviewId}">
-	        	<input type="submit" value="Delete">
-	        </form>
-	    </div>
-    </div>
+	        	<input type="hidden" name="id" value="${shopDTO.shopUkId}">
+	        	<input type="submit" value="Modify">
+	    	</div>
+    	</div>
+    </form>
 </body>
 </html>

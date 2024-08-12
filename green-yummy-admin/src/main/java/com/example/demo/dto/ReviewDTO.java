@@ -12,7 +12,7 @@ public class ReviewDTO {
     private Integer reviewId;
     private String userId;
     private String shopName;
-    private Byte reviewRate;
+    private Byte reviewRating;
     private String reviewComment;
     private String reviewContent;
     private LocalDateTime reviewDate;

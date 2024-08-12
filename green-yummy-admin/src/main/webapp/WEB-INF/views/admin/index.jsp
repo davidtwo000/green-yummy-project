@@ -35,17 +35,19 @@
             padding: 15px;
             text-align: center;
         }
-        .sidebar ul li:hover, .sidebar div:hover {
+        .sidebar ul li:hover, .sidebar #div1 div:hover {
             background-color: #575757;
             cursor: pointer;
         }
         .sidebar #div1{
         	position:relative;
-        	padding: 15px;
         	left:0;
         	right:0;
         	top:50px;
         	text-align:center;
+        }
+        .sidebar #div1 div{
+        	padding: 15px;
         }
         .sidebar #div2{
         	position:relative;
@@ -95,8 +97,11 @@
     		$('#shop').click(function(){
     			iframe.attr('src','/admin/shopList');
     		});
-    		$('#div1').click(function(){
+    		$('#announceCreate').click(function(){
 				iframe.attr('src','/admin/announceCreate');    			
+    		});
+    		$('#shopCreate').click(function(){
+				iframe.attr('src','/admin/shopCreate');    			
     		});
     	});
     </script>
@@ -111,7 +116,10 @@
             <li id='request'>신청내역</li>
             <li id='shop'>맛집목록</li>
         </ul>
-        <div id="div1">공지사항 작성</div>
+        <div id="div1">
+        	<div id="announceCreate">공지사항 작성</div>
+        	<div id="shopCreate">맛집목록 추가</div>
+        </div>
         <div id="div2">
         	<form action="/logout" method="post">
         		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />

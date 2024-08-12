@@ -12,7 +12,7 @@ public class ShopDTO {
     private String location;
     private String shopTel;
     private String openHours;
-    private String closeHours;
+    private String closeHours;	
     private String closedDays;
     private String etc;
     private double latitude;

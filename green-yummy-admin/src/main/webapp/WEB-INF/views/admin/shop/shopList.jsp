@@ -152,7 +152,7 @@
 	                <td>${shop.shopUkId }</td>
 	                <td>${shop.shopName }</td>
 	                <td>${shop.shopType }</td>
-	                <td>${shop.openHours }~${shop.closeHours }</td>
+	                <td>${shop.openHours } ~ ${shop.closeHours }</td>
 	                <td>${shop.location }</td>
 	                <td>${shop.shopTel }</td>
 	                <td><a href="/admin/shopDetail?id=${shop.shopUkId}" class="btn">View</a></td>
