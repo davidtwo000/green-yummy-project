@@ -29,8 +29,10 @@ function formatDate(dateStr) {
 function displayReviews(reviews) {
 	const reviewsContainer = document.getElementById('reviewsContainer');
 	const modal = document.getElementById('modal');
-	const modalBody = document.getElementById('modalBody');
+//	const modalBody = document.getElementById('modalBody');
 	const closeBtn = document.getElementById('closeBtn');
+	//hm 추가
+	const modalContent = document.querySelector(".modal-content");
 
 	// Create table structure
 	const table = document.createElement('table');
@@ -76,12 +78,15 @@ function displayReviews(reviews) {
 		// Add click event to open modal
 		row.addEventListener('click', (event) => {
 			if (!event.target.classList.contains('review-checkbox')) {
-				modalBody.innerHTML = `
+//				modalBody.innerHTML = ` 
+				modalContent.innerHTML = `
+				<span id="closeBtn" class="close-btn">&times;</span>
 					${review.reviewImg ? `<img src="/upload/${review.reviewImg}" alt="Review Image" class="review-detail-img" />` : ''}
-					<div> 작성자 ${review.user.id}</div>
-					<div>${review.reviewRating}</div>
-					<div>${formattedComment}</div>
-					<div>${review.reviewContent}</div>
+					<div class="reviewUser"><span> ${review.user.id}</span>
+					<span>${review.reviewRating}</span>
+					<span>${review.reviewDate.substr(2, 8)}</span></div>
+					<div class="userComment"><p>${formattedComment}</p>
+					${review.reviewContent}</div>
 				`;
 				modal.style.display = 'block';
 			}

@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>dataSearchDetail</title>
 <link rel="stylesheet" href="/public/css/dataSearchDetail.css">
+<link rel="stylesheet" href="/public/css/dataSearchDetail2.css">
 <script src="/public/js/dataSearchDetail.js" defer></script>
 <script src="/public/js/bookmark.js" defer></script>
 </head>
@@ -164,9 +165,9 @@
 				<div id="modal" class="modal">
 					<div class="modal-content">
 						<span id="closeBtn" class="close-btn">&times;</span>
-						<div id="modalBody">
+<!-- 						<div id="modalBody" class="modalBody"> -->
 							<!-- Dynamic content will be inserted here -->
-						</div>
+<!-- 						</div> -->
 					</div>
 				</div>
 			</div>
