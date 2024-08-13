@@ -100,8 +100,18 @@ function random() {
             // 상점 상세 정보 부분
             const detail = document.createElement('div');
 
-            detail.textContent = `${item.shopName} / ${item.shopType}`; // 상점 이름과 평점
+            detail.textContent = `${item.shopName} `; // 상점 이름과 평점
             detail.className = 'recommandDetail'; // 스타일링 클래스
+			
+			const detailType = document.createElement('span');
+			detail.appendChild(detailType);
+			detailType.textContent = `${item.shopType}`;
+			detailType.className = 'detailType';
+			
+			const shopLoc = doucment.createElement('span');
+			detail.appendChild(shopLoc);
+			shopLoc.textContent = `${item.location}`;
+			shopLoc.className = 'shopLoc';
 
             // <li>에 이미지와 상세 정보를 추가
             li.appendChild(imgContainer);
