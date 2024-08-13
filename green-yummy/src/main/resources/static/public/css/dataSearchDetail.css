@@ -1,5 +1,27 @@
 @charset "UTF-8";
 
+
+/* 리뷰 스타일. 아래에 붙일 것 */
+
+.reviewsContainer table tr td{
+	padding: 10px;
+}
+.reviewsContainer table td:nth-of-type(3){
+	width: 100px;
+}
+.reviewsContainer table td:nth-of-type(4){
+	text-align: left;
+}
+.reviewsContainer table td:nth-of-type(4) p{
+	font: normal bold 11pt 'sans-serif';
+}
+
+
+
+
+
+
+
 .outContainer {
 	justify-content: center;
 	text-align: center;
@@ -240,42 +262,32 @@ label {
 	border-radius: 5px;
 	background-color: #f9f9f9;
 }
-
 .reviewsContainer table {
 	border-top: 2px solid black;
 	border-bottom: 2px solid black;
 	border-collapse: collapse;
 }
-
 .reviewsContainer table td {
 	padding: 5px 0 5px 0;
 	border-bottom: 1px solid lightgray;
 	cursor: pointer;
 	background: white;
 }
-
 .reviewsContainer table td:nth-of-type(2) {
 	font-weight: bold;
 }
-
 .review {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
-
 .review-img {
 	width: 100px;
 }
-
 .review-detail-img {
 	width: 300px;
 }
-/* .review-img-container { */
-/* 	border:1px solid black; */
-/* } */
 .reviews-table {
-	/* 	border : 1px solid black; */
 	width: 90%;
 }
 

@@ -83,7 +83,6 @@ async function getShopRating(shopId) {
 		return 0;
 	}
 }
-
 function reviewSort() {
 	const selectedOption = document.querySelector('input[name="sort"]:checked');
 	console.log('Selected option value:', selectedOption ? selectedOption.value : 'None');
