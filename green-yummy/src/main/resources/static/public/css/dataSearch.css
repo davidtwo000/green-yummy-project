@@ -64,6 +64,7 @@
 	border-radius: 50px;
 }
 .selectBox{
+	font: normal bold 12pt 'sans-serif';
 	cursor: pointer;
 }
 .searchBar {
@@ -231,6 +232,9 @@ input[type="radio"]{
 /* 	background-color: #f0f0f0; */
 	background-color: lemonchiffon;
 	transition: 200ms ease-in-out;
+}
+.listSelect{
+	background-color: lemonchiffon;
 }
 
 .list-show {
