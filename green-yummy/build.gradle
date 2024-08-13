@@ -38,8 +38,6 @@ dependencies {
     implementation 'org.apache.tomcat.embed:tomcat-embed-el:10.1.15'
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:10.1.15'
     
-    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
-    testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
 
     implementation 'jakarta.servlet:jakarta.servlet-api:4.0.3'
     implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:2.0.0'
