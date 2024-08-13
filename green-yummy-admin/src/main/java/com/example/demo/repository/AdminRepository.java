@@ -20,6 +20,8 @@ public interface AdminRepository extends JpaRepository<User, Integer> {
     List<User> findByNameContaining(String name);
 
     List<User> findByPhoneContaining(String phone);
+    
+    List<User> findByIsAdmin(boolean role);
 
     @Query("SELECT u FROM User u WHERE u.id LIKE %:keyword% OR u.name LIKE %:keyword% OR u.phone LIKE %:keyword%")
     List<User> searchByKeyword(@Param("keyword") String keyword);

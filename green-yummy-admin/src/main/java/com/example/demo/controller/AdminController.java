@@ -93,6 +93,45 @@ public class AdminController {
         return "admin/user/userList";
     }
     
+    @PostMapping("/sortUser")
+    public String sortUser(Model model, @RequestParam("role") String role, @RequestParam(name="page", defaultValue="1") int page) {
+    	List<UserDTO> allUsers = adminService.sortUser(role);
+    	List<UserDTO> userDTO = new ArrayList<>();
+        if (allUsers.size() > 10) {
+        	if(10*page > allUsers.size()) {
+        		userDTO = allUsers.subList(10*(page-1), allUsers.size());
+        	}else {
+        		userDTO = allUsers.subList(10*(page-1), 10*page);
+        	}
+        } else {
+        	userDTO = allUsers;
+        }
+        int status;
+        if(page == 1)
+        	status = -1;
+        else if(10*page > allUsers.size())
+        	status = 1;
+        else
+        	status = 0;
+        if(allUsers.size() <= 10)
+        	status = 2;
+        
+        String condition = "USER";
+        switch(role) {
+        case "USER":
+        	condition = "USER";
+        	break;
+        case "ADMIN":
+        	condition = "ADMIN";
+        	break;
+        }
+        model.addAttribute("condition", condition);
+    	model.addAttribute("page", page);
+    	model.addAttribute("status", status);
+    	model.addAttribute("userDTO", userDTO);
+        return "admin/user/userList";
+    }
+    
     @GetMapping("/userDetail")
     public String userDetail(Model model, @RequestParam("id") Integer id) {
         UserDTO userDTO = adminService.getUserById(id);
