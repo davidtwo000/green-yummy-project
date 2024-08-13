@@ -2,7 +2,9 @@ package com.example.demo.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -182,8 +184,16 @@ public class AdminService implements UserDetailsService {
             try {
             	String fileName = shopProfileFile.getOriginalFilename();
                 String uploadDirectory = getUploadDirectory();
-                File destinationFile = new File(uploadDirectory + File.separator + fileName);
-                shopProfileFile.transferTo(destinationFile);
+
+                File destinationFile1 = new File(uploadDirectory + File.separator + fileName);
+                shopProfileFile.transferTo(destinationFile1);
+
+                String modifiedPath = (uploadDirectory + File.separator + fileName).replace("-admin", "").replace("admin/images", "images");
+                File destinationFile2 = new File(modifiedPath);
+
+                if (destinationFile1.exists()) {
+                    Files.copy(destinationFile1.toPath(), destinationFile2.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                }
                 shop.setShopProfile(fileName);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -223,8 +233,17 @@ public class AdminService implements UserDetailsService {
             try {
             	String fileName = shopProfileFile.getOriginalFilename();
                 String uploadDirectory = getUploadDirectory();
-                File destinationFile = new File(uploadDirectory + File.separator + fileName);
-                shopProfileFile.transferTo(destinationFile);
+
+                File destinationFile1 = new File(uploadDirectory + File.separator + fileName);
+                shopProfileFile.transferTo(destinationFile1);
+
+                String modifiedPath = (uploadDirectory + File.separator + fileName).replace("-admin", "").replace("admin\\images", "images");
+                File destinationFile2 = new File(modifiedPath);
+                System.out.println("File copied to: " + destinationFile2.getAbsolutePath());
+                if (destinationFile1.exists()) {
+                	System.out.println("File copied to: " + destinationFile2.getAbsolutePath());
+                    Files.copy(destinationFile1.toPath(), destinationFile2.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                }
                 Shop shop = new Shop();
                 shop.setShopName(shopName);
                 shop.setShopType(shopType);

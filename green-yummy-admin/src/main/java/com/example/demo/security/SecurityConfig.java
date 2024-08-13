@@ -9,6 +9,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.savedrequest.SavedRequest;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 
 import jakarta.servlet.DispatcherType;
@@ -31,7 +32,14 @@ public class SecurityConfig {
             .formLogin(form -> form
                 .loginPage("/admin/login")
                 .loginProcessingUrl("/admin/login")
-                .defaultSuccessUrl("/admin/main")
+                .successHandler((request, response, authentication) -> {
+                    // 사용자가 원래 가고자 했던 URL 가져오기
+                    SavedRequest savedRequest = (SavedRequest) request.getSession().getAttribute("SPRING_SECURITY_SAVED_REQUEST");
+                    String targetUrl = savedRequest != null ? savedRequest.getRedirectUrl() : "/admin/main";
+
+                    // 원래 가려던 URL로 리다이렉트
+                    response.sendRedirect(targetUrl);
+                })
                 .failureUrl("/admin/login?message=loginFail")
                 .usernameParameter("id")
                 .passwordParameter("pw")
@@ -41,7 +49,7 @@ public class SecurityConfig {
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/admin/login?message=logoutSuccess")
                 .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID")
+                .deleteCookies("ADMINSESSIONID")
                 .permitAll()
             )
             .sessionManagement(session -> session
