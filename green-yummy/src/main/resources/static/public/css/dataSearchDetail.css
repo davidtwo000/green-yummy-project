@@ -273,10 +273,10 @@ hr{
     justify-content: center;
     align-items: center;
 }
-/* .recommandImg { */
-/*     width: 100%; */
-/*     height: auto; */
-/* } */
+.recommandImg {
+    width: 100%;
+    height: auto;
+}
 .recommandDetail, .recommandImg{
 	cursor:pointer;
 }
