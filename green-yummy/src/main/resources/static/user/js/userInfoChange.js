@@ -25,6 +25,32 @@ emailChoose.addEventListener("change", function () {
 	console.log(email2.textContent);
 });
 	
+	
+function addUserPhoto(){
+	let photolabel = document.querySelector(".userPhoto label");
+	let addPhoto = document.getElementById("addPhoto");
+	let inputfile = document.getElementById("file");
+
+	
+	let myUserPhoto = inputfile.files[0];
+	let fr = new FileReader();
+		
+	fr.onload = function(event){
+		let pictureUrl = event.target.result;
+		let imgtag = document.createElement("img");
+		
+		addPhoto.classList.add("hidden");
+		
+		photolabel.appendChild(imgtag);
+		imgtag.src = pictureUrl;
+		imgtag.style.opacity = "1";
+				
+		console.log(pictureUrl);
+	};
+	
+	fr.readAsDataURL(myUserPhoto);
+}
+	
 
 let isNicknameAvailable = false;
 let isEmailAvailable = false;
