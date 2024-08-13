@@ -18,7 +18,7 @@
            <!--  유효성 체크. 필수 항목은 자세히보기를 눌러서 확인을 해야만 한다. 
              버튼을 눌렀다면 회색에서 붉은 색으로 바뀐다.-->
 
-            <h3>이용약관</h3>
+            <h2>이용약관</h2>
 
             <label><input type="checkbox" name="agreement" onclick="allAgree()">전체 동의</label>
             <ul class="agreeCheck">
