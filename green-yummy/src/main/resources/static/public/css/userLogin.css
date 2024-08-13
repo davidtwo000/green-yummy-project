@@ -18,7 +18,8 @@ main{
     height: 250px;
     padding: 20px;
     
-    border: 1px solid black;
+    border: 2px solid gray;
+    border-radius: 5px;
 }
 .loginforms > form{
     display: flex;
@@ -55,7 +56,7 @@ input[type="submit"]{
 	left: 100px;
 	font-size: 11pt;
 	cursor: pointer;
-	color: blue;
+	color: #0000f4;;
 }
 input[type="button"]{
     width: 150px;
