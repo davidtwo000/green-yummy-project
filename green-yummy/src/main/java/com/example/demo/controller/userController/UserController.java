@@ -96,7 +96,7 @@ public class UserController {
 		
         shopApplyService.saveApplication(application);
         
-		return "user/userPage";
+		return "redirect:/user/userPage";
 	}
 	
 	
