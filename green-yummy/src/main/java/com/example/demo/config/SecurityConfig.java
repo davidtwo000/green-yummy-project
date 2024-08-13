@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @Configuration
 @EnableWebSecurity
@@ -46,8 +47,9 @@ public class SecurityConfig {
 	            	.logoutSuccessUrl("/") // 로그아웃 성공 후 리다이렉트할 URL
 	                .permitAll()
             ).csrf((csrf) -> 
-        		csrf.disable()
-        		//.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+        		csrf
+        		.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+        		//.disable()
             );
 
         return http.build();
