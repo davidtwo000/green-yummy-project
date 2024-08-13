@@ -166,14 +166,16 @@ async function displayShops(shops) {
                     </div>
                     <div class="shopInfos">
                         <div class="infoFirst">
-                            <span class="shopName">${shop.shopName}</span> <br> 
+                            <span class="shopName">${shop.shopName}</span>
+							<span>${shop.rating}</span> <br> 
+							
                             <span>${shop.shopType}</span> | 
                             <span>${shop.location}</span>
-                            <span>${shop.rating}</span>
+                            
                         </div>
                         <div class="infoSecond">
-                            <span>${shop.openHours} ~ ${shop.closeHours}</span>
-                            <span>휴무 ${shop.closedDays}</span>
+                            <span>${shop.openHours} ~ ${shop.closeHours}</span><br>
+                            <span>휴무일: ${shop.closedDays}</span>
                         </div>
                         <p>${shop.shopTel}</p>
                         <p>${shop.etc}</p>

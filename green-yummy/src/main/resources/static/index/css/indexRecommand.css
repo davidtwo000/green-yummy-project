@@ -3,7 +3,8 @@
 .recommandCon{
     width: 1280px;
 	overflow: hidden;
-	border: 2px solid turquoise;
+	border-radius: 5px;
+	border: 2px solid gray;
 }
 
 
@@ -17,7 +18,7 @@
     text-align: left;
 }
 .recommandTag span{
-	font: normal bold 13pt 'sans-serif';
+	font: normal bold 15pt 'sans-serif';
 }
 .recommandList{
 	position: relative;

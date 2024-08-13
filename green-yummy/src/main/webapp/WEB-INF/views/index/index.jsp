@@ -31,7 +31,7 @@
 				<img src="/images/search.png" id="seachBtn" onclick="searchBytext()">
 			</div>
 			<div class="ocricon">
-				<img src="/images/picture.png" title="OCR. 사진으로 검색하기."
+				<img src="/images/colorPhoto.png" title="OCR. 사진으로 검색하기."
 					onclick="location.href='/public/pictureOCR'">
 			</div>
 
