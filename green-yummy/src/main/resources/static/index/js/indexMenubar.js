@@ -1,46 +1,28 @@
 
-
-
-window.onload = () => {
-	const highrate = document.querySelector(".highr");
-	const lowrate = document.querySelector(".lowr");
-	
-	highrate.onclick = () => {
-		if(!highrate.classList.contains("selectRate")){
-			highrate.classList.add("selectRate");
-			lowrate.classList.remove("selectRate");
-		}
-		
-	}
-	lowrate.onclick = () => {
-		if(!lowrate.classList.contains("selectRate")){
-			highrate.classList.remove("selectRate");
-			lowrate.classList.add("selectRate");
-		}
-		
-	}
-}
-
-
 function search(data) {
 
-    const lists = document.querySelectorAll('.searchByArea, .searchByType, .searchByRating');
+    const lists = document.querySelectorAll('.list-show ul');
+	const sublists = document.querySelectorAll('.list-show ul li');
 
     lists.forEach(list => list.style.display = 'none');
+	
 
+	sublists[0].classList.add("listSelect");
     
 
     if (data === 'area') {
-
+		const sublists = document.querySelectorAll('.list-show ul li');
+		
         document.getElementById('searchByArea').style.display = 'flex';
+		sublists[0].classList.add("listSelect");
+		sublists[1].classList.remove("listSelect");
 
     } else if (data === 'type') {
+		const sublists = document.querySelectorAll('.list-show ul li');
 
         document.getElementById('searchByType').style.display = 'flex';
-
-    } else if (data === 'rating') {
-
-        document.getElementById('searchByRating').style.display = 'flex';
+		sublists[0].classList.remove("listSelect");
+		sublists[1].classList.add("listSelect");
 
     }
 

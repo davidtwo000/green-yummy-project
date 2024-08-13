@@ -15,6 +15,7 @@
 <script src="/index/js/indexMenubar.js"></script>
 <script src="/public/js/dataSearchByIndex.js" defer></script>
 <script src="/index/js/search.js"></script>
+<script src="/public/js/rateMenubar.js"></script>
 <!-- search.js는 손대지 말 것 -->
 </head>
 <body>
