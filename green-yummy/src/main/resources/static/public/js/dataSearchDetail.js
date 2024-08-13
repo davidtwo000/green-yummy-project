@@ -64,7 +64,7 @@ function displayReviews(reviews, page = 1) {
 
 		// Convert reviewComment to formatted text with # separator
 		const formattedComment = review.reviewComment
-			.split(', ')
+			.split(',')
 			.map(comment => `#${comment}`)
 			.join(' ');
 
@@ -130,11 +130,6 @@ function displayReviews(reviews, page = 1) {
 			handleCheckboxChange(event.target);
 		}
 	});
-}
-//코멘트 #표시
-function formatCommentAsHashtags(comment) {
-	const comments = comment.split(',');
-	return comments.map(c => `#${c.trim()}`).join(' ');
 }
 
 
