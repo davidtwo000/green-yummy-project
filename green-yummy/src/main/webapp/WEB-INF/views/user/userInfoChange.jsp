@@ -77,6 +77,15 @@
                         <input type="hidden" id="fullEmail" name="email">
                     </td>
                 </tr>
+                <tr>
+                	<th>프로필 사진</th>
+                	<td>
+                		<div class="userPhoto">
+			       			<label for="file"><img src="/images/addPhoto.png" id="addPhoto"></label>
+			       			<input type="file" name="userImg" id="file" onchange="addUserPhoto()">
+			       		</div>
+                	</td>
+                </tr>
             </table>
         </div>
         
