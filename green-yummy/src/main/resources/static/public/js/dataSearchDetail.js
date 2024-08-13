@@ -192,15 +192,21 @@ function random() {
             const img = document.createElement('img');
 
             img.src = '/images/' + item.shopProfile;
+			img.setAttribute('title',`${item.shopName}`+"(" +`${item.shopType}`+")");
             img.className = 'recommandImg';
             imgContainer.appendChild(img);
 
             const detail = document.createElement('div');
+			const detailShop = document.createElement('span');
 			const detailType = document.createElement('span');
-            detail.textContent = `${item.shopName}`; // 상점 이름과 타입
-			detail.appendChild(detailType);
+            detailShop.textContent = `${item.shopName}`; // 상점 이름과 타입
+			detail.appendChild(detailShop);
+			detailShop.setAttribute('title',`${item.shopName}`+"(" +`${item.shopType}`+")");
 			detailType.textContent = `${item.shopType}`;
+			detail.appendChild(detailType);
+			detailType.setAttribute('title',`${item.shopName}`+"(" +`${item.shopType}`+")");
             detail.className = 'recommandDetail'; // 스타일링 클래스
+			detailShop.className = 'detailShop';
 			detailType.className = 'detailType';
 
             div.appendChild(imgContainer);
