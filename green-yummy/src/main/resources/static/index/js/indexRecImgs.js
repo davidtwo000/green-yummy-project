@@ -78,7 +78,7 @@ async function getShopRating(shopId) {
             throw new Error('Network response was not ok ' + response.statusText);
         }
         const rating = await response.json();
-        return rating !== null ? rating : 0;
+        return rating !== null ? parseFloat(rating).toFixed(1) : '0.0';
     } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
         return 0;
