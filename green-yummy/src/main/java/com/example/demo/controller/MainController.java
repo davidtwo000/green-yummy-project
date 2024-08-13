@@ -1,10 +1,13 @@
 package com.example.demo.controller;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,12 +18,24 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.dto.publicDto.NotificationDTO;
 import com.example.demo.model.userModel.User;
+import com.example.demo.service.OCRService;
 import com.example.demo.service.publicService.NotificationService;
 import com.example.demo.service.publicService.UserRegistService;
 import com.example.demo.util.FileUploadService;
 
 @Controller
 public class MainController {
+	
+	@Autowired
+    private OCRService ocrService;
+
+	@Value("${app.basepath}")
+    private String basePath;
+
+    private String getUploadDirectory() {
+        String projectRoot = System.getProperty("user.dir");
+        return Paths.get(projectRoot, basePath, "admin/images").toString();
+    }
 	
 	@GetMapping("/")
 	public String index() {
@@ -65,6 +80,30 @@ public class MainController {
 		return "public/pictureOCR";
 	}
 	
+	@PostMapping("public/pictureOCR")
+	public String pictureOCRPerform(@RequestParam("imageFile") MultipartFile imageFile, Model model) {
+		System.out.println(1);
+		
+        // 업로드된 파일을 서버에 저장
+        if (!imageFile.isEmpty()) {
+        	try {
+        	String fileName = imageFile.getOriginalFilename();
+            String uploadDirectory = getUploadDirectory();
+
+            File destinationFile = new File(uploadDirectory + File.separator + fileName);
+            imageFile.transferTo(destinationFile);
+            String ocrResult = ocrService.extractTextFromImage(uploadDirectory + File.separator + fileName);
+            System.out.println(2);
+            model.addAttribute("ocrResult", ocrResult);
+        	} catch (IOException e) {
+        		System.out.println(3);
+                e.printStackTrace();
+            }
+        }
+
+        return "public/NewFile";
+    }
+
 	@GetMapping("public/usePolicy")
 	public String usePolicy() {
 		return "public/usePolicy";
