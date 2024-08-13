@@ -121,7 +121,7 @@
     <div class="container">
         <div class="profile-image">
         	<c:choose>
-        	<c:when test="${userDTO.profile == ''}">
+        	<c:when test="${userDTO.profile == null}">
             	<img src="/admin/images/프로필.png" alt="User Profile">
             </c:when>
             <c:otherwise>
