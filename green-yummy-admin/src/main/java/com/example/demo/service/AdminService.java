@@ -273,6 +273,18 @@ public class AdminService implements UserDetailsService {
     	return adminMapper.toUserDTOList(users);
     }
     
+    public List<UserDTO> sortUser(String role){
+    	List<User> users = new ArrayList<>();
+    	if(role.equals("USER"))
+    		users = adminRepository.findByIsAdmin(false);
+    	else if(role.equals("ADMIN"))
+    		users = adminRepository.findByIsAdmin(true);
+    	
+    	return adminMapper.toUserDTOList(users);
+    }
+    
+   
+    
     // 공지 검색
     public List<AnnounceDTO> searchAnnounce(String search, String searchType){
     	List<Notification> announce = new ArrayList<>();

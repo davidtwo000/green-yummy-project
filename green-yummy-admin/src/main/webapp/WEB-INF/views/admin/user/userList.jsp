@@ -114,6 +114,10 @@
 			height:30px;
 			font-size:18px;
 		}
+		#radioBox{
+			position:absolute;
+			left:150px;
+		}
     </style>
 	<script>
 	    function alarm(){
@@ -133,6 +137,17 @@
         <div class="content-header">
             <h1>사용자</h1>
             <div class="search-box">
+            <form action="/admin/sortUser" method="post" id="radioBox">
+            	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+            		<label>
+				        <input type="radio" name="role" value="USER"
+				        ${condition == 'USER' ? 'checked' : ''}>사용자
+				    </label>
+				    <label>
+				        <input type="radio" name="role" value="ADMIN"
+				        ${condition == 'ADMIN' ? 'checked' : ''}>관리자
+				    </label>
+            	</form>
                 <form action="/admin/searchUser" method="post">
                 <select name="searchType">
                 	<option value="total">전체</option>
@@ -195,5 +210,14 @@
         </c:choose>
         </div>
     </div>
+    <script>
+        const radios = document.querySelectorAll('input[type="radio"][name="role"]');
+        
+        radios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.getElementById('radioBox').submit();
+            });
+        });
+    </script>
 </body>
 </html>
