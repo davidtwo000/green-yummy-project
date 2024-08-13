@@ -5,6 +5,7 @@ package com.example.demo.controller.userController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.dto.publicDto.ShopDTO;
@@ -31,6 +33,7 @@ import com.example.demo.service.userService.BookmarkService;
 import com.example.demo.service.userService.ReviewService;
 import com.example.demo.service.userService.ShopApplyService;
 import com.example.demo.service.userService.UserServiceImpl;
+import com.example.demo.util.FileUploadService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -137,8 +140,11 @@ public class UserController {
 	@Autowired
     private PasswordEncoder passwordEncoder;
 	
+	@Autowired
+    private FileUploadService fileUploadService;
+	
 	@PostMapping("/letsInfoChange")
-	public String letsInfoChange(@ModelAttribute UserFormDTO form, HttpSession session) {
+	public String letsInfoChange(@ModelAttribute UserFormDTO form, @RequestParam(value = "userImg", required = false) MultipartFile userImg, HttpSession session) throws IOException {
 		
 		User user = userService.getCurrentUser();
         
@@ -156,6 +162,28 @@ public class UserController {
                 String hashedPassword = passwordEncoder.encode(form.getPassword());
                 user.setPassword(hashedPassword);
             }
+            
+            if (userImg != null && !userImg.isEmpty()) {
+            	String currentProfile = user.getProfile();
+            	String newProfile = userImg.getOriginalFilename();
+            	            	
+            	System.out.println("current : "+ currentProfile);
+            	System.out.println("new : " +newProfile);
+            	
+            	if(currentProfile == null && newProfile != null) {
+            		String fileName = fileUploadService.saveFile(userImg);
+            		user.setProfile(fileName);
+            	}else if(currentProfile != null && newProfile != null) {
+            		String currentOrigin = currentProfile.substring(currentProfile.indexOf("-") + 1);
+            		System.out.println("cur-orig : " +currentOrigin);
+            		if(!currentOrigin.equals(newProfile)) {
+            			String fileName = fileUploadService.saveFile(userImg);
+                   	 	user.setProfile(fileName);
+            		}
+            		
+            	}
+            }
+            	
             
             userService.updateUser(user);
 
