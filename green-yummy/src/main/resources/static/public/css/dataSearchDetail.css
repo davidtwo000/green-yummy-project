@@ -73,6 +73,7 @@ hr {
 	float: right;
 }
 
+
 #bookmarkCheck {
 	display: none;
 }
@@ -102,6 +103,7 @@ label {
 }
 
 .bookmarkIcon, .backBtn, .bookmarkIconOff {
+
 	margin: 0 10px 0 10px;
 	cursor: pointer;
 }
@@ -114,7 +116,8 @@ label {
 /* #bookmarkCheck{ */
 /* 	display: none; */
 /* } */
-.hidein {
+
+.hidein{
 	display: none;
 }
 

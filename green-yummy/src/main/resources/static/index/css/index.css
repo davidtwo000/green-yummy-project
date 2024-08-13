@@ -44,6 +44,7 @@
 	left: 0;
 	right: 0;
 }
+
 .ocricon{
 	position: relative;
 	top: -3px;
@@ -58,15 +59,21 @@
 	height: 50px;
 	cursor: pointer;
 }
-.searchBar {
+.searchBar, .selectBox{
 	box-sizing: border-box;
+	padding: 10px 10px 10px 20px;
+	outline: none;
+	border: 2px solid salmon;
+	border-radius: 50px;
+}
+.selectBox{
+	cursor: pointer;
+}
+.searchBar {
     width: 800px;
     height: 50px;
+    margin-left: 10px;
     display: inline-block; 
-    outline: none;
-    border-radius: 50px;
-    border: 2px solid salmon;
-    padding: 10px 10px 10px 20px;
     background: white;
     
     /* border: 1px solid brown; */
@@ -97,30 +104,38 @@
 
 /*카페고리 부분*/
 
-
 .search-list{
     display: flex;       
     justify-content: center;
     list-style-type: none; 
     padding: 0;          
     margin: 0;  
+    border-radius: 50px;
     background: salmon;
     width:1280px;
 }
 
 .search-list li {
-    cursor: pointer;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+	cursor: pointer;
+	height: 40px;
+	padding: 10px 20px 10px 20px;
+	margin: 10px;
+	font: normal bold 13pt 'sans-serif';
+	
+	border-radius: 50px;
 }
 
 .search-list li:hover {
-    background-color: #f0f0f0;
+/*     background-color: #f0f0f0; */
+	background-color: lemonchiffon;
+	transition: 200ms ease-in-out;
 }
 
 .list-show {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 20px; 
 }
 
