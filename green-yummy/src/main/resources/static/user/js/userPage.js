@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	var profileImage = document.getElementById('profileImage');
 
 	if (userProfile) {
-		profileImage.src = '/upload/images/' + userProfile;
+		profileImage.src = '/upload/' + userProfile;
 	} else {
 		profileImage.src = '/images/person.png';
 	}
