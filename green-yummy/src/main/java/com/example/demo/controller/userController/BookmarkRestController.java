@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.dto.publicDto.ShopDTO;
+import com.example.demo.model.publicModel.Shop;
 import com.example.demo.model.userModel.Bookmark;
 import com.example.demo.service.publicService.ShopService;
 import com.example.demo.service.userService.BookmarkService;
@@ -25,7 +26,7 @@ public class BookmarkRestController {
 
 	@Autowired
 	private BookmarkService bookmarkService;
-	
+
 	@Autowired
 	private ShopService shopService;
 
@@ -54,32 +55,28 @@ public class BookmarkRestController {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
 	}
-	
-	//북마크 이미 있는지
+
+	// 북마크 이미 있는지
 	@GetMapping("/exists/{userUkId}/{shopUkId}")
 	public boolean checkBookmark(@PathVariable("userUkId") Integer userUkId,
 			@PathVariable("shopUkId") Integer shopUkId) {
 		return bookmarkService.bookmarkExists(userUkId, shopUkId);
 	}
-	
-	
+
 	@GetMapping("/mybookmark/{userUkId}")
 	public ResponseEntity<List<ShopDTO>> getUserBookmarksShops(@PathVariable("userUkId") Integer userUkId) {
-	    List<Bookmark> bookmarks = bookmarkService.getBookmarksByUserUkId(userUkId);
-	    List<Integer> shopUkIds = bookmarks.stream()
-	                                       .map(Bookmark::getShopUkId)
-	                                       .collect(Collectors.toList());
+		List<Bookmark> bookmarks = bookmarkService.getBookmarksByUserUkId(userUkId);
+		List<Integer> shopUkIds = bookmarks.stream().map(Bookmark::getShopUkId).collect(Collectors.toList());
 
-	    List<ShopDTO> shops;
-	    if (!shopUkIds.isEmpty()) {
-	        shops = shopUkIds.stream()
-	                         .map(shopService::getShopByUkId)
-	                         .filter(shop -> shop != null) // Null 값 필터링
-	                         .collect(Collectors.toList());
-	    } else {
-	        shops = List.of(); 
-	    }
+		List<ShopDTO> shops;
+		if (!shopUkIds.isEmpty()) {
+			shops = shopUkIds.stream().map(shopService::getShopByUkId).filter(shop -> shop != null) // Null 값 필터링
+					.collect(Collectors.toList());
+		} else {
+			shops = List.of();
+		}
 
-	    return ResponseEntity.ok(shops);
+		return ResponseEntity.ok(shops);
 	}
+
 }

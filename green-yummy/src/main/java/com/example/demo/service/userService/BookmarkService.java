@@ -2,6 +2,8 @@ package com.example.demo.service.userService;
 
 import java.util.List;
 
+import com.example.demo.dto.publicDto.ShopDTO;
+import com.example.demo.model.publicModel.Shop;
 import com.example.demo.model.userModel.Bookmark;
 
 public interface BookmarkService {

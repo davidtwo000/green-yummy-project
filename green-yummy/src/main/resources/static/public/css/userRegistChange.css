@@ -57,7 +57,7 @@ input[type="text"], input[type="password"], select{
     outline: none;
     background: #f2f2f2;
 }
-input[type="text"]{
+input[type="text"], input[type="password"]{
 	box-sizing: border-box;
 	padding: 10px;
 }

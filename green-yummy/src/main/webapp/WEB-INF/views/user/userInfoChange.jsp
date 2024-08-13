@@ -17,11 +17,12 @@
 <jsp:include page="../public/header.jsp"/>
     
 <main>
-    <form method="post" action="/letsInfoChange">
+    <form method="post" action="/letsInfoChange" enctype="multipart/form-data">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
     <input type="hidden" id="currentNickname" value="${user.nickname}">
 	<input type="hidden" id="currentPhone" value="${user.phone}">
 	<input type="hidden" id="currentEmail" value="${user.email}">
+	<input type="hidden" id="currentProfile" value="${user.profile}">
     <p class="upperComment">수정할 항목만 입력해주세요.</p>
         <div class="tablecontainer">
             <table>

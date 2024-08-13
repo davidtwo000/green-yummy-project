@@ -24,7 +24,7 @@ function userBye() {
 		userOut.classList.remove("hidden");
 	} else {
 		userOut.classList.add("hidden");
-	}	
+	}
 }
 
 
@@ -144,101 +144,22 @@ function updateReview(reviewId) {
 	window.location.href = `/user/updateReview/${reviewId}`; // PathVariable을 사용한 URL로 수정
 }
 
-function mybookmark() {
-    const userUkId = document.getElementById('userUkId').value;
-    fetch(`/bookmark/mybookmark/${userUkId}`, {
-        method: 'GET'
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        myBookmarkList(data);
-    })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-    });
-}
-
-function myBookmarkList(data) {
-    const myBookmarkList = document.getElementById('myBookmarkList');
-    
-    // 데이터가 비어있을 경우
-    if (data.length === 0) {
-        myBookmarkList.innerHTML = '<li>북마크가 없습니다.</li>';
-        return;
-    }
-    
-    // 데이터가 있을 경우
-    let html = '';
-    data.forEach(shop => {
-        html += `
-            <li>
-                <a href="/public/dataSearchDetail/${shop.shopUkId}">
-                    <img src="/images/${shop.shopProfile}" alt="${shop.shopName}">
-					<div class="bookShopInfo">
-					<span>${shop.shopName}</span>
-					<span>3.5</span>
-					<span>${shop.location}</span>
-					</div>
-                </a>
-				<div class="bookmarkBtn">
-					<img src="/images/bookmark.png"
-					 onclick="bookmarkremove(${shop.shopUkId})">
-				</div>
-				
-            </li>
-        `;
-    });
-    
-    myBookmarkList.innerHTML = html;
-	
-    const bookmarkTabLink = document.getElementById('bookmarkTabLink');
-    bookmarkTabLink.textContent = `나의 맛집(${data.length}개)`;
-}
-
-
-function bookmarkremove(shopUkId) {
-	const userUkId = document.getElementById('userUkId').value; 
-	console.log("유저 아이디: "+userUkId);
-	console.log("가게 아이디: "+shopUkId);
-
-	fetch(`/bookmark/remove/${userUkId}/${shopUkId}`, {
-		method: 'DELETE',
-		headers: {
-			'Content-Type': 'application/json'
-		}
-
-	})
-		.then(response => {
-			if (response.ok) {
-				return response.text();
-			} else {
-				throw new Error('북마크 제거에 실패했습니다.');
-			}
-		})
-		.then(message => {
-			alert(message);
-			
-			//제거되고 로드
-			setTimeout(() => {
-				window.location.reload();
-			}, 300); 
-		})
-		.catch(error => {
-			console.error('Error:', error);
-			alert('북마크 제거 중 오류가 발생했습니다.');
-		});
-}
-
 
 
 document.addEventListener('DOMContentLoaded', (event) => {
 	myreviewList();
-	mybookmark()
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+
+	var userProfile = document.getElementById('userProfile').value;
+	var profileImage = document.getElementById('profileImage');
+
+	if (userProfile) {
+		profileImage.src = '/upload/' + userProfile;
+	} else {
+		profileImage.src = '/images/person.png';
+	}
 });
 
 
@@ -249,21 +170,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
 function userDel(){
 	const userId = document.getElementById('userDelId').value;
     
-    // AJAX 요청을 통해 유저 삭제 요청 전송
-    fetch(`/deleteUser/${userId}`, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    .then(response => {
-        if (response.ok) {
-            alert("회원탈퇴가 완료되었습니다.");
-            window.location.href = '/logout';  // 탈퇴 후 로그아웃 및 메인 페이지로 리다이렉트
-        } else {
-            alert("회원탈퇴에 실패했습니다. 다시 시도해 주세요.");
-        }
-    })
-    .catch(error => console.error('Error:', error));
+	// AJAX 요청을 통해 유저 삭제 요청 전송
+	fetch(`/deleteUser/${userId}`, {
+		method: 'DELETE',
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
+	.then(response => {
+		if (response.ok) {
+			alert("회원탈퇴가 완료되었습니다.");
+			window.location.href = '/logout';  // 탈퇴 후 로그아웃 및 메인 페이지로 리다이렉트
+		} else {
+			alert("회원탈퇴에 실패했습니다. 다시 시도해 주세요.");
+		}
+	})
+	.catch(error => console.error('Error:', error));
 }
 */

@@ -164,7 +164,18 @@
         <table class="table">
 	        <tbody>
 	            <tr>
-	                <th>NO</th>
+	                <th>
+	                <form action="/admin/userList" method="get" id="radioBox1">
+					<label>
+				        <input type="radio" name="order" value="asc"
+				        ${order == 'asc' ? 'checked' : ''}>asc
+				    </label>
+				    <label>
+				        <input type="radio" name="order" value="desc"
+				        ${order == 'desc' ? 'checked' : ''}>desc
+				    </label>
+				    </form>
+					</th>
 	                <th>ID</th>
 	                <th>NAME</th>
 	                <th>TEL</th>
@@ -172,9 +183,9 @@
 	                <th>ROLE</th>
 	                <th>ACTIONS</th>
 	            </tr>
-	            <c:forEach var='user' items='${userDTO }'>
+	            <c:forEach var='user' items='${userDTO }' varStatus="status">
 	            <tr>
-	                <td>${user.userUkId }</td>
+	                <td>${status.index + 1 + (page-1)*10 }</td>
 	                <td>${user.id }</td>
 	                <td>${user.name }</td>
 	                <td>${user.phone }</td>
@@ -217,6 +228,14 @@
             radio.addEventListener('change', function() {
                 document.getElementById('radioBox').submit();
             });
+        });
+        
+        const radios1 = document.querySelectorAll('input[type="radio"][name="order"]');
+        
+        radios1.forEach(radio => {
+        	radio.addEventListener('change', function() {
+        		document.getElementById('radioBox1').submit();
+        	});
         });
     </script>
 </body>
