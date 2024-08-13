@@ -46,8 +46,9 @@ public class SecurityConfig {
 	            	.logoutSuccessUrl("/") // 로그아웃 성공 후 리다이렉트할 URL
 	                .permitAll()
             ).csrf((csrf) -> 
-        		csrf.disable()
+        		csrf
         		//.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+        		.disable()
             );
 
         return http.build();

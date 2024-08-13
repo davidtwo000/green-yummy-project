@@ -14,26 +14,14 @@ let recImgNext = document.querySelector('.recNextBtn');
 let recCurIdx = 0;
 let recImgWidth =380;
 let recImgMargin = 40;
+let maxIdx = 3;
+let minIdx = 0;
 
 //li를 복제해서 앞뒤로 붙인다.
-//recCloneLi();
+
 
 //function recCloneLi(){
 //	
-//	for(let i=0;i<recImgNum;i++){
-//		let clone = recImgs[i].cloneNode(true);
-//		clone.classList.add("cloneNext");
-//		recImgList.appendChild(clone);//오른쪽에 붙였다
-//	}
-//	for(let j=recImgNum-1;j>=0;j--){
-//		let clone = recImgs[j].cloneNode(true);
-//		clone.classList.add("clonePrev");
-//		recImgList.prepend(clone);
-//	}
-//}
-
-function recCloneLi(){
-	
 //	for(let i=0;i<recImgNum/2;i++){
 //		let clone = recImgs[i].cloneNode(true);
 //		clone.classList.add("cloneNext");
@@ -44,64 +32,26 @@ function recCloneLi(){
 //		clone.classList.add("clonePrev");
 //		recImgList.prepend(clone);
 //	}
-
-//length-idx 라면 거꾸로도 될지도
-	
-			let clonenext =item.cloneNode(true);
-			clonenext.classList.add("cloneNext");
-			recommandList.appendChild(clone);//오른쪽에 붙였다
-			
-			let cloneprev = item.cloneNode(true);
-			cloneprev.classList.add("clonePrev");
-			recommandList.prepend(clone);
-}
+//
+//
+//}
 
 //클릭하면 앞뒤로 이동. 무한루프
+
+
 recImgNext.onclick = () => {
-	if(recCurIdx===6){
-		recImgList.style.left = -(recCurIdx+3)*(recImgWidth + recImgMargin) + "px";
-		recImgList.style.transition = "left 300ms ease-in-out";
-		
-		setTimeout(()=>{
-			
-			recImgList.style.left = -1260 + "px";
-			recImgList.style.transition = "none";
-			recCurIdx = 0;
-			
-		},300);
-		
-		
-	}else{
+	if(recCurIdx<maxIdx){
 		recCurIdx++;
-		recImgList.style.left = -(recCurIdx+3)*(recImgWidth + recImgMargin) + "px";
+		recImgList.style.left = -recCurIdx*(recImgWidth + recImgMargin) + "px";
 		recImgList.style.transition = "left 300ms ease-in-out"; 
-		
-		console.log(recCurIdx);
 	}
 }
 
 recImgPrev.onclick = () => {
-	if(recCurIdx===-3){
+	if(recCurIdx>minIdx){
 		recCurIdx--;
-		recImgList.style.left = 0 + "px";
+		recImgList.style.left = -(recCurIdx)*(recImgWidth + recImgMargin) + "px";
 		recImgList.style.transition = "left 300ms ease-in-out";
-		
-		recImgList.offsetLeft;
-		
-		
-		setTimeout(()=>{
-			
-			recImgList.style.left = -2520 + "px";
-			recImgList.style.transition = "none";
-			recCurIdx = 3;
-			
-		},300);
-	}else{
-		recCurIdx--;
-		recImgList.style.left = -(recCurIdx+3)*(recImgWidth + recImgMargin) + "px";
-		recImgList.style.transition = "left 300ms ease-in-out";
-		
-		console.log(recCurIdx);
 	}
 }
 
@@ -128,12 +78,12 @@ function random() {
         // 기존 <li> 요소를 모두 제거
         recommandList.innerHTML = '';
 		
-		const li = document.createElement('li');
+		
 
         // 데이터 배열을 순회하며 리스트 아이템 생성
         data.forEach(item => {
 
-            
+			const li = document.createElement('li');
 
             // 상점 이미지 부분
             const imgContainer = document.createElement('div');
@@ -150,8 +100,15 @@ function random() {
             // 상점 상세 정보 부분
             const detail = document.createElement('div');
 
-            detail.textContent = `${item.shopName} / ${item.shopType}`; // 상점 이름과 평점
+            detail.textContent = `${item.shopName} `; // 상점 이름과 평점
             detail.className = 'recommandDetail'; // 스타일링 클래스
+			
+			const detailType = document.createElement('span');
+			detail.appendChild(detailType);
+			detailType.textContent = `${item.shopType}`;
+			detailType.className = 'detailType';
+			
+			
 
             // <li>에 이미지와 상세 정보를 추가
             li.appendChild(imgContainer);
@@ -160,6 +117,7 @@ function random() {
 			li.addEventListener('click', () => {
                window.location.href = `/public/dataSearchDetail/${item.shopUkId}`;
             });
+			
             
             // <ul>에 <li> 추가
             recommandList.appendChild(li);

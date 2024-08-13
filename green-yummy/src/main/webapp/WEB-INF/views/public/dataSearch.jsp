@@ -15,6 +15,7 @@
 <script src="/index/js/indexMenubar.js"></script>
 <script src="/public/js/dataSearchByIndex.js" defer></script>
 <script src="/index/js/search.js"></script>
+<script src="/index/rateMenubar.js"></script>
 
 </head>
 <body>
@@ -37,7 +38,7 @@
 				<img src="/images/search.png" id="seachBtn" onclick="searchBytext()">
 			</div>
 			<div class="ocricon">
-				<img src="/images/picture.png" title="OCR. 사진으로 검색하기."
+				<img src="/images/colorPhoto.png" title="OCR. 사진으로 검색하기."
 					onclick="location.href='/public/pictureOCR'">
 			</div>
 
@@ -88,14 +89,16 @@
 			<script type="text/javascript"
 				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=349c2cb0976e7672467f9c85e9839ed5"></script>
 
+			
+
+
 			<div class="sortOptions" id="sortOptions">
-				<label> <input type="radio" name="sort" value="ratingAsc">
+				<label> <input type="radio"id="highRate" name="sort" value="ratingDesc"
+					checked> 평점 높은 순
+				</label> <label> <input type="radio" id="lowRate" name="sort" value="ratingAsc">
 					평점 낮은 순
-				</label> <label> <input type="radio" name="sort" value="ratingDesc">
-					평점 높은 순
 				</label>
 			</div>
-
 
 			<div id="shop-list"></div>
 			<div id="pagination" class="pagination"></div>

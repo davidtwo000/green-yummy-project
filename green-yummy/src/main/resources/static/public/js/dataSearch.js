@@ -3,29 +3,42 @@ const itemsPerPage = 6;
 let shops = [];
 
 // 아무것도 없을 때 전체 리스트 로드
-function shoplist() {
-	fetch('/shops/shopList')
-		.then(response => {
-			if (!response.ok) {
-				throw new Error('Network response was not ok ' + response.statusText);
-			}
-			return response.json();
-		})
-		.then(async data => {
-			shops = data;
-			// 평점 정렬 수행
-			await sortShopsByRating();
-			// 현재 페이지에 맞는 상점 표시
-			loadPage(currentPage);
-			// 지도 업데이트
-			const coordinatesMap = shops.map(shop => ({
-				shopUkId: shop.shopUkId,
-				shopName: shop.shopName,
-				latlng: new kakao.maps.LatLng(shop.latitude, shop.longitude)
-			}));
-			map(coordinatesMap);
-		})
-		.catch(error => console.error('Error fetching shop data:', error));
+async function shoplist() {
+	try {
+		// 상점 목록을 가져옵니다
+		const response = await fetch('/shops/shopList');
+		if (!response.ok) {
+			throw new Error('Network response was not ok ' + response.statusText);
+		}
+		const data = await response.json();
+		shops = data;
+
+		// 상점의 평점을 가져오기 위한 요청을 생성합니다
+		const ratingRequests = shops.map(shop => getShopRating(shop.shopUkId));
+		const ratings = await Promise.all(ratingRequests);
+
+		// 상점 객체에 평점을 추가합니다
+		shops.forEach((shop, index) => {
+			shop.rating = ratings[index] !== undefined ? ratings[index] : 0; // 평점 기본값 설정
+		});
+
+		// 평점 정렬 수행
+		await sortShopsByRating();
+
+		// 현재 페이지에 맞는 상점 표시
+		loadPage(currentPage);
+
+		// 지도 업데이트
+		const coordinatesMap = shops.map(shop => ({
+			shopUkId: shop.shopUkId,
+			shopName: shop.shopName,
+			latlng: new kakao.maps.LatLng(shop.latitude, shop.longitude)
+		}));
+		map(coordinatesMap);
+
+	} catch (error) {
+		console.error('Error fetching shop data:', error);
+	}
 }
 
 async function sortShopsByRating() {
@@ -39,7 +52,7 @@ async function sortShopsByRating() {
 		});
 
 		const selectedValue = reviewSort();
-		if (selectedValue === 'ratingAsc') {
+		if (selectedValue === 'ratingAsc' || selectedValue === null) {
 			shops.sort((a, b) => a.rating - b.rating); // 오름차순
 		} else if (selectedValue === 'ratingDesc') {
 			shops.sort((a, b) => b.rating - a.rating); // 내림차순
@@ -82,6 +95,63 @@ document.getElementById('sortOptions').addEventListener('change', function() {
 	sortShopsByRating().then(() => loadPage(currentPage));
 });
 
+async function sortShopsByRating() {
+	// 모든 상점의 평점 요청을 생성
+	const ratingRequests = shops.map(shop => getShopRating(shop.shopUkId));
+
+	try {
+		// 모든 평점 데이터를 가져오기
+		const ratings = await Promise.all(ratingRequests);
+
+		// 평점을 상점 객체에 설정
+		shops.forEach((shop, index) => {
+			shop.rating = ratings[index] !== undefined ? ratings[index] : 0; // 평점을 0으로 기본 설정
+		});
+
+		// 선택된 정렬 옵션 가져오기
+		const selectedValue = reviewSort();
+		if (selectedValue === 'ratingAsc' || selectedValue === null) {
+			shops.sort((a, b) => a.rating - b.rating); // 오름차순
+		} else if (selectedValue === 'ratingDesc') {
+			shops.sort((a, b) => b.rating - a.rating); // 내림차순
+		}
+	} catch (error) {
+		console.error('Error sorting shops by rating:', error);
+	}
+}
+
+function loadPage(page) {
+	const startIndex = (page - 1) * itemsPerPage;
+	const endIndex = startIndex + itemsPerPage;
+	const currentShops = shops.slice(startIndex, endIndex);
+
+	displayShops(currentShops);
+	updatePagination();
+}
+
+async function getShopRating(shopId) {
+	try {
+		const response = await fetch(`/reviews/rating/${shopId}`);
+		if (!response.ok) {
+			throw new Error('Network response was not ok ' + response.statusText);
+		}
+		const rating = await response.json();
+		return rating !== null ? rating : 0;
+	} catch (error) {
+		return 0;
+	}
+}
+
+function reviewSort() {
+	const selectedOption = document.querySelector('input[name="sort"]:checked');
+	return selectedOption ? selectedOption.value : null;
+}
+
+document.getElementById('sortOptions').addEventListener('change', function() {
+	// 상점 목록을 다시 로드하면서 현재 페이지 유지
+	sortShopsByRating().then(() => loadPage(currentPage));
+});
+
 async function displayShops(shops) {
 	const shopListElement = document.getElementById('shop-list');
 	shopListElement.innerHTML = '';  // 기존 콘텐츠 초기화
@@ -96,14 +166,16 @@ async function displayShops(shops) {
                     </div>
                     <div class="shopInfos">
                         <div class="infoFirst">
-                            <span class="shopName">${shop.shopName}</span> <br> 
+                            <span class="shopName">${shop.shopName}</span>
+							<span>${shop.rating}</span> <br> 
+							
                             <span>${shop.shopType}</span> | 
                             <span>${shop.location}</span>
-                            <span>${shop.rating}</span>
+                            
                         </div>
                         <div class="infoSecond">
-                            <span>${shop.openHours} ~ ${shop.closeHours}</span>
-                            <span>휴무 ${shop.closedDays}</span>
+                            <span>${shop.openHours} ~ ${shop.closeHours}</span><br>
+                            <span>휴무일: ${shop.closedDays}</span>
                         </div>
                         <p>${shop.shopTel}</p>
                         <p>${shop.etc}</p>
@@ -165,7 +237,7 @@ function searchBy() {
 	}
 }
 
-function searchByIndex() {
+async function searchByIndex() {
 	let url = '';
 	if (!option && !content) {
 		url = '/shops/shopList';
@@ -179,37 +251,45 @@ function searchByIndex() {
 
 	console.log(url);
 
-	fetch(url, {
-		method: 'GET',
-	})
-		.then(response => {
-			if (!response.ok) {
-				throw new Error('Network response was not ok ' + response.statusText);
-			}
-			return response.json();
-		})
-		.then(data => {
-			if (data.length === 0) {
-				document.getElementById('shop-list').innerHTML = '검색된 가게가 없어요';
-				document.getElementById('pagination').innerHTML = '';
-				return;
-			}
+	try {
+		const response = await fetch(url, { method: 'GET' });
+		if (!response.ok) {
+			throw new Error('Network response was not ok ' + response.statusText);
+		}
+		const data = await response.json();
 
-			shops = data;
-			currentPage = 1;
-			loadPage(currentPage);
+		if (data.length === 0) {
+			document.getElementById('shop-list').innerHTML = '검색된 가게가 없어요';
+			document.getElementById('pagination').innerHTML = '';
+			return;
+		}
 
-			const coordinatesMap = shops.map(shop => ({
-				shopUkId: shop.shopUkId,
-				shopName: shop.shopName,
-				latlng: new kakao.maps.LatLng(shop.latitude, shop.longitude)
-			}));
+		// 상점 데이터와 평점 데이터를 병합합니다
+		shops = data;
 
-			map(coordinatesMap);
-		})
-		.catch(error => {
-			console.error('Error:', error);
+		// 상점의 평점을 가져오기 위한 요청을 생성합니다
+		const ratingRequests = shops.map(shop => getShopRating(shop.shopUkId));
+		const ratings = await Promise.all(ratingRequests);
+
+		// 상점 객체에 평점을 추가합니다
+		shops.forEach((shop, index) => {
+			shop.rating = ratings[index] !== undefined ? ratings[index] : 0; // 평점 기본값 설정
 		});
+
+		currentPage = 1;
+		loadPage(currentPage);
+
+		const coordinatesMap = shops.map(shop => ({
+			shopUkId: shop.shopUkId,
+			shopName: shop.shopName,
+			latlng: new kakao.maps.LatLng(shop.latitude, shop.longitude)
+		}));
+
+		map(coordinatesMap);
+
+	} catch (error) {
+		console.error('Error:', error);
+	}
 }
 
 // 지도 표시 함수
