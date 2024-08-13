@@ -1,16 +1,4 @@
 
-.recommandDetail, .detailType{
-	text-overflow: ellipsis;
-}
-.recommandDetail{
-	padding: 10px 0 10px 0;
-	font: normal bold 15pt 'sans-serif';
-}
-.detailType{
-	padding: 5px;
-	color: gray;
-	font: normal bold 11pt 'sans-serif';
-}
 
 
 
