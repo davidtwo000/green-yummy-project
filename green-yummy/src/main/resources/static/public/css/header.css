@@ -45,23 +45,33 @@ header{
 	margin-right: 40px;
 	font: normal bold 15pt 'sans-serif';
 }
-.logoutLogo, .logoutLogo a img{
+.logoutLogo{
 	width: 30px;
 	height: 30px;
 	border-radius: 50px;
-}
-.logoutLogo{
 	padding: 5px;
 	background: indigo;
 	overflow: hidden;
 }
-.logoutLogo a{
+
+.logoutLogo input[type="image"]{
+	width: 30px;
+	height: 30px;
+	border-radius: 50px;
+	margin: 0;
+	position: relative;
+	left: 3px;
+}
+
+
+/* .logoutLogo a{
 	margin: 0;
 }
 .logoutLogo a img{
 	position: relative;
 	left: 3px;
-}
+} */
+
 .btnAndLogin{
 	display: flex;
 	flex-direction: column;
