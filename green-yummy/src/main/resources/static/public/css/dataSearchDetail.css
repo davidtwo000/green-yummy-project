@@ -296,17 +296,38 @@ label {
 	border: 1px solid gray;
 	margin: 10px;
 }
-
-.recommandImgContainer {
+.recommandImgContainer, .recommandImg{
 	width: 200px;
 	height: 200px;
-	overflow: hidden;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
+.recommandImgContainer {
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* .recommandImg { */
+/*     width: 100%; */
+/*     height: auto; */
+/* } */
+.recommandDetail, .recommandImg{
+	cursor:pointer;
+}
+.recommandDetail, .detailType{
+	box-sizing: border-box;
+	height: 50px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.recommandDetail{
+	width: 200px;
+	padding: 10px 0 10px 0;
+	font: normal bold 15pt 'sans-serif';
+}
+.detailType{
+	padding: 5px;
+	color: gray;
+	font: normal bold 11pt 'sans-serif';
 
-.recommandImg {
-	width: 100%;
-	height: auto;
 }
