@@ -1,10 +1,11 @@
-
+// 인풋 파일
 let storeSignImgInput = document.querySelector("#storeSign");
+// 이미지 넣는 틀
 let storeImgPlace = document.querySelector(".OCRsearch");
 let useComment = document.querySelector(".OCRsearch > span");
 let pictureIcon = document.querySelector(".OCRsearch > img");
 
-let ocrQuestion = document.querySelector(".OCRhelp img");
+let ocrQuestion = document.querySelector(".OCRhelp > img");
 let ocrHelp = document.querySelector(".OCRexplain");
 
 let imgTag =document.createElement("img");
@@ -47,3 +48,19 @@ ocrQuestion.onclick = () => {
 	}
 }
 
+
+function submitFormWithValidation() {
+    const searchBar = document.getElementById('searchBar');
+
+    if (!searchBar.value.trim()) {
+        alert("사진에서 맛집 이름을 추출해보세요."); // 경고 메시지
+        return false; // 폼 전송 방지
+    }
+
+    // 검색어가 있는 경우 폼 제출
+    const ocrResult = searchBar.value.trim();
+    const targetUrl = `/public/dataSearch?option=name&content=${encodeURIComponent(ocrResult)}&by=search`;
+
+    // 해당 URL로 리디렉션 (페이지 이동)
+    window.location.href = targetUrl;
+}
