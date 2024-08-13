@@ -33,9 +33,12 @@
 						<c:when test= "${not empty currentUser }">
 							<div class="iamUser">
 								안녕하세요 <span>${currentUser.id }</span>
-								<div class="logoutLogo"><a href="/logout">
-									<img src="/images/logout.png" title="로그아웃">
-								</a></div>
+								<div class="logoutLogo">
+									<form method="post" action="/logout" id="logoutForm">
+								        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+								        <input type="image" src="/images/logout.png" title="로그아웃">
+								    </form>
+								</div>
 								
 							</div>
 							
