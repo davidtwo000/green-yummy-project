@@ -21,10 +21,7 @@ UPDATE users SET profile = '귀예시.png' WHERE id = 'abc';
 INSERT INTO users (id, name, password, email, phone, profile, nickname, IS_ADMIN) VALUES ('admin', 'admin', '$2a$10$v95g76gFHcfRQHQCoPR6GeIeUXP4JhCIt3UPyO13XcjEN6Xw8w2Oy', 'admin1@gmail.com', '010-1234-5678', '프로필.png', 'admin', 1);
 
 
-INSERT INTO Notifications (author, title, content, post_date, view_count)
-VALUES ('admin', '공지사항 제목', '공지사항 내용입니다.kkkkkkk', NOW(), 0);
-INSERT INTO Notifications (author, title, content, post_date, view_count)
-VALUES ('admin', '공지사항 제목2', '공지사항 내용입니다2.kkkkkkk', NOW(), 0);
+
 
 
 -- 공지 실험용
