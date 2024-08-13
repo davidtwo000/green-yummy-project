@@ -108,10 +108,7 @@ function random() {
 			detailType.textContent = `${item.shopType}`;
 			detailType.className = 'detailType';
 			
-			const shopLoc = doucment.createElement('span');
-			detail.appendChild(shopLoc);
-			shopLoc.textContent = `${item.location}`;
-			shopLoc.className = 'shopLoc';
+			
 
             // <li>에 이미지와 상세 정보를 추가
             li.appendChild(imgContainer);
