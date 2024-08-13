@@ -120,8 +120,12 @@ async function random() {
             imgContainer.appendChild(img);
             
             // 상점 상세 정보 부분
-            const detail = document.createElement('div');
-            detail.className = 'recommandDetail'; // 스타일링 클래스
+			const detailOut = document.createElement('div');
+			detailOut.className = 'outRecommand';
+            const detailInner = document.createElement('div');
+            detailInner.className = 'recommandDetail'; // 스타일링 클래스
+			
+						detailOut.appendChild(detailInner);
 			
 			//span 안에 타입이랑 평점 넣어서 따로 스타일 주기
 			const detailType = document.createElement('span');
@@ -137,20 +141,24 @@ async function random() {
 			console.log(rating);
 
             // 상세 정보에 평점 추가
-            detail.textContent = `${item.shopName} `;
+            detailInner.textContent = `${item.shopName} `;
 			detailRate.textContent = `${rating}`
 			detailType.textContent = `${item.shopType}`;
 			detailLoc.textContent = `${item.location}`;
 			
-			detail.appendChild(detailRate);
-			detail.appendChild(detailType);
-			detail.appendChild(brplace);
-			detail.appendChild(detailLoc);
+			
+			
+			detailInner.appendChild(detailRate);
+			detailInner.appendChild(detailType);
+			detailInner.appendChild(brplace);
+			detailInner.appendChild(detailLoc);
+			
+			
 			
             
             // <li>에 이미지와 상세 정보를 추가
             li.appendChild(imgContainer);
-            li.appendChild(detail);
+            li.appendChild(detailOut);
 
             li.addEventListener('click', () => {
                 window.location.href = `/public/dataSearchDetail/${item.shopUkId}`;

@@ -67,6 +67,7 @@
 	border-radius: 50px;
 }
 .selectBox{
+	font: normal bold 12pt 'sans-serif';
 	cursor: pointer;
 }
 .searchBar {
@@ -183,13 +184,16 @@
 	/* border: 1px solid black; */
 }
 .mainImg {
-    border: 1px solid gray;
+/*     border: 1px solid gray; */
     width: 1280px;
     height: 500px;
 }
-.mainImg:nth-child(2){
-	background-image: url("/resources/static/images/mainimg1.jpg");
-}
+/* .mainImg:nth-child(1){ */
+/* 	background-image: url("/resources/static/images/mainimg1.jpg"); */
+/* } */
+/* .mainImg:nth-of-type(2){ */
+/* 	background-image: url("/images/pasta.jpg"); */
+/* } */
 .mainImg img{
 	width: 1280px;
 	height: 500px;

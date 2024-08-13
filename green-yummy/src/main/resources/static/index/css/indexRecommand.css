@@ -13,12 +13,13 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	height: 50px;
+	height: 80px;
 	padding: 10px;
     text-align: left;
 }
 .recommandTag span{
-	font: normal bold 15pt 'sans-serif';
+	padding-left: 20px;
+	font: normal bold 20pt 'sans-serif';
 }
 .recommandList{
 	position: relative;
@@ -33,8 +34,8 @@ hr{
 	margin: 0 0 10px 0;
 }
 .lookMore, .lookMore img{
-	width: 40px;
-	height: 40px;
+	width: 60px;
+	height: 60px;
 }
 .lookMore{
 	float: right;
@@ -73,7 +74,15 @@ hr{
 	top: -301px;
 	left: 690px;
 }
+.outRecommand{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 380px;
+	height: 100px;
+}
 .recommandDetail{
+	box-sizing: border-box;
 	font: normal bold 15pt 'sans-serif';
     padding: 10px; 
 }

@@ -148,16 +148,27 @@
         <table class="table">
 	        <tbody>
 	            <tr>
-	                <th>NO</th>
+	                <th>
+					<form action="/admin/announceList" method="get" id="radioBox1">
+					<label>
+				        <input type="radio" name="order" value="asc"
+				        ${order == 'asc' ? 'checked' : ''}>asc
+				    </label>
+				    <label>
+				        <input type="radio" name="order" value="desc"
+				        ${order == 'desc' ? 'checked' : ''}>desc
+				    </label>
+				    </form>
+					</th>
 	                <th>AUTHOR</th>
 	                <th>TITLE</th>
 	                <th>POSTDATE</th>
 	                <th>VIEWCOUNT</th>
 	                <th>ACTIONS</th>
 	            </tr>
-	            <c:forEach var='announce' items='${announceDTO }'>
+	            <c:forEach var='announce' items='${announceDTO }' varStatus="status">
 	            <tr>
-	                <td>${announce.noticeId }</td>
+	                <td>${status.index + 1 + (page-1)*10 }</td>
 	                <td>${announce.author }</td>
 	                <td>${announce.title }</td>
 	                <td>${announce.postDate }</td>
@@ -185,5 +196,14 @@
         </c:choose>
         </div>
     </div>
+    <script>
+	    const radios1 = document.querySelectorAll('input[type="radio"][name="order"]');
+	    
+	    radios1.forEach(radio => {
+	    	radio.addEventListener('change', function() {
+	    		document.getElementById('radioBox1').submit();
+	    	});
+	    });
+    </script>
 </body>
 </html>

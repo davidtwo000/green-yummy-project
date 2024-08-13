@@ -112,7 +112,21 @@
 	background: #fed6d1;
 	border: 2px solid pink;
 }
-
+.sortOptions label{
+	margin: 0 10px 0 10px;
+	padding: 8px;
+	border-radius: 50px;
+}
+.highRate, .lowRate{
+	cursor: pointer;
+}
+input[type="radio"]{
+	display: none;
+}
+.selectRate{
+	color: orange;
+	background: white;
+}
 
 /* 지도 */
 .map {
