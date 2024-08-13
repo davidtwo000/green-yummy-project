@@ -46,7 +46,6 @@ function displayReviews(reviews, page = 1) {
             <th>사진</th>
             <th>아이디</th>
             <th>평점</th>
-            <th>코멘트</th>
             <th>내용</th>
             <th>날짜</th>
         </tr>
@@ -72,8 +71,8 @@ function displayReviews(reviews, page = 1) {
             <td class="review-img-container">${review.reviewImg ? `<img src="/upload/${review.reviewImg}" alt="Review Image" class="review-img" />` : ''}</td>
             <td>${review.user.id}</td>
             <td>${review.reviewRating}</td>
-            <td>${formattedComment}</td>
-            <td>${review.reviewContent}</td>
+            <td><p>${formattedComment}</p>
+			${review.reviewContent}</td>
             <td>${formatDate(review.reviewDate)}</td>
         `;
 

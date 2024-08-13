@@ -78,7 +78,7 @@ async function getShopRating(shopId) {
 			throw new Error('Network response was not ok ' + response.statusText);
 		}
 		const rating = await response.json();
-		return rating !== null ? rating : 0;
+		return rating !== null ? parseFloat(rating).toFixed(1) : '0.0';
 	} catch (error) {
 		return 0;
 	}
@@ -129,18 +129,7 @@ function loadPage(page) {
 	updatePagination();
 }
 
-async function getShopRating(shopId) {
-	try {
-		const response = await fetch(`/reviews/rating/${shopId}`);
-		if (!response.ok) {
-			throw new Error('Network response was not ok ' + response.statusText);
-		}
-		const rating = await response.json();
-		return rating !== null ? rating : 0;
-	} catch (error) {
-		return 0;
-	}
-}
+
 
 function reviewSort() {
 	const selectedOption = document.querySelector('input[name="sort"]:checked');
