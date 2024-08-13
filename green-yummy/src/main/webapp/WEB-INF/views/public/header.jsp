@@ -32,7 +32,7 @@
 					<c:choose>
 						<c:when test= "${not empty currentUser }">
 							<div class="iamUser">
-								안녕하세요 <span>${currentUser.id }</span>
+								안녕하세요,  <span><a href="/user/userPage">${currentUser.id }님</a></span>
 								<div class="logoutLogo"><a href="/logout">
 									<img src="/images/logout.png" title="로그아웃">
 								</a></div>

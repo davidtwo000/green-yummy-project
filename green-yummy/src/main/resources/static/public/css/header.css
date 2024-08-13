@@ -16,7 +16,9 @@ header{
 
 }
 .headcontainer a{
-	margin-left: 20px;
+	margin-left: 0px;
+	color: indigo;
+	text-decoration: none;
 }
  .headcontainer img{
     width: 128px;

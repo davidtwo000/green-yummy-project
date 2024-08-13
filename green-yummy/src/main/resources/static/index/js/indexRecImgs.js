@@ -56,79 +56,113 @@ recImgPrev.onclick = () => {
 }
 
 
-function random() {
+// 평점을 가져오는 함수
+//async function getShopRating(shopId) {
+//   try {
+//      const response = await fetch(`/reviews/rating/${shopId}`);
+//      if (!response.ok) {
+//         throw new Error('Network response was not ok ' + response.statusText);
+//      }
+//      const rating = await response.json();
+//      return rating !== null ? rating : 0;
+//   } catch (error) {
+//      console.error('There was a problem with the fetch operation:', error);
+//      return 0;
+//   }
+//}
 
-    fetch('/shops/random', {
-        method: 'GET'
-    })
-    .then(response => {
+async function getShopRating(shopId) {
+    try {
+        const response = await fetch(`/reviews/rating/${shopId}`);
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
         }
-        return response.json();
-    })
-    .then(data => {
+        const rating = await response.json();
+        return rating !== null ? rating : 0;
+    } catch (error) {
+        console.error('There was a problem with the fetch operation:', error);
+        return 0;
+    }
+}
+
+
+// 랜덤 상점 데이터를 가져오는 함수
+async function random() {
+    try {
+        const response = await fetch('/shops/random', {
+            method: 'GET'
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+
+        const data = await response.json();
         console.log(data);
 
         // <ul> 요소 선택
         const recommandList = document.getElementById('recommandList');
-		
-		//hm 추가작성. 복제함수용
-
+        
         // 기존 <li> 요소를 모두 제거
         recommandList.innerHTML = '';
-		
-		
 
         // 데이터 배열을 순회하며 리스트 아이템 생성
-        data.forEach(item => {
-
-			const li = document.createElement('li');
+        for (const item of data) {
+            const li = document.createElement('li');
 
             // 상점 이미지 부분
             const imgContainer = document.createElement('div');
             imgContainer.className = 'recommandImg';
             
             const img = document.createElement('img');
-            
-            imgSrc = item.shopProfile;
-                        
             img.src = '/images/' + item.shopProfile;
             img.className = 'recommandImg';
             imgContainer.appendChild(img);
             
             // 상점 상세 정보 부분
             const detail = document.createElement('div');
-
-            detail.textContent = `${item.shopName} `; // 상점 이름과 평점
             detail.className = 'recommandDetail'; // 스타일링 클래스
 			
+			//span 안에 타입이랑 평점 넣어서 따로 스타일 주기
 			const detailType = document.createElement('span');
-			detail.appendChild(detailType);
-			detailType.textContent = `${item.shopType}`;
 			detailType.className = 'detailType';
-			
-			
+			const detailRate = document.createElement('span');
+			detailRate.className = 'detailRate';
+			const detailLoc = document.createElement('span');
+			const brplace = document.createElement('br');
+			detailLoc.className = 'detailLoc';
 
+            // 상점 평점 가져오기
+            const rating = await getShopRating(item.shopUkId);
+			console.log(rating);
+
+            // 상세 정보에 평점 추가
+            detail.textContent = `${item.shopName} `;
+			detailRate.textContent = `${rating}`
+			detailType.textContent = `${item.shopType}`;
+			detailLoc.textContent = `${item.location}`;
+			
+			detail.appendChild(detailRate);
+			detail.appendChild(detailType);
+			detail.appendChild(brplace);
+			detail.appendChild(detailLoc);
+			
+            
             // <li>에 이미지와 상세 정보를 추가
             li.appendChild(imgContainer);
             li.appendChild(detail);
 
-			li.addEventListener('click', () => {
-               window.location.href = `/public/dataSearchDetail/${item.shopUkId}`;
+            li.addEventListener('click', () => {
+                window.location.href = `/public/dataSearchDetail/${item.shopUkId}`;
             });
-			
             
             // <ul>에 <li> 추가
             recommandList.appendChild(li);
-			
-        });
-    })
-    .catch(error => {
+        }
+    } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
-    });
+    }
 }
-
 
 window.onload = () => {
     random();
