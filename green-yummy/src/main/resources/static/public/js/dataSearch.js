@@ -155,6 +155,8 @@ document.getElementById('sortOptions').addEventListener('change', function() {
 async function displayShops(shops) {
 	const shopListElement = document.getElementById('shop-list');
 	shopListElement.innerHTML = '';  // 기존 콘텐츠 초기화
+	
+	
 
 	try {
 		// HTML 생성
