@@ -2,12 +2,14 @@ package com.example.demo.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -37,6 +39,14 @@ import com.example.demo.repository.ShopRepository;
 
 @Service
 public class AdminService implements UserDetailsService {
+	
+	@Value("${app.basepath}")
+    private String basePath;
+
+    private String getUploadDirectory() {
+        String projectRoot = System.getProperty("user.dir");
+        return Paths.get(projectRoot, basePath, "admin/images").toString();
+    }
 
     @Autowired
     private AdminRepository adminRepository;
@@ -170,11 +180,11 @@ public class AdminService implements UserDetailsService {
         shop.setClosedDays(closedDays);
         if (!shopProfileFile.isEmpty()) {
             try {
-                String uploadDirectory = "D:/STS4/sts4-workspace/green-yummy-admin/src/main/resources/static/admin/images/";
-                String fileName = shopProfileFile.getOriginalFilename();
-                shopProfileFile.transferTo(new File(uploadDirectory + fileName));
+            	String fileName = shopProfileFile.getOriginalFilename();
+                String uploadDirectory = getUploadDirectory();
+                File destinationFile = new File(uploadDirectory + File.separator + fileName);
+                shopProfileFile.transferTo(destinationFile);
                 shop.setShopProfile(fileName);
-                
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -211,9 +221,10 @@ public class AdminService implements UserDetailsService {
     	
     	if (!shopProfileFile.isEmpty()) {
             try {
-                String uploadDirectory = "D:/STS4/sts4-workspace/green-yummy-admin/src/main/resources/static/admin/images/";
-                String fileName = shopProfileFile.getOriginalFilename();
-                shopProfileFile.transferTo(new File(uploadDirectory + fileName));
+            	String fileName = shopProfileFile.getOriginalFilename();
+                String uploadDirectory = getUploadDirectory();
+                File destinationFile = new File(uploadDirectory + File.separator + fileName);
+                shopProfileFile.transferTo(destinationFile);
                 Shop shop = new Shop();
                 shop.setShopName(shopName);
                 shop.setShopType(shopType);

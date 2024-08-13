@@ -120,7 +120,14 @@
     </div>
     <div class="container">
         <div class="profile-image">
-            <img src="/admin/images/${userDTO.profile }" alt="User Profile">
+        	<c:choose>
+        	<c:when test="${userDTO.profile == null}">
+            	<img src="/admin/images/프로필.png" alt="User Profile">
+            </c:when>
+            <c:otherwise>
+            	<img src="/admin/images/${userDTO.profile }" alt="User Profile">
+            </c:otherwise>
+            </c:choose>
         </div>
         <table class="details">
             <tr>
