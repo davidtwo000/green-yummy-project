@@ -18,12 +18,16 @@ main{
     width: 440px;
     height: 330px;
 
-    border: 1px solid black;
+    border: 2px solid gray;
+    border-radius: 5px;
 }
 
-.agreeBtns{
-    border: 1px solid red;
+label, h2{
+	position: relative;
+	left: -180px;
 }
+
+
 input[type="button"],
 input[type="submit"]{
     width: 100px;
@@ -41,6 +45,9 @@ input[type="submit"]{
     height: 50px;
     margin: 10px;
     border: none;
+    border-radius: 8px;
+    font: normal bold 13pt 'sans-serif';
+    color: white;
     cursor: pointer;
-    background: salmon;
+    background: indigo;
 }

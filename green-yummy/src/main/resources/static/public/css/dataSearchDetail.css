@@ -1,26 +1,6 @@
 @charset "UTF-8";
 
 
-/* 리뷰 스타일. 아래에 붙일 것 */
-
-.reviewsContainer table tr td{
-	padding: 10px;
-}
-.reviewsContainer table td:nth-of-type(3){
-	width: 100px;
-}
-.reviewsContainer table td:nth-of-type(4){
-	text-align: left;
-}
-.reviewsContainer table td:nth-of-type(4) p{
-	font: normal bold 11pt 'sans-serif';
-}
-
-
-
-
-
-
 
 .outContainer {
 	justify-content: center;
@@ -290,6 +270,20 @@ label {
 .reviews-table {
 	width: 90%;
 }
+/* 리뷰 스타일. 아래에 붙일 것 */
+.reviewsContainer table tr td{
+	padding: 10px;
+}
+.reviewsContainer table td:nth-of-type(3){
+	width: 100px;
+}
+.reviewsContainer table td:nth-of-type(4){
+	text-align: left;
+}
+.reviewsContainer table td:nth-of-type(4) p{
+	font: normal bold 11pt 'sans-serif';
+}
+
 
 /* 랜덤 추천 */
 .random {
