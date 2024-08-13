@@ -1,5 +1,5 @@
 //가게 해당 리뷰 가져오기
-function fetchReviews(shopUkId) {
+function fetchReviews(shopUkId, page = 1) {
 	fetch(`/reviews/shop/${shopUkId}`)
 		.then(response => {
 			if (!response.ok) {
@@ -9,7 +9,7 @@ function fetchReviews(shopUkId) {
 		})
 		.then(data => {
 			console.log(data);
-			displayReviews(data);
+			displayReviews(data, page); // 페이지 번호와 함께 데이터 전달
 		})
 		.catch(error => {
 			console.error('리뷰 가져오기 실패:', error);
@@ -26,11 +26,15 @@ function formatDate(dateStr) {
 }
 
 
-function displayReviews(reviews) {
+function displayReviews(reviews, page = 1) {
 	const reviewsContainer = document.getElementById('reviewsContainer');
 	const modal = document.getElementById('modal');
 	const modalBody = document.getElementById('modalBody');
 	const closeBtn = document.getElementById('closeBtn');
+	const pagination = document.getElementById('pagination');
+
+	const reviewsPerPage = 5;
+	let currentPage = page;
 
 	// Create table structure
 	const table = document.createElement('table');
@@ -38,22 +42,25 @@ function displayReviews(reviews) {
 
 	const thead = document.createElement('thead');
 	thead.innerHTML = `
-	    <tr>
-	        <th>사진</th>
-	        <th>아이디</th>
-	        <th>평점</th>
-	        <th>코멘트</th>
-	        <th>내용</th>
-	        <th>날짜</th>
-	       
-	    </tr>
-	`;
+        <tr>
+            <th>사진</th>
+            <th>아이디</th>
+            <th>평점</th>
+            <th>코멘트</th>
+            <th>내용</th>
+            <th>날짜</th>
+        </tr>
+    `;
 	table.appendChild(thead);
 
+	const start = (currentPage - 1) * reviewsPerPage;
+	const end = start + reviewsPerPage;
+	const paginatedReviews = reviews.slice(start, end);
 
-	reviews.forEach(review => {
+	const tbody = document.createElement('tbody');
+
+	paginatedReviews.forEach(review => {
 		const row = document.createElement('tr');
-
 
 		// Convert reviewComment to formatted text with # separator
 		const formattedComment = review.reviewComment
@@ -67,34 +74,46 @@ function displayReviews(reviews) {
             <td>${review.reviewRating}</td>
             <td>${formattedComment}</td>
             <td>${review.reviewContent}</td>
-
-			<td>${formatDate(review.reviewDate)}</td>
-
-			
-			 `;
+            <td>${formatDate(review.reviewDate)}</td>
+        `;
 
 		// Add click event to open modal
 		row.addEventListener('click', (event) => {
 			if (!event.target.classList.contains('review-checkbox')) {
 				modalBody.innerHTML = `
-					${review.reviewImg ? `<img src="/upload/${review.reviewImg}" alt="Review Image" class="review-detail-img" />` : ''}
-					<div class="reviewUser"><span> ${review.user.id}</span>
-					<span>${review.reviewRating}</span>
-					<span>${review.reviewDate.substr(2, 8)}</span></div>
-					<div class="userComment"><p>${formattedComment}</p>
-					${review.reviewContent}</div>
-				`;
+                    ${review.reviewImg ? `<img src="/upload/${review.reviewImg}" alt="Review Image" class="review-detail-img" />` : ''}
+                    <div class="reviewUser"><span> ${review.user.id}</span>
+                    <span>${review.reviewRating}</span>
+                    <span>${review.reviewDate.substr(2, 8)}</span></div>
+                    <div class="userComment"><p>${formattedComment}</p>
+                    ${review.reviewContent}</div>
+                `;
 				modal.style.display = 'block';
 			}
 		});
 
-
-		table.appendChild(row);
+		tbody.appendChild(row);
 	});
 
+	table.appendChild(tbody);
 	reviewsContainer.innerHTML = '';
 	reviewsContainer.appendChild(table);
 
+	const totalPages = Math.ceil(reviews.length / reviewsPerPage);
+	pagination.innerHTML = '';
+
+	for (let i = 1; i <= totalPages; i++) {
+		const span = document.createElement('span');
+		span.textContent = i;
+		span.classList.add('pagination-button');
+		if (i === currentPage) {
+			span.classList.add('current'); // 현재 페이지에 'current' 클래스 추가
+		}
+		span.addEventListener('click', () => {
+			displayReviews(reviews, i); // 페이지 번호를 인자로 전달
+		});
+		pagination.appendChild(span);
+	}
 
 	closeBtn.addEventListener('click', () => {
 		modal.style.display = 'none';
@@ -105,13 +124,13 @@ function displayReviews(reviews) {
 			modal.style.display = 'none';
 		}
 	});
+
 	reviewsContainer.addEventListener('change', (event) => {
 		if (event.target.classList.contains('review-checkbox')) {
 			handleCheckboxChange(event.target);
 		}
 	});
 }
-
 //코멘트 #표시
 function formatCommentAsHashtags(comment) {
 	const comments = comment.split(',');
@@ -146,82 +165,82 @@ function averageRating(shopUkId) {
 function createReview(shopUkId) {
 	const userUkId = document.getElementById('userUkId').value;
 
-    // 리뷰 작성 여부를 확인하는 API 호출
-    fetch(`/reviews/hasReviewed/${shopUkId}/${userUkId}`)
-        .then(response => response.json())
-        .then(hasReviewed => {
-            if (hasReviewed) {
-                alert('리뷰를 이미 작성했습니다.');
-            } else {
-                // 리뷰 작성 페이지로 이동
-                window.location.href = `/user/createReview/${shopUkId}`;
-            }
-        })
-        .catch(error => {
-            console.error('Error checking review status:', error);
-            alert('An error occurred while checking your review status.');
-        });
+	// 리뷰 작성 여부를 확인하는 API 호출
+	fetch(`/reviews/hasReviewed/${shopUkId}/${userUkId}`)
+		.then(response => response.json())
+		.then(hasReviewed => {
+			if (hasReviewed) {
+				alert('리뷰를 이미 작성했습니다.');
+			} else {
+				// 리뷰 작성 페이지로 이동
+				window.location.href = `/user/createReview/${shopUkId}`;
+			}
+		})
+		.catch(error => {
+			console.error('Error checking review status:', error);
+			alert('An error occurred while checking your review status.');
+		});
 }
 
 
 function random() {
-   fetch('/shops/random', { // 6개의 랜덤 데이터를 요청
-      method: 'GET'
-   })
-      .then(response => {
-         if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-         }
-         return response.json();
-      })
-      .then(data => {
-         console.log(data);
-         const filteredData = data.slice(0, 5);
+	fetch('/shops/random', { // 6개의 랜덤 데이터를 요청
+		method: 'GET'
+	})
+		.then(response => {
+			if (!response.ok) {
+				throw new Error('Network response was not ok ' + response.statusText);
+			}
+			return response.json();
+		})
+		.then(data => {
+			console.log(data);
+			const filteredData = data.slice(0, 5);
 
-         const random = document.getElementById('random');
-         random.innerHTML = '';
+			const random = document.getElementById('random');
+			random.innerHTML = '';
 
-         filteredData.forEach(item => {
-            console.log(item);
+			filteredData.forEach(item => {
+				console.log(item);
 
-            const div = document.createElement('div');
-            div.className = 'randomRestaurant';
+				const div = document.createElement('div');
+				div.className = 'randomRestaurant';
 
-            const imgContainer = document.createElement('div');
-            imgContainer.className = 'recommandImgContainer';
-            const img = document.createElement('img');
+				const imgContainer = document.createElement('div');
+				imgContainer.className = 'recommandImgContainer';
+				const img = document.createElement('img');
 
-            img.src = '/images/' + item.shopProfile;
-			img.setAttribute('title',`${item.shopName}`+"(" +`${item.shopType}`+")");
-            img.className = 'recommandImg';
-            imgContainer.appendChild(img);
+				img.src = '/images/' + item.shopProfile;
+				img.setAttribute('title', `${item.shopName}` + "(" + `${item.shopType}` + ")");
+				img.className = 'recommandImg';
+				imgContainer.appendChild(img);
 
-            const detail = document.createElement('div');
-			const detailShop = document.createElement('span');
-			const detailType = document.createElement('span');
-            detailShop.textContent = `${item.shopName}`; // 상점 이름과 타입
-			detail.appendChild(detailShop);
-			detailShop.setAttribute('title',`${item.shopName}`+"(" +`${item.shopType}`+")");
-			detailType.textContent = `${item.shopType}`;
-			detail.appendChild(detailType);
-			detailType.setAttribute('title',`${item.shopName}`+"(" +`${item.shopType}`+")");
-            detail.className = 'recommandDetail'; // 스타일링 클래스
-			detailShop.className = 'detailShop';
-			detailType.className = 'detailType';
+				const detail = document.createElement('div');
+				const detailShop = document.createElement('span');
+				const detailType = document.createElement('span');
+				detailShop.textContent = `${item.shopName}`; // 상점 이름과 타입
+				detail.appendChild(detailShop);
+				detailShop.setAttribute('title', `${item.shopName}` + "(" + `${item.shopType}` + ")");
+				detailType.textContent = `${item.shopType}`;
+				detail.appendChild(detailType);
+				detailType.setAttribute('title', `${item.shopName}` + "(" + `${item.shopType}` + ")");
+				detail.className = 'recommandDetail'; // 스타일링 클래스
+				detailShop.className = 'detailShop';
+				detailType.className = 'detailType';
 
-            div.appendChild(imgContainer);
-            div.appendChild(detail);
+				div.appendChild(imgContainer);
+				div.appendChild(detail);
 
-            div.addEventListener('click', () => {
-               window.location.href = `/public/dataSearchDetail/${item.shopUkId}`;
-            });
+				div.addEventListener('click', () => {
+					window.location.href = `/public/dataSearchDetail/${item.shopUkId}`;
+				});
 
-            random.appendChild(div);
-         });
-      })
-      .catch(error => {
-         console.error('There was a problem with the fetch operation:', error);
-      });
+				random.appendChild(div);
+			});
+		})
+		.catch(error => {
+			console.error('There was a problem with the fetch operation:', error);
+		});
 }
 
 
@@ -242,7 +261,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	console.log(userUkId);
 
 	averageRating(shopUkId);
-	fetchReviews(shopUkId);
+	fetchReviews(shopUkId, 1);
+
 	random();
 });
-//여기까지 sg가 기능 구현한 것
