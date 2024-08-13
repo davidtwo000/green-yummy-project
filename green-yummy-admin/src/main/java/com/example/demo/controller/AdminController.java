@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ public class AdminController {
     
     // User
     @GetMapping("/userList")
-    public String userList(Model model, @RequestParam(name="page", defaultValue="1") int page) {
+    public String userList(Model model, @RequestParam(name="page", defaultValue="1") int page, @RequestParam(name="order", defaultValue="asc") String order) {
     	List<UserDTO> allUsers = adminService.getUserInfo();
     	List<UserDTO> userDTO = new ArrayList<>();
         if (allUsers.size() > 10) {
@@ -59,6 +60,9 @@ public class AdminController {
         	status = 0;
         if(allUsers.size() <= 10)
         	status = 2;
+        if(order.equals("desc"))
+        	Collections.reverse(userDTO);
+        model.addAttribute("order", order);
     	model.addAttribute("userDTO", userDTO);
     	model.addAttribute("page", page);
     	model.addAttribute("status", status);
@@ -147,7 +151,7 @@ public class AdminController {
 
     // Announce
     @GetMapping("/announceList")
-    public String announceList(Model model, @RequestParam(name="page", defaultValue="1") int page) {
+    public String announceList(Model model, @RequestParam(name="page", defaultValue="1") int page, @RequestParam(name="order", defaultValue="asc") String order) {
     	List<AnnounceDTO> allAnnounce = adminService.getAnnounceInfo();
     	List<AnnounceDTO> announceDTO = new ArrayList<>();
         if (allAnnounce.size() > 10) {
@@ -169,6 +173,9 @@ public class AdminController {
         
         if(allAnnounce.size() <= 10)
         	status = 2;
+        if(order.equals("desc"))
+        	Collections.reverse(announceDTO);
+        model.addAttribute("order", order);
     	model.addAttribute("page", page);
     	model.addAttribute("status", status);
     	model.addAttribute("announceDTO", announceDTO);
@@ -251,7 +258,7 @@ public class AdminController {
 
     // Review
     @GetMapping("/reviewList")
-    public String reviewList(Model model, @RequestParam(name="page", defaultValue="1") int page) {
+    public String reviewList(Model model, @RequestParam(name="page", defaultValue="1") int page, @RequestParam(name="order", defaultValue="asc") String order) {
     	List<ReviewDTO> allReview = adminService.getReviewInfo();
     	List<ReviewDTO> reviewDTO = new ArrayList<>();
         if (allReview.size() > 10) {
@@ -272,6 +279,9 @@ public class AdminController {
         	status = 0;
         if(allReview.size() <= 10)
         	status = 2;
+        if(order.equals("desc"))
+        	Collections.reverse(reviewDTO);
+        model.addAttribute("order", order);
     	model.addAttribute("page", page);
     	model.addAttribute("status", status);
     	model.addAttribute("reviewDTO", reviewDTO);
@@ -321,7 +331,7 @@ public class AdminController {
 
     // Request
     @GetMapping("/requestList")
-    public String requestList(Model model, @RequestParam(name="page", defaultValue="1") int page) {
+    public String requestList(Model model, @RequestParam(name="page", defaultValue="1") int page, @RequestParam(name="order", defaultValue="asc") String order) {
     	List<RequestDTO> allRequest = adminService.getRequestInfo();
     	List<RequestDTO> requestDTO = new ArrayList<>();
         if (allRequest.size() > 10) {
@@ -342,6 +352,9 @@ public class AdminController {
         	status = 0;
         if(allRequest.size() <= 10)
         	status = 2;
+        if(order.equals("desc"))
+        	Collections.reverse(requestDTO);
+        model.addAttribute("order", order);
     	model.addAttribute("page", page);
     	model.addAttribute("status", status);
     	model.addAttribute("requestDTO", requestDTO);
@@ -439,7 +452,7 @@ public class AdminController {
     
     // Shop
     @GetMapping("/shopList")
-    public String shopList(Model model, @RequestParam(name="page", defaultValue="1") int page) {
+    public String shopList(Model model, @RequestParam(name="page", defaultValue="1") int page, @RequestParam(name="order", defaultValue="asc") String order) {
     	List<ShopDTO> allShop = adminService.getShopInfo();
     	List<ShopDTO> shopDTO = new ArrayList<>();
         if (allShop.size() > 10) {
@@ -460,6 +473,9 @@ public class AdminController {
         	status = 0;
         if(allShop.size() <= 10)
         	status = 2;
+        if(order.equals("desc"))
+        	Collections.reverse(shopDTO);
+        model.addAttribute("order", order);
     	model.addAttribute("page", page);
     	model.addAttribute("status", status);
     	model.addAttribute("shopDTO", shopDTO);

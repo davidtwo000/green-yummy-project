@@ -149,7 +149,18 @@
         <table class="table">
 	        <tbody>
 	            <tr>
-	                <th>NO</th>
+	                <th>
+					<form action="/admin/shopList" method="get" id="radioBox1">
+					<label>
+				        <input type="radio" name="order" value="asc"
+				        ${order == 'asc' ? 'checked' : ''}>asc
+				    </label>
+				    <label>
+				        <input type="radio" name="order" value="desc"
+				        ${order == 'desc' ? 'checked' : ''}>desc
+				    </label>
+				    </form>
+					</th>
 	                <th>NAME</th>
 	                <th>TYPE</th>
 	                <th>BUISNESS HOURS</th>
@@ -157,9 +168,9 @@
 	                <th>TEL</th>
 	                <th>ACTIONS</th>
 	            </tr>
-	            <c:forEach var='shop' items='${shopDTO }'>
+	            <c:forEach var='shop' items='${shopDTO }' varStatus="status">
 	            <tr>
-	                <td>${shop.shopUkId }</td>
+	                <td>${status.index + 1 + (page-1)*10 }</td>
 	                <td>${shop.shopName }</td>
 	                <td>${shop.shopType }</td>
 	                <td>${shop.openHours } ~ ${shop.closeHours }</td>
@@ -188,5 +199,14 @@
         </c:choose>
         </div>
     </div>
+    <script>
+	    const radios1 = document.querySelectorAll('input[type="radio"][name="order"]');
+	    
+	    radios1.forEach(radio => {
+	    	radio.addEventListener('change', function() {
+	    		document.getElementById('radioBox1').submit();
+	    	});
+	    });
+    </script>
 </body>
 </html>
