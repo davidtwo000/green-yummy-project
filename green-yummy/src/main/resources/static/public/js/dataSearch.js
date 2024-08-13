@@ -94,51 +94,7 @@ document.getElementById('sortOptions').addEventListener('change', function() {
 	sortShopsByRating().then(() => loadPage(currentPage));
 });
 
-async function sortShopsByRating() {
-	// 모든 상점의 평점 요청을 생성
-	const ratingRequests = shops.map(shop => getShopRating(shop.shopUkId));
 
-	try {
-		// 모든 평점 데이터를 가져오기
-		const ratings = await Promise.all(ratingRequests);
-
-		// 평점을 상점 객체에 설정
-		shops.forEach((shop, index) => {
-			shop.rating = ratings[index] !== undefined ? ratings[index] : 0; // 평점을 0으로 기본 설정
-		});
-
-		// 선택된 정렬 옵션 가져오기
-		const selectedValue = reviewSort();
-		if (selectedValue === 'ratingAsc' || selectedValue === null) {
-			shops.sort((a, b) => a.rating - b.rating); // 오름차순
-		} else if (selectedValue === 'ratingDesc') {
-			shops.sort((a, b) => b.rating - a.rating); // 내림차순
-		}
-	} catch (error) {
-		console.error('Error sorting shops by rating:', error);
-	}
-}
-
-function loadPage(page) {
-	const startIndex = (page - 1) * itemsPerPage;
-	const endIndex = startIndex + itemsPerPage;
-	const currentShops = shops.slice(startIndex, endIndex);
-
-	displayShops(currentShops);
-	updatePagination();
-}
-
-
-
-function reviewSort() {
-	const selectedOption = document.querySelector('input[name="sort"]:checked');
-	return selectedOption ? selectedOption.value : null;
-}
-
-document.getElementById('sortOptions').addEventListener('change', function() {
-	// 상점 목록을 다시 로드하면서 현재 페이지 유지
-	sortShopsByRating().then(() => loadPage(currentPage));
-});
 
 async function displayShops(shops) {
 	const shopListElement = document.getElementById('shop-list');
