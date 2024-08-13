@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,11 +11,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.dto.publicDto.NotificationDTO;
 import com.example.demo.model.userModel.User;
 import com.example.demo.service.publicService.NotificationService;
 import com.example.demo.service.publicService.UserRegistService;
+import com.example.demo.util.FileUploadService;
 
 @Controller
 public class MainController {
@@ -145,6 +148,9 @@ public class MainController {
 	@Autowired
     private UserRegistService userRegistService;
 	
+	@Autowired
+    private FileUploadService fileUploadService;
+	
 	@PostMapping("/userJoin")
     public String userJoin(@RequestParam("name") String name,
             @RequestParam("nickname") String nickname,
@@ -152,7 +158,8 @@ public class MainController {
             @RequestParam("password") String password,
             @RequestParam("phone") String phone,
             @RequestParam("emailone") String emailone,
-            @RequestParam("emailtwo") String emailtwo) {
+            @RequestParam("emailtwo") String emailtwo,
+            @RequestParam(value = "userImg", required= false) MultipartFile userImg) throws IOException {
     	
     	 String email = emailone + "@" + emailtwo;
 
@@ -164,6 +171,11 @@ public class MainController {
          user.setPhone(phone);
          user.setEmail(email);
          user.setIsAdmin(false);
+         
+         if (userImg != null && !userImg.isEmpty()) {
+        	 String fileName = fileUploadService.saveFile(userImg);
+        	 user.setProfile(fileName);
+         }
          
          userRegistService.saveUser(user);
 
