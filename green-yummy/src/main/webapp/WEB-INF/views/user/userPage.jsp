@@ -20,12 +20,16 @@
 	<main>
 		<div class="userContainer">
 			<div class="forUser">
-				<div class="userPic">
-					<img src="/images/person.png">
+				<div class="userPic" id="userPic">
+					<input type="hidden" id="userProfile" value="${user.profile}">
+<img id="profileImage" class="profile-image" src="/images/person.png" alt="Profile Image">
+					
+					
 				</div>
 
 				<div class="helloUser">
 					<div class="userInfo">
+					
 						<p>${user.id}님,
 							환영합니다! <input type="hidden" name="userUkId" id="userUkId"
 								value="${user.userUkId}"> <img src="/images/pencil.png"
@@ -46,8 +50,8 @@
 
 
 			<ul class="mypageTab">
-				<li><a id="bookmarkTabLink" href="#tab1" class="storeTab youHere">나의
-						맛집(${fn:length(shop)}개)</a></li>
+				<li><a id="bookmarkTabLink" href="#tab1"
+					class="storeTab youHere">나의 맛집(${fn:length(shop)}개)</a></li>
 				<li><a id="reviewTabLink" href="#tab2" class="reviewTab">나의
 						리뷰(0개)</a></li>
 			</ul>
@@ -69,42 +73,48 @@
 
 				<div class="userContentCon">
 					<div class="filterContainer">
-						<select class="order">
-							<option value="">가게명</option>
-							<option value="">가게명 역순</option>
-						
-							<option value="">평점 낮은 순</option>
-							<option value="">평점 높은 순</option>
-						</select> <select class="filterOne">
-							<option value="0">지역별</option>
-							<option value="">논현동</option>
-							<option value="">대치동</option>
-							<option value="">삼성동</option>
-							<option value="">신사동</option>
-							<option value="">역삼동</option>
-							<option value="">청담동</option>
-							
-						</select> <select class="filterTwo">
+						<select class="order" id="order" onchange="getorder()">
+							<option value="">정렬</option>
+							<option value="nameAsc">가게명</option>
+							<option value="nameDesc">가게명 역순</option>
+
+							<option value="ratingAsc">평점 낮은 순</option>
+							<option value="ratingDesc">평점 높은 순</option>
+
+						</select> <select class="filterOne" onchange="filterlocation()" id="filterOne">
+							<option value="">지역별</option>
+							<option value="논현동">논현동</option>
+							<option value="대치동">대치동</option>
+							<option value="삼성동">삼성동</option>
+							<option value="신사동">신사동</option>
+							<option value="역삼동">역삼동</option>
+							<option value="청담동">청담동</option>
+
+						</select> <select class="filterTwo" onchange="filtertype()" id="filterTwo">
 							<option value="">업종별</option>
-							<option value="">한식</option>
-							<option value="">양식</option>
-							<option value="">중식</option>
-							<option value="">일식</option>
-							<option value="">패스트푸드</option>
-							<option value="">분식</option>
-							<option value="">카페</option>
-							<option value="">기타</option>
-						</select> 
+							<option value="한식">한식</option>
+							<option value="양식">양식</option>
+							<option value="중식">중식</option>
+							<option value="일식">일식</option>
+							<option value="패스트푸드">패스트푸드</option>
+							<option value="분식">분식</option>
+							<option value="카페">카페</option>
+							<option value="기타">기타</option>
+						</select>
 					</div>
 
 				</div>
-				
+
 				<div class="myBookmark" id="myBookmark">
 					<ul class="myBookmarkList" id="myBookmarkList">
 					</ul>
+
+					<div id="pagination" class="pagination">
+						
+					</div>
 				</div>
-				
-				
+
+
 			</div>
 
 
@@ -155,8 +165,8 @@
 					로그아웃 하시겠습니까?
 					<div class="logoutBtns">
 						<form action="/logout" method="post">
-							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"> 
-							<input type="submit" value="확인">
+							<input type="hidden" name="${_csrf.parameterName}"
+								value="${_csrf.token}"> <input type="submit" value="확인">
 							<input type="button" value="취소" class="cancle" onclick="logout()">
 						</form>
 					</div>
@@ -170,11 +180,12 @@
 					</div>
 					탈퇴하시겠습니까?
 					<div class="userOutBtns">
-						<form method="post" action="/deleteUser" id="deleteForm"> 
-							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-							<input type="hidden" name="userId" value="${user.id}">
-							<input type="submit" value="탈퇴">
-							<input type="button" value="취소" class="cancel" onclick="userBye()">
+						<form method="post" action="/deleteUser" id="deleteForm">
+							<input type="hidden" name="${_csrf.parameterName}"
+								value="${_csrf.token}"> <input type="hidden"
+								name="userId" value="${user.id}"> <input type="submit"
+								value="탈퇴"> <input type="button" value="취소"
+								class="cancel" onclick="userBye()">
 						</form>
 					</div>
 
@@ -187,6 +198,8 @@
 	<script src="/user/js/userPage.js"></script>
 	<script src="/user/js/storeCollection.js"></script>
 	<script src="/user/js/reviewList.js"></script>
+
+	<script src="/user/js/mybookmark.js"></script>
 
 	<jsp:include page="../public/footer.jsp" />
 

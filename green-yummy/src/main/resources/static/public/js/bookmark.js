@@ -88,6 +88,7 @@ function bookmark() {
 	
 }
 
+
 function bookmarkRemove() {
 	const userUkId = document.getElementById('userUkId').value;
 	const shopUkId = document.getElementById('shopUkId').value;

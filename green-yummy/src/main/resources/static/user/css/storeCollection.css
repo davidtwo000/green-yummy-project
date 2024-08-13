@@ -1,11 +1,11 @@
-
-main{
+main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin: 100px 0 100px 0;
 }
-.collectContainer{
+
+.collectContainer {
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
@@ -13,25 +13,25 @@ main{
 	align-items: center;
 	width: 1280px;
 }
-.map{
+
+.map {
 	top: 0;
-	
 	width: 1280px;
 	height: 430px;
 }
-.userContentCon{
+
+.userContentCon {
 	width: 1280px;
-	
 }
 
 /*필터 셀렉트 모여 있는 바*/
-.filterContainer{
+.filterContainer {
 	width: 1280px;
 	height: 50px;
-	
 	background: salmon;
 }
-select{
+
+select {
 	height: 50px;
 	padding: 10px;
 	font: normal bold 12pt 'sans-serif';
@@ -39,8 +39,10 @@ select{
 	border-radius: 5px;
 	border: 4px solid salmon;
 	outline: none;
+	color:gray;
 }
-.filterContainer > img{
+
+.filterContainer>img {
 	float: right;
 	margin: 3px 5px 0 5px;
 	width: 40px;
@@ -48,11 +50,8 @@ select{
 	cursor: pointer;
 }
 
-
 /*바둑판 부분*/
-
-
-.myBookmarkList{
+.myBookmarkList {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat(auto-fill, 1fr);
@@ -61,49 +60,55 @@ select{
 	width: 1280px;
 	padding: 0;
 	list-style-type: none;
-	
-/* 	border: 1px solid red; */
+
+	/* 	border: 1px solid red; */
 }
-.myBookmarkList li{
+
+.myBookmarkList li {
 	position: relative;
 	width: 300px;
 	margin: 5px;
 	border-radius: 10px;
-	
 	border: 3px solid gray;
+	overflow: hidden;
 }
-.myBookmarkList img{
+
+.myBookmarkList img {
 	width: 300px;
-	height: 300px;
+	height: 300px; object-fit : cover;
 	border-radius: 8px 8px 0 0;
+	object-fit: cover;
 }
-.bookShopInfo{
+
+.bookShopInfo {
 	padding: 10px;
 }
-.bookShopInfo span:nth-of-type(1){
+
+.bookShopInfo span:nth-of-type(1) {
 	font: normal bold 15pt 'sans-serif';
 }
-.bookShopInfo span:nth-of-type(2){
+
+.bookShopInfo span:nth-of-type(2) {
 	color: orange;
 	font: normal bold 13pt 'sans-serif';
 }
-.bookShopInfo span:nth-of-type(3){
+
+.bookShopInfo span:nth-of-type(3) {
 	color: gray;
 	font: normal normal 10pt 'sans-serif';
 }
-.bookmarkBtn, .bookmarkBtn img{
+
+.bookmarkBtn, .bookmarkBtn img {
 	width: 40px;
 	height: 40px;
 }
-.bookmarkBtn{
+
+.bookmarkBtn {
 	position: absolute;
 	top: 10px;
 	left: 250px;
 	background: white;
 	border-radius: 50px;
 	cursor: pointer;
-	
 	border: 1px solid gray;
 }
-
-

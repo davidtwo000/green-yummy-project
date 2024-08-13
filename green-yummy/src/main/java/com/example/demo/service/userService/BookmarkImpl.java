@@ -1,19 +1,30 @@
 package com.example.demo.service.userService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.demo.dto.publicDto.ShopDTO;
+import com.example.demo.model.publicModel.Shop;
 import com.example.demo.model.userModel.Bookmark;
+import com.example.demo.repository.publicRepository.ShopRepository;
 import com.example.demo.repository.userRepository.BookmarkRepository;
+import com.example.demo.service.publicService.ShopService;
 
 @Service
 public class BookmarkImpl implements BookmarkService {
 	
 	@Autowired
     private BookmarkRepository bookmarkRepository;
+	
+	@Autowired
+	private ShopRepository shopRepository; 
+	
+	@Autowired
+    private ShopService shopService;
 	
 	public Bookmark addBookmark(Integer userUkId, Integer shopUkId) {
 		
@@ -43,4 +54,6 @@ public class BookmarkImpl implements BookmarkService {
     public List<Bookmark> getBookmarksByUserUkId(Integer userUkId) {
         return bookmarkRepository.findByUserUkId(userUkId);
     }
+
+	
 }
