@@ -175,7 +175,7 @@
 				</div>
 
 				<div class="reviewsContainer" id="reviewsContainer"></div>
-
+				<div class="pagination" id="pagination"></div>
 
 				<!-- 자세히 보기 창 -->
 				<div id="modal" class="modal">

@@ -93,16 +93,18 @@
 							<img src="/images/mainimg1.jpg">
 						</div></li>
 					<li><div class="mainImg">
-<!-- 							<img src="images/pasta.jpg"> -->
+							<img src="/images/heySearch.jpg">
 						</div></li>
 					<li><div class="mainImg">
-							<img src="/images/profile2.jpg">
+							<img src="/images/dookki.jpg">
 						</div></li>
 					<li><div class="mainImg">
-							<img src="/images/profile3.jpg">
+							<a href="/user/shopApply">
+							<img src="/images/heyApply.jpg"></a>
+							
 						</div></li>
 					<li><div class="mainImg">
-							<img src="images/steak.jpg">
+							<img src="images/pasta.jpg">
 						</div></li>
 				</ul>
 			</div>

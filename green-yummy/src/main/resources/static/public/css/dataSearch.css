@@ -64,6 +64,7 @@
 	border-radius: 50px;
 }
 .selectBox{
+	font: normal bold 12pt 'sans-serif';
 	cursor: pointer;
 }
 .searchBar {
@@ -148,17 +149,27 @@ input[type="radio"]{
 /* } */
 
 /*가게 리스트*/
-#shop-list {
-	display: flex;
-	flex-wrap: wrap;
+#shop-list{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: repeat(3, 1fr);
+	align-content: center;
+	justify-items: center;
 	gap: 20px;
-	width: 100%;
-	max-width: 1280px;
-	margin: 0 auto;
-	box-sizing: border-box;
 	margin-top: 20px;
-	justify-content: center;
 }
+
+/* #shop-list { */
+/* 	display: flex; */
+/* 	flex-wrap: wrap; */
+/* 	gap: 20px; */
+/* 	width: 100%; */
+/* 	max-width: 1280px; */
+/* 	margin: 0 auto; */
+/* 	box-sizing: border-box; */
+/* 	margin-top: 20px; */
+/* 	justify-content: center; */
+/* } */
 
 .shop-item {
 	width:600px;
@@ -231,6 +242,9 @@ input[type="radio"]{
 /* 	background-color: #f0f0f0; */
 	background-color: lemonchiffon;
 	transition: 200ms ease-in-out;
+}
+.listSelect{
+	background-color: lemonchiffon;
 }
 
 .list-show {
