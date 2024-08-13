@@ -90,10 +90,10 @@
 			<div class="eventImgCon">
 				<ul class="eventImgList">
 					<li><div class="mainImg">
-							<img src="images/pasta.jpg">
+							<img src="/images/mainimg1.jpg">
 						</div></li>
 					<li><div class="mainImg">
-							<img src="/images/mainimg1.jpg">
+<!-- 							<img src="images/pasta.jpg"> -->
 						</div></li>
 					<li><div class="mainImg">
 							<img src="/images/profile2.jpg">
@@ -124,30 +124,7 @@
 				</div>
 				<hr>
 				<ul class="recommandList" id="recommandList">
-<!-- 					<li> -->
-<!-- 						<div class="recommandImg"></div> -->
-<!-- 						<div class="recommandDetail">(first)가게 이름 / 평점</div> -->
-<!-- 					</li> -->
-<!-- 					<li> -->
-<!-- 						<div class="recommandImg"></div> -->
-<!-- 						<div class="recommandDetail">가게 이름 / 평점</div> -->
-<!-- 					</li> -->
-<!-- 					<li> -->
-<!-- 						<div class="recommandImg"></div> -->
-<!-- 						<div class="recommandDetail">가게 이름 / 평점</div> -->
-<!-- 					</li> -->
-<!-- 					<li> -->
-<!-- 						<div class="recommandImg"></div> -->
-<!-- 						<div class="recommandDetail">가게 이름 / 평점</div> -->
-<!-- 					</li> -->
-<!-- 					<li> -->
-<!-- 						<div class="recommandImg"></div> -->
-<!-- 						<div class="recommandDetail">가게 이름 / 평점</div> -->
-<!-- 					</li> -->
-<!-- 					<li> -->
-<!-- 						<div class="recommandImg"></div> -->
-<!-- 						<div class="recommandDetail">(last)가게 이름 / 평점</div> -->
-<!-- 					</li> -->
+
 				</ul>
 			</div>
 			<div class="recNextBtn">

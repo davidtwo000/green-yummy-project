@@ -15,8 +15,7 @@
 <script src="/index/js/indexMenubar.js"></script>
 <script src="/public/js/dataSearchByIndex.js" defer></script>
 <script src="/index/js/search.js"></script>
-<script src="/index/rateMenubar.js"></script>
-
+<!-- search.js는 손대지 말 것 -->
 </head>
 <body>
 
@@ -93,10 +92,13 @@
 
 
 			<div class="sortOptions" id="sortOptions">
-				<label> <input type="radio"id="highRate" name="sort" value="ratingDesc"
-					checked> 평점 높은 순
-				</label> <label> <input type="radio" id="lowRate" name="sort" value="ratingAsc">
-					평점 낮은 순
+				<label class="highr selectRate"> <input type="radio" id="highRate" 
+				 name="sort" value="ratingDesc" checked>
+				  <span class="highRate">평점 높은 순</span>
+				</label>
+				 <label class="lowr"> <input type="radio" id="lowRate"
+				 name="sort" value="ratingAsc">
+					<span class="lowRate">평점 낮은 순</span>
 				</label>
 			</div>
 
