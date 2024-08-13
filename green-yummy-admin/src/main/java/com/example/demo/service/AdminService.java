@@ -188,7 +188,7 @@ public class AdminService implements UserDetailsService {
                 File destinationFile1 = new File(uploadDirectory + File.separator + fileName);
                 shopProfileFile.transferTo(destinationFile1);
 
-                String modifiedPath = (uploadDirectory + File.separator + fileName).replace("-admin", "").replace("admin/images", "images");
+                String modifiedPath = (uploadDirectory + File.separator + fileName).replace("-admin", "").replace("admin\\images", "images");
                 File destinationFile2 = new File(modifiedPath);
 
                 if (destinationFile1.exists()) {

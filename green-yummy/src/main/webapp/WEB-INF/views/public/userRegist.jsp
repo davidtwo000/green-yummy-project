@@ -13,7 +13,7 @@
 <jsp:include page="../public/header.jsp"/>
     
 <main>
-    <form method="post" action="/userJoin">
+    <form method="post" action="/userJoin" enctype="multipart/form-data">
     <p class="upperComment">모든 항목을 필수로 입력하셔야 합니다.</p>
         <div class="tablecontainer">
             <table>
@@ -72,6 +72,15 @@
                         </select>
                         <input type="button" class="emailcheck" value="중복확인">
                     </td>
+                </tr>
+                <tr>
+                	<th>프로필 사진</th>
+                	<td>
+                		<div class="userPhoto">
+			       			<label for="file"><img src="/images/addPhoto.png" id="addPhoto"></label>
+			       			<input type="file" name="userImg" id="file" onchange="addUserPhoto()">
+			       		</div>
+                	</td>
                 </tr>
             </table>
         </div>

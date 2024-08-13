@@ -100,3 +100,23 @@ input[type="submit"],
     width: 80px;
     height: 30px;
 }
+
+
+.hidden{
+	display: none;
+}
+.userPhoto{
+	padding: 20px;
+	
+}
+.userPhoto>label> img{
+	width: 200px;
+	height: 200px;
+	cursor: pointer;
+	opacity: 0.5;
+}
+input[type="file"]{
+	display: none;
+	
+}
+
