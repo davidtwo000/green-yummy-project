@@ -73,5 +73,10 @@ hr{
 	left: 690px;
 }
 .recommandDetail{
+	font: normal bold 15pt 'sans-serif';
     padding: 10px; 
+}
+.detailType{
+	color: gray;
+	font: normal bold 13pt 'sans-serif';
 }
