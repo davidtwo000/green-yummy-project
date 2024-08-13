@@ -79,5 +79,14 @@ hr{
 }
 .detailType{
 	color: gray;
+	font: normal normal 11pt 'sans-serif';
+}
+.detailRate{
+	margin-right: 10px;
+	color: orange;
 	font: normal bold 13pt 'sans-serif';
+}
+.detailLoc{
+	color: #696969;
+	font: normal bold 12pt 'sans-serif';
 }

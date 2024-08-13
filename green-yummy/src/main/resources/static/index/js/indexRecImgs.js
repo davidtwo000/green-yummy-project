@@ -122,13 +122,31 @@ async function random() {
             // 상점 상세 정보 부분
             const detail = document.createElement('div');
             detail.className = 'recommandDetail'; // 스타일링 클래스
+			
+			//span 안에 타입이랑 평점 넣어서 따로 스타일 주기
+			const detailType = document.createElement('span');
+			detailType.className = 'detailType';
+			const detailRate = document.createElement('span');
+			detailRate.className = 'detailRate';
+			const detailLoc = document.createElement('span');
+			const brplace = document.createElement('br');
+			detailLoc.className = 'detailLoc';
 
             // 상점 평점 가져오기
             const rating = await getShopRating(item.shopUkId);
 			console.log(rating);
 
             // 상세 정보에 평점 추가
-            detail.textContent = `${item.shopName} / ${item.shopType} / 평점: ${rating}`;
+            detail.textContent = `${item.shopName} `;
+			detailRate.textContent = `${rating}`
+			detailType.textContent = `${item.shopType}`;
+			detailLoc.textContent = `${item.location}`;
+			
+			detail.appendChild(detailRate);
+			detail.appendChild(detailType);
+			detail.appendChild(brplace);
+			detail.appendChild(detailLoc);
+			
             
             // <li>에 이미지와 상세 정보를 추가
             li.appendChild(imgContainer);
