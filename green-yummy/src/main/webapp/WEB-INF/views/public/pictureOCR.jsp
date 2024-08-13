@@ -38,11 +38,15 @@
             </div>
 
             <div class="OCRsearch">
-                    
+                 <form action="/public/pictureOCR" method="post" enctype="multipart/form-data">
+                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">   
                     <!-- 사진을 찾으면 forpicture 안에 사진이 들어간다. -->
                     <img src="/images/picture.png">
                      <span>이 곳을 눌러 사진을 삽입하세요.</span>
-   				<input type="file" id="storeSign" value="사진 찾기">
+                     
+   				<input type="file" id="storeSign" value="사진 찾기" name="imageFile" style="position:absolute; z-index:120;">
+   				<input type="submit" value="텍스트 추출" style="position:absolute; z-index:100;">
+   				</form>
             </div>
             
             
@@ -53,7 +57,7 @@
         </div>
     </main>
     
-    <script src="/public/js/pictureOCR.js"></script>
+    <!-- <script src="/public/js/pictureOCR.js"></script> -->
     
     <jsp:include page="../public/footer.jsp"/>
     
