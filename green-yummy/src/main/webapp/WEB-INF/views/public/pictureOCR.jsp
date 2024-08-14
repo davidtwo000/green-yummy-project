@@ -20,7 +20,7 @@
 	        		<span>OCR 사진 검색 사용법</span>
 	        		<img src="/images/roundQ.png">
 	        	</div>
-	        	<input type="text" class="searchBar" id="searchBar" placeholder="이미지를 삽입해서 검색어를 추출해보세요" value="${ocrResult}">
+	        	<input type="text" class="searchBar" id="searchBar" placeholder="이미지를 삽입해서 검색어를 추출해보세요" readonly value="${ocrResult}">
 				<div class="customSearchBtn">
 					<img src="/images/search.png" onclick="submitFormWithValidation();">
 				</div>
