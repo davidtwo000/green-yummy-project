@@ -93,10 +93,14 @@
 							<img src="/images/mainimg1.jpg">
 						</div></li>
 					<li><div class="mainImg">
-							<img src="/images/heySearch.jpg">
+						<a href="/public/dataSearch">
+						<img src="/images/heySearch.jpg">
+						</a>
 						</div></li>
 					<li><div class="mainImg">
+							<a href="/public/dataSearchDetail/23">
 							<img src="/images/dookki.jpg">
+							</a>
 						</div></li>
 					<li><div class="mainImg">
 							<a href="/user/shopApply">
@@ -104,7 +108,10 @@
 							
 						</div></li>
 					<li><div class="mainImg">
-							<img src="images/pasta.jpg">
+							<a href="http://localhost:8085/public/dataSearch?option=area&content=%EC%97%AD%EC%82%BC%EB%8F%99&by=click">
+							<img src="images/메인이미지.png">
+							</a>
+							
 						</div></li>
 				</ul>
 			</div>

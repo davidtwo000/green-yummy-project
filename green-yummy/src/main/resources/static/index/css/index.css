@@ -173,7 +173,12 @@
 	height: 540px;
 	overflow: hidden;
 	
+	
 	/* border: 1px solid red; */
+}
+.eventImgCon::before{
+	content: "";
+	background: lemonchiffon;
 }
 
 .eventImgList{
