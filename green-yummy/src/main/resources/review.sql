@@ -1,9 +1,3 @@
-INSERT INTO REVIEWS (USER_UK_ID, SHOP_UK_ID, REVIEW_RATING, REVIEW_COMMENT, REVIEW_CONTENT, REVIEW_IMG, REVIEW_DATE)
-VALUES
-(1, 101, 5, 'Excellent service and great food!', 'The food was absolutely fantastic. The service was top-notch, and the ambiance was perfect for a special occasion. Highly recommended!', 'abc123-456-def-789.jpg', '2024-08-14 09:43:18'),
-(2, 102, 3, 'Average experience', 'The meal was okay, but nothing extraordinary. The service was average, and the wait time was a bit long.', 'def456-789-ghi-012.jpg', '2024-08-14 10:00:00'),
-(3, 103, 4, 'Good place to dine', 'I enjoyed my meal here. The food was tasty, and the staff were friendly. I will definitely come back again.', 'ghi789-012-jkl-345.jpg', '2024-08-14 11:15:30');
-
 
 -- 음식이 맛있어요, 가격이 저렴해요, 직원이 친절해요, 양이 많아요, 분위기가 좋아요, 음식의 품질이 좋아요, 가게 위생이 청결해요, 뷰가 좋아요,
 INSERT INTO REVIEWS (USER_UK_ID, SHOP_UK_ID, REVIEW_RATING, REVIEW_COMMENT, REVIEW_CONTENT, REVIEW_IMG, REVIEW_DATE)
