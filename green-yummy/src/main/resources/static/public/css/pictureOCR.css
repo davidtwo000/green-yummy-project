@@ -152,8 +152,9 @@ input[type="file"]{
 .searchButton input[type="submit"]{
 	background : salmon;
 	border: none;
-	height: 30px;
+	height: 50px;
 	width: 130px;
-	font-weight: bold;
+	cursor: pointer;
+	font: normal bold 13pt 'sans-serif';
 	border-radius: 3px;
 }
