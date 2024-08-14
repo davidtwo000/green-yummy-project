@@ -29,10 +29,14 @@
 		<tr>
 			<th>음식 유형</th>			
 			<td>
-				<input type="radio" name="foodType" value="중식">중식
-				<input type="radio" name="foodType" value="양식">양식
-				<input type="radio" name="foodType" value="일식">일식
 				<input type="radio" name="foodType" value="한식">한식
+				<input type="radio" name="foodType" value="양식">양식
+				<input type="radio" name="foodType" value="중식">중식
+				<input type="radio" name="foodType" value="일식">일식
+				<input type="radio" name="foodType" value="패스트푸드">패스트푸드
+				<input type="radio" name="foodType" value="분식">분식
+				<input type="radio" name="foodType" value="카페">카페
+				<input type="radio" name="foodType" value="기타">기타
 			</td>
 		</tr>
 		<tr>

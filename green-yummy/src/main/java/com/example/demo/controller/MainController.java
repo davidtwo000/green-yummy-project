@@ -82,7 +82,6 @@ public class MainController {
 	
 	@PostMapping("public/pictureOCR")
 	public String pictureOCRPerform(@RequestParam("imageFile") MultipartFile imageFile, Model model) {
-		System.out.println(1);
 		
         // 업로드된 파일을 서버에 저장
         if (!imageFile.isEmpty()) {
@@ -93,15 +92,13 @@ public class MainController {
             File destinationFile = new File(uploadDirectory + File.separator + fileName);
             imageFile.transferTo(destinationFile);
             String ocrResult = ocrService.extractTextFromImage(uploadDirectory + File.separator + fileName);
-            System.out.println(2);
             model.addAttribute("ocrResult", ocrResult);
         	} catch (IOException e) {
-        		System.out.println(3);
                 e.printStackTrace();
             }
         }
 
-        return "public/NewFile";
+        return "public/pictureOCR";
     }
 
 	@GetMapping("public/usePolicy")
