@@ -86,13 +86,20 @@ public class MainController {
         // 업로드된 파일을 서버에 저장
         if (!imageFile.isEmpty()) {
         	try {
+        		
         	String fileName = imageFile.getOriginalFilename();
             String uploadDirectory = getUploadDirectory();
 
             File destinationFile = new File(uploadDirectory + File.separator + fileName);
             imageFile.transferTo(destinationFile);
+            
             String ocrResult = ocrService.extractTextFromImage(uploadDirectory + File.separator + fileName);
+            
+            ocrResult = ocrResult.replaceAll("[^가-힣a-zA-Z0-9]", "");
+            ocrResult = ocrResult.replaceAll("\\s+", "");
+            
             model.addAttribute("ocrResult", ocrResult);
+            
         	} catch (IOException e) {
                 e.printStackTrace();
             }
