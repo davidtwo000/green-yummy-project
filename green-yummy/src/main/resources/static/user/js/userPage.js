@@ -93,12 +93,16 @@ function populateReviews(reviews) {
 
 		row.innerHTML = `
             <td>${index + 1}</td>
-            <td>${review.shop.shopName}</td>
+            <td>
+			<a href="/public/dataSearchDetail/${review.shop.shopUkId}">
+			${review.shop.shopName}
+			</a>
+			</td>
             <td>${review.reviewContent}</td>
             <td>${review.reviewRating}</td>
             <td>${new Date(review.reviewDate).toLocaleDateString()}</td>
-            <td><button onclick="updateReview(${review.reviewId})">수정</button></td>
-            <td><button onclick="showDeleteModal(${review.reviewId})">삭제</button></td>
+            <td><button onclick="updateReview(${review.reviewId})" class="updateBtn">수정</button></td>
+            <td><button onclick="showDeleteModal(${review.reviewId})" class="deleteBtn">삭제</button></td>
         `;
 
 		table.appendChild(row);

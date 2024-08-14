@@ -31,7 +31,7 @@
     
 }
 hr{
-	margin: 0 0 10px 0;
+	margin: 0;
 }
 .lookMore, .lookMore img{
 	width: 60px;
@@ -42,6 +42,13 @@ hr{
 }
 
 /* 이 부분이 가게 사진. 슬라이드 구성 요소 */
+.recommandList, .recommandTag{
+	background: white;
+}
+.recommandList{
+	margin: 0;
+	padding: 20px 0 20px 0;
+}
 .recommandList > li{
 	position: relative;
     display: flex; 
