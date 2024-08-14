@@ -64,6 +64,15 @@ td > img{
 	height: 40px;
 	cursor: pointer
 }
+tr:nth-of-type(n+1) td:nth-of-type(2){
+	font-weight: bold;
+}
+.updateBtn, .deleteBtn{
+	cursor: pointer;
+	color: white;
+	border: lightgray;
+	background: indigo;
+}
 
 
 /*모달 창*/
