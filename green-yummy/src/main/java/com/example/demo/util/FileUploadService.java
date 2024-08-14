@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.UUID;
 
 @Service
 public class FileUploadService {
@@ -25,7 +26,7 @@ public class FileUploadService {
         }
 
         // 파일 이름 생성
-        String filename = System.currentTimeMillis() + "-" + file.getOriginalFilename();
+        String filename = UUID.randomUUID().toString();
         Path path = Paths.get(uploadDir + "/" + filename);
         // 파일 저장
         Files.copy(file.getInputStream(), path);

@@ -79,7 +79,7 @@ INSERT INTO Notifications (author, title, content, post_date, view_count) VALUES
 INSERT INTO APPLICATIONS (APPLICATION_SHOP_NAME, APPLICATION_SHOP_TYPE, APPLICATION_SHOP_LOCATION, APPLICATION_REASON, APPLICATION_SHOP_PHONE, APPLICATION_DATE, APPLICATION_STATUS, USER_UK_ID) VALUES
 ('맛있는 한식당', '한식', '논현동', '우리 동네에 맛있는 한식당이 필요합니다.', '01012345678', DATE(NOW()), 'PENDING', FLOOR(RAND() * 16)+1),
 ('청담양식', '양식', '청담동', '청담동에 분위기 좋은 양식당을 열고 싶습니다.', '01023456789', DATE(NOW()), 'PENDING', FLOOR(RAND() * 16)+1),
-('진짜 중국집', '중식', '삼성동', '정통 중식을 선보이고 싶습니다.', '01034567890', DATE(NOW()), 'PENDING', FLOOR(RAND() * 16)),
+('진짜 중국집', '중식', '삼성동', '정통 중식을 선보이고 싶습니다.', '01034567890', DATE(NOW()), 'PENDING', FLOOR(RAND() * 16)+1),
 ('사쿠라 일식', '일식', '대치동', '정통 일식 전문점을 운영하고 싶습니다.', '01045678901', DATE(NOW()), 'PENDING', FLOOR(RAND() * 16)+1),
 ('패스트푸드왕', '패스트푸드', '역삼동', '역삼동에 빠르고 맛있는 패스트푸드점이 필요합니다.', '01056789012', DATE(NOW()), 'PENDING', FLOOR(RAND() * 16)+1),
 ('분식천국', '분식', '신사동', '신사동에 다양한 분식 메뉴를 제공하고 싶습니다.', '01067890123', DATE(NOW()), 'PENDING', FLOOR(RAND() * 16)+1),
