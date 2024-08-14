@@ -28,7 +28,7 @@ CREATE TABLE USERS (
     NAME VARCHAR(20), -- 이름
     EMAIL VARCHAR(50) UNIQUE, -- 이메일
     PHONE VARCHAR(20), -- 사용자 전화번호
-    PROFILE VARCHAR(20), -- 프로필 사진
+    PROFILE VARCHAR(36), -- 프로필 사진
     IS_ADMIN TINYINT(1) DEFAULT 0 -- 관리자 여부 (0: 일반 사용자, 1: 관리자)
 );
 
@@ -36,7 +36,7 @@ CREATE TABLE USERS (
 CREATE TABLE SHOPS (
     SHOP_UK_ID INT AUTO_INCREMENT PRIMARY KEY, -- 식당 식별자
     SHOP_NAME VARCHAR(50), -- 식당 이름
-    SHOP_PROFILE VARCHAR(20), -- 식당 프로필 사진
+    SHOP_PROFILE VARCHAR(36), -- 식당 프로필 사진
     SHOP_TYPE VARCHAR(20), -- 식당 타입 (한식, 중식, 양식 등)
     LOCATION VARCHAR(100), -- 식당 위치
     SHOP_TEL VARCHAR(20), -- 식당 전화번호
