@@ -68,14 +68,19 @@ function displayReviews(reviews, page = 1) {
 			.join(' ');
 
 		row.innerHTML = `
-            <td class="review-img-container">${review.reviewImg ? `<img src="/upload/${review.reviewImg}" alt="Review Image" class="review-img" />` : ''}</td>
-            <td>${review.user.id}</td>
-            <td>${review.reviewRating}</td>
-            <td><p>${formattedComment}</p>
-			${review.reviewContent}</td>
-            <td>${formatDate(review.reviewDate)}</td>
-        `;
-
+			    <td class="review-img-container">
+			        <img src="${review.reviewImg ? `/upload/${review.reviewImg}` : '/upload/logo.png'}" 
+			             alt="Review Image" 
+			             class="review-img" />
+			    </td>
+			    <td>${review.user.id}</td>
+			    <td>${review.reviewRating}</td>
+			    <td>
+			        <p>${formattedComment}</p>
+			        ${review.reviewContent}
+			    </td>
+			    <td>${formatDate(review.reviewDate)}</td>
+			`;
 		// Add click event to open modal
 		row.addEventListener('click', (event) => {
 			if (!event.target.classList.contains('review-checkbox')) {
@@ -159,7 +164,12 @@ function averageRating(shopUkId) {
 function createReview(shopUkId) {
 	const userUkId = document.getElementById('userUkId').value;
 
-	// 리뷰 작성 여부를 확인하는 API 호출
+	if (!userUkId) {
+		alert('로그인 후 리뷰를 작성해주세요.');
+		return;
+	}
+
+
 	fetch(`/reviews/hasReviewed/${shopUkId}/${userUkId}`)
 		.then(response => response.json())
 		.then(hasReviewed => {
