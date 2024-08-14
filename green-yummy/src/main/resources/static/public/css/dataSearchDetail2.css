@@ -71,9 +71,8 @@
 	font: normal normal 11pt 'sans-serif';
 }
 .review-detail-img{
-	width: 200px;
-	height: 200px;
-	
+	width: 400px;
+	object-fit: cover;
 	border: 2px solid gray;
 }
 .userComment p{
