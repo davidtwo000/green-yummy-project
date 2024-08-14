@@ -302,9 +302,15 @@ label {
 	border: 1px solid gray;
 	margin: 10px;
 }
-.recommandImgContainer, .recommandImg{
+.recommandImgContainer {
 	width: 200px;
 	height: 200px;
+}
+
+.recommandImg {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 .recommandImgContainer {
     overflow: hidden; 

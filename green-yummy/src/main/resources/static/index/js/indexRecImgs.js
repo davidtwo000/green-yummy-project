@@ -112,7 +112,7 @@ async function random() {
 
             // 상점 이미지 부분
             const imgContainer = document.createElement('div');
-            imgContainer.className = 'recommandImg';
+            imgContainer.className = 'recommandImgCon';
             
             const img = document.createElement('img');
             img.src = '/images/' + item.shopProfile;
